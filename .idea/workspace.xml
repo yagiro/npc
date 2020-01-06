@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="adeed447-c614-454b-b9e9-d704e0ccc8cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/item_card.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/CollapseWrapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/Image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/assetsHelper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="item_card" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\romansu\projects\item_card\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1W1ICj9tppIn7NbJul29GfQf5yD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="adeed447-c614-454b-b9e9-d704e0ccc8cf" name="Default Changelist" comment="" />
+      <created>1578310548791</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578310548791</updated>
+      <workItem from="1578310553351" duration="1312000" />
+      <workItem from="1578312201742" duration="3773000" />
+      <workItem from="1578316072955" duration="4971000" />
+      <workItem from="1578323524976" duration="3124000" />
+      <workItem from="1578328137038" duration="1006000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="277" y="26" key="#Custom_Plugin_Repositories" timestamp="1578315999908">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="277" y="26" key="#Custom_Plugin_Repositories/0.0.1366.728/-310.-1080.1920.1040@0.0.1366.728" timestamp="1578315999908" />
+    <state x="275" y="23" key="#JavaScript" timestamp="1578318251125">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="23" key="#JavaScript/0.0.1366.728/-310.-1080.1920.1040@0.0.1366.728" timestamp="1578318251125" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1578329517508">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/-310.-1080.1920.1040@0.0.1366.728" timestamp="1578329517508" />
+    <state width="1345" height="309" key="GridCell.Tab.0.bottom" timestamp="1578328108808">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="309" key="GridCell.Tab.0.bottom/0.0.1366.728/-310.-1080.1920.1040@0.0.1366.728" timestamp="1578328108808" />
+    <state width="1345" height="309" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578312917420" />
+    <state width="1345" height="309" key="GridCell.Tab.0.center" timestamp="1578328108808">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="309" key="GridCell.Tab.0.center/0.0.1366.728/-310.-1080.1920.1040@0.0.1366.728" timestamp="1578328108808" />
+    <state width="1345" height="309" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578312917419" />
+    <state width="1345" height="309" key="GridCell.Tab.0.left" timestamp="1578328108808">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="309" key="GridCell.Tab.0.left/0.0.1366.728/-310.-1080.1920.1040@0.0.1366.728" timestamp="1578328108808" />
+    <state width="1345" height="309" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578312917419" />
+    <state width="1345" height="309" key="GridCell.Tab.0.right" timestamp="1578328108808">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="309" key="GridCell.Tab.0.right/0.0.1366.728/-310.-1080.1920.1040@0.0.1366.728" timestamp="1578328108808" />
+    <state width="1345" height="309" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578312917419" />
+    <state x="58" y="15" key="SettingsEditor" timestamp="1578327462971">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="58" y="15" key="SettingsEditor/0.0.1366.728/-310.-1080.1920.1040@0.0.1366.728" timestamp="1578327462971" />
+  </component>
+</project>
