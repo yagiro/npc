@@ -7,3 +7,30 @@
   color: #6B6F81;
   font-size: 14px;
 }
+
+.bottom-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ManagementPriceSection-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.totalPrice-label {
+  color: #6B6F81;
+  font-size: 14px;
+}
+
+.price-text {
+  font-size: 18px;
+}
+
+.select-container {
+  margin-top: 15px;
+}

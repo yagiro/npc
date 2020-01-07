@@ -16,7 +16,7 @@ const SubPriceText = styled.span`
   font-size: 14px;
   margin-top: 30px;`;
 
-const MobileEndpointPriceSection = (props) => {
+const CommonPriceSection = (props) => {
 
 	return (
 		<Container>
@@ -26,4 +26,4 @@ const MobileEndpointPriceSection = (props) => {
 	);
 };
 
-export default MobileEndpointPriceSection;
+export default CommonPriceSection;

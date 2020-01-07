@@ -5,9 +5,7 @@ import SelectButton from './SelectButton';
 import { cardTypes } from '../../config/constants';
 import PropTypes from 'prop-types';
 import CloudGuardPriceSection from './priceSections/CloudGuardPriceSection';
-import NetworkPriceSection from './priceSections/NetworkPriceSection';
-import SmallBusinessesPriceSection from './priceSections/SmallBusinessesPriceSection';
-import MobileEndpointPriceSection from './priceSections/MobileEndpointPriceSection';
+import CommonPriceSection from './priceSections/CommonPriceSection';
 import ManagementPriceSection from './priceSections/ManagementPriceSection';
 import CloudGuardLeftSection from './leftSections/CloudGuardLeftSection';
 import NetworkLeftSection from './leftSections/NetworkLeftSection';
@@ -52,9 +50,9 @@ const leftSections = {
 
 const priceSections = {
 	[cardTypes.cloudGuard]: CloudGuardPriceSection,
-	[cardTypes.network]: NetworkPriceSection,
-	[cardTypes.smallBusinesses]: SmallBusinessesPriceSection,
-	[cardTypes.mobileAndEndpoint]: MobileEndpointPriceSection,
+	[cardTypes.network]: CommonPriceSection,
+	[cardTypes.smallBusinesses]: CommonPriceSection,
+	[cardTypes.mobileAndEndpoint]: CommonPriceSection,
 	[cardTypes.management]: ManagementPriceSection,
 };
 
