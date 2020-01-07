@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.d {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-around;
+  width: 700px;
+  height: 250px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 1rem;
+}

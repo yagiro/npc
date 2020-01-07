@@ -16,14 +16,14 @@ const Container = styled.div`
 
 function CollapseWrapper({ children, imgSource, title }) {
 
-	const [isCollapse, setIsCollapse] = useState(false);
+	const [isCollapse, setIsCollapse] = useState(true);
 	const handleClick = useCallback(() => {
 		setIsCollapse(!isCollapse);
 	}, [ isCollapse, setIsCollapse ]);
 
 	return (
-		<div onClick={ handleClick }>
-			<Container>
+		<div>
+			<Container  onClick={ handleClick }>
 				<Image path={ imgSource } alt="img" width="100"/>
 				<span>{ title }</span>
 				{ isCollapse && <FontAwesomeIcon icon={ faAngleUp } /> }
