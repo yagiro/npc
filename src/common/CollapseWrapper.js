@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Image from './Image';
 import PropTypes from 'prop-types';
 
-const Container = styled.div`
+const ToggleArea = styled.div`
 	  display: flex;
 	  cursor: pointer;
 	  align-items: center;
@@ -23,12 +23,12 @@ function CollapseWrapper({ children, imgSource, title }) {
 
 	return (
 		<div>
-			<Container  onClick={ handleClick }>
+			<ToggleArea  onClick={ handleClick }>
 				<Image path={ imgSource } alt="img" width="100"/>
 				<span>{ title }</span>
 				{ isCollapse && <FontAwesomeIcon icon={ faAngleUp } /> }
 				{ !isCollapse && <FontAwesomeIcon icon={ faAngleDown } /> }
-			</Container>
+			</ToggleArea>
 			{isCollapse && children}
 		</div>
 	);
