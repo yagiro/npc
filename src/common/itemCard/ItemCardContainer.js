@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import PdfIcon from './PdfIcon';
 import SelectButton from './SelectButton';
-import {
-	CARD_ITEM_TYPE_CLOUD_GUARD,
-	CARD_ITEM_TYPE_MANAGEMENT,
-	CARD_ITEM_TYPE_MOBILE_AND_ENDPOINT,
-	CARD_ITEM_TYPE_SMALL_BUSINESSES,
-	CARD_ITEM_TYPE_NETWORK,
-	CARD_ITEM_TYPES
-} from '../../config/constants';
+import { cardTypes } from '../../config/constants';
 import PropTypes from 'prop-types';
+import CloudGuardPriceSection from './priceSections/CloudGuardPriceSection';
+import NetworkPriceSection from './priceSections/NetworkPriceSection';
+import SmallBusinessesPriceSection from './priceSections/SmallBusinessesPriceSection';
+import MobileEndpointPriceSection from './priceSections/MobileEndpointPriceSection';
+import ManagementPriceSection from './priceSections/ManagementPriceSection';
+import CloudGuardLeftSection from './leftSections/CloudGuardLeftSection';
+import NetworkLeftSection from './leftSections/NetworkLeftSection';
+import SmallBusinessesLeftSection from './leftSections/SmallBusinessesLeftSection';
+import MobileEndpointLeftSection from './leftSections/MobileEndpointLeftSection';
+import ManagementLeftSection from './leftSections/ManagementLeftSection';
 
 const Container = styled.div`
   display: flex;
@@ -39,50 +42,35 @@ const ButtonSection = styled.div`
   display: flex;
 `;
 
-const ItemCardContainer = ({ cardType }) => {
-	
-	const mainSectionRender = (cardType) => {
-		switch (cardType) {
-			case CARD_ITEM_TYPE_CLOUD_GUARD:
-				return <h4>Main section CLOUD_GUARD</h4>;
-			case CARD_ITEM_TYPE_MANAGEMENT:
-				return <h4>Main section MANAGEMENT</h4>;
-			case CARD_ITEM_TYPE_MOBILE_AND_ENDPOINT:
-				return <h4>Main section MOBILE_AND_ENDPOINT</h4>;
-			case CARD_ITEM_TYPE_SMALL_BUSINESSES:
-				return <h4>Main section SMALL_BUSINESSES</h4>;
-			case CARD_ITEM_TYPE_NETWORK:
-				return <h4>Main section CARD_ITEM_TYPE_NETWORK</h4>;
-			default:
-				return <h4>Main section Default</h4>;
-		}
-	};
+const leftSections = {
+	[cardTypes.cloudGuard]: CloudGuardLeftSection,
+	[cardTypes.network]: NetworkLeftSection,
+	[cardTypes.smallBusinesses]: SmallBusinessesLeftSection,
+	[cardTypes.mobileAndEndpoint]: MobileEndpointLeftSection,
+	[cardTypes.management]: ManagementLeftSection,
+};
 
-	const priceSectionRender = (cardType) => {
-		switch (cardType) {
-			case CARD_ITEM_TYPE_CLOUD_GUARD:
-				return <h4>Price section CLOUD_GUARD</h4>;
-			case CARD_ITEM_TYPE_MANAGEMENT:
-				return <h4>Price section MANAGEMENT</h4>;
-			case CARD_ITEM_TYPE_MOBILE_AND_ENDPOINT:
-				return <h4>Price section MOBILE_AND_ENDPOINT</h4>;
-			case CARD_ITEM_TYPE_SMALL_BUSINESSES:
-				return <h4>Price section SMALL_BUSINESSES</h4>;
-			case CARD_ITEM_TYPE_NETWORK:
-				return <h4>Price section CARD_ITEM_TYPE_NETWORK</h4>;
-			default:
-				return <h4>Price section Default</h4>;
-		}
-	};
-	
+const priceSections = {
+	[cardTypes.cloudGuard]: CloudGuardPriceSection,
+	[cardTypes.network]: NetworkPriceSection,
+	[cardTypes.smallBusinesses]: SmallBusinessesPriceSection,
+	[cardTypes.mobileAndEndpoint]: MobileEndpointPriceSection,
+	[cardTypes.management]: ManagementPriceSection,
+};
+
+const ItemCardContainer = ({ cardType, ...otherProps }) => {
+
+	const LeftSection = leftSections[cardType];
+	const PriceSection = priceSections[cardType];
+
 	return (
 		<Container>
-			{mainSectionRender(cardType)}
+			<LeftSection { ...otherProps }/>
 			<RightSection>
 				<label className="compare-label">
 					<input type="checkbox" name="checkbox" value="value"/> Compare
 				</label>
-				{priceSectionRender(cardType)}
+				<PriceSection { ...otherProps } />
 				<ButtonSection>
 					<PdfIcon/>
 					<SelectButton/>
@@ -93,7 +81,7 @@ const ItemCardContainer = ({ cardType }) => {
 };
 
 ItemCardContainer.propTypes = {
-	cardType: PropTypes.oneOf(CARD_ITEM_TYPES).isRequired
+	cardType: PropTypes.oneOf(Object.values(cardTypes)).isRequired
 };
 
 export default ItemCardContainer;

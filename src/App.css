@@ -3,15 +3,11 @@
   padding: 1rem;
 }
 
-.collapse-wrapper-container {
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: space-around;
-  width: 300px;
-}
-
 .compare-label {
   color: #6B6F81;
   font-size: 14px;
+}
+
+.price-font {
+  font: 30px Regular DIN Pro;
 }
