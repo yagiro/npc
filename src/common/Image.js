@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { buildImageUrl } from '../lib/assetsHelper';
 
 
-const Image = ({ path, ...otherProps }) => <img src={ buildImageUrl(path) } { ...otherProps } alt='image'/>;
+const Image = ({ path, ...otherProps }) => <img src={ buildImageUrl(path) } { ...otherProps } alt='img'/>;
 
 Image.defaultProps = {
 	width: '100%',
