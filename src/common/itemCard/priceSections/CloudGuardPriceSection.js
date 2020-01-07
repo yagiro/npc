@@ -1,12 +1,34 @@
 import React from 'react';
+import styled from 'styled-components';
 
+const Container = styled.div`  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;`;
+
+const PriceText = styled.span`  
+  font-size: 30px;
+  text-align: center;`;
+
+const SubPriceText = styled.span`  
+  text-align: center;
+  color: #858991;
+  font-size: 14px;
+  margin-top: 15px;`;
+
+const UpPriceText = styled.span`  
+  text-align: center;
+  color: #858991;
+  font-size: 14px;`;
 const CloudGuardPriceSection = (props) => {
 
 	return (
-		<div>
-			<p className="price-font">59 $</p>
-			<p>1 PC/YEAR & 1 Mobile/Year</p>
-		</div>
+		<Container>
+			<UpPriceText>Starting at</UpPriceText>
+			<PriceText>$1,400</PriceText>
+			<SubPriceText>1 PC/YEAR & 1 Mobile/Year</SubPriceText>
+		</Container>
 	);
 };
 
