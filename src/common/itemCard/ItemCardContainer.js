@@ -1,9 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import PdfIcon from './PdfIcon';
 import SelectButton from './SelectButton';
-import { cardTypes } from '../../config/constants';
-import PropTypes from 'prop-types';
 import CloudGuardPriceSection from './priceSections/CloudGuardPriceSection';
 import CommonPriceSection from './priceSections/CommonPriceSection';
 import ManagementPriceSection from './priceSections/ManagementPriceSection';
@@ -12,6 +11,7 @@ import NetworkLeftSection from './leftSections/NetworkLeftSection';
 import SmallBusinessesLeftSection from './leftSections/SmallBusinessesLeftSection';
 import MobileEndpointLeftSection from './leftSections/MobileEndpointLeftSection';
 import ManagementLeftSection from './leftSections/ManagementLeftSection';
+import { cardTypes } from '../../config/constants';
 
 const Container = styled.div`
   display: flex;
@@ -20,12 +20,13 @@ const Container = styled.div`
   width: 858px;
   height: 263px;
   border-radius: 3px;
-  -webkit-box-shadow: 0px 2px 6px #0000001A;
-  -moz-box-shadow: 0px 2px 6px #0000001A;
-  box-shadow: 0px 2px 6px #0000001A;
+  -webkit-box-shadow: 0 2px 6px #0000001A;
+  -moz-box-shadow: 0 2px 6px #0000001A;
+  box-shadow: 0 2px 6px #0000001A;
   margin-bottom: 1rem;
   background: #FFFFFF;
 `;
+
 const RightSection = styled.div`  
   display: flex;
   flex-direction: column;
@@ -34,11 +35,15 @@ const RightSection = styled.div`
   background: #F7F8F9;
   padding: 30px;
   box-sizing: border-box;
-  justify-content: space-between;
-`;
+  justify-content: space-between;`;
+
 const ButtonSection = styled.div`  
   display: flex;
 `;
+
+const Label = styled.label`  
+ color: #6B6F81;
+  font-size: 14px;`;
 
 const leftSections = {
 	[cardTypes.cloudGuard]: CloudGuardLeftSection,
@@ -65,9 +70,9 @@ const ItemCardContainer = ({ cardType, ...otherProps }) => {
 		<Container>
 			<LeftSection { ...otherProps }/>
 			<RightSection>
-				<label className="compare-label">
+				<Label>
 					<input type="checkbox" name="checkbox" value="value"/> Compare
-				</label>
+				</Label>
 				<PriceSection { ...otherProps } />
 				<ButtonSection>
 					<PdfIcon/>
