@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../../config/constants';
 import PropTypes from 'prop-types';
+import { colors } from '../../../config/constants';
 
 const Container = styled.div`  
   display: flex;
@@ -20,7 +20,6 @@ const SubPriceText = styled.span`
   margin-top: 30px;`;
 
 const CommonPriceSection = ({ price, additionalText, ...otherProps }) => {
-
 
 	return (
 		<Container>
