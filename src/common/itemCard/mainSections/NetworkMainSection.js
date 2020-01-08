@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NetworkLeftSection = (props) => {
+const NetworkMainSection = (props) => {
 
 	return (
 		<div>
@@ -10,4 +10,4 @@ const NetworkLeftSection = (props) => {
 	);
 };
 
-export default NetworkLeftSection;
+export default NetworkMainSection;

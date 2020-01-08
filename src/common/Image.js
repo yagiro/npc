@@ -10,7 +10,10 @@ Image.defaultProps = {
 };
 
 Image.propTypes = {
-	path: PropTypes.string,
+	path: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
 	width: PropTypes.string,
 };
 

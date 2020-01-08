@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { colors } from '../../../config/constants';
 import Image from '../../Image';
 import verified from '../../../assets/verified@2x.png';
-
+import PropTypes from 'prop-types';
+import CommonPriceSection from '../priceSections/CommonPriceSection';
 
 const Container = styled.div`
   display: flex;
@@ -55,20 +56,13 @@ const FeatureText = styled.div`
 	margin-left: 6px;
 `;
 
-const MobileEndpointLeftSection = (props) => {
-
-	const mockPackages = [
-		{	id: 1, feature: 'SandBlast Agent Advanced.' },
-		{	id: 2, feature: 'SandBlast Mobile Per Device' },
-		{	id: 3, feature: 'Two 6500 gateways' },
-		{	id: 4, feature: '450 Gbps using 52 gateways' },
-	];
+const MobileEndpointMainSection = ({ title, additionalLabel, description, includedPackages, ...otherProps }) => {
 
 	const renderPackageList = (packages) => {
 		return packages.map((p) => {
 			return (
 				<FeatureContainer key={p.id}>
-					<Image path={verified} width={15}/>
+					<Image path={verified} width="15"/>
 					<FeatureText>{p.feature}</FeatureText>
 				</FeatureContainer>
 			);
@@ -78,21 +72,30 @@ const MobileEndpointLeftSection = (props) => {
 	return (
 		<Container>
 			<DescriptionSection>
-				<Title>Unified Endpoint Security
-					<AdditionalLabel> Advanced</AdditionalLabel>
+				<Title>{ title }
+					<AdditionalLabel> { additionalLabel }</AdditionalLabel>
 				</Title>
 				<Description>
-					Check Point Unified Endpoint Security Advanced offers comprehensive,
-					enterprise-grade endpoint and mobile device security that protects PCs, Mac, iOS and Android devices
-					against known, unknown and Zero-day threats.
+					{ description }
 				</Description>
 			</DescriptionSection>
 			<PackagesSection>
 				<UlTitle>INCLUDED PACKAGES:</UlTitle>
-				{renderPackageList(mockPackages)}
+				{renderPackageList(includedPackages)}
 			</PackagesSection>
 		</Container>
 	);
 };
 
-export default MobileEndpointLeftSection;
+CommonPriceSection.propTypes = {
+	price: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
+	title: PropTypes.string,
+	additionalLabel: PropTypes.string,
+	description: PropTypes.string,
+	includedPackages: PropTypes.array,
+};
+
+export default MobileEndpointMainSection;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../../config/constants';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`  
   display: flex;
@@ -18,14 +19,28 @@ const SubPriceText = styled.span`
   font-size: 14px;
   margin-top: 30px;`;
 
-const CommonPriceSection = (props) => {
+const CommonPriceSection = ({ price, additionalText, ...otherProps }) => {
+
 
 	return (
 		<Container>
-			<PriceText>$59</PriceText>
-			<SubPriceText>1 PC/YEAR & 1 Mobile/Year</SubPriceText>
+			<PriceText>${ price }</PriceText>
+			<SubPriceText>{ additionalText }</SubPriceText>
 		</Container>
 	);
+};
+
+CommonPriceSection.defaultProps = {
+	price: 70,
+	additionalText: '1 PC/YEAR & 1 Mobile/Year',
+};
+
+CommonPriceSection.propTypes = {
+	price: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
+	additionalText: PropTypes.string,
 };
 
 export default CommonPriceSection;

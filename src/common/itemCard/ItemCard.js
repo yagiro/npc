@@ -6,11 +6,11 @@ import SelectButton from './SelectButton';
 import CloudGuardPriceSection from './priceSections/CloudGuardPriceSection';
 import CommonPriceSection from './priceSections/CommonPriceSection';
 import ManagementPriceSection from './priceSections/ManagementPriceSection';
-import CloudGuardLeftSection from './leftSections/CloudGuardLeftSection';
-import NetworkLeftSection from './leftSections/NetworkLeftSection';
-import SmallBusinessesLeftSection from './leftSections/SmallBusinessesLeftSection';
-import MobileEndpointLeftSection from './leftSections/MobileEndpointLeftSection';
-import ManagementLeftSection from './leftSections/ManagementLeftSection';
+import CloudGuardMainSection from './mainSections/CloudGuardMainSection';
+import NetworkMainSection from './mainSections/NetworkMainSection';
+import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSection';
+import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
+import ManagementMainSection from './mainSections/ManagementMainSection';
 import { cardTypes } from '../../config/constants';
 
 const Container = styled.div`
@@ -46,11 +46,11 @@ const Label = styled.label`
   font-size: 14px;`;
 
 const leftSections = {
-	[cardTypes.cloudGuard]: CloudGuardLeftSection,
-	[cardTypes.network]: NetworkLeftSection,
-	[cardTypes.smallBusinesses]: SmallBusinessesLeftSection,
-	[cardTypes.mobileAndEndpoint]: MobileEndpointLeftSection,
-	[cardTypes.management]: ManagementLeftSection,
+	[cardTypes.cloudGuard]: CloudGuardMainSection,
+	[cardTypes.network]: NetworkMainSection,
+	[cardTypes.smallBusinesses]: SmallBusinessesMainSection,
+	[cardTypes.mobileAndEndpoint]: MobileEndpointMainSection,
+	[cardTypes.management]: ManagementMainSection,
 };
 
 const priceSections = {
@@ -61,19 +61,19 @@ const priceSections = {
 	[cardTypes.management]: ManagementPriceSection,
 };
 
-const ItemCard = ({ cardType, ...otherProps }) => {
+const ItemCard = ({ cardType, data, ...otherProps }) => {
 
-	const LeftSection = leftSections[cardType];
+	const MainSection = leftSections[cardType];
 	const PriceSection = priceSections[cardType];
 
 	return (
 		<Container>
-			<LeftSection { ...otherProps }/>
+			<MainSection { ...data }/>
 			<RightSection>
 				<Label>
 					<input type="checkbox" name="checkbox" value="value"/> Compare
 				</Label>
-				<PriceSection { ...otherProps } />
+				<PriceSection { ...data } />
 				<ButtonSection>
 					<PdfIcon/>
 					<SelectButton/>

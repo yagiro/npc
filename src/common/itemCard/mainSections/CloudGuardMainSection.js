@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CloudGuardLeftSection = (props) => {
+const CloudGuardMainSection = (props) => {
 
 	return (
 		<div>
@@ -10,4 +10,4 @@ const CloudGuardLeftSection = (props) => {
 	);
 };
 
-export default CloudGuardLeftSection;
+export default CloudGuardMainSection;

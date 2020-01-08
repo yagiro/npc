@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SmallBusinessesLeftSection = (props) => {
+const SmallBusinessesMainSection = (props) => {
 
 	return (
 		<div>
@@ -10,4 +10,4 @@ const SmallBusinessesLeftSection = (props) => {
 	);
 };
 
-export default SmallBusinessesLeftSection;
+export default SmallBusinessesMainSection;

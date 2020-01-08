@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManagementLeftSection = (props) => {
+const ManagementMainSection = (props) => {
 
 	return (
 		<div>
@@ -10,4 +10,4 @@ const ManagementLeftSection = (props) => {
 	);
 };
 
-export default ManagementLeftSection;
+export default ManagementMainSection;
