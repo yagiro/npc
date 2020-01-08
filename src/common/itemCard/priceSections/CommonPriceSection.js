@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { colors } from '../../../config/constants';
+
 const Container = styled.div`  
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@ const PriceText = styled.span`
 
 const SubPriceText = styled.span`  
   text-align: center;
-  color: #858991;
+  color: ${colors.textLightGray};
   font-size: 14px;
   margin-top: 30px;`;
 

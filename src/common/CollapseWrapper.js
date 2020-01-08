@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Image from './Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import styled from 'styled-components';
-import Image from './Image';
-import PropTypes from 'prop-types';
 
 const ToggleArea = styled.div`
 	  display: flex;
@@ -16,7 +16,7 @@ const ToggleArea = styled.div`
 
 function CollapseWrapper({ children, imgSource, title }) {
 
-	const [isCollapse, setIsCollapse] = useState(true);
+	const [ isCollapse, setIsCollapse ] = useState(true);
 	const handleClick = useCallback(() => {
 		setIsCollapse(!isCollapse);
 	}, [ isCollapse, setIsCollapse ]);
@@ -29,7 +29,7 @@ function CollapseWrapper({ children, imgSource, title }) {
 				{ isCollapse && <FontAwesomeIcon icon={ faAngleUp } /> }
 				{ !isCollapse && <FontAwesomeIcon icon={ faAngleDown } /> }
 			</ToggleArea>
-			{isCollapse && children}
+			{ isCollapse && children }
 		</div>
 	);
 }

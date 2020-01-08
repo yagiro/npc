@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { colors } from '../../../config/constants';
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +24,10 @@ const Title = styled.p`
 const Description = styled.p`
     font-size: 14px;`;
 
+const AdditionalLabel = styled.span`
+color: ${colors.checkPointPink};
+`;
+
 const MobileEndpointLeftSection = (props) => {
 
 	// renderPackageList = (packages) => {
@@ -35,7 +40,7 @@ const MobileEndpointLeftSection = (props) => {
 		<Container>
 			<DescriptionSection>
 				<Title>Unified Endpoint Security
-					<span className="additional-label"> Advanced</span>
+					<AdditionalLabel> Advanced</AdditionalLabel>
 				</Title>
 				<Description>
 					Check Point Unified Endpoint Security Advanced offers comprehensive,

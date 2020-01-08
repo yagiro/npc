@@ -61,7 +61,7 @@ const priceSections = {
 	[cardTypes.management]: ManagementPriceSection,
 };
 
-const ItemCardContainer = ({ cardType, ...otherProps }) => {
+const ItemCard = ({ cardType, ...otherProps }) => {
 
 	const LeftSection = leftSections[cardType];
 	const PriceSection = priceSections[cardType];
@@ -83,8 +83,9 @@ const ItemCardContainer = ({ cardType, ...otherProps }) => {
 	);
 };
 
-ItemCardContainer.propTypes = {
+ItemCard.propTypes = {
 	cardType: PropTypes.oneOf(Object.values(cardTypes)).isRequired
 };
 
-export default ItemCardContainer;
+export default ItemCard;
+

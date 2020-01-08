@@ -8,5 +8,7 @@ export const cardTypes = {
 };
 
 export const colors = {
-	checkPointPink: '#EC407A'
+	checkPointPink: '#EC407A',
+	textLightGray: '#858991',
+
 };
