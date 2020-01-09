@@ -81,7 +81,7 @@ const MobileEndpointMainSection = ({ title, additionalLabel, description, includ
 			</DescriptionSection>
 			<PackagesSection>
 				<UlTitle>INCLUDED PACKAGES:</UlTitle>
-				{renderPackageList(includedPackages)}
+				{ renderPackageList(includedPackages) }
 			</PackagesSection>
 		</Container>
 	);
