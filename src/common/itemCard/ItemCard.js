@@ -11,7 +11,7 @@ import NetworkMainSection from './mainSections/NetworkMainSection';
 import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSection';
 import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
 import ManagementMainSection from './mainSections/ManagementMainSection';
-import { cardTypes } from '../../config/constants';
+import { cardTypes, colors } from '../../config/constants';
 
 const Container = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const RightSection = styled.div`
   flex-direction: column;
   width: 275px;
   height: 100%;
-  background: #F7F8F9;
+  background: ${colors.whitesmoke};
   padding: 30px;
   box-sizing: border-box;
   justify-content: space-between;`;
@@ -42,7 +42,7 @@ const ButtonSection = styled.div`
 `;
 
 const Label = styled.label`  
- color: #6B6F81;
+ color: ${colors.textLightGray};
   font-size: 14px;`;
 
 const mainSections = {

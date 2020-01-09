@@ -25,4 +25,5 @@ export const specificationsTypes = {
 export const colors = {
 	checkPointPink: '#EC407A',
 	textLightGray: '#858991',
+	lightgray: '#CACFD2',
 };

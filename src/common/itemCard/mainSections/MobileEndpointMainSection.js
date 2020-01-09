@@ -7,25 +7,25 @@ import PropTypes from 'prop-types';
 import CommonPriceSection from '../priceSections/CommonPriceSection';
 
 const Container = styled.div`
-  display: flex;
-  flex: 1;
-  height: 100%;`;
+	display: flex;
+	flex: 1;
+	height: 100%;`;
 
 const DescriptionSection = styled.div`
-  width: 60%;
-  height: 100%;
-  padding: 15px 15px;`;
+	width: 60%;
+	height: 100%;
+	padding: 15px 15px;`;
 
 const PackagesSection = styled.div`
-  width: 40%;
-  height: 100%;
-  margin-top: 48px;
+	width: 40%;
+	height: 100%;
+	margin-top: 48px;
 `;
 
 const Title = styled.p`
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0 0 5px 0;
+  	font-size: 18px;
+  	font-weight: bold;
+  	margin: 0 0 5px 0;
 `;
 
 const Description = styled.span`
