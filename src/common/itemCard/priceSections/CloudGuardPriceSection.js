@@ -22,13 +22,14 @@ const UpPriceText = styled.span`
   text-align: center;
   color: ${colors.textLightGray};
   font-size: 14px;`;
-const CloudGuardPriceSection = (props) => {
+
+const CloudGuardPriceSection = ({ price, additionalText }) => {
 
 	return (
 		<Container>
 			<UpPriceText>Starting at</UpPriceText>
-			<PriceText>$1,400</PriceText>
-			<SubPriceText>1 PC/YEAR & 1 Mobile/Year</SubPriceText>
+			<PriceText>${ price }</PriceText>
+			<SubPriceText>{ additionalText }</SubPriceText>
 		</Container>
 	);
 };

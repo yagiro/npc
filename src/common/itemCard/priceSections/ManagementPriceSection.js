@@ -2,6 +2,8 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Select from 'react-select';
 import { colors } from '../../../config/constants';
+import CommonPriceSection from './CommonPriceSection';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   display: flex;
@@ -48,22 +50,15 @@ const OptionPrice = styled.div`
   margin-left: 35px;`;
 
 
-const ManagementPriceSection = (props) => {
+const ManagementPriceSection = ({ numberOfDomainsOptions }) => {
 
-	const options = [
-		{ value: '100', label: '100 Domainas', price: '$200,000' },
-		{ value: '50', label: '50 Domainas', price: '$185,000' },
-		{ value: '25', label: '25 Domainas', price: '$155,000' },
-		{ value: '10', label: '10 Domainas', price: '$121,000' }
-	];
-
-	const [ option, setOption ] = useState(options[0]);
+	const [ option, setOption ] = useState(numberOfDomainsOptions[0]);
 	const handleChange = useCallback((option) => {
 		setOption(option);
 	}, [ setOption ]);
 
 
-	//option render function
+	//option render function for domain select
 	const formatOptionLabel = ({ value, label, price }) => (
 		<OptionContainer>
 			<div>
@@ -81,9 +76,9 @@ const ManagementPriceSection = (props) => {
 			<SelectContainer>
 				<SelectTitle>Number of Domain:</SelectTitle>
 				<Select
-					defaultValue={ options[0] }
+					defaultValue={ numberOfDomainsOptions[0] }
 					formatOptionLabel={ formatOptionLabel }
-					options={ options }
+					options={ numberOfDomainsOptions }
 					value={ option }
 					onChange={ handleChange }
 					components={{
@@ -106,6 +101,10 @@ const ManagementPriceSection = (props) => {
 			</BottomPriceContainer>
 		</Container>
 	);
+};
+
+CommonPriceSection.propTypes = {
+	numberOfDomainsOptions: PropTypes.array,
 };
 
 export default ManagementPriceSection;

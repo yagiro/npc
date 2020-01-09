@@ -45,7 +45,7 @@ const Label = styled.label`
  color: #6B6F81;
   font-size: 14px;`;
 
-const leftSections = {
+const mainSections = {
 	[cardTypes.cloudGuard]: CloudGuardMainSection,
 	[cardTypes.network]: NetworkMainSection,
 	[cardTypes.smallBusinesses]: SmallBusinessesMainSection,
@@ -63,7 +63,7 @@ const priceSections = {
 
 const ItemCard = ({ cardType, data, ...otherProps }) => {
 
-	const MainSection = leftSections[cardType];
+	const MainSection = mainSections[cardType];
 	const PriceSection = priceSections[cardType];
 
 	return (
