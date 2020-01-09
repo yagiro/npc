@@ -18,13 +18,15 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 858px;
-  height: 263px;
+  min-height: 263px;
   border-radius: 3px;
   -webkit-box-shadow: 0 2px 6px #0000001A;
   -moz-box-shadow: 0 2px 6px #0000001A;
   box-shadow: 0 2px 6px #0000001A;
   margin-bottom: 1rem;
   background: #FFFFFF;
+  box-sizing: border-box;
+  position: relative;
 `;
 
 const RightSection = styled.div`  
@@ -32,17 +34,21 @@ const RightSection = styled.div`
   flex-direction: column;
   width: 275px;
   height: 100%;
-  background: ${colors.whitesmoke};
+  background: #F7F8F9;
   padding: 30px;
   box-sizing: border-box;
-  justify-content: space-between;`;
+  justify-content: space-between;
+ 	position: absolute;
+    top: 0;
+    right:0
+`;
 
 const ButtonSection = styled.div`  
   display: flex;
 `;
 
 const Label = styled.label`  
- color: ${colors.textLightGray};
+ color: ${ colors.textLightGray };
   font-size: 14px;`;
 
 const mainSections = {

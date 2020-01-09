@@ -8,7 +8,7 @@ import CommonPriceSection from '../priceSections/CommonPriceSection';
 
 const Container = styled.div`
 	display: flex;
-	flex: 1;
+ 	width: 65%;
 	height: 100%;`;
 
 const DescriptionSection = styled.div`

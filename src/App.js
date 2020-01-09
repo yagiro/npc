@@ -22,6 +22,19 @@ const mockData = {
 
 	// MOCK FOR MANAGEMENT CARD
 	[cardTypes.management]: {
+		title: 'Smart-1 5150 NGSM',
+		subTitle: 'Number of Gateways',
+		description: 'SMART-1 5150 Security Management for 150 gateways and over. High-performance management solution, including policy, logs and events in a single box. Choose between Security, Event, or Log management',
+		specificationsTitles: {
+			mountable: '2U rack',
+			storage: 'Upto 48 TB',
+			raid: '5, 6, 10, 50 ,60',
+			cores: 'Up to 24',
+			ram: 'Up to 256 GB',
+			powerSupply: 'Dual AC',
+			ports: '4x16GbE',
+			optionalMessage: 'Extended 1GbE or 10Gbe ports (optional)'
+		},
 		numberOfDomainsOptions: [
 			{ value: '100', label: '100 Domainas', price: '$200,000' },
 			{ value: '50', label: '50 Domainas', price: '$185,000' },
@@ -46,7 +59,7 @@ const mockData = {
 			formFactor: 'Desktop',
 			wireless: true
 		}
-	}
+	},
 };
 
 class App extends Component {

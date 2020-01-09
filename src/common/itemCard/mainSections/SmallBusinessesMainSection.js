@@ -5,7 +5,7 @@ import SpecificationCard from './specifications/SpecificationCard';
 
 const Container = styled.div`
  	display: flex;
- 	flex: 1;
+ 	width: 65%;
   	height: 100%;
 	justify-content: space-between`;
 
@@ -14,7 +14,7 @@ const DescriptionSection = styled.div`
  	 height: 100%;
 	 padding: 15px 0 0 15px`;
 
-const PackagesSection = styled.div`
+const SpecificationsSection = styled.div`
  	 width: 40%;
  	 height: 100%;
 	 margin-top: 48px;
@@ -42,9 +42,9 @@ const WirelessText = styled.div`
 
 const VerticalDivider = styled.div`
 	width: 1px;
-	height: 60%;
+	height: 150px;
 	background: ${colors.lightgray};
-	margin: 60px 15px 0 0;
+	margin: 60px 15px 0 10px;
 `;
 
 const SmallBusinessesMainSection = ({ title, description, specificationsTitles }) => {
@@ -59,13 +59,13 @@ const SmallBusinessesMainSection = ({ title, description, specificationsTitles }
 				</Description>
 			</DescriptionSection>
 			<VerticalDivider/>
-			<PackagesSection>
+			<SpecificationsSection>
 				<UlTitle>HARDWARE SPECIFICATION</UlTitle>
 				<SpecificationCard specificationType={ specificationsTypes.formFactor } specificationTitle={ specificationsTitles.formFactor }/>
 				<SpecificationCard specificationType={ specificationsTypes.ports } specificationTitle={ specificationsTitles.ports }/>
 				<SpecificationCard specificationType={ specificationsTypes.supportsExternal } specificationTitle={ specificationsTitles.supportsExternal }/>
 				{specificationsTitles.wireless && <WirelessText>Wireless (optional)</WirelessText>}
-			</PackagesSection>
+			</SpecificationsSection>
 		</Container>
 	);
 };
