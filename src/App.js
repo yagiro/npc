@@ -34,6 +34,18 @@ const mockData = {
 	[cardTypes.cloudGuard]: {
 		price: 1500,
 		additionalText: '1 PC/YEAR & 1 Mobile/Year' },
+
+	// MOCK FOR SMALL BUSINESSES CARD
+	[cardTypes.smallBusinesses]: {
+		price: 999,
+		title: '910 Next Generation Threat Prevention',
+		description: 'The Check Point 910 security gateway is an all-inclusive security appliance for medium size businesses. The 910 Appliance offers enterprise-class Check Point security, with double connection capacity in a rack mount form factor.',
+		specificationsTitles: {
+			ports: '18x1GbE',
+			supportsExternal: '3G/4G/LTE',
+			formFactor: 'Rack mount',
+		}
+	}
 };
 
 class App extends Component {
@@ -42,10 +54,10 @@ class App extends Component {
 		return (
 			<div className="App">
 				<CollapseWrapper imgSource={'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png'} title="High End Enterprise">
+					<ItemCard cardType={ cardTypes.smallBusinesses } data={{ ...mockData[cardTypes.smallBusinesses] }}/>
 					<ItemCard cardType={ cardTypes.mobileAndEndpoint } data={{ ...mockData[cardTypes.mobileAndEndpoint] }}/>
 					<ItemCard cardType={ cardTypes.management } data={{ ...mockData[cardTypes.management] }}/>
 					<ItemCard cardType={ cardTypes.cloudGuard } data={{ ...mockData[cardTypes.cloudGuard] }}/>
-					<ItemCard cardType={ cardTypes.smallBusinesses }/>
 					<ItemCard cardType={ cardTypes.network }/>
 				</CollapseWrapper>
 			</div>

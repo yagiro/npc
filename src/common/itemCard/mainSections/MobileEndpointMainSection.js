@@ -32,12 +32,11 @@ const Description = styled.span`
     font-size: 14px;`;
 
 const AdditionalLabel = styled.span`
-color: ${colors.checkPointPink};
+	color: ${ colors.checkPointPink };
 `;
 
 const UlTitle = styled.div`
-	color: ${colors.textLightGray};
-	font-weight: lighter;
+	color: ${ colors.textLightGray };
 	font-size: 14px;
 	margin-bottom: 15px;
 `;
@@ -61,9 +60,9 @@ const MobileEndpointMainSection = ({ title, additionalLabel, description, includ
 	const renderPackageList = (packages) => {
 		return packages.map((p) => {
 			return (
-				<FeatureContainer key={p.id}>
-					<Image path={verified} width="15"/>
-					<FeatureText>{p.feature}</FeatureText>
+				<FeatureContainer key={ p.id }>
+					<Image path={ verified } width="15"/>
+					<FeatureText>{ p.feature }</FeatureText>
 				</FeatureContainer>
 			);
 		});
