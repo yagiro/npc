@@ -14,42 +14,42 @@ import ManagementMainSection from './mainSections/ManagementMainSection';
 import { cardTypes, colors } from '../../config/constants';
 
 const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 858px;
-  min-height: 263px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 2px 6px #0000001A;
-  -moz-box-shadow: 0 2px 6px #0000001A;
-  box-shadow: 0 2px 6px #0000001A;
-  margin-bottom: 1rem;
-  background: #FFFFFF;
-  box-sizing: border-box;
-  position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 858px;
+	min-height: 263px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 2px 6px #0000001A;
+	-moz-box-shadow: 0 2px 6px #0000001A;
+	box-shadow: 0 2px 6px #0000001A;
+	margin-bottom: 1rem;
+	background: #FFFFFF;
+	box-sizing: border-box;
+	position: relative;
 `;
 
 const RightSection = styled.div`  
-  display: flex;
-  flex-direction: column;
-  width: 275px;
-  height: 100%;
-  background: #F7F8F9;
-  padding: 30px;
-  box-sizing: border-box;
-  justify-content: space-between;
- 	position: absolute;
-    top: 0;
-    right:0
+	display: flex;
+	flex-direction: column;
+	width: 275px;
+	height: 100%;
+	background: #F7F8F9;
+	padding: 30px;
+	box-sizing: border-box;
+	justify-content: space-between;
+	position: absolute;
+	top: 0;
+	right:0
 `;
 
 const ButtonSection = styled.div`  
-  display: flex;
+	display: flex;
 `;
 
 const Label = styled.label`  
- color: ${ colors.textLightGray };
-  font-size: 14px;`;
+	color: ${ colors.textLightGray };
+	font-size: 14px;`;
 
 const mainSections = {
 	[cardTypes.cloudGuard]: CloudGuardMainSection,
@@ -94,4 +94,5 @@ ItemCard.propTypes = {
 };
 
 export default ItemCard;
+
 

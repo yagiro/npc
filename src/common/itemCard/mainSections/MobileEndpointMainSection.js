@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../../config/constants';
+import PropTypes from 'prop-types';
 import Image from '../../Image';
 import verified from '../../../assets/verified@2x.png';
-import PropTypes from 'prop-types';
 import CommonPriceSection from '../priceSections/CommonPriceSection';
+import { colors } from '../../../config/constants';
 
 const Container = styled.div`
 	display: flex;

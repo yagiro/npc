@@ -5,15 +5,15 @@ import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { colors } from '../../config/constants';
 
 const Container = styled.div`  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid ${colors.checkPointPink};
-  border-radius: 3px;
-  width: 35px;
-  height: 34px;
-  color: ${colors.checkPointPink};
-  cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid ${ colors.checkPointPink };
+	border-radius: 3px;
+	width: 35px;
+	height: 34px;
+	color: ${ colors.checkPointPink };
+	cursor: pointer;
 `;
 
 const PdfIcon = () => {

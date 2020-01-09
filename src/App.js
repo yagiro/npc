@@ -4,6 +4,7 @@ import CollapseWrapper from './common/CollapseWrapper';
 import ItemCard from './common/itemCard/ItemCard';
 import { cardTypes } from './config/constants';
 
+// MOCK DATA FOR TESTING PROPS IN CARD ITEMS
 const mockData = {
 
 	// MOCK FOR MOBILE AND ENDPOINT CARD
@@ -60,6 +61,24 @@ const mockData = {
 			wireless: true
 		}
 	},
+
+	// MOCK FOR NETWORK CARD
+	[cardTypes.network]: {
+		price: '35,000',
+		title: '6800 Based Solution',
+		description: 'Hyperscale Security Gateway Solution based on the Maestro Security Orchestrator 140 (MHO-140) and 6800 Security Gateway Appliances',
+		specificationsTitles: {
+			ports: '18x1GbE',
+			supportsExternal: '3G/4G/LTE',
+			formFactor: 'Desktop',
+			wireless: true
+		},
+		includedPackages: [
+			{	id: 1, feature: 'SandBlast Agent Advanced.' },
+			{	id: 2, feature: 'SandBlast Mobile Per Device' },
+			{	id: 3, feature: 'Two 6500 gateways' },
+		],
+	},
 };
 
 class App extends Component {
@@ -72,7 +91,7 @@ class App extends Component {
 					<ItemCard cardType={ cardTypes.mobileAndEndpoint } data={{ ...mockData[cardTypes.mobileAndEndpoint] }}/>
 					<ItemCard cardType={ cardTypes.management } data={{ ...mockData[cardTypes.management] }}/>
 					<ItemCard cardType={ cardTypes.cloudGuard } data={{ ...mockData[cardTypes.cloudGuard] }}/>
-					<ItemCard cardType={ cardTypes.network }/>
+					<ItemCard cardType={ cardTypes.network } data={{ ...mockData[cardTypes.network] }}/>
 				</CollapseWrapper>
 			</div>
 		);
@@ -80,3 +99,4 @@ class App extends Component {
 }
 
 export default App;
+

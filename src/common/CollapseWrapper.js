@@ -7,11 +7,11 @@ import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const ToggleArea = styled.div`
-	  display: flex;
-	  cursor: pointer;
-	  align-items: center;
-	  justify-content: space-around;
-	  width: 300px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-around;
+  width: 300px;
 `;
 
 function CollapseWrapper({ children, imgSource, title }) {

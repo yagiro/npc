@@ -4,20 +4,20 @@ import PropTypes from 'prop-types';
 import { colors } from '../../../config/constants';
 
 const Container = styled.div`  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;`;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;`;
 
 const PriceText = styled.span`  
-  font-size: 30px;
-  text-align: center;`;
+	font-size: 30px;
+	text-align: center;`;
 
 const SubPriceText = styled.span`  
-  text-align: center;
-  color: ${colors.textLightGray};
-  font-size: 14px;
-  margin-top: 30px;`;
+	text-align: center;
+	color: ${colors.textLightGray};
+	font-size: 14px;
+	margin-top: 30px;`;
 
 const CommonPriceSection = ({ price, additionalText, ...otherProps }) => {
 
@@ -43,3 +43,4 @@ CommonPriceSection.propTypes = {
 };
 
 export default CommonPriceSection;
+

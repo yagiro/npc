@@ -64,13 +64,13 @@ const ManagementMainSection = ({ title, description, specificationsTitles }) => 
 			<SpecificationsSection>
 				<UlTitle>HARDWARE SPECIFICATION</UlTitle>
 				<SpecificationsItemsContainer>
-					<SpecificationCard specificationType={specificationsTypes.mountable} specificationTitle={specificationsTitles.mountable}/>
-					<SpecificationCard specificationType={specificationsTypes.storage} specificationTitle={specificationsTitles.storage}/>
-					<SpecificationCard specificationType={specificationsTypes.raid} specificationTitle={specificationsTitles.raid}/>
-					<SpecificationCard specificationType={specificationsTypes.cores} specificationTitle={specificationsTitles.cores}/>
-					<SpecificationCard specificationType={specificationsTypes.ram} specificationTitle={specificationsTitles.ram}/>
-					<SpecificationCard specificationType={specificationsTypes.powerSupply} specificationTitle={specificationsTitles.powerSupply}/>
-					<SpecificationCard specificationType={specificationsTypes.ports} specificationTitle={specificationsTitles.ports}/>
+					<SpecificationCard specificationType={ specificationsTypes.mountable } specificationTitle={ specificationsTitles.mountable }/>
+					<SpecificationCard specificationType={ specificationsTypes.storage } specificationTitle={ specificationsTitles.storage }/>
+					<SpecificationCard specificationType={ specificationsTypes.raid } specificationTitle={ specificationsTitles.raid }/>
+					<SpecificationCard specificationType={ specificationsTypes.cores } specificationTitle={ specificationsTitles.cores }/>
+					<SpecificationCard specificationType={ specificationsTypes.ram } specificationTitle={ specificationsTitles.ram }/>
+					<SpecificationCard specificationType={ specificationsTypes.powerSupply } specificationTitle={ specificationsTitles.powerSupply }/>
+					<SpecificationCard specificationType={ specificationsTypes.ports } specificationTitle={ specificationsTitles.ports }/>
 				</SpecificationsItemsContainer>
 			</SpecificationsSection>
 		</Container>
@@ -78,3 +78,4 @@ const ManagementMainSection = ({ title, description, specificationsTitles }) => 
 };
 
 export default ManagementMainSection;
+

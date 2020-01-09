@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, specificationsTypes } from '../../../config/constants';
 import SpecificationCard from './specifications/SpecificationCard';
+import { colors, specificationsTypes } from '../../../config/constants';
 
 const Container = styled.div`
  	display: flex;
@@ -64,10 +64,11 @@ const SmallBusinessesMainSection = ({ title, description, specificationsTitles }
 				<SpecificationCard specificationType={ specificationsTypes.formFactor } specificationTitle={ specificationsTitles.formFactor }/>
 				<SpecificationCard specificationType={ specificationsTypes.ports } specificationTitle={ specificationsTitles.ports }/>
 				<SpecificationCard specificationType={ specificationsTypes.supportsExternal } specificationTitle={ specificationsTitles.supportsExternal }/>
-				{specificationsTitles.wireless && <WirelessText>Wireless (optional)</WirelessText>}
+				{ specificationsTitles.wireless && <WirelessText>Wireless (optional)</WirelessText> }
 			</SpecificationsSection>
 		</Container>
 	);
 };
 
 export default SmallBusinessesMainSection;
+
