@@ -43,7 +43,8 @@ const mockData = {
 		specificationsTitles: {
 			ports: '18x1GbE',
 			supportsExternal: '3G/4G/LTE',
-			formFactor: 'Rack mount',
+			formFactor: 'Desktop',
+			wireless: true
 		}
 	}
 };
@@ -53,7 +54,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<CollapseWrapper imgSource={'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png'} title="High End Enterprise">
+				<CollapseWrapper imgSource={ 'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png' } title="High End Enterprise">
 					<ItemCard cardType={ cardTypes.smallBusinesses } data={{ ...mockData[cardTypes.smallBusinesses] }}/>
 					<ItemCard cardType={ cardTypes.mobileAndEndpoint } data={{ ...mockData[cardTypes.mobileAndEndpoint] }}/>
 					<ItemCard cardType={ cardTypes.management } data={{ ...mockData[cardTypes.management] }}/>

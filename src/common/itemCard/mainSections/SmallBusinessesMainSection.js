@@ -29,10 +29,14 @@ const Description = styled.span`
     font-size: 14px;`;
 
 const UlTitle = styled.div`
-	color: ${colors.textLightGray};
-	font-weight: lighter;
+	color: ${ colors.textLightGray };
 	font-size: 14px;
-	margin-bottom: 15px;
+	margin-bottom: 7px;
+`;
+
+const WirelessText = styled.div`
+	font-weight: bold;
+	font-size: 14px;
 `;
 
 const SmallBusinessesMainSection = ({ title, description, specificationsTitles }) => {
@@ -48,7 +52,10 @@ const SmallBusinessesMainSection = ({ title, description, specificationsTitles }
 			</DescriptionSection>
 			<PackagesSection>
 				<UlTitle>HARDWARE SPECIFICATION</UlTitle>
-				<SpecificationCard specificationType={specificationsTypes.ports} specificationTitle={specificationsTitles.ports}/>
+				<SpecificationCard specificationType={ specificationsTypes.formFactor } specificationTitle={ specificationsTitles.formFactor }/>
+				<SpecificationCard specificationType={ specificationsTypes.ports } specificationTitle={ specificationsTitles.ports }/>
+				<SpecificationCard specificationType={ specificationsTypes.supportsExternal } specificationTitle={ specificationsTitles.supportsExternal }/>
+				{specificationsTitles.wireless && <WirelessText>Wireless (optional)</WirelessText>}
 			</PackagesSection>
 		</Container>
 	);
