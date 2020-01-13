@@ -8,12 +8,14 @@ const Container = styled.div`
  	display: flex;
  	width: 65%;
   	height: 100%;
-	justify-content: space-between`;
+	justify-content: space-between;
+	padding: 15px 10px;
+`;
 
 const DescriptionSection = styled.div`
  	 width: 40%;
  	 height: 100%;
-	 padding: 15px 0 0 15px`;
+	 padding: 0 0 0 15px`;
 
 const SpecificationsSection = styled.div`
  	 width: 60%;
@@ -27,19 +29,20 @@ const Title = styled.p`
  	 margin: 0 0 5px 0;
 `;
 
-const Description = styled.span`
-	font-size: 14px;`;
+const Description = styled.div`
+	font-size: 14px;
+	margin-bottom: 20px;
+`;
 
 const VerticalDivider = styled.div`
 	width: 1px;
-	height: 200px;
-	background: ${colors.lightgray};
+	height: 150px;
+	background: ${ colors.lightgray };
 	margin: 60px 15px 0 10px;
 `;
 
 const FeatureContainer = styled.div`
 	height: auto;
-	margin-bottom: 15px;
 	display: flex;
 	align-items: center;
 `;
@@ -47,6 +50,7 @@ const FeatureContainer = styled.div`
 const FeatureText = styled.div`
 	font-size: 14px;
 	margin-left: 6px;
+	margin-top: 6px;
 `;
 
 const NetworkMainSection = ({ title, description, includedPackages }) => {

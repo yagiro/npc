@@ -7,7 +7,7 @@ export const cardTypes = {
 	network: 'network',
 };
 
-// specifications types for item cards
+// components types for item cards
 export const specificationsTypes = {
 	ports: 'ports',
 	formFactor: 'formFactor',

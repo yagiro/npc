@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import CollapseWrapper from './common/CollapseWrapper';
-import ItemCard from './common/itemCard/ItemCard';
+import CollapseWrapper from './components/CollapseWrapper';
+import ItemCard from './components/itemCard/ItemCard';
 import { cardTypes } from './config/constants';
 
 // MOCK DATA FOR TESTING PROPS IN CARD ITEMS

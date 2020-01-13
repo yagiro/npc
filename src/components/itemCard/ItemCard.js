@@ -17,7 +17,7 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 858px;
+	//width: 858px;
 	min-height: 263px;
 	border-radius: 3px;
 	-webkit-box-shadow: 0 2px 6px #0000001A;

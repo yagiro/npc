@@ -1,5 +1,5 @@
 import React from 'react';
-import SpecificationCard from './specifications/SpecificationCard';
+import SpecificationCard from './common/SpecificationCard';
 import { colors, specificationsTypes } from '../../../config/constants';
 import styled from 'styled-components';
 

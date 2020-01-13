@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SpecificationCard from './specifications/SpecificationCard';
+import SpecificationCard from './common/SpecificationCard';
 import { colors, specificationsTypes } from '../../../config/constants';
 
 const Container = styled.div`
