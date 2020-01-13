@@ -28,9 +28,9 @@ const Container = styled.div`
 `;
 
 const CompareButton = (props) => {
-	const { color } = props;
+	const { color, onClick } = props;
 	return (
-		<Container color={ color }>{ props.children }</Container>
+		<Container color={ color } onClick={ () => onClick()}>{ props.children }</Container>
 	);
 };
 
@@ -40,6 +40,7 @@ CompareButton.defaultProps = {
 
 CompareButton.propTypes = {
 	color: PropTypes.oneOf(['fill', 'empty']),
+	onClick: PropTypes.func,
 };
 
 export default CompareButton;

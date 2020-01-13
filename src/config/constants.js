@@ -34,7 +34,7 @@ export const colors = {
 	paragraphBlack: '#16181D',
 	headerGrey: '#727781',
 	buttonGrey: '#6B6F81',
-
+	borderGrey: '#D2D5D9',
 };
 
 export const fonts = {

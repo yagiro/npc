@@ -13,7 +13,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<ComparePanel cards={ mockData.compareList } />
 				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }/>
 				<CollapseWrapper imgSource={ 'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png' } title="High End Enterprise">
 					<div className='max-width-850px'>
@@ -26,6 +25,7 @@ class App extends Component {
 						<ItemCard cardType={cardTypes.network} data={{ ...mockData[cardTypes.network] }}/>
 					</div>
 				</CollapseWrapper>
+				<ComparePanel cards={ mockData.compareList } />
 			</div>
 		);
 	}

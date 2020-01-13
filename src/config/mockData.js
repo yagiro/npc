@@ -105,12 +105,8 @@ export const mockData = {
 		{
 			image: '../../assets/compare/MaestroHyperscaleGateway.png',
 			title: '6500 Based Solution',
-			price: 35000,
+			price: 38000,
 		},
-		// {
-		// 	image: '../../assets/compare/MaestroHyperscaleGateway.png',
-		// 	title: '6500 Based Solution',
-		// 	price: 35000,
-		// },
+
 	]
 };

@@ -24,6 +24,12 @@ const Container = styled.div`
 	box-sizing: border-box;
 	background: ${ colors.background } 0% 0% no-repeat padding-box;
 	box-shadow: 0px -2px 4px ${ colors.boxShadowGrey };
+	opacity: ${ (props) => props.closing ? '0' : '1' };
+	transition: opacity .3s;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 	
 	> .${ classes.label } {
 		display: flex;
@@ -47,46 +53,56 @@ const Container = styled.div`
 	}
 `;
 
-const ComparePanel = (props) => {
-	const { cards } = props;
-
-	if (cards.length < 2) {
-		const emptyCards = 3 - (cards.length + 1);
-		for(let i = 0; i < emptyCards; i++) {
-			cards.push({});
-		}
-	}
-
+const ComparePanel = ({ cards = [] }) => {
 	const [ cardList, setCardList ] = useState(cards);
+	const [ closing, setClosing ] = useState(false);
 
-	const handleClose = (index) => {
+	const handleCardClose = (index) => {
 		const tmp = [...cardList];
 		tmp.splice(index, 1);
 		setCardList(tmp);
 	};
 
+	const renderCards = () => {
+		if (cardList.length < 3) {
+			const emptyCards = 3 - cardList.length;
+			for (let i = 0; i < emptyCards; i++) {
+				cardList.push({});
+			}
+		}
+		return cardList.map((card, index) => {
+			return index < 3 ? <CompareCard
+				key={ index }
+				index={ index }
+				image={ card.image }
+				title={ card.title }
+				price={ card.price }
+				onClose={ (index) =>  {
+					handleCardClose(index);
+				}} /> : null;
+		});
+	};
+
+	const handleClose = () => {
+		setClosing(true);
+	};
+
 	return (
-		<Container>
+		<Container closing={ closing }>
 			<div className={ classes.label }>
 				<Paragraph>Select Up To 3 Solution</Paragraph>
 				<CompareHeader>To Compare</CompareHeader>
 			</div>
 			<div className={ classes.cards }>
-				{ cardList.map((card, index) => <CompareCard
-					key={ index }
-					index={ index }
-					image={ card.image }
-					title={ card.title }
-					price={ card.price }
-					onClose={ (index) =>  {
-						handleClose(index);
-						console.log('->', index);
-					} }/>) }
-				<CompareCard/>
+				{ renderCards(cards) }
 			</div>
 			<div className={ classes.buttons }>
-				<CompareButton color="fill">Compare</CompareButton>
-				<CompareButton color="empty">Close</CompareButton>
+				<CompareButton color="fill" onClick={ () => console.log('Compare button clicked') }>
+					Compare
+				</CompareButton>
+				<CompareButton color="empty" onClick={ () => handleClose() }>
+					Close
+				</CompareButton>
 			</div>
 		</Container>
 	);
@@ -102,6 +118,7 @@ ComparePanel.propTypes = {
 		title: PropTypes.string.isRequired,
 		price: PropTypes.number.isRequired,
 	})),
-}
+};
 
 export default ComparePanel;
+
