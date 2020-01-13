@@ -31,6 +31,10 @@ export const colors = {
 	boxShadowGrey: '#00000029',
 	paragraphGrey: '#5B6877',
 	paragraphDarkGrey: '#727781',
+	paragraphBlack: '#16181D',
+	headerGrey: '#727781',
+	buttonGrey: '#6B6F81',
+
 };
 
 export const fonts = {
