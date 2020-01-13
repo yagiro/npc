@@ -7,7 +7,7 @@ export const cardTypes = {
 	network: 'network',
 };
 
-// components types for item cards
+// specifications types for item cards
 export const specificationsTypes = {
 	ports: 'ports',
 	formFactor: 'formFactor',
@@ -26,4 +26,14 @@ export const colors = {
 	checkPointPink: '#EC407A',
 	textLightGray: '#858991',
 	lightgray: '#CACFD2',
+	background: '#FFFFFF',
+	boxShadowGrey: '#00000029',
+	paragraphGrey: '#5B6877',
+	paragraphDarkGrey: '#727781',
 };
+
+export const fonts = {
+	paragraph: '14px/21px DIN',
+	header: '32px/47px DIN',
+};
+

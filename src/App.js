@@ -68,16 +68,21 @@ const mockData = {
 		title: '6800 Based Solution',
 		description: 'Hyperscale Security Gateway Solution based on the Maestro Security Orchestrator 140 (MHO-140) and 6800 Security Gateway Appliances',
 		specificationsTitles: {
-			ports: '18x1GbE',
-			supportsExternal: '3G/4G/LTE',
-			formFactor: 'Desktop',
-			wireless: true
+			ram: '32 GB',
+			maxNetworkPorts: '18',
+			storage: 'Dual SSD',
+			networkInterfaces: 'Up to 25 GbE'
 		},
 		includedPackages: [
 			{	id: 1, feature: 'SandBlast Agent Advanced.' },
 			{	id: 2, feature: 'SandBlast Mobile Per Device' },
 			{	id: 3, feature: 'Two 6500 gateways' },
 		],
+		genBlocks: [
+			{ title: 'Gen V Security', subTitle: 'Full Threat Prevention with Sandblast Zero-Day', gbps: '16.4' },
+			{ title: 'Gen III Security', subTitle: 'Next-gen firewall', gbps: '20.4' },
+			{ title: 'Gen II Security', subTitle: 'Gen II Security', gbps: '65' },
+		]
 	},
 };
 

@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from '../../Image';
+import GenBlock from './common/GenBlock';
 import verified from '../../../assets/verified@2x.png';
-import { colors, } from '../../../config/constants';
+import { colors, specificationsTypes, } from '../../../config/constants';
+import SpecificationCard from './common/SpecificationCard';
 
 const Container = styled.div`
  	display: flex;
- 	width: 65%;
+ 	width: 70%;
   	height: 100%;
 	justify-content: space-between;
 	padding: 15px 10px;
+	align-items: center;
 `;
 
 const DescriptionSection = styled.div`
@@ -18,9 +21,18 @@ const DescriptionSection = styled.div`
 	 padding: 0 0 0 15px`;
 
 const SpecificationsSection = styled.div`
- 	 width: 60%;
- 	 height: 100%;
-	 margin-top: 48px;
+	display: flex;
+ 	width: 70%;
+ 	height: 100%;
+`;
+
+const GenBlocks = styled.div`
+	width: 55%;
+`;
+
+const Specifications = styled.div`
+	width: 45%;
+	margin-left: 25px;
 `;
 
 const Title = styled.p`
@@ -38,7 +50,7 @@ const VerticalDivider = styled.div`
 	width: 1px;
 	height: 150px;
 	background: ${ colors.lightgray };
-	margin: 60px 15px 0 10px;
+	margin: 30px 15px 0 10px;
 `;
 
 const FeatureContainer = styled.div`
@@ -53,7 +65,7 @@ const FeatureText = styled.div`
 	margin-top: 6px;
 `;
 
-const NetworkMainSection = ({ title, description, includedPackages }) => {
+const NetworkMainSection = ({ title, description, includedPackages, specificationsTitles, genBlocks }) => {
 
 	const renderPackageList = (packages) => {
 		return packages.map((p) => {
@@ -63,6 +75,12 @@ const NetworkMainSection = ({ title, description, includedPackages }) => {
 					<FeatureText>{ p.feature }</FeatureText>
 				</FeatureContainer>
 			);
+		});
+	};
+	
+	const renderGenBlockList = (genBlocsk) => {
+		return genBlocsk.map((genBlock) => {
+			return <GenBlock {...genBlock} />;
 		});
 	};
 
@@ -78,7 +96,15 @@ const NetworkMainSection = ({ title, description, includedPackages }) => {
 			</DescriptionSection>
 			<VerticalDivider/>
 			<SpecificationsSection>
-				{/*//TODO*/}
+				<GenBlocks>
+					{ renderGenBlockList(genBlocks) }
+				</GenBlocks>
+				<Specifications>
+					<SpecificationCard specificationType={specificationsTypes.ram} specificationTitle={specificationsTitles.ram}/>
+					<SpecificationCard specificationType={specificationsTypes.maxNetworkPorts} specificationTitle={specificationsTitles.maxNetworkPorts}/>
+					<SpecificationCard specificationType={specificationsTypes.storage} specificationTitle={specificationsTitles.storage}/>
+					<SpecificationCard specificationType={specificationsTypes.networkInterfaces} specificationTitle={specificationsTitles.networkInterfaces}/>
+				</Specifications>
 			</SpecificationsSection>
 		</Container>
 	);

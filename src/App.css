@@ -1,6 +1,7 @@
 .App {
   background-color: #f6f6f6;
   padding: 1rem;
+  max-width: 1000px;
 }
 
 .compare-label {
