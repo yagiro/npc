@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Image from '../../Image';
+import Image from '../../general/Image';
+import Title from '../../general/Title';
 import verified from '../../../assets/verified@2x.png';
 import CommonPriceSection from '../priceSections/CommonPriceSection';
 import { colors } from '../../../config/constants';
@@ -9,23 +10,18 @@ import { colors } from '../../../config/constants';
 const Container = styled.div`
 	display: flex;
  	width: 65%;
-	height: 100%;`;
+	height: 100%;
+`;
 
 const DescriptionSection = styled.div`
 	width: 60%;
 	height: 100%;
-	padding: 15px 15px;`;
+	padding: 15px;`;
 
 const PackagesSection = styled.div`
 	width: 40%;
 	height: 100%;
 	margin-top: 48px;
-`;
-
-const Title = styled.p`
-  	font-size: 18px;
-  	font-weight: bold;
-  	margin: 0 0 5px 0;
 `;
 
 const Description = styled.span`
@@ -71,7 +67,7 @@ const MobileEndpointMainSection = ({ title, additionalLabel, description, includ
 	return (
 		<Container>
 			<DescriptionSection>
-				<Title>{ title }
+				<Title bold size="18px">{ title }
 					<AdditionalLabel> { additionalLabel }</AdditionalLabel>
 				</Title>
 				<Description>

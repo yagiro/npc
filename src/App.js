@@ -47,7 +47,15 @@ const mockData = {
 	// MOCK FOR CLOUD GUARD CARD
 	[cardTypes.cloudGuard]: {
 		price: 1500,
-		additionalText: '1 PC/YEAR & 1 Mobile/Year' },
+		additionalText: '1 PC/YEAR & 1 Mobile/Year',
+		title: 'CloudGuard IaaS for NSX Next Generation Threat Prevention Gateway' ,
+		description: 'The Check Point CloudGuard IaaS Security Gateway for industry leading Hypervisors (VMware ESXi, Hyper-V and KVM) protects your assets from internal and external threats with the full range of Check Point Software Blades . Combined with advanced integration options, security is tailored to fit the most dynamic environment needs. Virtual gateways as well as physical gateways are managed by a unified management platform',
+		includedPackages: [
+			{	id: 1, feature: 'Hyper-Visors supported: VMware ESXi, Hyper-V, KVM.' },
+			{	id: 2, feature: 'CloudGuard IaaS controller with integration to NSX and vCenter.' },
+			{	id: 3, feature: 'Unified management for both virtual and physical gateways.' },
+		]
+	},
 
 	// MOCK FOR SMALL BUSINESSES CARD
 	[cardTypes.smallBusinesses]: {
@@ -92,11 +100,15 @@ class App extends Component {
 		return (
 			<div className="App">
 				<CollapseWrapper imgSource={ 'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png' } title="High End Enterprise">
-					<ItemCard cardType={ cardTypes.smallBusinesses } data={{ ...mockData[cardTypes.smallBusinesses] }}/>
-					<ItemCard cardType={ cardTypes.mobileAndEndpoint } data={{ ...mockData[cardTypes.mobileAndEndpoint] }}/>
-					<ItemCard cardType={ cardTypes.management } data={{ ...mockData[cardTypes.management] }}/>
-					<ItemCard cardType={ cardTypes.cloudGuard } data={{ ...mockData[cardTypes.cloudGuard] }}/>
-					<ItemCard cardType={ cardTypes.network } data={{ ...mockData[cardTypes.network] }}/>
+					<div className='max-width-850px'>
+						<ItemCard cardType={cardTypes.smallBusinesses} data={{ ...mockData[cardTypes.smallBusinesses] }}/>
+						<ItemCard cardType={cardTypes.mobileAndEndpoint} data={{ ...mockData[cardTypes.mobileAndEndpoint] }}/>
+						<ItemCard cardType={cardTypes.management} data={{ ...mockData[cardTypes.management] }}/>
+					</div>
+					<div className='max-width-1050px'>
+						<ItemCard cardType={cardTypes.cloudGuard} data={{ ...mockData[cardTypes.cloudGuard] }}/>
+						<ItemCard cardType={cardTypes.network} data={{ ...mockData[cardTypes.network] }}/>
+					</div>
 				</CollapseWrapper>
 			</div>
 		);

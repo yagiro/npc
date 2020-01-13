@@ -1,7 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 import SpecificationCard from './common/SpecificationCard';
 import { colors, specificationsTypes } from '../../../config/constants';
-import styled from 'styled-components';
+import Title from '../../general/Title';
 
 const Container = styled.div`
  	display: flex;
@@ -18,12 +19,6 @@ const SpecificationsSection = styled.div`
  	 width: 60%;
  	 height: 100%;
 	 margin-top: 48px;
-`;
-
-const Title = styled.p`
- 	 font-size: 18px;
- 	 font-weight: bold;
- 	 margin: 0 0 5px 0;
 `;
 
 const Description = styled.span`
@@ -54,7 +49,7 @@ const ManagementMainSection = ({ title, description, specificationsTitles }) => 
 	return (
 		<Container>
 			<DescriptionSection>
-				<Title>{ title }
+				<Title bold size="18px">{ title }
 				</Title>
 				<Description>
 					{ description }

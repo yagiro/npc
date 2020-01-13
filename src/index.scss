@@ -8,6 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f6f6f6;
+  & * {
+    box-sizing: border-box;
+  }
 }
 
 code {
@@ -27,4 +30,13 @@ code {
   -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
   margin-bottom: 1rem;
+}
+
+// for testing
+.max-width-850px {
+  max-width: 850px;
+}
+
+.max-width-1050px {
+  max-width: 1050px;
 }

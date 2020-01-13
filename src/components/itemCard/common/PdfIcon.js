@@ -14,6 +14,11 @@ const Container = styled.div`
 	height: 34px;
 	color: ${ colors.checkPointPink };
 	cursor: pointer;
+	transition: background-color .2s;
+	
+	&:hover {
+		background-color: ${ colors.boxShadowGrey };
+	}
 `;
 
 const PdfIcon = () => {

@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from '../../Image';
+import Image from '../../general/Image';
 import GenBlock from './common/GenBlock';
 import verified from '../../../assets/verified@2x.png';
-import { colors, specificationsTypes, } from '../../../config/constants';
 import SpecificationCard from './common/SpecificationCard';
+import { colors, specificationsTypes, } from '../../../config/constants';
+import Title from '../../general/Title';
 
 const Container = styled.div`
  	display: flex;
  	width: 70%;
   	height: 100%;
 	justify-content: space-between;
-	padding: 15px 10px;
+	padding: 15px 0;
 	align-items: center;
 `;
 
@@ -32,17 +33,10 @@ const GenBlocks = styled.div`
 
 const Specifications = styled.div`
 	width: 45%;
-	margin-left: 25px;
-`;
-
-const Title = styled.p`
- 	 font-size: 18px;
- 	 font-weight: bold;
- 	 margin: 0 0 5px 0;
+	margin-left: 55px;
 `;
 
 const Description = styled.div`
-	font-size: 14px;
 	margin-bottom: 20px;
 `;
 
@@ -79,15 +73,15 @@ const NetworkMainSection = ({ title, description, includedPackages, specificatio
 	};
 	
 	const renderGenBlockList = (genBlocsk) => {
-		return genBlocsk.map((genBlock) => {
-			return <GenBlock {...genBlock} />;
+		return genBlocsk.map((genBlock, i) => {
+			return <GenBlock {...genBlock} key={i}/>;
 		});
 	};
 
 	return (
 		<Container>
 			<DescriptionSection>
-				<Title>{ title }
+				<Title bold size="18px">{ title }
 				</Title>
 				<Description>
 					{ description }

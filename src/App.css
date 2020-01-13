@@ -1,16 +1,10 @@
 .App {
   background-color: #f6f6f6;
   padding: 1rem;
-  max-width: 1000px;
 }
 
 .compare-label {
   color: #6B6F81;
-  font-size: 14px;
-}
-
-
-.description {
   font-size: 14px;
 }
 

@@ -11,13 +11,12 @@ import NetworkMainSection from './mainSections/NetworkMainSection';
 import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSection';
 import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
 import ManagementMainSection from './mainSections/ManagementMainSection';
-import { cardTypes, colors } from '../../config/constants';
+import {cardTypes, colors, fonts} from '../../config/constants';
 
 const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	//width: 858px;
 	min-height: 263px;
 	border-radius: 3px;
 	-webkit-box-shadow: 0 2px 6px #0000001A;
@@ -27,6 +26,8 @@ const Container = styled.div`
 	background: #FFFFFF;
 	box-sizing: border-box;
 	position: relative;
+	color: #4C5059;
+	font: ${ fonts.paragraph };
 `;
 
 const RightSection = styled.div`  
