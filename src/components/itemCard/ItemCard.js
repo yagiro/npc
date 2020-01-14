@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import PdfIcon from './common/PdfIcon';
-import SelectButton from './common/SelectButton';
+import SelectButton from '../gereric/SelectButton';
 import CloudGuardPriceSection from './priceSections/CloudGuardPriceSection';
 import CommonPriceSection from './priceSections/CommonPriceSection';
 import ManagementPriceSection from './priceSections/ManagementPriceSection';

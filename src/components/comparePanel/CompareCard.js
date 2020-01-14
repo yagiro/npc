@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { createClassName } from '../../lib/classNameHelper';
 import Paragraph from './Paragraph';
 import CloseImage from '../../assets/compare/x.png';
-import Image from '../general/Image';
+import Image from '../gereric/Image';
 import { colors } from '../../config/constants';
 
 const classPrefix = 'compare-card';

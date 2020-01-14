@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { colors } from '../../../config/constants';
+import { colors } from '../../config/constants';
 
 const Container = styled.div`  
 	display: flex;

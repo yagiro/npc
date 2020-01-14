@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SpecificationCard from './common/SpecificationCard';
 import { colors, specificationsTypes } from '../../../config/constants';
-import Title from '../../general/Title';
+import Title from '../../gereric/Title';
 
 const Container = styled.div`
  	display: flex;

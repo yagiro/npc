@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Image from '../../general/Image';
+import Image from '../../gereric/Image';
 import verified from '../../../assets/verified@2x.png';
 import img from '../../../assets/CloudGuard_Alibaba-Cloud.png.png';
 import { colors } from '../../../config/constants';
-import Title from '../../general/Title';
+import Title from '../../gereric/Title';
 
 const Container = styled.div`
 	width: 70%;
