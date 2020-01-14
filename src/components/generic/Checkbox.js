@@ -1,43 +1,27 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useCallback, useState } from 'react';
+import PropTypes from 'prop-types';
 
-const Container = styled.label`
-	display: block;
-	position: relative;
-	padding-left: 35px;
-	margin-bottom: 12px;
-	cursor: pointer;
-	font-size: 22px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-`;
+const Checkbox = ({ label }) => {
 
-const Input = styled.input`
-	position: absolute;
-	opacity: 0;
-	cursor: pointer;
-	height: 0;
-	width: 0;
-`;
+	const [ isChecked, setIsChecked ] = useState(false);
+	const handleClick = useCallback(() => {
+		setIsChecked(!isChecked);
+	}, [ isChecked, setIsChecked ]);
 
-const Checkmark = styled.span`
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 25px;
-	width: 25px;
-	background-color: #eee;
-`;
-
-const Checkbox = () => {
 	return (
-		<Container>One
-			<Input type="checkbox"/>
-			<Checkmark className="checkmark"> </Checkmark>
-		</Container>
+		<label className="checkbox-container" >{ label }
+			<input type="checkbox" checked={ isChecked } onChange={ handleClick }/>
+			<span className="checkbox-checkmark"> </span>
+		</label>
 	);
+};
+
+Checkbox.defaultProps = {
+	label: 'no label',
+};
+
+Checkbox.propTypes = {
+	label: PropTypes.string.isRequired,
 };
 
 export default Checkbox;

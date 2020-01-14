@@ -51,12 +51,8 @@ class App extends Component {
 					models={ models }
 					show={ showCompare }
 					onChange={ (models) => this.setState({ models: models })}
-					onShow={ (show) => this.setState({ showCompare: show }) }
-				/>
-				<NumberSelector
-					data={ mockData.paginationButtons }
-					onChange={ (value) => console.log(value) }
-					value={ 1 }
+					onShow={ (show) => this.setState({ showCompare: show }) } />
+				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }value={ 1 }
 				/>
 
 				<Checkbox/>

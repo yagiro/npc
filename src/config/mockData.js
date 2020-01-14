@@ -127,5 +127,20 @@ export const mockData = {
 			label: 'Quote By Sizing',
 			imagePath: '/images/size.svg',
 		},
-	]
+	],
+
+	// MOCK FOR NETWORK SECURITY FILTERS
+	networkSecurityFilters: {
+
+	}
 };
+
+/*
+filters: [
+{
+	type: 'marketSegment',
+	options: [ { value, label } ],
+},
+],
+onChange: (updatedFilters) => [ { type, selectedOptions } ]
+ */
