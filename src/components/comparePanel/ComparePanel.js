@@ -16,7 +16,6 @@ export const classes = {
 	buttons: createClassName(classPrefix, 'buttons'),
 };
 
-
 const Container = styled.div`
 	display: ${ (props) => props.closed ? 'none' : 'flex' };
 	padding: 10px 0;
