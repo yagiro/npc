@@ -9,7 +9,7 @@ const Container = styled.div`
 	display: inline-flex;
 	padding: 4px 0;
 	> .${ numberOptionClasses.container }:not(:first-child) {
-		margin-left 5px;
+		margin-left: 5px;
 	}
 `;
 
