@@ -14,8 +14,8 @@ const Container = styled.div`
 `;
 
 const NumberSelector = (props) => {
-	const { data, onChange } = props;
-	const [ currentValue, setCurrentValue ] = useState(1);
+	const { data, onChange, value=null } = props;
+	const [ currentValue, setCurrentValue ] = useState(value);
 
 	const handleClick = (value) => {
 		setCurrentValue(value);
@@ -24,24 +24,29 @@ const NumberSelector = (props) => {
 
 	return (
 		<Container>
-			{ data.map((item, index) => <NumberOption key={ index }
-				value={ item.value }
-				selected={ item.value === currentValue }
-				onClick={ (value) => handleClick(value, item.onChange) } />) }
+			{ data.map((value, index) =>
+				<NumberOption
+					key={ index }
+					value={ value }
+					selected={ value === currentValue }
+					onClick={ handleClick }
+				/>) }
 		</Container>
 	);
 };
 
 NumberSelector.propTypes = {
-	data: PropTypes.arrayOf(PropTypes.shape({
-		value: PropTypes.number.isRequired,
-	})).isRequired,
+	data: PropTypes.arrayOf(PropTypes.number).isRequired,
+	value: PropTypes.number,
 	onChange: PropTypes.func.isRequired,
 };
 
 export default NumberSelector;
 
 /*
+	+ add selected item (from parent component)
+	+ data -> options & type -> Array<number>
+
 NumberSelector
 	+ rename Paginator to NumberSelector
 	+ receive onChange prop: (newValue) => void

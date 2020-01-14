@@ -83,7 +83,7 @@ const ItemCard = ({ cardType, data, ...otherProps }) => {
 				<PriceSection { ...data } />
 				<ButtonSection>
 					<PdfIcon/>
-					<SelectButton width="calc(100% - 45px)" color="fill" onClick={() => {
+					<SelectButton width="calc(100% - 45px)" styleType="fill" onClick={() => {
 						console.log('select clicked');
 					}}> Select </SelectButton>
 				</ButtonSection>

@@ -3,9 +3,32 @@ import styled from 'styled-components';
 import { colors, fonts } from '../../config/constants';
 import PropTypes from 'prop-types';
 
-const btnColor = {
-	fill: { bg: colors.checkPointPink, label: colors.background, border: 'none' },
-	empty: { bg: colors.background , label: colors.buttonGrey, border: `1px solid ${ colors.lightgray }` }
+/*
+	+ color -> styleType
+	+ bg -> bgColor, label -> labelColor, etc.
+	+ hover background-color add to btnColor
+	+ btnColor -> buttonStyles
+	+ add children into types
+ */
+const buttonStyles = {
+	fill: {
+		bgColor: colors.checkPointPink,
+		labelColor: colors.background,
+		border: 'none',
+		hoverBgColor: colors.checkPointPinkHover,
+	},
+	empty: {
+		bgColor: colors.background,
+		labelColor: colors.buttonGrey,
+		border: `1px solid ${ colors.lightgray }`,
+		hoverBgColor: 'none',
+	},
+	bordered: {
+		bgColor: colors.boxShadowGrey,
+		labelColor: colors.buttonGrey,
+		border: `1px solid ${ colors.checkPointPinkHover }`,
+		hoverBgColor: 'none',
+	}
 };
 
 const Container = styled.div`  
@@ -13,13 +36,12 @@ const Container = styled.div`
 	align-items: center;
 	justify-content: space-around;
 	
-	background: ${ (props) => btnColor[props.color].bg };
-	border: ${ (props) => btnColor[props.color].border };
+	background: ${ (props) => buttonStyles[props.styleType].bgColor };
+	border: ${ (props) => buttonStyles[props.styleType].border };
 	box-sizing: border-box;
 	
 	border-radius: 3px;
-	color:  ${ (props) => btnColor[props.color].label };
-	margin-left: 10px;
+	color:  ${ (props) => buttonStyles[props.styleType].labelColor };
 	cursor: pointer;
 	transition: background-color .2s;
 	padding: 0 5px;
@@ -29,37 +51,37 @@ const Container = styled.div`
 	height:  ${ (props) => props.height ? props.height : 'auto' };
 	
 	&:hover {
-		background-color: ${ (props) => props.color !== 'empty' ?  colors.checkPointPinkHover : 'none' };
+		background-color: ${ (props) => buttonStyles[props.styleType].hoverBgColor };
 	}
 `;
 
 const Button = (props) => {
-	const { color, onClick, width, height } = props;
+	const { children, styleType, onClick, width, height } = props;
 	const handleClick = useCallback(() => {
-		if(onClick) {
-			onClick();
-		} else {
-			console.log('onClick is not defined');
-		}
-	}, [onClick]);
+		if (onClick) onClick();
+	}, [ onClick ]);
 
 
 	return (
-		<Container color={ color } width={ width } height = { height } onClick={ handleClick }>
-			{ props.children }
+		<Container styleType={ styleType } width={ width } height = { height } onClick={ handleClick }>
+			{ children }
 		</Container>
 	);
 };
 
 Button.defaultProps = {
-	color: 'empty'
+	styleType: 'empty',
 };
 
 Button.propTypes = {
-	color: PropTypes.oneOf(['fill', 'empty']),
+	styleType: PropTypes.oneOf(['fill', 'empty', 'bordered']),
 	width: PropTypes.string,
 	height: PropTypes.string,
 	onClick: PropTypes.func,
+	children: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.node),
+		PropTypes.node
+	]).isRequired
 };
 
 export default Button;

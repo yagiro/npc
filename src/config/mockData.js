@@ -89,11 +89,7 @@ export const mockData = {
 	},
 
 	// MOCK FOR PAGINATOR
-	paginationButtons: [
-		{ value: 1 },
-		{ value: 2 },
-		{ value: 3 },
-	],
+	paginationButtons: [ 1, 2, 3, 4, 5 ],
 
 	// MOCK FOR COMPARE PANEL
 	compareList: [
@@ -107,6 +103,12 @@ export const mockData = {
 			title: '6500 Based Solution',
 			price: 38000,
 		},
+	],
 
+	// MOCK FOR MENU
+	menuItems: [
+		{ id: 1, title: 'explore product' },
+		{ id: 2, title: 'quick quote' },
+		{ id: 3, title: 'quote by sizing' },
 	]
 };

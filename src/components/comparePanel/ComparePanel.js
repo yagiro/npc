@@ -6,7 +6,6 @@ import { createClassName } from '../../lib/classNameHelper';
 import Paragraph from '../gereric/Paragraph';
 import CompareHeader from './CompareHeader';
 import CompareCard from './CompareCard';
-import CompareButton from './CompareButton';
 import Button from '../gereric/Button';
 
 const classPrefix = 'compare-panel';
@@ -52,6 +51,21 @@ const Container = styled.div`
 		justify-content: space-around;
 	}
 `;
+
+/*
+- rename: cards > models
+
+- make the component "dumb" (completely controlled by props - the parent will need to manage the props)
+- props to receive:
+	models, onClose,
+	onModelRemove: (removedModel) => void
+	onChange: (updatedModels) => void, // onChange will always provide the models that REMAIN in the comparison
+	isOpen: bool
+	onCompare: (modelsToCompare) => void
+
+- make a const in this file: MAX_MODELS_COUNT = 3, and use it in the styling wherever is possible
+- encapsulate the component into smaller components (for example, Title).
+ */
 
 const ComparePanel = ({ cards = [], onClose, onChange }) => {
 	const [ cardList, setCardList ] = useState(cards);
@@ -110,13 +124,13 @@ const ComparePanel = ({ cards = [], onClose, onChange }) => {
 				{ renderCards(cards) }
 			</div>
 			<div className={ classes.buttons }>
-				<Button color="fill"
+				<Button styleType="fill"
 						onClick={ () => console.log('Compare button clicked') }
 						width="103px"
 						height="30px">
 					Compare
 				</Button>
-				<Button color="empty"
+				<Button styleType="empty"
 						onClick={ () => handleClose() }
 						width="103px"
 						height="30px">

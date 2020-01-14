@@ -1,7 +1,8 @@
 import React from 'react';
-import { createClassName } from '../../lib/classNameHelper';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import { createClassName } from '../../lib/classNameHelper';
 import { colors } from '../../config/constants';
 
 const classPrefix = 'number-option';
@@ -30,7 +31,11 @@ const Container = styled.div`
 `;
 
 const NumberOption = ({ value, selected, onClick }) => (
-	<Container selected={ selected } className={ classes.container } onClick={ () => onClick(value) }>
+	<Container
+		selected={ selected }
+		className={ classes.container }
+		onClick={ () => onClick(value) }
+	>
 		{ value }
 	</Container>
 );
@@ -43,3 +48,6 @@ NumberOption.propTypes = {
 
 export default NumberOption;
 
+/*
+	- hover color ????
+ */
