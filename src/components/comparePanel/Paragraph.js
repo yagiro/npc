@@ -6,7 +6,7 @@ const parColors = {
 	default: colors.paragraphGrey,
 	dark: colors.paragraphDarkGrey,
 	black: colors.paragraphBlack,
-}
+};
 
 const Paragraph = styled.p`
 	font: ${ fonts.paragraph };

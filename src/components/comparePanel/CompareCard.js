@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { createClassName } from '../../lib/classNameHelper';
@@ -28,6 +28,10 @@ const Container = styled.div`
 	height: 80px;
 	transition: box-shadow .2s;
 	
+	> * {
+		transition: opacity .2s;
+	}
+	
 	> .${ classes.image } {
 		width: 48px;
 		margin-right: 11px;
@@ -56,12 +60,19 @@ const Container = styled.div`
 
 const CompareCard = (props) => {
 	const { title, price, onClose, index } = props;
+	const [ closing, setClosing ] = useState(false);
 
-	const handleClick = () => onClose(index);
+	const handleClick = () => {
+		setClosing(true);
+		setTimeout(() => {
+			onClose(index);
+			setClosing(false);
+		}, 300);
+	};
 
 	// TODO IMAGE HARDCODE!!!
 	return (
-		<Container isEmpty={ !title }>
+		<Container isEmpty={ !title || closing }>
 			{
 				title && <>
 					<div className={ classes.image }>

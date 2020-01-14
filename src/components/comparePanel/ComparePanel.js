@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../config/constants';
@@ -16,8 +16,8 @@ export const classes = {
 };
 
 
-const Container = styled.div`  
-	display: flex;
+const Container = styled.div`
+	display: ${ (props) => props.closed ? 'none' : 'flex' };
 	padding: 10px 0;
 	justify-content: center;
 	height: 100px;
@@ -53,14 +53,20 @@ const Container = styled.div`
 	}
 `;
 
-const ComparePanel = ({ cards = [] }) => {
+const ComparePanel = ({ cards = [], onClose, onChange }) => {
 	const [ cardList, setCardList ] = useState(cards);
-	const [ closing, setClosing ] = useState(false);
+	const [ closing, setClosing ] = useState(true);
+	const [ closed, setClosed ] = useState(false);
+
+	useEffect(() => setClosing(false), []);
 
 	const handleCardClose = (index) => {
 		const tmp = [...cardList];
 		tmp.splice(index, 1);
 		setCardList(tmp);
+		if (onChange) {
+			onChange(tmp.filter(val => val.title));
+		}
 	};
 
 	const renderCards = () => {
@@ -85,10 +91,17 @@ const ComparePanel = ({ cards = [] }) => {
 
 	const handleClose = () => {
 		setClosing(true);
+		setTimeout(() => {
+			setClosed(true);
+			setClosing(false);
+			if (onClose) {
+				onClose();
+			}
+		}, 500);
 	};
 
 	return (
-		<Container closing={ closing }>
+		<Container closing={ closing } closed={ closed }>
 			<div className={ classes.label }>
 				<Paragraph>Select Up To 3 Solution</Paragraph>
 				<CompareHeader>To Compare</CompareHeader>
@@ -118,6 +131,8 @@ ComparePanel.propTypes = {
 		title: PropTypes.string.isRequired,
 		price: PropTypes.number.isRequired,
 	})),
+	onClose: PropTypes.func,
+	onChange: PropTypes.func,
 };
 
 export default ComparePanel;

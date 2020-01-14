@@ -25,7 +25,7 @@ class App extends Component {
 						<ItemCard cardType={cardTypes.network} data={{ ...mockData[cardTypes.network] }}/>
 					</div>
 				</CollapseWrapper>
-				<ComparePanel cards={ mockData.compareList } />
+				<ComparePanel cards={ mockData.compareList } onClose={ () => console.log('Compare panel closed') } onChange={ (items) => console.log(items) }/>
 			</div>
 		);
 	}
