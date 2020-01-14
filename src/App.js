@@ -6,6 +6,7 @@ import { cardTypes } from './config/constants';
 import ComparePanel from './components/comparePanel/ComparePanel';
 import NumberSelector from './components/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
+import Checkbox from './components/gereric/Checkbox';
 
 // MOCK DATA FOR TESTING PROPS IN CARD ITEMS
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<Checkbox/>
 				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }/>
 				<CollapseWrapper imgSource={ 'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png' } title="High End Enterprise">
 					<div className='max-width-850px'>
