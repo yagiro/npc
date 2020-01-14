@@ -36,9 +36,12 @@ const Container = styled.div`
 const Button = (props) => {
 	const { color, onClick, width, height } = props;
 	const handleClick = useCallback(() => {
-		onClick();
-		console.log('button click');
-	}, []);
+		if(onClick) {
+			onClick();
+		} else {
+			console.log('onClick is not defined');
+		}
+	}, [onClick]);
 
 
 	return (
