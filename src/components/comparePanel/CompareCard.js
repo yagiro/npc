@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { createClassName } from '../../lib/classNameHelper';
-import Paragraph from './Paragraph';
+import Paragraph from '../gereric/Paragraph';
 import CloseImage from '../../assets/compare/x.png';
 import Image from '../gereric/Image';
 import { colors } from '../../config/constants';

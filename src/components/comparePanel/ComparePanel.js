@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../config/constants';
 import { createClassName } from '../../lib/classNameHelper';
-import Paragraph from './Paragraph';
+import Paragraph from '../gereric/Paragraph';
 import CompareHeader from './CompareHeader';
 import CompareCard from './CompareCard';
 import CompareButton from './CompareButton';
+import Button from '../gereric/Button';
 
 const classPrefix = 'compare-panel';
 export const classes = {
@@ -110,12 +111,18 @@ const ComparePanel = ({ cards = [], onClose, onChange }) => {
 				{ renderCards(cards) }
 			</div>
 			<div className={ classes.buttons }>
-				<CompareButton color="fill" onClick={ () => console.log('Compare button clicked') }>
+				<Button color="fill"
+						onClick={ () => console.log('Compare button clicked') }
+						width="103px"
+						height="30px">
 					Compare
-				</CompareButton>
-				<CompareButton color="empty" onClick={ () => handleClose() }>
+				</Button>
+				<Button color="empty"
+						onClick={ () => handleClose() }
+						width="103px"
+						height="30px">
 					Close
-				</CompareButton>
+				</Button>
 			</div>
 		</Container>
 	);
