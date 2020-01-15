@@ -130,17 +130,56 @@ export const mockData = {
 	],
 
 	// MOCK FOR NETWORK SECURITY FILTERS
-	networkSecurityFilters: {
+	networkSecurityFilters: [
+		{
+			title: 'Market Segment',
+			id: 1,
+			options: [ 
+				{ value: 'branchOffice', label: 'Branch Office' } ,
+				{ value: 'smallEnterprise', label: 'Small Enterprise' },
+				{ value: 'midsizeEnterprise', label: 'Midsize Enterprise' },
+			],
+		},
+		{
+			title: 'Connectivity',
+			id: 2,
+			options: [
+				{ value: '1gbe', label: '1 GbE' } ,
+				{ value: '10gbe', label: '10 GbE' },
+				{ value: '25gbe', label: '25 GbE (5)' },
+			],
+		},
+		{
+			title: 'Radandecncy',
+			id: 3,
+			options: [
+				{ value: 'acPower', label: 'AC Power' } ,
+				{ value: 'dcPower', label: 'DC Power' },
+				{ value: 'ssdStorage', label: 'SSD storage' },
+				{ value: 'hhdStorage', label: 'HDD Storage' },
+			],
+		},
+		{
+			title: 'Performance',
+			id: 4,
+			options: [
+				{ value: '01gbps', label: '0-1 Gbps' } ,
+				{ value: '15gbps', label: '1-5 Gbps' },
+				{ value: '510gbps', label: '5-10 Gbps' },
+				{ value: '1040gbps', label: '10-40 Gbps' },
+				{ value: 'more40gbps', label: '40 and more Gbps' },
+			],
+		},		{
+			title: 'Phisical Form Factur',
+			id: 5,
+			options: [
+				{ value: 'desktop', label: 'Desktop' } ,
+				{ value: '1u', label: '1 U' },
+				{ value: '2u', label: '2 U' },
+				{ value: '3u', label: '3 U' },
+				{ value: '4u', label: '4 U' },
+			],
+		},
 
-	}
+	]
 };
-
-/*
-filters: [
-{
-	type: 'marketSegment',
-	options: [ { value, label } ],
-},
-],
-onChange: (updatedFilters) => [ { type, selectedOptions } ]
- */

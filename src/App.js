@@ -6,12 +6,12 @@ import { cardTypes } from './config/constants';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
 import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
+import NetworkSecurityFilter from './components/NetworkSecurityFilter/NetworkSecurityFilter';
 import Checkbox from './components/generic/Checkbox';
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
 
-// MOCK DATA FOR TESTING PROPS IN CARD ITEMS
 class App extends Component {
 
 	constructor(props) {
@@ -56,6 +56,8 @@ class App extends Component {
 				/>
 
 				<Checkbox/>
+				<NetworkSecurityFilter filters={ mockData.networkSecurityFilters }/>
+				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }/>
 				<CollapseWrapper imgSource={ 'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png' } title="High End Enterprise">
 					<div className='max-width-850px'>
 						<ItemCard cardType={cardTypes.smallBusinesses} data={{ ...mockData[cardTypes.smallBusinesses] }}/>

@@ -1,16 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Checkbox = ({ label }) => {
-
-	const [ isChecked, setIsChecked ] = useState(false);
-	const handleClick = useCallback(() => {
-		setIsChecked(!isChecked);
-	}, [ isChecked, setIsChecked ]);
+const Checkbox = ({ label, isChecked, onChange }) => {
 
 	return (
 		<label className="checkbox-container" >{ label }
-			<input type="checkbox" checked={ isChecked } onChange={ handleClick }/>
+			<input type="checkbox" checked={ isChecked } readOnly onChange={ onChange }/>
 			<span className="checkbox-checkmark"> </span>
 		</label>
 	);

@@ -16,7 +16,7 @@ const ToggleArea = styled.div`
 
 function CollapseWrapper({ children, imgSource, title }) {
 
-	const [ isCollapse, setIsCollapse ] = useState(true);
+	const [ isCollapse, setIsCollapse ] = useState(false);
 	const handleClick = useCallback(() => {
 		setIsCollapse(!isCollapse);
 	}, [ isCollapse, setIsCollapse ]);
