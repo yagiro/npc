@@ -27,6 +27,7 @@ export const colors = {
 	checkPointPinkHover: '#d63f76',
 	textLightGray: '#858991',
 	lightgray: '#CACFD2',
+	whitesmoke: '#eeeeee',
 	menuGray: '#606060',
 	background: '#FFFFFF',
 	boxShadowGrey: '#00000029',

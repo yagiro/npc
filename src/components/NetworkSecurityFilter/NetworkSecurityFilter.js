@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Title from '../gereric/Title';
 import Checkbox from '../gereric/Checkbox';
-import { colors, fonts } from '../../config/constants';
 import Span from '../gereric/Span';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import Image from '../gereric/Image';
 import CloseImage from '../../assets/compare/x.png';
+import { colors, fonts } from '../../config/constants';
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 
 const Container = styled.div`
 	display: flex;
@@ -39,6 +39,7 @@ const ChosenFiltersSection = styled.div`
 	display: flex;
 	align-items: center;
 	margin-left: 25px;
+	flex-wrap: wrap;
 `;
 
 const FilterOptionContainer = styled.div`
@@ -64,6 +65,9 @@ const ToggleContainer = styled.div`
 `;
 
 const ToggleArea = styled.div`
+	display: flex;
+	align-items: center;
+	align-content: center;
 	cursor: pointer;
 `;
 
@@ -71,17 +75,50 @@ const ChosenFilterContainer = styled.div`
 	display: flex;
 	border: ${ colors.lightgray } 1px solid;
 	border-radius: 3px;
-	background-color: ${ colors.textLightGray };
+	background-color: ${ colors.background };
 	margin-right: 6px;
+	align-items: center;
+	letter-spacing: 0;
+	text-transform: capitalize;
+	line-height: 100%;
+	padding-left: 5px;
+	font-size: 12px;
+	color: ${ colors.textLightGray };
+`;
+
+const CrossImgWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	margin-left: 5px;
+	height: 100%;
+	border-left: ${ colors.lightgray } 1px solid;
+	padding: 6px 7px 7px 7px;
+	cursor: pointer;
+	
+	&:hover {
+		background-color: ${colors.whitesmoke};
+	}
+`;
+
+const ClearAllButton = styled.div`
+	text-align: left;
+	text-decoration: underline;
+	margin-left: 15px;
+	cursor: pointer;
 `;
 
 function NetworkSecurityFilter({ filters }) {
 
 	const [ chosenFilters, setChosenFilters ] = useState([
-		{ value: '15gbps', label: '1-5 Gbps' },
-		{ value: '3u', label: '3 U' },
+		// { value: '15gbps', label: '1-5 Gbps' },
+		// { value: '3u', label: '3 U' },
 	]);
 	const [ isCollapse, setIsCollapse ] = useState(false);
+
+	useEffect(() => {
+		console.log('REQUEST TO GET UPDATED PRODUCTS');
+		console.log(chosenFilters);
+	}, [ chosenFilters ]);
 
 	// function makes check if value of some option there is in chosenFilters
 	const isChecked = (chosenFilters, value) => {
@@ -131,9 +168,12 @@ function NetworkSecurityFilter({ filters }) {
 	const renderChosenFilters = (chosenFilters) => {
 		return chosenFilters.map((chosenFilter) => {
 			return (
-				<ChosenFilterContainer key={ chosenFilter.value } onClick={() => {
-					onRemoveFilterOption(chosenFilter);
-				}}>{ chosenFilter.label }
+				<ChosenFilterContainer key={ chosenFilter.value }>{ chosenFilter.label }
+					<CrossImgWrapper onClick={() => {
+						onRemoveFilterOption(chosenFilter);
+					}}>
+						<Image path={CloseImage} width="8px" height="8px"/>
+					</CrossImgWrapper>
 				</ChosenFilterContainer>
 			);
 		});
@@ -162,7 +202,6 @@ function NetworkSecurityFilter({ filters }) {
 	const onToggleView = useCallback(() => {
 		setIsCollapse(!isCollapse);
 	}, [ isCollapse, setIsCollapse ]);
-	
 
 	return (
 		<Container>
@@ -175,18 +214,17 @@ function NetworkSecurityFilter({ filters }) {
 				</div>
 				<ChosenFiltersSection>
 					{ renderChosenFilters(chosenFilters) }
-					<div onClick={ onClearFiltersClick }>*Clear all*</div>
+					{ chosenFilters.length > 0 && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
 				</ChosenFiltersSection>
 			</TopSection>
 			<BottomSection isCollapse={ isCollapse }>
 				<ToggleContainer>
-					<ToggleArea onClick={onToggleView}>{
-						!isCollapse && <Image path={CloseImage} width="12px" height="12px"/>
-					}
-					{
-						isCollapse && <FontAwesomeIcon icon={ faSlidersH } size="sm"/>
-					}
-					<Span bold>Filter</Span>
+					<ToggleArea onClick={onToggleView}>
+						{ isCollapse
+							? <FontAwesomeIcon icon={ faSlidersH } size="sm"/>
+							: <Image path={ CloseImage } width="12px" height="12px"/>
+						}
+						<Span bold margin="0 0 0 15px">Filter</Span>
 					</ToggleArea>
 				</ToggleContainer>
 				{!isCollapse &&
