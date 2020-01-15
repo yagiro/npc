@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Title from '../gereric/Title';
 import Checkbox from '../gereric/Checkbox';
-import {colors, fonts} from '../../config/constants';
+import { colors, fonts } from '../../config/constants';
 import Span from '../gereric/Span';
 
 const Container = styled.div`
@@ -30,7 +30,14 @@ const ChosenFiltersSection = styled.div`
 `;
 
 const FilterOptionContainer = styled.div`
-	
+	display: flex;
+`;
+
+const VerticalDivider = styled.div`
+	width: 1px;
+	height: 120px;
+	background: ${ colors.lightgray };
+	margin:50px 25px 0 25px;
 `;
 
 function NetworkSecurityFilter({ filters }) {
@@ -55,29 +62,32 @@ function NetworkSecurityFilter({ filters }) {
 		// render filter-blocks
 		return filters.map(({ id, title, options }) => {
 			return (
-				<div key={id}>
-					<Title color={ colors.textLightGray } margin="15px 0">{title}</Title>
-					{/*// render list of filter-options*/}
+				<FilterOptionContainer key={id}>
 					<div>
-						{options.map((option) => {
-							const checked = isChecked(chosenFilters, option.value);
+						<Title color={colors.textLightGray} margin="15px 0">{title}</Title>
+						{/*// render list of filter-options*/}
+						<div>
+							{options.map((option) => {
+								const checked = isChecked(chosenFilters, option.value);
 
-							// our onChange depends on "checked":
-							// if filter-option checked we need to remove option by click
-							// if filter-option unchecked we need to add filter option
-							const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
+								// our onChange depends on "checked":
+								// if filter-option checked we need to remove option by click
+								// if filter-option unchecked we need to add filter option
+								const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
 
-							// render one filter-option
-							return (
-								<div key={ option.value }>
-									<Checkbox label={ option.label } isChecked={ checked } onChange={ () => {
-										onChange(option);
-									}}/>
-								</div>
-							);
-						})}
+								// render one filter-option
+								return (
+									<div key={option.value}>
+										<Checkbox label={option.label} isChecked={checked} onChange={() => {
+											onChange(option);
+										}}/>
+									</div>
+								);
+							})}
+						</div>
 					</div>
-				</div>
+					<VerticalDivider/>
+				</FilterOptionContainer>
 			);
 		});
 	};
