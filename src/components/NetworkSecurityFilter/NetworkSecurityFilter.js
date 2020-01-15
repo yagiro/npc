@@ -1,70 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Title from '../gereric/Title';
 import Checkbox from '../gereric/Checkbox';
+import {colors, fonts} from '../../config/constants';
+import Span from '../gereric/Span';
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
+	font: ${ fonts.paragraph };
 `;
 
 const TopSection = styled.div`
-  display: flex;
+	display: flex;
 `;
 
 const FiltersSections = styled.div`
-  display: flex;
-  width: 100%;
+	display: flex;
+	width: 100%;
 `;
 
 const SubTitle = styled.div`
-  display: flex;
+	display: flex;
 `;
 
 const ChosenFiltersSection = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 `;
 
-class NetworkSecurityFilter extends React.Component {
+const FilterOptionContainer = styled.div`
+	
+`;
 
-	state = {
-		chosenFilters: [
-			{ value: '15gbps', label: '1-5 Gbps' },
-			{ value: '3u', label: '3 U' },
-		],
-	};
+function NetworkSecurityFilter({ filters }) {
+
+	const [ chosenFilters, setChosenFilters ] = useState([
+		{ value: '15gbps', label: '1-5 Gbps' },
+		{ value: '3u', label: '3 U' },
+	]);
+
 
 	// function makes check if value of some option there is in chosenFilters
-	isChecked = (chosenFilters, value) => {
-		const filter = chosenFilters.find((chosenFilter)=> {
+	const isChecked = (chosenFilters, value) => {
+		const filter = chosenFilters.find((chosenFilter) => {
 			return chosenFilter.value === value;
 		});
-		
+
 		return !!filter;
 	};
 
 	// function render block of filter-options for specific filter-type
-	renderFilterBlock = (filters) => {
+	const renderFilterBlock = (filters) => {
 		// render filter-blocks
 		return filters.map(({ id, title, options }) => {
 			return (
-				<div key={ id }>
-					<p>{ title }</p>
+				<div key={id}>
+					<Title color={ colors.textLightGray } margin="15px 0">{title}</Title>
 					{/*// render list of filter-options*/}
 					<div>
 						{options.map((option) => {
-							const checked = this.isChecked(this.state.chosenFilters, option.value);
+							const checked = isChecked(chosenFilters, option.value);
 
 							// our onChange depends on "checked":
 							// if filter-option checked we need to remove option by click
 							// if filter-option unchecked we need to add filter option
-							const onChange = checked ? this.onRemoveFilterOption : this.onAddFilterOption;
-							
+							const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
+
 							// render one filter-option
 							return (
 								<div key={ option.value }>
-									<Checkbox label={ option.label } isChecked={ checked } onChange={ () => {onChange(option);} }/>
+									<Checkbox label={ option.label } isChecked={ checked } onChange={ () => {
+										onChange(option);
+									}}/>
 								</div>
 							);
 						})}
@@ -75,63 +83,56 @@ class NetworkSecurityFilter extends React.Component {
 	};
 
 	// render chosen filters in the Top Section
-	renderChosenFilters = (chosenFilters) => {
-		return chosenFilters.map((chosenFilter)=> {
+	const renderChosenFilters = (chosenFilters) => {
+		return chosenFilters.map((chosenFilter) => {
 			return (
-				<div key={ chosenFilter.value } onClick={()=> {this.onRemoveFilterOption(chosenFilter);}}>{ `_ ${chosenFilter.label}_` }</div>
+				<div key={chosenFilter.value} onClick={() => {
+					onRemoveFilterOption(chosenFilter);
+				}}>{`_ ${chosenFilter.label}_`}</div>
 			);
 		});
 	};
-	
+
 	// clear filters click handler
-	onClearFiltersClick = () => {
-		this.setState({ chosenFilters: [] });
+	const onClearFiltersClick = () => {
+		setChosenFilters([]);
 	};
 
 	// add filter-option click handler
-	onAddFilterOption = (option) => {
-		this.setState((prevState) => {
-			return {
-				...prevState, chosenFilters: [ ...prevState.chosenFilters, option ]
-			};
+	const onAddFilterOption = (option) => {
+		setChosenFilters((prevChosenFilters) => {
+			return [...prevChosenFilters, option];
 		});
 	};
 
 	// remove filter-option click handler
-	onRemoveFilterOption = (option) => {
-		this.setState((prevState) => {
-			const updatedChosenFilters = prevState.chosenFilters.filter((filterOption) => filterOption.value !== option.value);
-			return {
-				...prevState, chosenFilters: updatedChosenFilters
-			};
+	const onRemoveFilterOption = (option) => {
+		setChosenFilters((prevChosenFilters) => {
+			return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
 		});
 	};
 	
 
-	render() {
-		
-		const { filters } = this.props;
+	return (
+		<Container>
+			<TopSection>
+				<div>
+					<Title size="32px">Network Security</Title>
+					<SubTitle>
+						<Span bold margin="0 5px 0 0">Displaying 400</Span> Security Gateway Appliance & Solutions
+					</SubTitle>
+				</div>
+				<ChosenFiltersSection>
+					{ renderChosenFilters(chosenFilters) }
+					<div onClick={ onClearFiltersClick }>*Clear all*</div>
+				</ChosenFiltersSection>
+			</TopSection>
+			<FiltersSections>
+				{ renderFilterBlock(filters) }
+			</FiltersSections>
+		</Container>
+	);
 
-		return (
-			<Container>
-				<TopSection>
-					<div>
-						<Title size="32px">Network Security</Title>
-						<SubTitle>
-							Displaying 400 Security Gateway Appliance & Solutions
-						</SubTitle>
-					</div>
-					<ChosenFiltersSection>
-						{ this.renderChosenFilters(this.state.chosenFilters) }
-						<div onClick={ this.onClearFiltersClick }>*Clear all*</div>
-					</ChosenFiltersSection>
-				</TopSection>
-				<FiltersSections>
-					{ this.renderFilterBlock(filters) }
-				</FiltersSections>
-			</Container>
-		);
-	}
 }
 
 
