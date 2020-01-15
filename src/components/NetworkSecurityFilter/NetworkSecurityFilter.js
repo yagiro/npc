@@ -132,35 +132,37 @@ function NetworkSecurityFilter({ filters }) {
 	// function render block of filter-options for specific filter-type
 	const renderFilterBlock = (filters) => {
 		// render filter-blocks
-		return filters.map(({ id, title, options }) => {
-			return (
-				<FilterOptionContainer key={id}>
-					<div>
-						<Title color={colors.textLightGray} margin="0 0 15px 0">{title}</Title>
-						{/*// render list of filter-options*/}
+		return filters.map(({ id, title, options, type }) => {
+			if(type === 'multiple') {
+				return (
+					<FilterOptionContainer key={ id }>
 						<div>
-							{options.map((option) => {
-								const checked = isChecked(chosenFilters, option.value);
+							<Title color={ colors.textLightGray } margin="0 0 15px 0">{ title }</Title>
+							{/*// render list of filter-options*/}
+							<div>
+								{options.map((option) => {
+									const checked = isChecked(chosenFilters, option.value);
 
-								// our onChange depends on "checked":
-								// if filter-option checked we need to remove option by click
-								// if filter-option unchecked we need to add filter option
-								const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
+									// our onChange depends on "checked":
+									// if filter-option checked we need to remove option by click
+									// if filter-option unchecked we need to add filter option
+									const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
 
-								// render one filter-option
-								return (
-									<div key={option.value}>
-										<Checkbox label={option.label} isChecked={checked} onChange={() => {
-											onChange(option);
-										}}/>
-									</div>
-								);
-							})}
+									// render one filter-option
+									return (
+										<div key={option.value}>
+											<Checkbox label={option.label} isChecked={checked} onChange={() => {
+												onChange(option);
+											}}/>
+										</div>
+									);
+								})}
+							</div>
 						</div>
-					</div>
-					<VerticalDivider/>
-				</FilterOptionContainer>
-			);
+						<VerticalDivider/>
+					</FilterOptionContainer>
+				);
+			}
 		});
 	};
 
@@ -180,23 +182,23 @@ function NetworkSecurityFilter({ filters }) {
 	};
 
 	// clear filters click handler
-	const onClearFiltersClick = () => {
+	const onClearFiltersClick = useCallback(() => {
 		setChosenFilters([]);
-	};
+	}, [ setChosenFilters ]);
 
 	// add filter-option click handler
-	const onAddFilterOption = (option) => {
+	const onAddFilterOption = useCallback((option) => {
 		setChosenFilters((prevChosenFilters) => {
 			return [...prevChosenFilters, option];
 		});
-	};
+	}, [ setChosenFilters ]);
 
 	// remove filter-option click handler
-	const onRemoveFilterOption = (option) => {
+	const onRemoveFilterOption = useCallback((option) => {
 		setChosenFilters((prevChosenFilters) => {
 			return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
 		});
-	};
+	}, [ setChosenFilters ]);
 
 	// show and hide Filters Section
 	const onToggleView = useCallback(() => {
@@ -229,7 +231,7 @@ function NetworkSecurityFilter({ filters }) {
 				</ToggleContainer>
 				{!isCollapse &&
 				<FiltersSections>
-					{renderFilterBlock(filters)}
+					{ renderFilterBlock(filters) }
 				</FiltersSections>
 				}
 			</BottomSection>
