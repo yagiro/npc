@@ -150,8 +150,8 @@ function NetworkSecurityFilter({ filters }) {
 
 									// render one filter-option
 									return (
-										<div key={option.value}>
-											<Checkbox label={option.label} isChecked={checked} onChange={() => {
+										<div key={ option.value }>
+											<Checkbox label={ option.label } isChecked={ checked } onChange={() => {
 												onChange(option);
 											}}/>
 										</div>
