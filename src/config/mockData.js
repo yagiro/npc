@@ -133,6 +133,7 @@ export const mockData = {
 	networkSecurityFilters: [
 		{
 			title: 'Market Segment',
+			type: 'multiple',
 			id: 1,
 			options: [ 
 				{ value: 'branchOffice', label: 'Branch Office' } ,
@@ -142,6 +143,7 @@ export const mockData = {
 		},
 		{
 			title: 'Connectivity',
+			type: 'multiple',
 			id: 2,
 			options: [
 				{ value: '1gbe', label: '1 GbE' } ,
@@ -151,6 +153,7 @@ export const mockData = {
 		},
 		{
 			title: 'Radandecncy',
+			type: 'multiple',
 			id: 3,
 			options: [
 				{ value: 'acPower', label: 'AC Power' } ,
@@ -161,6 +164,7 @@ export const mockData = {
 		},
 		{
 			title: 'Performance',
+			type: 'multiple',
 			id: 4,
 			options: [
 				{ value: '01gbps', label: '0-1 Gbps' } ,
@@ -171,6 +175,7 @@ export const mockData = {
 			],
 		},		{
 			title: 'Phisical Form Factur',
+			type: 'multiple',
 			id: 5,
 			options: [
 				{ value: 'desktop', label: 'Desktop' } ,

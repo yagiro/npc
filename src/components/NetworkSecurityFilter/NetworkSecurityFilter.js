@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Title from '../gereric/Title';
 import Checkbox from '../gereric/Checkbox';
 import { colors, fonts } from '../../config/constants';
 import Span from '../gereric/Span';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import Image from '../gereric/Image';
+import CloseImage from '../../assets/compare/x.png';
 
 const Container = styled.div`
 	display: flex;
@@ -15,6 +19,12 @@ const TopSection = styled.div`
 	display: flex;
 `;
 
+const BottomSection = styled.div`
+	border-top: ${(props) => props.isCollapse ? 0 : '1px' } solid ${ colors.lightgray };
+	border-bottom: ${(props) => props.isCollapse ? 0 : '1px' } solid ${ colors.lightgray };
+	width: 100%;
+`;
+
 const FiltersSections = styled.div`
 	display: flex;
 	width: 100%;
@@ -22,11 +32,13 @@ const FiltersSections = styled.div`
 
 const SubTitle = styled.div`
 	display: flex;
+	margin-bottom: 20px;
 `;
 
 const ChosenFiltersSection = styled.div`
 	display: flex;
 	align-items: center;
+	margin-left: 25px;
 `;
 
 const FilterOptionContainer = styled.div`
@@ -40,13 +52,36 @@ const VerticalDivider = styled.div`
 	margin:50px 25px 0 25px;
 `;
 
+const ToggleContainer = styled.div`
+	display: flex;
+	width: 100%;
+	align-items: center;
+	align-content: center;
+	margin: 20px 0;
+	letter-spacing: 0;
+	text-transform: capitalize;
+	line-height: 100%;
+`;
+
+const ToggleArea = styled.div`
+	cursor: pointer;
+`;
+
+const ChosenFilterContainer = styled.div`
+	display: flex;
+	border: ${ colors.lightgray } 1px solid;
+	border-radius: 3px;
+	background-color: ${ colors.textLightGray };
+	margin-right: 6px;
+`;
+
 function NetworkSecurityFilter({ filters }) {
 
 	const [ chosenFilters, setChosenFilters ] = useState([
 		{ value: '15gbps', label: '1-5 Gbps' },
 		{ value: '3u', label: '3 U' },
 	]);
-
+	const [ isCollapse, setIsCollapse ] = useState(false);
 
 	// function makes check if value of some option there is in chosenFilters
 	const isChecked = (chosenFilters, value) => {
@@ -64,7 +99,7 @@ function NetworkSecurityFilter({ filters }) {
 			return (
 				<FilterOptionContainer key={id}>
 					<div>
-						<Title color={colors.textLightGray} margin="15px 0">{title}</Title>
+						<Title color={colors.textLightGray} margin="0 0 15px 0">{title}</Title>
 						{/*// render list of filter-options*/}
 						<div>
 							{options.map((option) => {
@@ -96,9 +131,10 @@ function NetworkSecurityFilter({ filters }) {
 	const renderChosenFilters = (chosenFilters) => {
 		return chosenFilters.map((chosenFilter) => {
 			return (
-				<div key={chosenFilter.value} onClick={() => {
+				<ChosenFilterContainer key={ chosenFilter.value } onClick={() => {
 					onRemoveFilterOption(chosenFilter);
-				}}>{`_ ${chosenFilter.label}_`}</div>
+				}}>{ chosenFilter.label }
+				</ChosenFilterContainer>
 			);
 		});
 	};
@@ -121,6 +157,11 @@ function NetworkSecurityFilter({ filters }) {
 			return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
 		});
 	};
+
+	// show and hide Filters Section
+	const onToggleView = useCallback(() => {
+		setIsCollapse(!isCollapse);
+	}, [ isCollapse, setIsCollapse ]);
 	
 
 	return (
@@ -137,9 +178,23 @@ function NetworkSecurityFilter({ filters }) {
 					<div onClick={ onClearFiltersClick }>*Clear all*</div>
 				</ChosenFiltersSection>
 			</TopSection>
-			<FiltersSections>
-				{ renderFilterBlock(filters) }
-			</FiltersSections>
+			<BottomSection isCollapse={ isCollapse }>
+				<ToggleContainer>
+					<ToggleArea onClick={onToggleView}>{
+						!isCollapse && <Image path={CloseImage} width="12px" height="12px"/>
+					}
+					{
+						isCollapse && <FontAwesomeIcon icon={ faSlidersH } size="sm"/>
+					}
+					<Span bold>Filter</Span>
+					</ToggleArea>
+				</ToggleContainer>
+				{!isCollapse &&
+				<FiltersSections>
+					{renderFilterBlock(filters)}
+				</FiltersSections>
+				}
+			</BottomSection>
 		</Container>
 	);
 

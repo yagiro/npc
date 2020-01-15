@@ -5,12 +5,14 @@ const Span = styled.span`
 	margin: ${ ({ margin }) => margin };
 	font-size: ${ ({ size }) => size };
 	font-weight: ${ ({ bold }) => bold ? 'bold' :'normal'};
-	${ ({ color }) => !color ? '' : `color: ${ color };` }
+	${ ({ color }) => !color ? '' : `color: ${ color };` };
+	cursor: ${ ({ pointer }) => pointer ? 'pointer' : '' };
 `;
 
 Span.propTypes = {
 	color: PropTypes.string,
 	bold: PropTypes.bool,
+	pointer: PropTypes.bool,
 	size: PropTypes.string,
 	margin: PropTypes.string,
 };

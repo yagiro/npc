@@ -15,6 +15,7 @@ Image.propTypes = {
 		PropTypes.number
 	]),
 	width: PropTypes.string,
+	height: PropTypes.string,
 };
 
 export default Image;
