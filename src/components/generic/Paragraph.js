@@ -15,7 +15,8 @@ const Paragraph = styled.p`
 	text-transform: capitalize;
 	margin: 0;
 	line-height: 100%;
-	font-weight: ${ props => props.weight }
+	font-weight: ${ props => props.weight };
+	overflow: hidden;
 `;
 
 Paragraph.defaultProps = {
@@ -28,4 +29,9 @@ Paragraph.propTypes = {
 	weight: PropTypes.oneOf(['normal', 'bold']),
 };
 
+export const paragraphColors = {
+	default: 'default',
+	dark: 'dark',
+	black: 'black',
+};
 export default Paragraph;

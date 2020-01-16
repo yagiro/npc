@@ -3,13 +3,6 @@ import styled from 'styled-components';
 import { colors, fonts } from '../../config/constants';
 import PropTypes from 'prop-types';
 
-/*
-	+ color -> styleType
-	+ bg -> bgColor, label -> labelColor, etc.
-	+ hover background-color add to btnColor
-	+ btnColor -> buttonStyles
-	+ add children into types
- */
 const buttonStyles = {
 	fill: {
 		bgColor: colors.checkPointPink,
@@ -84,4 +77,9 @@ Button.propTypes = {
 	]).isRequired
 };
 
+export const buttonStyleTypes = {
+	fill: 'fill',
+	empty: 'empty',
+	bordered: 'bordered'
+};
 export default Button;

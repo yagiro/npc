@@ -6,16 +6,15 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { colors } from '../../config/constants';
 import { createClassName } from '../../lib/classNameHelper';
 import CompareModel from './CompareModel';
-import Button from '../gereric/Button';
 import CompareTitle from './CompareTitle';
 import CompareModelWrapper from './CompareModelWrapper';
-import { createArray } from '../../lib/utils';
+import CompareButtons from './CompareButtons';
 
 const MAX_MODELS_COUNT = 3;
+const MS_FADE_IN_ANIMATION = 300;
 const classPrefix = 'compare-panel';
 export const classes = {
     cards: createClassName(classPrefix, 'cards'),
-    buttons: createClassName(classPrefix, 'buttons'),
     model: createClassName(classPrefix, 'model'),
 };
 
@@ -24,11 +23,10 @@ const Container = styled.div`
 	padding: 10px 0px;
 	justify-content: center;
 	height: 100px;
-	//box-sizing: border-box;
 	background: ${ colors.background };
 	box-shadow: 0px -2px 4px ${ colors.boxShadowGrey };
 	opacity: ${ props => props.opacity };
-	transition: opacity .3s;
+	transition: opacity ${ MS_FADE_IN_ANIMATION }ms;
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -41,12 +39,6 @@ const Container = styled.div`
 			margin-left: 30px;
 		}
 	}
-	
-	> .${ classes.buttons } {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-	}
     
     .model-content-leave {
       opacity: 1;
@@ -54,17 +46,36 @@ const Container = styled.div`
     
     .model-content-leave.model-content-leave-active {
       opacity: 0;
-      transition: opacity .3s;
+      transition: opacity ${ MS_FADE_IN_ANIMATION }ms;
     }
 `;
 
-/*
- - fade-in animation time constant
- - create custom hook: useFadeAnimation (also include comments that will explain how to use it)
- - constant for 300ms animation time
- - const currModel = models[i];
- - place renderModels outside of render function
- */
+const renderModels = (models, handleCardClose) => {
+    const emptyCards = Array(MAX_MODELS_COUNT).fill(null);
+    return emptyCards.map((item, i) => {
+        const currModel = models[i];
+        return (
+            <CompareModelWrapper
+                key={ i }
+                isEmpty={ !currModel }
+            >
+                <ReactCSSTransitionGroup
+                    transitionName="model-content"
+                    transitionEnterTimeout={ MS_FADE_IN_ANIMATION }
+                    transitionLeaveTimeout={ MS_FADE_IN_ANIMATION }
+                >
+                    {  currModel &&
+                    <CompareModel
+                        key={ i }
+                        data={ currModel }
+                        onClose={ () => handleCardClose(currModel) }
+                    />
+                    }
+                </ReactCSSTransitionGroup>
+            </CompareModelWrapper>
+        )
+    })
+};
 
 const CompareModelsPanel = (props) => {
     const { isOpen, models, onChange, onClose, onCompare, onModelRemove } = props;
@@ -77,7 +88,7 @@ const CompareModelsPanel = (props) => {
             setTimeout(() => setOpacity('1'), 0);
         } else {
             setOpacity('0');
-            setTimeout(() => setDisplay('none'), 300);
+            setTimeout(() => setDisplay('none'), MS_FADE_IN_ANIMATION);
         }
     }, [ isOpen ]);
 
@@ -95,33 +106,6 @@ const CompareModelsPanel = (props) => {
         if (onCompare) onCompare(models);
     };
 
-    const renderModels = () => {
-        // const emptyCards = createArray(MAX_MODELS_COUNT, null);
-        const emptyCards = Array(MAX_MODELS_COUNT).fill(null);
-        return emptyCards.map((item, i) => {
-            return (
-                <CompareModelWrapper
-                    key={ i }
-                    isEmpty={ !models[i] }
-                >
-                    <ReactCSSTransitionGroup
-                        transitionName="model-content"
-                        transitionEnterTimeout={ 300 }
-                        transitionLeaveTimeout={ 300 }
-                    >
-                        {  models[i] &&
-                            <CompareModel
-                                key={ i }
-                                data={ models[i] }
-                                onClose={ () => handleCardClose(models[i]) }
-                            />
-                        }
-                    </ReactCSSTransitionGroup>
-                </CompareModelWrapper>
-            )
-        })
-    };
-
     return (
         <Container
             display={ display }
@@ -129,26 +113,14 @@ const CompareModelsPanel = (props) => {
         >
             <CompareTitle maxCount={ MAX_MODELS_COUNT }/>
             <div className={ classes.cards }>
-                { renderModels() }
+                { renderModels(models, handleCardClose) }
             </div>
-            <div className={ classes.buttons }>
-                <Button
-                    styleType="fill"
-                    onClick={ handleCompare }
-                    width="103px"
-                    height="30px"
-                >
-                        Compare
-                </Button>
-                <Button
-                    styleType="empty"
-                    onClick={ handleClose }
-                    width="103px"
-                    height="30px"
-                >
-                        Close
-                </Button>
-            </div>
+            <CompareButtons
+                onCompare={ handleCompare }
+                onClose={ handleClose }
+                height="30px"
+                width="103px"
+            />
         </Container>
     );
 };
@@ -174,9 +146,17 @@ CompareModelsPanel.propTypes = {
 export default CompareModelsPanel;
 
 /*
-    - encapsulate Buttons
-    - remove duplication of px in buttons
-    - create buttonStyleTypes
+ - create custom hook: useFadeAnimation (also include comments that will explain how to use it)
+ + fade-in animation time constant
+ + constant for 300ms animation time
+ + const currModel = models[i];
+ + place renderModels outside of render function
+ */
+
+/*
+    + encapsulate Buttons
+    + remove duplication of px in buttons
+    + create buttonStyleTypes
  */
 
 /*

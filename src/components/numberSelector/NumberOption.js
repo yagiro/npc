@@ -24,10 +24,13 @@ const Container = styled.div`
 	border-radius: 4px;
 	transition: background-color .3s ease-out, opacity .3s ease-out, color .3s ease-out;
 	
+	> span {
+		position: relative;
+		top: 1px;
+	}
+	
 	&:hover {
 		background-color:  rgba(${ hexToRgb(colors.checkPointPink) }, ${ (props) => props.selected ? 1 : .4 });
-		// color: ${ (props) => props.selected ? 'auto' : colors.background };
-		//opacity: ${ (props) => props.selected ? '1' : '.4' };
 	}
 `;
 
@@ -37,7 +40,7 @@ const NumberOption = ({ value, selected, onClick }) => (
 		className={ classes.container }
 		onClick={ () => onClick(value) }
 	>
-		{ value }
+		<span>{ value }</span>
 	</Container>
 );
 

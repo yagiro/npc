@@ -68,5 +68,5 @@ NumberOption
 
 + move mockData to separate file (regular js file)
 
-	- check vertical center !!!!
+	+ check vertical center !!!!
  */

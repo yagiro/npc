@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ReactSVG } from 'react-svg';
+import classNames from 'classnames';
 
 import { createClassName } from '../../lib/classNameHelper';
-import MenuItem from './MenuItem';
+import TubItem from './TubItem';
 import { colors } from '../../config/constants';
-import { classes as menuItemClasses } from './MenuItem';
-
-const classPrefix = 'menu';
-export const classes = {
-    icon: createClassName(classPrefix, 'icon'),
-};
+import { classes as menuItemClasses } from './TubItem';
+import { buildPublicFolderUrl } from '../../lib/assetsHelper';
+import ImageTabItem from './ImageTabItem';
 
 const Container = styled.div`  
 	display: flex;
@@ -19,52 +17,43 @@ const Container = styled.div`
     > .${ menuItemClasses.container }:not(:last-child) {
       margin-right: 35px;
     }
-    
-    .${ classes.icon } {
-      margin-right: 6px;
-    } 
 `;
 
-const Menu = (props) => {
+const DumbTabNavigation = (props) => {
     const { options, onChange, value } = props;
-    const [ activeValue, setActiveValue ] = useState(value);
+    const [ stateValue, setStateValue ] = useState(value);
 
     const handleClick = (value) => {
-        setActiveValue(value);
+        setStateValue(value);
         if (onChange) onChange(value);
     };
 
     return (
-        <Container>
-            { options.map((item, index) => {
+        <Container activeValue={ stateValue }>
+            { options.map((item) => {
                 const { value, label, image } = item;
 
                 return (
-                    <MenuItem
+                    <TubItem
                         key={ value }
-                        isActive={ activeValue === value }
+                        isActive={ stateValue === value }
                         onClick={ () => handleClick(value) }
                     >
-                        <ReactSVG
-                            className={ classes.icon }
-                            style={ { fill: activeValue === value ? colors.checkPointPink : colors.menuGray } }
-                            src={ process.env.PUBLIC_URL + image }
-
-                        />
+                        <ImageTabItem image={ image } isActive={ stateValue === value }/>
                         { label }
-                    </MenuItem>
+                    </TubItem>
                 );
             }) }
         </Container>
     );
 };
 
-Menu.defaultProps = {
+DumbTabNavigation.defaultProps = {
     options: [],
     value: null,
 };
 
-Menu.propTypes = {
+DumbTabNavigation.propTypes = {
     value: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.shape({
         value: PropTypes.string,
@@ -74,15 +63,15 @@ Menu.propTypes = {
     onChange: PropTypes.func.isRequired,
 };
 
-export default Menu;
+export default DumbTabNavigation;
 
 /*
-    - rename: Menu -> DumbTabNavigation
+    + rename: Menu -> DumbTabNavigation
     - useCallback
-    - use styled components instead of style object
-    - process.env.PUBLIC_URL encapsulate
-    - encapsulate into ImageTabItem
-    - activeValue -> stateValue
+    + use styled components instead of style object
+    + process.env.PUBLIC_URL encapsulate
+    + encapsulate into ImageTabItem
+    + activeValue -> stateValue
     - create TabNavigation (useEffect)
         - props: value, defaultValue, onChange, options
         - will support both controlled and uncontrolled modes

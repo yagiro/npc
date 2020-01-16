@@ -6,8 +6,8 @@ import { cardTypes } from './config/constants';
 import CompareModelsPanel from './components/comparePanel/CompareModelsPanel';
 import NumberSelector from './components/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
-import Checkbox from './components/gereric/Checkbox';
-import Menu from './components/Menu/Menu';
+import Checkbox from './components/generic/Checkbox';
+import DumbTabNavigation from './components/Menu/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/comparePanel/ComparePanetCtrlTmp';
 
 // MOCK DATA FOR TESTING PROPS IN CARD ITEMS
@@ -28,7 +28,7 @@ class App extends Component {
 		return (
 			<div className="App">
 
-				<Menu
+				<DumbTabNavigation
 					options={ mockData.menuItems }
 					value={ selectedMenuItem }
 					onChange={ (value) => console.log(value) }

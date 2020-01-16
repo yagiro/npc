@@ -6,6 +6,7 @@ import { colors, fonts } from '../../config/constants';
 import { createClassName } from '../../lib/classNameHelper';
 
 const classPrefix = 'menu-item';
+const MS_TRANSITION = 400;
 export const classes = {
     container: createClassName(classPrefix, 'container'),
     content: createClassName(classPrefix, 'content'),
@@ -14,7 +15,6 @@ export const classes = {
 const Container = styled.div`  
 	display: flex;
 	flex-direction: column;
-    //text-align: center;
     height: 31px;
     position: relative;
     cursor: pointer;
@@ -24,10 +24,8 @@ const Container = styled.div`
         display: flex;
         font: ${ fonts.paragraph };
         line-height: 14px;
-        //letter-spacing: 0;
         color: ${ props => props.isActive ? colors.checkPointPink : colors.menuGray };
-        transition: color .2s;
-        //text-transform: capitalize;
+        transition: color ${ Math.round(MS_TRANSITION / 2) }ms;
     }
     
     &::after {
@@ -38,26 +36,17 @@ const Container = styled.div`
       position: absolute;
       bottom: 0;
       background: ${ colors.checkPointPink };
-      transition: all .4s cubic-bezier(0,1.07,.56,.95);
+      transition: all ${ MS_TRANSITION }ms cubic-bezier(0,1.07,.56,.95);
     }
 `;
 
-/*
-    - TRANSITION: SPECIFIC things
-    - rename: TabItem
- */
-
-const MenuItem = (props) => {
+const TubItem = (props) => {
     const { children, className, ...otherProps } = props;
-    // const { onClick, children, isActive } = props;
-    // const handleClick = useCallback(() => onClick(), [ onClick ]);
 
     return (
         <Container
             className={ classNames(classes.container, className) }
             { ...otherProps }
-            // isActive={ isActive }
-            // onClick={ onClick }
         >
             <div className={ classes.content }>
                 { children }
@@ -66,14 +55,19 @@ const MenuItem = (props) => {
     );
 };
 
-MenuItem.defaultProps = {
+TubItem.defaultProps = {
     isActive: false,
 };
 
-MenuItem.propTypes = {
+TubItem.propTypes = {
     isActive: PropTypes.bool,
     onClick: PropTypes.func,
     children: PropTypes.node,
 };
 
-export default MenuItem;
+export default TubItem;
+
+/*
+    + TRANSITION: SPECIFIC things
+    + rename: TabItem
+*/
