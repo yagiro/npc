@@ -1,67 +1,89 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, fonts } from '../../config/constants';
+import { ReactSVG } from 'react-svg';
+
 import { createClassName } from '../../lib/classNameHelper';
 import MenuItem from './MenuItem';
+import { colors } from '../../config/constants';
 import { classes as menuItemClasses } from './MenuItem';
-import balloonImg from '../../assets/menu/hot-air-balloon.svg';
-import clockImg from '../../assets/menu/XMLID_806_.svg';
-import sizeImg from '../../assets/menu/size.svg';
 
-import { ReactComponent as Balloon } from '../../assets/menu/hot-air-balloon.svg';
-import { ReactComponent as Clock } from '../../assets/menu/XMLID_806_.svg';
-import { ReactComponent as Size } from '../../assets/menu/size.svg';
+const classPrefix = 'menu';
+export const classes = {
+    icon: createClassName(classPrefix, 'icon'),
+};
 
 const Container = styled.div`  
 	display: flex;
-    border: 1px black solid;
     
     > .${ menuItemClasses.container }:not(:last-child) {
       margin-right: 35px;
     }
+    
+    .${ classes.icon } {
+      margin-right: 6px;
+    } 
 `;
 
-// const images = [ balloonImg, clockImg, sizeImg ];
-
 const Menu = (props) => {
-    const { data, onChange } = props;
-    const [ activeIndex, setActiveIndex ] = useState(0);
-    const handleClick = useCallback(() => {
-        onChange ? onChange() :console.log('onChange is not defined');
-    }, [onChange]);
+    const { options, onChange, value } = props;
+    const [ activeValue, setActiveValue ] = useState(value);
 
-    const images = [ <Balloon fill='#EC407A' />, <Clock fill='#EC407A' />, <Size fill='#EC407A' /> ];
+    const handleClick = (value) => {
+        setActiveValue(value);
+        if (onChange) onChange(value);
+    };
 
     return (
         <Container>
-            { data.map((item, index) => {
-                return <MenuItem key={ index }
-                        id={ index }
-                        isActive={ activeIndex === index }
-                        onClick={ (index) => {
-                            setActiveIndex(index)
-                        } }
-                        icon={ images[index] }>
-                    <img src={ balloonImg } style={{ fill: '#EC407A' }} fill='#EC407A' />
-                    {/*{ images[index] }*/}
-                    { item.title }
-                </MenuItem>
+            { options.map((item, index) => {
+                const { value, label, image } = item;
+
+                return (
+                    <MenuItem
+                        key={ value }
+                        isActive={ activeValue === value }
+                        onClick={ () => handleClick(value) }
+                    >
+                        <ReactSVG
+                            className={ classes.icon }
+                            style={ { fill: activeValue === value ? colors.checkPointPink : colors.menuGray } }
+                            src={ process.env.PUBLIC_URL + image }
+
+                        />
+                        { label }
+                    </MenuItem>
+                );
             }) }
         </Container>
     );
 };
 
 Menu.defaultProps = {
-    data: []
+    options: [],
+    value: null,
 };
 
 Menu.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number,
-        title: PropTypes.string,
+    value: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.shape({
+        value: PropTypes.string,
+        label: PropTypes.string,
+        image: PropTypes.string,
     })),
-    onChange: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default Menu;
+
+/*
+    - rename: Menu -> DumbTabNavigation
+    - useCallback
+    - use styled components instead of style object
+    - process.env.PUBLIC_URL encapsulate
+    - encapsulate into ImageTabItem
+    - activeValue -> stateValue
+    - create TabNavigation (useEffect)
+        - props: value, defaultValue, onChange, options
+        - will support both controlled and uncontrolled modes
+ */

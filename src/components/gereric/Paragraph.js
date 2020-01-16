@@ -26,6 +26,6 @@ Paragraph.defaultProps = {
 Paragraph.propTypes = {
 	color: PropTypes.oneOf(['default', 'dark', 'black']),
 	weight: PropTypes.oneOf(['normal', 'bold']),
-}
+};
 
 export default Paragraph;

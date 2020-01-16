@@ -94,21 +94,38 @@ export const mockData = {
 	// MOCK FOR COMPARE PANEL
 	compareList: [
 		{
-			image: '../../assets/compare/MaestroHyperscaleGateway.png',
+			image: '/images/MaestroHyperscaleGateway.png',
 			title: '6500 Based Solution',
 			price: 35000,
 		},
 		{
-			image: '../../assets/compare/MaestroHyperscaleGateway.png',
-			title: '6500 Based Solution',
+			image: '/images/MaestroHyperscaleGateway.png',
+			title: '7500 Based Solution',
 			price: 38000,
+		},
+		{
+			image: '/images/MaestroHyperscaleGateway.png',
+			title: '8500 Based Solution',
+			price: 20000,
 		},
 	],
 
 	// MOCK FOR MENU
 	menuItems: [
-		{ id: 1, title: 'explore product' },
-		{ id: 2, title: 'quick quote' },
-		{ id: 3, title: 'quote by sizing' },
+		{
+			value: 'product',
+			label: 'explore product',
+			image: '/images/hot-air-balloon.svg',
+		},
+		{
+			value: 'quote',
+			label: 'quick quote',
+			image: '/images/XMLID_806_.svg',
+		},
+		{
+			value: 'size',
+			label: 'quote by sizing',
+			image: '/images/size.svg',
+		},
 	]
 };

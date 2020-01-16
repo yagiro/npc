@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { createClassName } from '../../lib/classNameHelper';
 import { colors } from '../../config/constants';
+import { hexToRgb } from '../../lib/utils';
 
 const classPrefix = 'number-option';
 export const classes = {
@@ -21,12 +22,12 @@ const Container = styled.div`
 	width: 30px;
 	height: 27px;
 	border-radius: 4px;
-	transition: background-color .2s, color .2s, opacity .2s;
+	transition: background-color .3s ease-out, opacity .3s ease-out, color .3s ease-out;
 	
 	&:hover {
-		background-color:  ${ colors.checkPointPink };
-		color: ${ (props) => props.selected ? 'auto' : colors.background };
-		opacity: ${ (props) => props.selected ? '1' : '.4' };
+		background-color:  rgba(${ hexToRgb(colors.checkPointPink) }, ${ (props) => props.selected ? 1 : .4 });
+		// color: ${ (props) => props.selected ? 'auto' : colors.background };
+		//opacity: ${ (props) => props.selected ? '1' : '.4' };
 	}
 `;
 

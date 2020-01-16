@@ -67,4 +67,6 @@ NumberOption
 		+ todo: maybe change rem to px (width & height)
 
 + move mockData to separate file (regular js file)
+
+	- check vertical center !!!!
  */
