@@ -1,4 +1,5 @@
 import { cardTypes } from './constants';
+import PropTypes from 'prop-types';
 
 export const mockData = {
 
@@ -185,6 +186,54 @@ export const mockData = {
 				{ value: '4u', label: '4 U' },
 			],
 		},
+	],
 
+	solutionCubes: [
+		{
+			id: 1,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png'],
+			label: 'Network security',
+			features: ['item 1', 'item 2', 'item 3', 'item 4'],
+			backGroundImage: '/images/generic-city1-background-2000x660.png',
+		},
+		{
+			id: 2,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png', 'images/CloudGuard_Alibaba-Cloud.png'],
+			label: 'cloud guard',
+			features: ['item 1', 'item 2', 'item 3'],
+		},
+		{
+			id: 3,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png'],
+			label: 'Network security',
+			features: ['item 1', 'item 2', 'item 3', 'item 4'],
+			backGroundImage: '/images/generic-city1-background-2000x660.png',
+		},
+		{
+			id: 4,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png', 'images/CloudGuard_Alibaba-Cloud.png'],
+			label: 'cloud guard',
+			features: ['item 1', 'item 2', 'item 3'],
+		},
+		{
+			id: 5,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png'],
+			label: 'Network security',
+			features: ['item 1', 'item 2', 'item 3', 'item 4'],
+			backGroundImage: '/images/generic-city1-background-2000x660.png',
+		},
+		{
+			id: 6,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png', 'images/CloudGuard_Alibaba-Cloud.png'],
+			label: 'cloud guard',
+			features: ['item 1', 'item 2', 'item 3'],
+			backGroundImage: '/images/generic-city1-background-2000x660.png',
+		},
 	]
 };

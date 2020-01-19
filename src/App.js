@@ -11,6 +11,7 @@ import Checkbox from './components/generic/Checkbox';
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 
 class App extends Component {
 
@@ -28,7 +29,10 @@ class App extends Component {
 
 		return (
 			<div className="App">
-
+				<SolutionGroupGallery
+					cubes={ mockData.solutionCubes }
+					onChoose={ (value) => console.log(value) }
+				/>
 				<DumbTabNavigation
 					options={ mockData.menuItems }
 					activeTabId={ selectedMenuItem }
