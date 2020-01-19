@@ -25,18 +25,22 @@ const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) 
 		return !!filter;
 	};
 
+	const isCheckedNew = (chosenFilters, filterId, optionId) => {
+		return chosenFilters[filterId] && chosenFilters[filterId].value.has(optionId);
+	};
+
 	// add filter-option click handler
 	const onAddFilterOption = useCallback((option) => {
-		onChange((prevChosenFilters) => {
-			return [...prevChosenFilters, option];
-		});
+		// onChange((prevChosenFilters) => {
+		// 	return [...prevChosenFilters, option];
+		// });
 	}, [onChange]);
 
 	// remove filter-option click handler
 	const onRemoveFilterOption = useCallback((option) => {
-		onChange((prevChosenFilters) => {
-			return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
-		});
+		// onChange((prevChosenFilters) => {
+		// 	return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
+		// });
 	}, [onChange]);
 
 	return (
@@ -46,7 +50,8 @@ const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) 
 				{/*// render list of filter-options*/}
 				<div>
 					{ options.map((option) => {
-						const checked = isChecked(chosenFilters, option.value);
+						const checked = isChecked(chosenFilters, option.filterId, option.value);
+						console.log(isCheckedNew(chosenFilters, option.filterId, option.value));
 						// render one filter-option
 						return (
 							<div key={ option.value }>

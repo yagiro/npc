@@ -52,7 +52,14 @@ const ChosenFilters = ({ chosenFilters, onChange }) => {
 
 	// render chosen filters in the Top Section of Filter Panel
 	const renderChosenFilters = (chosenFilters) => {
-		return chosenFilters.map((chosenFilter) => {
+		
+		let retrievedOptions = [];
+		
+		Object.keys(chosenFilters).forEach(function(key) {
+			retrievedOptions.push(...chosenFilters[key].value);
+		});
+		
+		return retrievedOptions.map((chosenFilter) => {
 			return (
 				<ChosenFilterContainer key={ chosenFilter.value }>{ chosenFilter.label }
 					<CrossImgWrapper onClick={() => {
@@ -67,19 +74,34 @@ const ChosenFilters = ({ chosenFilters, onChange }) => {
 	
 	// clear filters click handler
 	const onClearFiltersClick = useCallback(() => {
-		onChange([]);
-	}, [ onChange ]);
+		onChange({});
+	}, [onChange]);
 
 	const onRemoveFilterOption = useCallback((option) => {
 		onChange((prevChosenFilters) => {
-			return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
+			const filter = prevChosenFilters[option.filterId];
+			const prevOptions = [ ...filter.value ];
+			const updatedOptions = prevOptions.filter((filterOption) => filterOption.value !== option.value);
+			return { ...prevChosenFilters, [filter.filterId]: { ...filter, value: new Set([...updatedOptions]) } };
 		});
-	}, [ onChange ]);
-
+	}, [onChange]);
+	
+	const isChosenFilters = (chosenFilters) => {
+		let flag = false;
+		
+		Object.keys(chosenFilters).forEach(function(key) {
+			if([...chosenFilters[key].value].length > 0) {
+				flag = true;
+			}
+		});
+		
+		return flag;
+	};
+	
 	return (
 		<ChosenFiltersSection>
 			{ renderChosenFilters(chosenFilters) }
-			{ chosenFilters.length > 0 && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
+			{ isChosenFilters(chosenFilters) && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
 		</ChosenFiltersSection>
 	);
 };

@@ -136,9 +136,9 @@ export const mockData = {
 			type: 'multiple',
 			id: 1,
 			options: [ 
-				{ value: 'branchOffice', label: 'Branch Office' } ,
-				{ value: 'smallEnterprise', label: 'Small Enterprise' },
-				{ value: 'midsizeEnterprise', label: 'Midsize Enterprise' },
+				{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
+				{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
+				{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment'  },
 			],
 		},
 		{
@@ -146,9 +146,9 @@ export const mockData = {
 			type: 'multiple',
 			id: 2,
 			options: [
-				{ value: '1gbe', label: '1 GbE' } ,
-				{ value: '10gbe', label: '10 GbE' },
-				{ value: '25gbe', label: '25 GbE (5)' },
+				{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' } ,
+				{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
+				{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
 			],
 		},
 		{
@@ -156,10 +156,10 @@ export const mockData = {
 			type: 'multiple',
 			id: 3,
 			options: [
-				{ value: 'acPower', label: 'AC Power' } ,
-				{ value: 'dcPower', label: 'DC Power' },
-				{ value: 'ssdStorage', label: 'SSD storage' },
-				{ value: 'hhdStorage', label: 'HDD Storage' },
+				{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' } ,
+				{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
+				{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
+				{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },
 			],
 		},
 		{
@@ -167,11 +167,11 @@ export const mockData = {
 			type: 'multiple',
 			id: 4,
 			options: [
-				{ value: '01gbps', label: '0-1 Gbps' } ,
-				{ value: '15gbps', label: '1-5 Gbps' },
-				{ value: '510gbps', label: '5-10 Gbps' },
-				{ value: '1040gbps', label: '10-40 Gbps' },
-				{ value: 'more40gbps', label: '40 and more Gbps' },
+				{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' } ,
+				{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
+				{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
+				{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
+				{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },
 			],
 		},		{
 			title: 'Phisical Form Factur',
@@ -179,10 +179,10 @@ export const mockData = {
 			id: 5,
 			options: [
 				{ value: 'desktop', label: 'Desktop' } ,
-				{ value: '1u', label: '1 U' },
-				{ value: '2u', label: '2 U' },
-				{ value: '3u', label: '3 U' },
-				{ value: '4u', label: '4 U' },
+				{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
+				{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
+				{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
+				{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
 			],
 		},
 
