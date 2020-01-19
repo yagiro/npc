@@ -16,7 +16,8 @@ const MockFiltersContainer = () => {
 			filterId: 'marketSegment',
 			value: new Set([
 				{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
-				{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },]),
+				{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
+			]),
 		},
 	});
 
