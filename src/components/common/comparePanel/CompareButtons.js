@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { createClassName } from '../../lib/classNameHelper';
-import Button from '../generic/Button';
-import { buttonStyleTypes } from '../generic/Button';
+import { createClassName } from '../../../lib/classNameHelper';
+import Button from '../../generic/Button';
+import { buttonStyleTypes } from '../../generic/Button';
 
 const classPrefix = 'compare-buttons';
 export const classes = {

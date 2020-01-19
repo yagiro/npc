@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { mockData } from '../../config/mockData';
+import { mockData } from '../../../config/mockData';
 
 class ComparePanelCtrlTmp extends Component {
 
@@ -93,4 +93,3 @@ ComparePanelCtrlTmp.propTypes = {
 };
 
 export default ComparePanelCtrlTmp;
-

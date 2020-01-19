@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Paragraph from '../generic/Paragraph';
+import Paragraph from '../../generic/Paragraph';
 import CompareHeader from './CompareHeader';
 
 const Container = styled.div`
@@ -15,7 +15,7 @@ const Container = styled.div`
 const CompareTitle = ({ maxCount }) => {
     return (
         <Container>
-            <Paragraph>Select Up To { maxCount } Solution</Paragraph>
+            <Paragraph>Select Up To { maxCount } Solutions</Paragraph>
             <CompareHeader>To Compare</CompareHeader>
         </Container>
     );
@@ -30,4 +30,3 @@ CompareTitle.propTypes = {
 };
 
 export default CompareTitle;
-

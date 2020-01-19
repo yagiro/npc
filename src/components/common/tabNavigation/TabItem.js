@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { colors, fonts } from '../../config/constants';
-import { createClassName } from '../../lib/classNameHelper';
+import { colors, fonts } from '../../../config/constants';
+import { createClassName } from '../../../lib/classNameHelper';
 
 const classPrefix = 'menu-item';
 const MS_TRANSITION = 400;
@@ -40,7 +40,7 @@ const Container = styled.div`
     }
 `;
 
-const TubItem = (props) => {
+const TabItem = (props) => {
     const { children, className, ...otherProps } = props;
 
     return (
@@ -55,19 +55,14 @@ const TubItem = (props) => {
     );
 };
 
-TubItem.defaultProps = {
+TabItem.defaultProps = {
     isActive: false,
 };
 
-TubItem.propTypes = {
+TabItem.propTypes = {
     isActive: PropTypes.bool,
     onClick: PropTypes.func,
     children: PropTypes.node,
 };
 
-export default TubItem;
-
-/*
-    + TRANSITION: SPECIFIC things
-    + rename: TabItem
-*/
+export default TabItem;

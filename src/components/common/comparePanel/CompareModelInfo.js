@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { createClassName } from '../../lib/classNameHelper';
-import Paragraph, { paragraphColors } from '../generic/Paragraph';
-import { formatCurrency } from '../../lib/formatters';
+import { createClassName } from '../../../lib/classNameHelper';
+import Paragraph, { paragraphColors } from '../../generic/Paragraph';
+import { formatCurrency } from '../../../lib/formatters';
 
 const classPrefix = 'compare-buttons';
 export const classes = {

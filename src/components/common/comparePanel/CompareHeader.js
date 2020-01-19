@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, fonts } from '../../config/constants';
+import { colors, fonts } from '../../../config/constants';
 
 const CompareHeader = styled.p`
 	font: ${ fonts.header };

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { createClassName } from '../../lib/classNameHelper';
-import Image from '../generic/Image';
-import { buildPublicFolderUrl } from '../../lib/assetsHelper';
+import { createClassName } from '../../../lib/classNameHelper';
+import Image from '../../generic/Image';
+import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import CompareModelCloseButton from './CompareModelCloseButton';
 import CompareModelInfo from './CompareModelInfo';
 
@@ -36,16 +36,16 @@ const CompareModel = (props) => {
 
     useEffect(() => setShow(!!data), [ data ]);
 
-    const handleClick = () => {
+    const handleClick = useCallback (() => {
         if (onClose) onClose();
-    };
+    }, [ onClose ]);
 
     if (!data) return null;
 
     return (
         <Container show={ show }>
             <div className={ classes.image }>
-                <Image path={ buildPublicFolderUrl(image) }/>
+                <Image path={ buildAssetAbsolutePath(image) }/>
             </div>
             <CompareModelInfo title={ title } price={ price }/>
             <CompareModelCloseButton onClick={ handleClick }/>
@@ -64,9 +64,3 @@ CompareModel.propTypes = {
 
 export default CompareModel;
 
-/*
-	+ encapsulate CloseButton
-	+ encapsulate Info
-	+ process.env.PUBLIC_URL > use function
-	+ create formatters.js file with formatCurrency and use it
- */

@@ -3,12 +3,13 @@ import './App.css';
 import CollapseWrapper from './components/CollapseWrapper';
 import ItemCard from './components/itemCard/ItemCard';
 import { cardTypes } from './config/constants';
-import CompareModelsPanel from './components/comparePanel/CompareModelsPanel';
-import NumberSelector from './components/numberSelector/NumberSelector';
+import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
+import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
 import Checkbox from './components/generic/Checkbox';
-import DumbTabNavigation from './components/Menu/DumbTabNavigation';
-import ComparePanelCtrlTmp from './components/comparePanel/ComparePanetCtrlTmp';
+import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
+import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
+import TabNavigation from './components/common/tabNavigation/TabNavigation';
 
 // MOCK DATA FOR TESTING PROPS IN CARD ITEMS
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
 		this.state = {
 			showCompare: false,
 			compareModels: [],
-			selectedMenuItem: 'product',
+			selectedMenuItem: 1,
 		};
 	}
 
@@ -30,8 +31,21 @@ class App extends Component {
 
 				<DumbTabNavigation
 					options={ mockData.menuItems }
-					value={ selectedMenuItem }
-					onChange={ (value) => console.log(value) }
+					activeTabId={ selectedMenuItem }
+					onChange={ (value) => {
+						console.log(value);
+						this.setState({ selectedMenuItem: value })
+					}}
+				/>
+				<br/>
+				<TabNavigation
+					options={ mockData.menuItems }
+					defaultActiveTabId={ 2 }
+					// activeTabId={ selectedMenuItem }
+					onChange={(value) => {
+						console.log(value);
+						// this.setState({ selectedMenuItem: value })
+					}}
 				/>
 				<ComparePanelCtrlTmp
 					models={ models }

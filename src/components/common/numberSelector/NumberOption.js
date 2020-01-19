@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { createClassName } from '../../lib/classNameHelper';
-import { colors } from '../../config/constants';
-import { hexToRgb } from '../../lib/utils';
+import { createClassName } from '../../../lib/classNameHelper';
+import { colors } from '../../../config/constants';
+import { hexToRgb } from '../../../lib/utils';
 
 const classPrefix = 'number-option';
 export const classes = {
-	container: createClassName(classPrefix, 'container'),
+    container: createClassName(classPrefix, 'container'),
 };
 
 const Container = styled.div`  
@@ -35,23 +35,19 @@ const Container = styled.div`
 `;
 
 const NumberOption = ({ value, selected, onClick }) => (
-	<Container
-		selected={ selected }
-		className={ classes.container }
-		onClick={ () => onClick(value) }
-	>
-		<span>{ value }</span>
-	</Container>
+    <Container
+        selected={ selected }
+        className={ classes.container }
+        onClick={ () => onClick(value) }
+    >
+        <span>{ value }</span>
+    </Container>
 );
 
 NumberOption.propTypes = {
-	value: PropTypes.number.isRequired,
-	selected: PropTypes.bool,
-	onClick: PropTypes.func
+    value: PropTypes.number.isRequired,
+    selected: PropTypes.bool,
+    onClick: PropTypes.func
 };
 
 export default NumberOption;
-
-/*
-	- hover color ????
- */

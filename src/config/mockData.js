@@ -113,19 +113,19 @@ export const mockData = {
 	// MOCK FOR MENU
 	menuItems: [
 		{
-			value: 'product',
+			id: 1,
 			label: 'Explore Product',
-			image: '/images/hot-air-balloon.svg',
+			imagePath: '/images/hot-air-balloon.svg',
 		},
 		{
-			value: 'quote',
+			id: 2,
 			label: 'Quick Quote',
-			image: '/images/XMLID_806_.svg',
+			imagePath: '/images/XMLID_806_.svg',
 		},
 		{
-			value: 'size',
+			id: 3,
 			label: 'Quote By Sizing',
-			image: '/images/size.svg',
+			imagePath: '/images/size.svg',
 		},
 	]
 };

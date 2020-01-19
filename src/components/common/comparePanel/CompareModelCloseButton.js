@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { createClassName } from '../../lib/classNameHelper';
-import Image from '../generic/Image';
-import CloseImage from '../../assets/compare/x.png';
+import { createClassName } from '../../../lib/classNameHelper';
+import Image from '../../generic/Image';
+import CloseImage from '../../../assets/compare/x.png';
 
 const classPrefix = 'compare-buttons';
 export const classes = {
