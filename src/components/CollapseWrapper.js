@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Collapse } from 'react-collapse';
 import Image from './generic/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
@@ -29,7 +30,9 @@ function CollapseWrapper({ children, imgSource, title }) {
 				{ isCollapse && <FontAwesomeIcon icon={ faAngleUp } /> }
 				{ !isCollapse && <FontAwesomeIcon icon={ faAngleDown } /> }
 			</ToggleArea>
-			{ isCollapse && children }
+			<Collapse isOpened={ isCollapse } initialStyle={{ height: '0px', overflow: 'hidden' }} >
+				{ children }
+			</Collapse>
 		</div>
 	);
 }

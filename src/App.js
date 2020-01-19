@@ -11,6 +11,7 @@ import Checkbox from './components/generic/Checkbox';
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import { Collapse } from 'react-collapse';
 
 class App extends Component {
 
@@ -75,6 +76,9 @@ class App extends Component {
 					onModelRemove={ (model) => console.log('Model removing', model) }
 					onChange={ (models) => this.setState({ models }) }
 				/>
+				<Collapse isOpened={this.state.showCompare} initialStyle={{ height: '0px', overflow: 'hidden' }}>
+					<div>Random content</div>
+				</Collapse>
 			</div>
 		);
 	}

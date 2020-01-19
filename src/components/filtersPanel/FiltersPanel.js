@@ -9,6 +9,7 @@ import { colors, fonts } from '../../config/constants';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import ChosenFilters from './ChosenFilters';
 import Filters from './Filters';
+import { Collapse } from 'react-collapse';
 
 const Container = styled.div`
 	display: flex;
@@ -79,12 +80,13 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 						<Span bold margin="0 0 0 15px">Filter</Span>
 					</ToggleArea>
 				</ToggleContainer>
-				{!isCollapse &&
-				<Filters
-					onChange={ onChange }
-					chosenFilters={ chosenFilters }
-					filters={ filters }/>
-				}
+				<Collapse isOpened={ isCollapse }>
+
+					<Filters
+						onChange={ onChange }
+						chosenFilters={ chosenFilters }
+						filters={ filters }/>
+				</Collapse>
 			</BottomSection>
 		</Container>
 	);
