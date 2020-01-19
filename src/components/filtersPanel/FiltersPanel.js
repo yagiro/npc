@@ -72,7 +72,7 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 			</TopSection>
 			<BottomSection isCollapse={ isCollapse }>
 				<ToggleContainer>
-					<ToggleArea onClick={onToggleView}>
+					<ToggleArea onClick={ onToggleView }>
 						{ !isCollapse
 							? <FontAwesomeIcon icon={ faSlidersH } size="sm"/>
 							: <Image path={ CloseImage } width="12px" height="12px"/>
@@ -86,6 +86,7 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 						onChange={ onChange }
 						chosenFilters={ chosenFilters }
 						filters={ filters }/>
+
 				</Collapse>
 			</BottomSection>
 		</Container>
