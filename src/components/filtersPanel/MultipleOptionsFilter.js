@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import Title from '../gereric/Title';
+import Title from '../generic/Title';
 import { colors } from '../../config/constants';
-import Checkbox from '../gereric/Checkbox';
+import Checkbox from '../generic/Checkbox';
 import styled from 'styled-components';
 
 const FilterOptionContainer = styled.div`

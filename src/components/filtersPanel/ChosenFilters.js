@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import Image from '../gereric/Image';
+import Image from '../generic/Image';
 import CloseImage from '../../assets/compare/x.png';
 import { colors } from '../../config/constants';
 

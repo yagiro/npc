@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import Title from '../gereric/Title';
-import Checkbox from '../gereric/Checkbox';
-import Span from '../gereric/Span';
+import Title from '../generic/Title';
+import Checkbox from '../generic/Checkbox';
+import Span from '../generic/Span';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from '../gereric/Image';
+import Image from '../generic/Image';
 import CloseImage from '../../assets/compare/x.png';
 import { colors, fonts } from '../../config/constants';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';

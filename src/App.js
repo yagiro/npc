@@ -34,7 +34,7 @@ class App extends Component {
 					activeTabId={ selectedMenuItem }
 					onChange={ (value) => {
 						console.log(value);
-						this.setState({ selectedMenuItem: value })
+						this.setState({ selectedMenuItem: value });
 					}}
 				/>
 				<br/>
