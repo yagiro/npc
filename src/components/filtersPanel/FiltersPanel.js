@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Title from '../gereric/Title';
 import Checkbox from '../gereric/Checkbox';
@@ -8,6 +8,7 @@ import Image from '../gereric/Image';
 import CloseImage from '../../assets/compare/x.png';
 import { colors, fonts } from '../../config/constants';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import ChosenFilters from './ChosenFilters';
 
 const Container = styled.div`
 	display: flex;
@@ -33,13 +34,6 @@ const FiltersSections = styled.div`
 const SubTitle = styled.div`
 	display: flex;
 	margin-bottom: 20px;
-`;
-
-const ChosenFiltersSection = styled.div`
-	display: flex;
-	align-items: center;
-	margin-left: 25px;
-	flex-wrap: wrap;
 `;
 
 const FilterOptionContainer = styled.div`
@@ -71,54 +65,9 @@ const ToggleArea = styled.div`
 	cursor: pointer;
 `;
 
-const ChosenFilterContainer = styled.div`
-	display: flex;
-	border: ${ colors.lightgray } 1px solid;
-	border-radius: 3px;
-	background-color: ${ colors.background };
-	margin-right: 6px;
-	align-items: center;
-	letter-spacing: 0;
-	text-transform: capitalize;
-	line-height: 100%;
-	padding-left: 5px;
-	font-size: 12px;
-	color: ${ colors.textLightGray };
-`;
+function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, subTitle }) {
 
-const CrossImgWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	margin-left: 5px;
-	height: 100%;
-	border-left: ${ colors.lightgray } 1px solid;
-	padding: 6px 7px 7px 7px;
-	cursor: pointer;
-	
-	&:hover {
-		background-color: ${colors.whitesmoke};
-	}
-`;
-
-const ClearAllButton = styled.div`
-	text-align: left;
-	text-decoration: underline;
-	margin-left: 15px;
-	cursor: pointer;
-`;
-
-function NetworkSecurityFilter({ filters }) {
-
-	const [ chosenFilters, setChosenFilters ] = useState([
-		// { value: '15gbps', label: '1-5 Gbps' },
-		// { value: '3u', label: '3 U' },
-	]);
 	const [ isCollapse, setIsCollapse ] = useState(false);
-
-	useEffect(() => {
-		console.log('REQUEST TO GET UPDATED PRODUCTS');
-		console.log(chosenFilters);
-	}, [ chosenFilters ]);
 
 	// function makes check if value of some option there is in chosenFilters
 	const isChecked = (chosenFilters, value) => {
@@ -166,39 +115,19 @@ function NetworkSecurityFilter({ filters }) {
 		});
 	};
 
-	// render chosen filters in the Top Section
-	const renderChosenFilters = (chosenFilters) => {
-		return chosenFilters.map((chosenFilter) => {
-			return (
-				<ChosenFilterContainer key={ chosenFilter.value }>{ chosenFilter.label }
-					<CrossImgWrapper onClick={() => {
-						onRemoveFilterOption(chosenFilter);
-					}}>
-						<Image path={CloseImage} width="8px" height="8px"/>
-					</CrossImgWrapper>
-				</ChosenFilterContainer>
-			);
-		});
-	};
-
-	// clear filters click handler
-	const onClearFiltersClick = useCallback(() => {
-		setChosenFilters([]);
-	}, [ setChosenFilters ]);
-
 	// add filter-option click handler
 	const onAddFilterOption = useCallback((option) => {
-		setChosenFilters((prevChosenFilters) => {
+		onChange((prevChosenFilters) => {
 			return [...prevChosenFilters, option];
 		});
-	}, [ setChosenFilters ]);
+	}, [ onChange ]);
 
 	// remove filter-option click handler
 	const onRemoveFilterOption = useCallback((option) => {
-		setChosenFilters((prevChosenFilters) => {
+		onChange((prevChosenFilters) => {
 			return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
 		});
-	}, [ setChosenFilters ]);
+	}, [ onChange ]);
 
 	// show and hide Filters Section
 	const onToggleView = useCallback(() => {
@@ -209,15 +138,12 @@ function NetworkSecurityFilter({ filters }) {
 		<Container>
 			<TopSection>
 				<div>
-					<Title size="32px">Network Security</Title>
+					<Title size="32px">{ title }</Title>
 					<SubTitle>
-						<Span bold margin="0 5px 0 0">Displaying 400</Span> Security Gateway Appliance & Solutions
+						<Span bold margin="0 5px 0 0"> { subTitleBold } </Span> { subTitle }
 					</SubTitle>
 				</div>
-				<ChosenFiltersSection>
-					{ renderChosenFilters(chosenFilters) }
-					{ chosenFilters.length > 0 && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
-				</ChosenFiltersSection>
+				<ChosenFilters chosenFilters={ chosenFilters } onChange={ onChange }/>
 			</TopSection>
 			<BottomSection isCollapse={ isCollapse }>
 				<ToggleContainer>
@@ -240,8 +166,7 @@ function NetworkSecurityFilter({ filters }) {
 
 }
 
-
-export default NetworkSecurityFilter;
+export default FiltersPanel;
 
 
 /*
