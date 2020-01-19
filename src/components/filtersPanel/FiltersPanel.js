@@ -68,7 +68,10 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 						<Span bold margin="0 5px 0 0"> { subTitleBold } </Span> { subTitle }
 					</SubTitle>
 				</div>
-				<ChosenFilters chosenFilters={ chosenFilters } onChange={ onChange } filters={ filters }/>
+				<ChosenFilters
+					chosenFilters={ chosenFilters }
+					onChange={ onChange }
+					filters={ filters }/>
 			</TopSection>
 			<BottomSection isCollapse={ isCollapse }>
 				<ToggleContainer>

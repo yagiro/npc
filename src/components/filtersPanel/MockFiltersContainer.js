@@ -5,19 +5,21 @@ import { mockData } from '../../config/mockData';
 const MockFiltersContainer = () => {
 
 	const [ chosenFilters, setChosenFilters ] = useState({
-		connectivity: {
-			filterId: 'connectivity',
-			value: new Set([
-				'1gbe', '10gbe'
-			]),
-		},
-		marketSegment: {
-			filterId: 'marketSegment',
-			value: new Set([
-				'branchOffice', 'smallEnterprise'
-			]),
-		},
+		// marketSegment: {
+		// 	filterId: 'marketSegment',
+		// 	value: new Set([
+		// 		'branchOffice', 'smallEnterprise'
+		// 	]),
+		// },
+		// connectivity: {
+		// 	filterId: 'connectivity',
+		// 	value: new Set([
+		// 		'1gbe', '10gbe'
+		// 	]),
+		// }
 	});
+
+	console.log(chosenFilters);
 
 	return (
 		<div>
