@@ -54,8 +54,6 @@ class App extends Component {
 					onShow={ (show) => this.setState({ showCompare: show }) } />
 				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }value={ 1 }
 				/>
-
-				<Checkbox/>
 				<MockFiltersContainer />
 				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }/>
 				<CollapseWrapper imgSource={ 'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png' } title="High End Enterprise">

@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Title from '../generic/Title';
-import Checkbox from '../generic/Checkbox';
 import Span from '../generic/Span';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from '../generic/Image';
@@ -9,6 +8,7 @@ import CloseImage from '../../assets/compare/x.png';
 import { colors, fonts } from '../../config/constants';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import ChosenFilters from './ChosenFilters';
+import Filters from './Filters';
 
 const Container = styled.div`
 	display: flex;
@@ -26,25 +26,9 @@ const BottomSection = styled.div`
 	width: 100%;
 `;
 
-const FiltersSections = styled.div`
-	display: flex;
-	width: 100%;
-`;
-
 const SubTitle = styled.div`
 	display: flex;
 	margin-bottom: 20px;
-`;
-
-const FilterOptionContainer = styled.div`
-	display: flex;
-`;
-
-const VerticalDivider = styled.div`
-	width: 1px;
-	height: 120px;
-	background: ${ colors.lightgray };
-	margin:50px 25px 0 25px;
 `;
 
 const ToggleContainer = styled.div`
@@ -68,66 +52,6 @@ const ToggleArea = styled.div`
 function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, subTitle }) {
 
 	const [ isCollapse, setIsCollapse ] = useState(false);
-
-	// function makes check if value of some option there is in chosenFilters
-	const isChecked = (chosenFilters, value) => {
-		const filter = chosenFilters.find((chosenFilter) => {
-			return chosenFilter.value === value;
-		});
-
-		return !!filter;
-	};
-
-	// function render block of filter-options for specific filter-type
-	const renderFilterBlock = (filters) => {
-		// render filter-blocks
-		return filters.map(({ id, title, options, type }) => {
-			if(type === 'multiple') {
-				return (
-					<FilterOptionContainer key={ id }>
-						<div>
-							<Title color={ colors.textLightGray } margin="0 0 15px 0">{ title }</Title>
-							{/*// render list of filter-options*/}
-							<div>
-								{options.map((option) => {
-									const checked = isChecked(chosenFilters, option.value);
-
-									// our onChange depends on "checked":
-									// if filter-option checked we need to remove option by click
-									// if filter-option unchecked we need to add filter option
-									const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
-
-									// render one filter-option
-									return (
-										<div key={ option.value }>
-											<Checkbox label={ option.label } isChecked={ checked } onChange={() => {
-												onChange(option);
-											}}/>
-										</div>
-									);
-								})}
-							</div>
-						</div>
-						<VerticalDivider/>
-					</FilterOptionContainer>
-				);
-			}
-		});
-	};
-
-	// add filter-option click handler
-	const onAddFilterOption = useCallback((option) => {
-		onChange((prevChosenFilters) => {
-			return [...prevChosenFilters, option];
-		});
-	}, [ onChange ]);
-
-	// remove filter-option click handler
-	const onRemoveFilterOption = useCallback((option) => {
-		onChange((prevChosenFilters) => {
-			return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
-		});
-	}, [ onChange ]);
 
 	// show and hide Filters Section
 	const onToggleView = useCallback(() => {
@@ -156,9 +80,10 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 					</ToggleArea>
 				</ToggleContainer>
 				{!isCollapse &&
-				<FiltersSections>
-					{ renderFilterBlock(filters) }
-				</FiltersSections>
+				<Filters
+					onChange={ onChange }
+					chosenFilters={ chosenFilters }
+					filters={ filters }/>
 				}
 			</BottomSection>
 		</Container>
@@ -167,14 +92,3 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 }
 
 export default FiltersPanel;
-
-
-/*
-filters: [
-{
-	type: 'marketSegment',
-	options: [ { value, label } ],
-},
-],
-onChange: (updatedFilters) => [ { type, selectedOptions } ]
- */

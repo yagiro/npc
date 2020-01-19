@@ -7,6 +7,13 @@ import styled from 'styled-components';
 const FilterOptionContainer = styled.div`
 	display: flex;
 `;
+const VerticalDivider = styled.div`
+	width: 1px;
+	height: 120px;
+	background: ${ colors.lightgray };
+	margin:50px 25px 0 25px;
+`;
+
 
 const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) => {
 
@@ -38,23 +45,21 @@ const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) 
 				<Title color={ colors.textLightGray } margin="0 0 15px 0">{ title }</Title>
 				{/*// render list of filter-options*/}
 				<div>
-					{options.map((option) => {
+					{ options.map((option) => {
 						const checked = isChecked(chosenFilters, option.value);
-
-						// our onChange depends on "checked":
-						// if filter-option checked we need to remove option by click
-						// if filter-option unchecked we need to add filter option
-						const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
-
 						// render one filter-option
 						return (
 							<div key={ option.value }>
 								<Checkbox label={ option.label } isChecked={ checked } onChange={() => {
+									// our onChange depends on "checked":
+									// if filter-option checked we need to remove option by click
+									// if filter-option unchecked we need to add filter option
+									const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
 									onChange(option);
 								}}/>
 							</div>
 						);
-					})}
+					}) }
 				</div>
 			</div>
 			<VerticalDivider/>

@@ -44,3 +44,8 @@ export const fonts = {
 	header: '32px/47px DIN',
 };
 
+// filter-block types
+export const filterBlockTypes = {
+	multiple: 'multiple',
+};
+
