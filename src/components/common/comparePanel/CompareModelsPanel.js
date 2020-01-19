@@ -38,6 +38,15 @@ const Container = styled.div`
 			margin-left: 30px;
 		}
 	}
+	
+	//.model-content-enter {
+    //  opacity: 0.01;
+    //}
+    //
+    //.model-content-enter.model-content-enter-active {
+    //  opacity: 1;
+    //  transition: opacity 500ms;
+    //}
     
     .model-content-leave {
       opacity: 1;

@@ -17,7 +17,7 @@ export const classes = {
 const Container = styled.div`  
 	display: flex;
 	justify-content: space-between;
-	opacity: ${ props => props.show ? '1' : '0' };
+	opacity: ${ props => props.show ? 1 : 0 };
 	padding: 15px 13px;
 	width: 100%;
 	height: 100%;
@@ -34,7 +34,9 @@ const CompareModel = (props) => {
     const { title, price, image } = data || {};
     const [ show, setShow ] = useState(false);
 
-    useEffect(() => setShow(!!data), [ data ]);
+    useEffect(() => {
+        setTimeout(() => setShow(!!data), 0);
+    }, [ data ]);
 
     const handleClick = useCallback (() => {
         if (onClose) onClose();
