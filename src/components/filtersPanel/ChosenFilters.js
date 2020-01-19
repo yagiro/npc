@@ -48,18 +48,34 @@ const CrossImgWrapper = styled.div`
 `;
 
 
-const ChosenFilters = ({ chosenFilters, onChange }) => {
+const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
+	
+	const getOptionByValue = (filters, value) => {
+		let option = {};
+		filters.forEach((filter)=> {
+			const found = filter.options.find((op)=> {
+				return op.value === value;
+			});
+			
+			if(found) {
+				option = found;
+			}
+		});
+		
+		return option;
+	};
 
 	// render chosen filters in the Top Section of Filter Panel
 	const renderChosenFilters = (chosenFilters) => {
-		
-		let retrievedOptions = [];
+		let arrOptionValues = [];
 		
 		Object.keys(chosenFilters).forEach(function(key) {
-			retrievedOptions.push(...chosenFilters[key].value);
+			arrOptionValues.push(...chosenFilters[key].value);
 		});
-		
-		return retrievedOptions.map((chosenFilter) => {
+
+		return arrOptionValues.map((optionValue) => {
+
+			const chosenFilter = getOptionByValue(filters, optionValue);
 			return (
 				<ChosenFilterContainer key={ chosenFilter.value }>{ chosenFilter.label }
 					<CrossImgWrapper onClick={() => {
@@ -81,7 +97,7 @@ const ChosenFilters = ({ chosenFilters, onChange }) => {
 		onChange((prevChosenFilters) => {
 			const filter = prevChosenFilters[option.filterId];
 			const prevOptions = [ ...filter.value ];
-			const updatedOptions = prevOptions.filter((filterOption) => filterOption.value !== option.value);
+			const updatedOptions = prevOptions.filter((filterOption) => filterOption !== option.value);
 			return { ...prevChosenFilters, [filter.filterId]: { ...filter, value: new Set([...updatedOptions]) } };
 		});
 	}, [onChange]);

@@ -7,7 +7,6 @@ import CompareModelsPanel from './components/common/comparePanel/CompareModelsPa
 import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
 import MockFiltersContainer from './components/filtersPanel/MockFiltersContainer';
-import Checkbox from './components/generic/Checkbox';
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';

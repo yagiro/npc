@@ -17,12 +17,10 @@ const VerticalDivider = styled.div`
 
 const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) => {
 
-	const isChecked = (chosenFilters, value) => {
-		const filter = chosenFilters.find((chosenFilter) => {
-			return chosenFilter.value === value;
-		});
+	const isChecked = (chosenFilters, filterId, option) => {
 
-		return !!filter;
+
+		return chosenFilters[filterId] && chosenFilters[filterId].value.has(option);
 	};
 
 	const isCheckedNew = (chosenFilters, filterId, optionId) => {
@@ -34,14 +32,14 @@ const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) 
 		// onChange((prevChosenFilters) => {
 		// 	return [...prevChosenFilters, option];
 		// });
-	}, [onChange]);
+	}, []);
 
 	// remove filter-option click handler
 	const onRemoveFilterOption = useCallback((option) => {
 		// onChange((prevChosenFilters) => {
 		// 	return prevChosenFilters.filter((filterOption) => filterOption.value !== option.value);
 		// });
-	}, [onChange]);
+	}, []);
 
 	return (
 		<FilterOptionContainer key={ id }>
@@ -50,8 +48,7 @@ const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) 
 				{/*// render list of filter-options*/}
 				<div>
 					{ options.map((option) => {
-						const checked = isChecked(chosenFilters, option.filterId, option.value);
-						console.log(isCheckedNew(chosenFilters, option.filterId, option.value));
+						const checked = isChecked(chosenFilters, option.filterId, option);
 						// render one filter-option
 						return (
 							<div key={ option.value }>

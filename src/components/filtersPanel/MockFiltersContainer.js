@@ -8,15 +8,13 @@ const MockFiltersContainer = () => {
 		connectivity: {
 			filterId: 'connectivity',
 			value: new Set([
-				{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' } ,
-				{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
+				'1gbe', '10gbe'
 			]),
 		},
 		marketSegment: {
 			filterId: 'marketSegment',
 			value: new Set([
-				{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
-				{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
+				'branchOffice', 'smallEnterprise'
 			]),
 		},
 	});
