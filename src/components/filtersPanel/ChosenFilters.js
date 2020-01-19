@@ -81,7 +81,7 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 					<CrossImgWrapper onClick={() => {
 						onRemoveFilterOption(chosenFilter);
 					}}>
-						<Image path={CloseImage} width="8px" height="8px"/>
+						<Image path={ CloseImage } width="8px" height="8px"/>
 					</CrossImgWrapper>
 				</ChosenFilterContainer>
 			);
