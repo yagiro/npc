@@ -13,8 +13,8 @@ const MAX_MODELS_COUNT = 3;
 const MS_FADE_IN_ANIMATION = 300;
 const classPrefix = 'compare-panel';
 export const classes = {
-    cards: createClassName(classPrefix, 'cards'),
-    model: createClassName(classPrefix, 'model'),
+	cards: createClassName(classPrefix, 'cards'),
+	model: createClassName(classPrefix, 'model'),
 };
 
 const Container = styled.div`
@@ -38,15 +38,6 @@ const Container = styled.div`
 			margin-left: 30px;
 		}
 	}
-	
-	//.model-content-enter {
-    //  opacity: 0.01;
-    //}
-    //
-    //.model-content-enter.model-content-enter-active {
-    //  opacity: 1;
-    //  transition: opacity 500ms;
-    //}
     
     .model-content-leave {
       opacity: 1;
@@ -59,78 +50,78 @@ const Container = styled.div`
 `;
 
 const renderModels = (models, handleCardClose) => {
-    const emptyCards = Array(MAX_MODELS_COUNT).fill(null);
-    return emptyCards.map((item, i) => {
-        const currModel = models[i];
-        return (
-            <CompareModelWrapper
-                key={ i }
-                index={ i }
-                isEmpty={ !currModel }
-                model={ currModel }
-                animationTimeMs={ MS_FADE_IN_ANIMATION }
-                onClose={ handleCardClose }
-            />
-        );
-    })
+	const emptyCards = Array(MAX_MODELS_COUNT).fill(null);
+	return emptyCards.map((item, i) => {
+		const currModel = models[i];
+		return (
+			<CompareModelWrapper
+				key={ i }
+				index={ i }
+				isEmpty={ !currModel }
+				model={ currModel }
+				animationTimeMs={ MS_FADE_IN_ANIMATION }
+				onClose={ handleCardClose }
+			/>
+		);
+	});
 };
 
 const CompareModelsPanel = (props) => {
-    const { isOpen, models, onChange, onClose, onCompare, onModelRemove } = props;
+	const { isOpen, models, onChange, onClose, onCompare, onModelRemove } = props;
 
-    const fade = useFadeAnimation(isOpen, MS_FADE_IN_ANIMATION);
+	const fade = useFadeAnimation(isOpen, MS_FADE_IN_ANIMATION);
 
-    const handleCardClose = useCallback((model) => {
-        if (onModelRemove) onModelRemove(model);
-        if (onChange) {
-            const newModels = models.filter(item => item.price !== model.price);
-            onChange(newModels);
-        }
-    }, [ onChange, onModelRemove, models ]);
+	const handleCardClose = useCallback((model) => {
+		if (onModelRemove) onModelRemove(model);
+		if (onChange) {
+			const newModels = models.filter(item => item.price !== model.price);
+			onChange(newModels);
+		}
+	}, [ onChange, onModelRemove, models ]);
 
-    const handleClose = useCallback(() => {
-        if (onClose) onClose();
-    }, [ onClose ]);
+	const handleClose = useCallback(() => {
+		if (onClose) onClose();
+	}, [ onClose ]);
 
-    const handleCompare = useCallback(() => {
-        if (onCompare) onCompare(models);
-    }, [ models, onCompare ]);
+	const handleCompare = useCallback(() => {
+		if (onCompare) onCompare(models);
+	}, [ models, onCompare ]);
 
-    return (
-        <Container
-            display={ fade.display }
-            opacity={ fade.opacity }
-        >
-            <CompareTitle maxCount={ MAX_MODELS_COUNT }/>
-            <div className={ classes.cards }>
-                { renderModels(models, handleCardClose) }
-            </div>
-            <CompareButtons
-                onCompare={ handleCompare }
-                onClose={ handleClose }
-                height="30px"
-                width="103px"
-            />
-        </Container>
-    );
+	return (
+		<Container
+			display={ fade.display }
+			opacity={ fade.opacity }
+		>
+			<CompareTitle maxCount={ MAX_MODELS_COUNT }/>
+			<div className={ classes.cards }>
+				{ renderModels(models, handleCardClose) }
+			</div>
+			<CompareButtons
+				onCompare={ handleCompare }
+				onClose={ handleClose }
+				height="30px"
+				width="103px"
+			/>
+		</Container>
+	);
 };
 
 CompareModelsPanel.defaultProps = {
-    models: [],
-    isOpen: false,
+	models: [],
+	isOpen: false,
 };
 
 CompareModelsPanel.propTypes = {
-    models: PropTypes.arrayOf(PropTypes.shape({
-        image: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-    })),
-    onClose: PropTypes.func,
-    onChange: PropTypes.func,
-    onModelRemove: PropTypes.func,
-    isOpen: PropTypes.bool,
-    onCompare: PropTypes.func,
+	models: PropTypes.arrayOf(PropTypes.shape({
+		image: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+		price: PropTypes.number.isRequired,
+	})),
+	onClose: PropTypes.func,
+	onChange: PropTypes.func,
+	onModelRemove: PropTypes.func,
+	isOpen: PropTypes.bool,
+	onCompare: PropTypes.func,
 };
 
 export default CompareModelsPanel;

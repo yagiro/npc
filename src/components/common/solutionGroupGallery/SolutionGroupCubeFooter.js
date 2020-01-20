@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -7,9 +7,9 @@ import { createClassName } from '../../../lib/classNameHelper';
 
 const classPrefix = 'solution-group-footer';
 export const classes = {
-    container: createClassName(classPrefix, 'container'),
-    list:  createClassName(classPrefix, 'list'),
-    title:  createClassName(classPrefix, 'title'),
+	container: createClassName(classPrefix, 'container'),
+	list:  createClassName(classPrefix, 'list'),
+	title:  createClassName(classPrefix, 'title'),
 };
 
 const Container = styled.div`
@@ -36,33 +36,35 @@ const Container = styled.div`
 	.${ classes.list } {
 	  list-style-type: disc;
 	  font: ${ fonts.paragraph };
-      color: ${ colors.whitesmoke };
+	  line-height: 30px;
+      color: ${ colors.background };
       text-transform: capitalize;
       position: absolute;
       bottom: 0px;
       display: none;
       list-style-position: inside;
       padding: 0;
-      height: 125px;
+      height: 130px;
+      margin-top: 0;
 	}
 	
 `;
 
 const SolutionGroupCubeBodyFooter = (props) => {
-    const { label, features } = props;
-    return (
-        <Container className={ classes.container }>
-            <div className={ classes.title }>{ label }</div>
-            <ul className={ classes.list }>
-                { features.map((feature, i) => <li key={ i }>{feature}</li>) }
-            </ul>
-        </Container>
-    );
+	const { label, features } = props;
+	return (
+		<Container className={ classes.container }>
+			<div className={ classes.title }>{ label }</div>
+			<ul className={ classes.list }>
+				{ features.map((feature, i) => <li key={ i }>{feature}</li>) }
+			</ul>
+		</Container>
+	);
 };
 
 SolutionGroupCubeBodyFooter.propTypes = {
-    label: PropTypes.string,
-    features: PropTypes.arrayOf(PropTypes.string),
+	label: PropTypes.string,
+	features: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default SolutionGroupCubeBodyFooter;
