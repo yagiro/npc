@@ -13,20 +13,20 @@ const Container = styled.div`
 `;
 
 const CompareTitle = ({ maxCount }) => {
-    return (
-        <Container>
-            <Paragraph>Select Up To { maxCount } Solutions</Paragraph>
-            <CompareHeader>To Compare</CompareHeader>
-        </Container>
-    );
+	return (
+		<Container>
+			<Paragraph>Select Up To { maxCount } Solutions</Paragraph>
+			<CompareHeader>To Compare</CompareHeader>
+		</Container>
+	);
 };
 
 CompareTitle.defaultProps = {
-    maxCount: 0
+	maxCount: 0
 };
 
 CompareTitle.propTypes = {
-    maxCount: PropTypes.number
+	maxCount: PropTypes.number
 };
 
 export default CompareTitle;

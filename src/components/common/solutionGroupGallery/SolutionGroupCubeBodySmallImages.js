@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
 
 const classPrefix = 'solution-group-additional-images';
-export const classes = {
-    cubeImages: createClassName(classPrefix, 'cube'),
+export const classes = { 
+	cubeImages: createClassName(classPrefix, 'cube'),
 };
 
-const Container = styled.div`  
+const Container = styled.div`
   display: flex;
-  
+
   & .${ classes.cubeImages }:not(:first-child) {
     margin-left: 30px;
   }
 `;
 
-const ImageContainer = styled.div`  
+const ImageContainer = styled.div`
       width: 88px;
       height: 55px;
       border: 1px solid #E1E3E5;
@@ -25,7 +26,8 @@ const ImageContainer = styled.div`
       position: relative;
       filter: grayscale(100%);
       transition: all .3s;
-      
+      z-index: 15;
+
       ::before {
         content: "";
         position: absolute;
@@ -36,31 +38,32 @@ const ImageContainer = styled.div`
         background-repeat: no-repeat;
         background-size: 100% auto;
         background-image: url(${ props => buildAssetAbsolutePath(props.iconPath) });
+        background-position: center;
       }
 `;
 
 const renderImages = (iconPaths) => {
-    return iconPaths.map((iconPath, i) => {
-        return (
-            <ImageContainer
-                key={ i }
-                className={ classes.cubeImages }
-                iconPath={ iconPath }
-            />
-        )
-    })
+	return iconPaths.map((iconPath, i) => {
+		return (
+			<ImageContainer
+				key={ i }
+				className={ classes.cubeImages }
+				iconPath={ iconPath }
+			/>
+		);
+	});
 };
 
-const SolutionGroupCubeBodyAddImages = ({ iconPaths }) => {
-    return (
-        <Container>
-            { renderImages(iconPaths) }
-        </Container>
-    );
+const SolutionGroupCubeBodySmallImages = ({ iconPaths }) => {
+	return (
+		<Container>
+			{ renderImages(iconPaths) }
+		</Container>
+	);
 };
 
-SolutionGroupCubeBodyAddImages.propTypes = {
-    iconPaths: PropTypes.arrayOf(PropTypes.string),
+SolutionGroupCubeBodySmallImages.propTypes = {
+	iconPaths: PropTypes.arrayOf(PropTypes.string),
 };
 
-export default SolutionGroupCubeBodyAddImages;
+export default SolutionGroupCubeBodySmallImages;

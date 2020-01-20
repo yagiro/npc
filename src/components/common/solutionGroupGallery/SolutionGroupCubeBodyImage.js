@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Image from '../../generic/Image';
+
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 
 const Container = styled.div`  
@@ -11,6 +11,7 @@ const Container = styled.div`
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, 0%);
+	z-index: 15;
 	
 	> img {
 	  width: 100%;
@@ -18,17 +19,16 @@ const Container = styled.div`
 	}
 `;
 
-const SolutionGroupCubeBodyImage = ({mainImagePath}) => {
-
-    return (
-        <Container>
-            <img src={ buildAssetAbsolutePath(mainImagePath) }/>
-        </Container>
-    );
+const SolutionGroupCubeBodyImage = ({ mainImagePath }) => {
+	return (
+		<Container>
+			<img src={ buildAssetAbsolutePath(mainImagePath) }/>
+		</Container>
+	);
 };
 
 SolutionGroupCubeBodyImage.propTypes = {
-    mainImagePath: PropTypes.string,
+	mainImagePath: PropTypes.string,
 };
 
 export default SolutionGroupCubeBodyImage;
