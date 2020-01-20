@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import Image from '../generic/Image';
-import CloseImage from '../../assets/compare/x.png';
-import { colors } from '../../config/constants';
+import Image from '../../generic/Image';
+import CloseImage from '../../../assets/compare/x.png';
+import { colors } from '../../../config/constants';
 
 const ChosenFiltersSection = styled.div`
 	display: flex;

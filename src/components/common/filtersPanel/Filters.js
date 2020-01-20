@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { filterBlockTypes } from '../../config/constants';
+import { filterBlockTypes } from '../../../config/constants';
 import MultipleOptionsFilter from './MultipleOptionsFilter';
 
 const FiltersSections = styled.div`

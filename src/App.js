@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import CollapseWrapper from './components/CollapseWrapper';
+import CollapseWrapper from './components/common/collapseWrapper/CollapseWrapper';
 import ItemCard from './components/itemCard/ItemCard';
 import { cardTypes } from './config/constants';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
 import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
-import MockFiltersContainer from './components/filtersPanel/MockFiltersContainer';
+import MockFiltersContainer from './components/common/filtersPanel/MockFiltersContainer';
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';

@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import Title from '../generic/Title';
-import Span from '../generic/Span';
+import Title from '../../generic/Title';
+import Span from '../../generic/Span';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from '../generic/Image';
-import CloseImage from '../../assets/compare/x.png';
-import { colors, fonts } from '../../config/constants';
+import Image from '../../generic/Image';
+import CloseImage from '../../../assets/compare/x.png';
+import { colors, fonts } from '../../../config/constants';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import ChosenFilters from './ChosenFilters';
 import Filters from './Filters';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FiltersPanel from './FiltersPanel';
-import { mockData } from '../../config/mockData';
+import { mockData } from '../../../config/mockData';
 
 const MockFiltersContainer = () => {
 
