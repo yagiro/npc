@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Image from '../../generic/Image';
-import Title from '../../generic/Title';
-import verified from '../../../assets/verified@2x.png';
+import Image from '../../../generic/Image';
+import Title from '../../../generic/Title';
+import verified from '../../../../assets/verified@2x.png';
 import CommonPriceSection from '../priceSections/CommonPriceSection';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../../config/constants';
 
 const Container = styled.div`
 	display: flex;

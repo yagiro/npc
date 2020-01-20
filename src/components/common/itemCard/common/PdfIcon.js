@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../../config/constants';
 
 const Container = styled.div`  
 	display: flex;

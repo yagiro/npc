@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../../config/constants';
 
 const Container = styled.div`  
 	display: flex;
@@ -17,30 +16,23 @@ const SubPriceText = styled.span`
 	text-align: center;
 	color: ${colors.textLightGray};
 	font-size: 14px;
-	margin-top: 30px;`;
+	margin-top: 15px;`;
 
-const CommonPriceSection = ({ price, additionalText, ...otherProps }) => {
+const UpPriceText = styled.span`  
+	text-align: center;
+	color: ${colors.textLightGray};
+	font-size: 14px;`;
+
+const CloudGuardPriceSection = ({ price, additionalText }) => {
 
 	return (
 		<Container>
+			<UpPriceText>Starting at</UpPriceText>
 			<PriceText>${ price }</PriceText>
 			<SubPriceText>{ additionalText }</SubPriceText>
 		</Container>
 	);
 };
 
-CommonPriceSection.defaultProps = {
-	price: 70,
-	additionalText: '1 PC/YEAR & 1 Mobile/Year',
-};
-
-CommonPriceSection.propTypes = {
-	price: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	]),
-	additionalText: PropTypes.string,
-};
-
-export default CommonPriceSection;
+export default CloudGuardPriceSection;
 

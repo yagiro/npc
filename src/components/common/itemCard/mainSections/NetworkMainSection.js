@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from '../../generic/Image';
+import Image from '../../../generic/Image';
 import GenBlock from './common/GenBlock';
-import verified from '../../../assets/verified@2x.png';
+import verified from '../../../../assets/verified@2x.png';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, specificationsTypes, } from '../../../config/constants';
-import Title from '../../generic/Title';
+import { colors, specificationsTypes, } from '../../../../config/constants';
+import Title from '../../../generic/Title';
 
 const Container = styled.div`
  	display: flex;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import CommonPriceSection from './CommonPriceSection';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../../config/constants';
 
 
 const Container = styled.div`

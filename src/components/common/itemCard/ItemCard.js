@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import PdfIcon from './common/PdfIcon';
-import SelectButton from '../generic/Button';
+import SelectButton from '../../generic/Button';
 import CloudGuardPriceSection from './priceSections/CloudGuardPriceSection';
 import CommonPriceSection from './priceSections/CommonPriceSection';
 import ManagementPriceSection from './priceSections/ManagementPriceSection';
@@ -11,7 +11,7 @@ import NetworkMainSection from './mainSections/NetworkMainSection';
 import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSection';
 import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
 import ManagementMainSection from './mainSections/ManagementMainSection';
-import { cardTypes, colors, fonts } from '../../config/constants';
+import { cardTypes, colors, fonts } from '../../../config/constants';
 
 const Container = styled.div`
 	display: flex;

@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Image from '../../../generic/Image';
-import cores from '../../../../assets/specifications/cores.png';
-import mountable from '../../../../assets/specifications/mountable.png';
-import networkInterfaces from '../../../../assets/specifications/networkInterfaces.png';
-import ports from '../../../../assets/specifications/ports.png';
-import powerSupply from '../../../../assets/specifications/powerSupply.png';
-import raid from '../../../../assets/specifications/raid.png';
-import ram from '../../../../assets/specifications/ram.png';
-import supportsExternal from '../../../../assets/specifications/supportsExternal.png';
-import maxNetworkPorts from '../../../../assets/specifications/maxNetworkPorts.png';
-import storage from '../../../../assets/specifications/storage.png';
-import { colors, specificationsTypes } from '../../../../config/constants';
+import Image from '../../../../generic/Image';
+import cores from '../../../../../assets/specifications/cores.png';
+import mountable from '../../../../../assets/specifications/mountable.png';
+import networkInterfaces from '../../../../../assets/specifications/networkInterfaces.png';
+import ports from '../../../../../assets/specifications/ports.png';
+import powerSupply from '../../../../../assets/specifications/powerSupply.png';
+import raid from '../../../../../assets/specifications/raid.png';
+import ram from '../../../../../assets/specifications/ram.png';
+import supportsExternal from '../../../../../assets/specifications/supportsExternal.png';
+import maxNetworkPorts from '../../../../../assets/specifications/maxNetworkPorts.png';
+import storage from '../../../../../assets/specifications/storage.png';
+import { colors, specificationsTypes } from '../../../../../config/constants';
 
 const Container = styled.div`
 	display: flex;

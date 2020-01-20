@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CollapseWrapper from './components/common/collapseWrapper/CollapseWrapper';
-import ItemCard from './components/itemCard/ItemCard';
+import ItemCard from './components/common/itemCard/ItemCard';
 import { cardTypes } from './config/constants';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
 import NumberSelector from './components/common/numberSelector/NumberSelector';
