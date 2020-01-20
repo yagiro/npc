@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Title from '../../generic/Title';
 import Span from '../../generic/Span';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -84,12 +85,10 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 					</ToggleArea>
 				</ToggleContainer>
 				<Collapse isOpened={ isCollapse }>
-
 					<Filters
 						onChange={ onChange }
 						chosenFilters={ chosenFilters }
 						filters={ filters }/>
-
 				</Collapse>
 			</BottomSection>
 		</Container>
@@ -97,4 +96,14 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 
 }
 
+FiltersPanel.propTypes = {
+	filters: PropTypes.array.isRequired,
+	chosenFilters: PropTypes.object.isRequired,
+	onChange: PropTypes.func.isRequired,
+	title: PropTypes.string,
+	subTitleBold: PropTypes.string,
+	subTitle: PropTypes.string,
+};
+
 export default FiltersPanel;
+

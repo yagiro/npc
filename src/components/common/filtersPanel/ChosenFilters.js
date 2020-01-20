@@ -1,9 +1,12 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Image from '../../generic/Image';
 import CloseImage from '../../../assets/compare/x.png';
 import { colors } from '../../../config/constants';
+
+const MS_FADE_ANIMATION = 200;
 
 const ChosenFiltersSection = styled.div`
 
@@ -20,7 +23,7 @@ const ChosenFiltersSection = styled.div`
 	
 	.chosen-filter-enter.chosen-filter-enter-active {
 	  opacity: 1;
-	  transition: opacity 200ms ease-in;
+	  transition: opacity ${ MS_FADE_ANIMATION }ms ease-in;
 	}
 	
 	.chosen-filter-leave {
@@ -29,7 +32,7 @@ const ChosenFiltersSection = styled.div`
 	
 	.chosen-filter-leave.chosen-filter-leave-active {
 	  opacity: 0.01;
-	  transition: opacity 200ms ease-in;
+	  transition: opacity ${ MS_FADE_ANIMATION }ms ease-in;
 	}
 `;
 
@@ -141,8 +144,8 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 		<ChosenFiltersSection>
 			<ReactCSSTransitionGroup
 				transitionName="chosen-filter"
-				transitionEnterTimeout={ 200 }
-				transitionLeaveTimeout={ 200 }>
+				transitionEnterTimeout={ MS_FADE_ANIMATION }
+				transitionLeaveTimeout={ MS_FADE_ANIMATION }>
 
 				{ renderChosenFilters(chosenFilters) }
 				{ isChosenFilters(chosenFilters) && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
@@ -152,6 +155,12 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 		</ChosenFiltersSection>
 
 	);
+};
+
+ChosenFilters.propTypes = {
+	filters: PropTypes.array.isRequired,
+	chosenFilters: PropTypes.object.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default ChosenFilters;

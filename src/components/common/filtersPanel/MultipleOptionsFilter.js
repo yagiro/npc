@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Title from '../../generic/Title';
 import { colors } from '../../../config/constants';
 import Checkbox from '../../generic/Checkbox';
-import styled from 'styled-components';
 
 const FilterOptionContainer = styled.div`
 	display: flex;
@@ -15,7 +16,7 @@ const VerticalDivider = styled.div`
 `;
 
 
-const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) => {
+const MultipleOptionsFilter = ({ filterId, title, options, chosenFilters, onChange }) => {
 
 	const isChecked = (chosenFilters, filterId, value) => {
 		return !!(chosenFilters[filterId] && chosenFilters[filterId].value.has(value));
@@ -53,7 +54,7 @@ const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) 
 	}, [onChange]);
 
 	return (
-		<FilterOptionContainer key={ id }>
+		<FilterOptionContainer key={ filterId }>
 			<div>
 				<Title color={ colors.textLightGray } margin="0 0 15px 0">{ title }</Title>
 				{/*// render list of filter-options*/}
@@ -79,6 +80,14 @@ const MultipleOptionsFilter = ({ id, title, options, chosenFilters, onChange }) 
 		</FilterOptionContainer>
 
 	);
+};
+
+MultipleOptionsFilter.propTypes = {
+	filterId: PropTypes.number.isRequired,
+	title: PropTypes.string,
+	options: PropTypes.array.isRequired,
+	chosenFilters: PropTypes.object.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default MultipleOptionsFilter;

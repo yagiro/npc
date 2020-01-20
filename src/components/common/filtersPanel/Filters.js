@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { filterBlockTypes } from '../../../config/constants';
 import MultipleOptionsFilter from './MultipleOptionsFilter';
 
@@ -8,12 +9,9 @@ const FiltersSections = styled.div`
 	width: 100%;
 `;
 
-
 const filterBlock = {
 	[filterBlockTypes.multiple]: MultipleOptionsFilter
 };
-
-
 
 const Filters = ({ filters, chosenFilters, onChange }) => {
 
@@ -25,7 +23,7 @@ const Filters = ({ filters, chosenFilters, onChange }) => {
 			const FilterBlock = filterBlock[type];
 			return <FilterBlock
 				key={ id }
-				id={ id }
+				filterId={ id }
 				title={ title }
 				options={ options }
 				chosenFilters={ chosenFilters }
@@ -38,6 +36,12 @@ const Filters = ({ filters, chosenFilters, onChange }) => {
 			{ renderFilterBlock(filters) }
 		</FiltersSections>
 	);
+};
+
+Filters.propTypes = {
+	filters: PropTypes.array.isRequired,
+	chosenFilters: PropTypes.object.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default Filters;
