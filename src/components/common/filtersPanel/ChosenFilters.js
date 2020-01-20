@@ -1,14 +1,36 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Image from '../../generic/Image';
 import CloseImage from '../../../assets/compare/x.png';
 import { colors } from '../../../config/constants';
 
 const ChosenFiltersSection = styled.div`
-	display: flex;
-	align-items: center;
-	margin-left: 25px;
-	flex-wrap: wrap;
+
+	> span {
+		display: flex;
+		align-items: center;
+		margin-left: 25px;
+		flex-wrap: wrap;
+	}
+	
+	.chosen-filter-enter {
+	  opacity: 0.01;
+	}
+	
+	.chosen-filter-enter.chosen-filter-enter-active {
+	  opacity: 1;
+	  transition: opacity 200ms ease-in;
+	}
+	
+	.chosen-filter-leave {
+	  opacity: 1;
+	}
+	
+	.chosen-filter-leave.chosen-filter-leave-active {
+	  opacity: 0.01;
+	  transition: opacity 200ms ease-in;
+	}
 `;
 
 const ClearAllButton = styled.div`
@@ -115,10 +137,20 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 	};
 	
 	return (
+
 		<ChosenFiltersSection>
-			{ renderChosenFilters(chosenFilters) }
-			{ isChosenFilters(chosenFilters) && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
+			<ReactCSSTransitionGroup
+				transitionName="chosen-filter"
+				transitionEnterTimeout={ 200 }
+				transitionLeaveTimeout={ 200 }>
+
+				{ renderChosenFilters(chosenFilters) }
+				{ isChosenFilters(chosenFilters) && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
+
+			</ReactCSSTransitionGroup>
+
 		</ChosenFiltersSection>
+
 	);
 };
 
