@@ -40,8 +40,8 @@ export const colors = {
 };
 
 export const fonts = {
-	paragraph: '14px/21px DIN',
-	header: '32px/47px DIN',
+	paragraph: '14px/21px DIN pro',
+	header: '32px/47px DIN pro',
 };
 
 // filter-block types

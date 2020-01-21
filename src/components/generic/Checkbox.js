@@ -20,7 +20,7 @@ const Container = styled.div`
 	  cursor: pointer;
 	  font-size: 14px;
 	  color: ${ colors.textLightGray };
-	  font-family: DIN, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	  font-family: "DIN pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	  -webkit-user-select: none;
 	  -moz-user-select: none;
 	  -ms-user-select: none;
