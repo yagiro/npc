@@ -10,6 +10,7 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import Homepage from './components/homepage/Homepage';
 
 class App extends Component {
 
@@ -19,11 +20,20 @@ class App extends Component {
 			showCompare: false,
 			compareModels: [],
 			selectedMenuItem: 1,
+			showHomePage: true
 		};
 	}
 
 	render() {
-		const { showCompare, models, selectedMenuItem } = this.state;
+		const { showCompare, models, selectedMenuItem, showHomePage } = this.state;
+		
+		if(showHomePage) {
+			return (
+				<div className="App">
+					<Homepage/>
+				</div>
+			);
+		}
 
 		return (
 			<div className="App">
@@ -51,7 +61,7 @@ class App extends Component {
 					show={ showCompare }
 					onChange={ (models) => this.setState({ models: models })}
 					onShow={ (show) => this.setState({ showCompare: show }) } />
-				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }value={ 1 }
+				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) } value={ 1 }
 				/>
 				<MockFiltersContainer />
 				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }/>

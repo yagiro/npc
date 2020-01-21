@@ -186,5 +186,16 @@ export const mockData = {
 			],
 		},
 
-	]
+	],
+	// MOCK FOR MENU
+	homePageMiddleTabs: [
+		{
+			id: 1,
+			label: 'Discover',
+		},
+		{
+			id: 2,
+			label: 'RecentActivity',
+		}
+	],
 };
