@@ -37,11 +37,15 @@ export const colors = {
 	headerGrey: '#727781',
 	buttonGrey: '#6B6F81',
 	borderGrey: '#D2D5D9',
+	textDark: '#4C5059',
+	textGrey: '##4D4D4D',
 };
 
 export const fonts = {
-	paragraph: '14px/21px DIN',
-	header: '32px/47px DIN',
+	paragraph: '14px DIN',
+	paragraphBig: '18px DIN',
+	header: '32px DIN',
+	headerSecond: '30px DIN',
 };
 
 // filter-block types

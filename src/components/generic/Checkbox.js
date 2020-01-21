@@ -90,7 +90,7 @@ const Checkbox = ({ label, isChecked, onChange, color }) => {
 	return (
 		<Container color={ color }>
 			<label className={ classes.container } >{ label }
-				<input type="checkbox" checked={ isChecked } readOnly onChange={ () => onChange(!isChecked) }/>
+				<input type="checkbox" checked={ isChecked } readOnly onChange={ ()=> onChange(!isChecked) }/>
 				<span className={ classes.checkmark }> </span>
 			</label>
 		</Container>

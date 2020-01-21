@@ -10,6 +10,7 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import SolutionSummary from './components/common/solutionSummary/SolutionSummary';
 
 class App extends Component {
 
@@ -27,7 +28,16 @@ class App extends Component {
 
 		return (
 			<div className="App">
-
+				<SolutionSummary
+					totalPrice={ 165000 }
+					items={[
+						{ label: 'Products', price: 165000 },
+						{ label: 'Services', price: 150 },
+						{ label: 'Support', price: 200 },
+					]}
+					onCheck={ (val) => console.log(val) }
+				/>
+				<br/><br/>
 				<DumbTabNavigation
 					options={ mockData.menuItems }
 					activeTabId={ selectedMenuItem }
