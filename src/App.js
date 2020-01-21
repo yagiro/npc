@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import CollapseWrapper from './components/common/collapseWrapper/CollapseWrapper';
+import CollapseWrapper from './components/generic/CollapseWrapper';
 import ItemCard from './components/common/itemCard/ItemCard';
 import { cardTypes } from './config/constants';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';

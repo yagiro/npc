@@ -1,40 +1,58 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { filterBlockTypes } from '../../../config/constants';
+import {colors, filterBlockTypes} from '../../../config/constants';
 import MultipleOptionsFilter from './MultipleOptionsFilter';
 
-const FiltersSections = styled.div`
+const Container = styled.div`
 	display: flex;
 	width: 100%;
 `;
 
-const filterBlock = {
+const FilterBlockContainer = styled.div`
+	display: flex;
+`;
+
+const VerticalDivider = styled.div`
+	width: 1px;
+	height: 120px;
+	background: ${ colors.lightgray };
+	margin: 50px 25px 0 25px;
+`;
+
+const filterBlockComponents = {
 	[filterBlockTypes.multiple]: MultipleOptionsFilter
 };
 
 const Filters = ({ filters, chosenFilters, onChange }) => {
 
 	// function render block of filter-options for specific filter-type
-	const renderFilterBlock = (filters) => {
+	const renderFilterBlocks = (filters) => {
 		// render filter-blocks
 
-		return filters.map(({ id, title, options, type }) => {
-			const FilterBlock = filterBlock[type];
-			return <FilterBlock
-				key={ id }
-				filterId={ id }
-				title={ title }
-				options={ options }
-				chosenFilters={ chosenFilters }
-				onChange={ onChange }/>;
+		return filters.map(({ id, title, options, type }, i) => {
+			const FilterBlock = filterBlockComponents[type];
+			return (
+				<FilterBlockContainer key={ id }>
+					{
+						i !== 0 && <VerticalDivider/>
+					}
+					<FilterBlock
+						filterId={ id }
+						title={ title }
+						options={ options }
+						chosenFilters={ chosenFilters }
+						onChange={ onChange }
+					/>
+				</FilterBlockContainer>
+			);
 		});
 	};
     
 	return (
-		<FiltersSections>
-			{ renderFilterBlock(filters) }
-		</FiltersSections>
+		<Container>
+			{ renderFilterBlocks(filters) }
+		</Container>
 	);
 };
 

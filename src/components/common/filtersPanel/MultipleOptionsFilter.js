@@ -3,81 +3,53 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Title from '../../generic/Title';
 import { colors } from '../../../config/constants';
-import Checkbox from '../../generic/Checkbox';
+import FiltersOption from './FiltersOption';
+import { buildChosenFiltersOnAdd, buildChosenFiltersOnRemove } from './filtersHelpers';
 
-const FilterOptionContainer = styled.div`
-	display: flex;
-`;
-const VerticalDivider = styled.div`
-	width: 1px;
-	height: 120px;
-	background: ${ colors.lightgray };
-	margin:50px 25px 0 25px;
+const Container = styled.div`
+	display: block;
 `;
 
-
-const MultipleOptionsFilter = ({ filterId, title, options, chosenFilters, onChange }) => {
+const MultipleOptionsFilter = ({ title, options, chosenFilters, onChange }) => {
 
 	const isChecked = (chosenFilters, filterId, value) => {
 		return !!(chosenFilters[filterId] && chosenFilters[filterId].value.has(value));
 	};
 
 	// add filter-option click handler
-	const onAddFilterOption = useCallback((option) => {
-		onChange((prevChosenFilters) => {
-			const filter = prevChosenFilters[option.filterId];
-
-			//case when first option of filter type is adding
-			if(!filter) {
-				return {
-					...prevChosenFilters, [option.filterId]: {
-						filterId: option.filterId,
-						value: new Set([option.value])
-					}
-				};
-			}
-
-			const prevOptions = [ ...filter.value ];
-			const updatedOptions = [...prevOptions, option.value];
-			return { ...prevChosenFilters, [filter.filterId]: { ...filter, value: new Set([ ...updatedOptions ]) } };
-		});
-	}, [onChange]);
+	const handleAddFilterOption = useCallback((option, chosenFilters) => {
+		const updatedChosenFilters = buildChosenFiltersOnAdd(option, chosenFilters);
+		onChange(updatedChosenFilters);
+	}, [ onChange ]);
 
 	// remove filter-option click handler
-	const onRemoveFilterOption = useCallback((option) => {
-		onChange((prevChosenFilters) => {
-			const filter = prevChosenFilters[option.filterId];
-			const prevOptions = [ ...filter.value ];
-			const updatedOptions = prevOptions.filter((filterOption) => filterOption !== option.value);
-			return { ...prevChosenFilters, [filter.filterId]: { ...filter, value: new Set([ ...updatedOptions ]) } };
-		});
-	}, [onChange]);
+	const handleRemoveFilterOption = useCallback((option, chosenFilters) => {
+		const updatedChosenFilters = buildChosenFiltersOnRemove(option, chosenFilters);
+		onChange(updatedChosenFilters);
+	}, [ onChange ]);
 
 	return (
-		<FilterOptionContainer key={ filterId }>
+		<Container>
+			<Title color={ colors.textLightGray } margin="0 0 15px 0">{ title }</Title>
+			{/*// render list of filter-options*/}
 			<div>
-				<Title color={ colors.textLightGray } margin="0 0 15px 0">{ title }</Title>
-				{/*// render list of filter-options*/}
-				<div>
-					{ options.map((option) => {
-						const checked = isChecked(chosenFilters, option.filterId, option.value);
-						// render one filter-option
-						return (
-							<div key={ option.value }>
-								<Checkbox label={ option.label } isChecked={ checked } onChange={() => {
-									// our onChange depends on "checked":
-									// if filter-option checked we need to remove option by click
-									// if filter-option unchecked we need to add filter option
-									const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
-									onChange(option);
-								}}/>
-							</div>
-						);
-					}) }
-				</div>
+				{ options.map((option) => {
+					const checked = isChecked(chosenFilters, option.filterId, option.value);
+					// render one filter-option
+					return (
+						<FiltersOption
+							key={ option.value }
+							option={ option } 
+							checked={ checked }
+							onRemoveFilterOption={ handleRemoveFilterOption }
+							onAddFilterOption={ handleAddFilterOption }
+							chosenFilters={ chosenFilters }
+						/>					
+					);
+				})
+				}
 			</div>
-			<VerticalDivider/>
-		</FilterOptionContainer>
+		</Container>
 
 	);
 };

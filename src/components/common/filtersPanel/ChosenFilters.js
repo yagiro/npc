@@ -1,16 +1,23 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Image from '../../generic/Image';
 import CloseImage from '../../../assets/compare/x.png';
 import { colors } from '../../../config/constants';
+import { createClassName } from '../../../lib/classNameHelper';
+import { buildChosenFiltersOnRemove, buildFilterOptionObject } from './filtersHelpers';
+import TransitionGroupWrapper from '../../generic/TransitionGroupWrapper';
 
 const MS_FADE_ANIMATION = 200;
 
-const ChosenFiltersSection = styled.div`
+const classPrefix = 'chosen-filter';
+export const classes = {
+	animationGroup: createClassName(classPrefix, 'animation-wrapper'),
+};
 
-	> span {
+const Container = styled.div`
+
+	> .${ classes.animationGroup } {
 		display: flex;
 		align-items: center;
 		margin-left: 25px;
@@ -18,12 +25,14 @@ const ChosenFiltersSection = styled.div`
 	}
 	
 	.chosen-filter-enter {
-	  opacity: 0.01;
-	}
+	  opacity: 0;
+	  transform: scale(0.2);	
+ 	 }
 	
 	.chosen-filter-enter.chosen-filter-enter-active {
 	  opacity: 1;
-	  transition: opacity ${ MS_FADE_ANIMATION }ms ease-in;
+	  transform: translateX(0);
+  	  transition: opacity ${ MS_FADE_ANIMATION }ms ease-in, transform ${ MS_FADE_ANIMATION }ms ease-in;
 	}
 	
 	.chosen-filter-leave {
@@ -31,8 +40,9 @@ const ChosenFiltersSection = styled.div`
 	}
 	
 	.chosen-filter-leave.chosen-filter-leave-active {
-	  opacity: 0.01;
-	  transition: opacity ${ MS_FADE_ANIMATION }ms ease-in;
+	  opacity: 0;  
+	  transform: scale(0.2);
+	  transition: opacity ${ MS_FADE_ANIMATION }ms ease-in, transform ${ MS_FADE_ANIMATION }ms ease-in;
 	}
 `;
 
@@ -49,6 +59,7 @@ const ChosenFilterContainer = styled.div`
 	border-radius: 3px;
 	background-color: ${ colors.background };
 	margin-right: 6px;
+	margin-bottom: 6px;
 	align-items: center;
 	letter-spacing: 0;
 	text-transform: capitalize;
@@ -73,25 +84,23 @@ const CrossImgWrapper = styled.div`
 `;
 
 
+
 const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
+
+	const [ filterOptionLabels, setFilterOptionLabels ] = useState({});
+	useEffect(() => {
+		const filterOptionsObject = buildFilterOptionObject(filters);
+		setFilterOptionLabels(filterOptionsObject);
+	}, [ filters ]);
 	
 	const getOptionByValue = (filters, value) => {
-		let option = {};
-		filters.forEach((filter)=> {
-			const found = filter.options.find((op)=> {
-				return op.value === value;
-			});
-			
-			if(found) {
-				option = found;
-			}
-		});
-		
-		return option;
+		return filterOptionLabels[value];
 	};
 
 	// render chosen filters in the Top Section of Filter Panel
 	const renderChosenFilters = (chosenFilters) => {
+
+		// encapsulate buildOptionValueArr
 		let arrOptionValues = [];
 		
 		Object.keys(chosenFilters).forEach(function(key) {
@@ -100,11 +109,12 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 
 		return arrOptionValues.map((optionValue) => {
 
-			const chosenFilter = getOptionByValue(filters, optionValue);
+			const option = getOptionByValue(filters, optionValue);
 			return (
-				<ChosenFilterContainer key={ chosenFilter.value }>{ chosenFilter.label }
+				<ChosenFilterContainer key={ option.value }>
+					{ option.label }
 					<CrossImgWrapper onClick={() => {
-						onRemoveFilterOption(chosenFilter);
+						onRemoveFilterOption(option, chosenFilters);
 					}}>
 						<Image path={ CloseImage } width="8px" height="8px"/>
 					</CrossImgWrapper>
@@ -116,43 +126,29 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 	// clear filters click handler
 	const onClearFiltersClick = useCallback(() => {
 		onChange({});
-	}, [onChange]);
+	}, [ onChange ]);
 
-	const onRemoveFilterOption = useCallback((option) => {
-		onChange((prevChosenFilters) => {
-			const filter = prevChosenFilters[option.filterId];
-			const prevOptions = [ ...filter.value ];
-			const updatedOptions = prevOptions.filter((filterOption) => filterOption !== option.value);
-			return { ...prevChosenFilters, [filter.filterId]: { ...filter, value: new Set([...updatedOptions]) } };
-		});
-	}, [onChange]);
+	// remove filter-option click handler
+	const onRemoveFilterOption = useCallback((option, chosenFilters) => {
+		const updatedChosenFilters = buildChosenFiltersOnRemove(option, chosenFilters);
+		onChange(updatedChosenFilters);
+	}, [ onChange ]);
 	
-	const isChosenFilters = (chosenFilters) => {
-		let flag = false;
-		
-		Object.keys(chosenFilters).forEach(function(key) {
-			if([...chosenFilters[key].value].length > 0) {
-				flag = true;
-			}
-		});
-		
-		return flag;
+	const hasChosenFilters = (chosenFilters) => {
+		return !!Object.values(chosenFilters)
+			.find(filter => {
+				return filter.value.size > 0;
+			});
 	};
 	
 	return (
 
-		<ChosenFiltersSection>
-			<ReactCSSTransitionGroup
-				transitionName="chosen-filter"
-				transitionEnterTimeout={ MS_FADE_ANIMATION }
-				transitionLeaveTimeout={ MS_FADE_ANIMATION }>
-
+		<Container>
+			<TransitionGroupWrapper animationDelayMs={ MS_FADE_ANIMATION } animationName="chosen-filter" classNameAnimationGroup={ classes.animationGroup }>
 				{ renderChosenFilters(chosenFilters) }
-				{ isChosenFilters(chosenFilters) && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
-
-			</ReactCSSTransitionGroup>
-
-		</ChosenFiltersSection>
+				{ hasChosenFilters(chosenFilters) && <ClearAllButton onClick={ onClearFiltersClick }>Clear all</ClearAllButton> }
+			</TransitionGroupWrapper>
+		</Container>
 
 	);
 };

@@ -3,14 +3,11 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Title from '../../generic/Title';
 import Span from '../../generic/Span';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from '../../generic/Image';
-import CloseImage from '../../../assets/compare/x.png';
 import { colors, fonts } from '../../../config/constants';
-import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import ChosenFilters from './ChosenFilters';
 import Filters from './Filters';
 import { Collapse } from 'react-collapse';
+import FiltersToggleButton from './FiltersToggleButton';
 
 const Container = styled.div`
 	display: flex;
@@ -33,30 +30,12 @@ const SubTitle = styled.div`
 	margin-bottom: 20px;
 `;
 
-const ToggleContainer = styled.div`
-	display: flex;
-	width: 100%;
-	align-items: center;
-	align-content: center;
-	margin: 20px 0;
-	letter-spacing: 0;
-	text-transform: capitalize;
-	line-height: 100%;
-`;
-
-const ToggleArea = styled.div`
-	display: flex;
-	align-items: center;
-	align-content: center;
-	cursor: pointer;
-`;
-
 function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, subTitle }) {
 
 	const [ isCollapse, setIsCollapse ] = useState(false);
 
 	// show and hide Filters Section
-	const onToggleView = useCallback(() => {
+	const handleToggleView = useCallback(() => {
 		setIsCollapse(!isCollapse);
 	}, [ isCollapse, setIsCollapse ]);
 
@@ -72,23 +51,17 @@ function FiltersPanel({ filters, chosenFilters, onChange, title, subTitleBold, s
 				<ChosenFilters
 					chosenFilters={ chosenFilters }
 					onChange={ onChange }
-					filters={ filters }/>
+					filters={ filters }
+				/>
 			</TopSection>
 			<BottomSection isCollapse={ isCollapse }>
-				<ToggleContainer>
-					<ToggleArea onClick={ onToggleView }>
-						{ !isCollapse
-							? <FontAwesomeIcon icon={ faSlidersH } size="sm"/>
-							: <Image path={ CloseImage } width="12px" height="12px"/>
-						}
-						<Span bold margin="0 0 0 15px">Filter</Span>
-					</ToggleArea>
-				</ToggleContainer>
+				<FiltersToggleButton onClick={ handleToggleView } isCollapse={ isCollapse }/>
 				<Collapse isOpened={ isCollapse }>
 					<Filters
 						onChange={ onChange }
 						chosenFilters={ chosenFilters }
-						filters={ filters }/>
+						filters={ filters }
+					/>
 				</Collapse>
 			</BottomSection>
 		</Container>
