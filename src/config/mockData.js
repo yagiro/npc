@@ -1,5 +1,4 @@
 import { cardTypes } from './constants';
-import PropTypes from 'prop-types';
 
 export const mockData = {
 

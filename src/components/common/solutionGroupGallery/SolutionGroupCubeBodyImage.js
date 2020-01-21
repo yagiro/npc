@@ -22,7 +22,7 @@ const Container = styled.div`
 const SolutionGroupCubeBodyImage = ({ mainImagePath }) => {
 	return (
 		<Container>
-			<img src={ buildAssetAbsolutePath(mainImagePath) }/>
+			<img src={ buildAssetAbsolutePath(mainImagePath) } alt="Model" />
 		</Container>
 	);
 };

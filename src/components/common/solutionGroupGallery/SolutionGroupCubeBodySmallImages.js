@@ -4,16 +4,17 @@ import styled from 'styled-components';
 
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
+import { colors } from '../../../config/constants';
 
 const classPrefix = 'solution-group-additional-images';
 export const classes = { 
-	cubeImages: createClassName(classPrefix, 'cube'),
+	smallImages: createClassName(classPrefix, 'small-image'),
 };
 
 const Container = styled.div`
   display: flex;
 
-  & .${ classes.cubeImages }:not(:first-child) {
+  & .${ classes.smallImages }:not(:first-child) {
     margin-left: 30px;
   }
 `;
@@ -21,7 +22,7 @@ const Container = styled.div`
 const ImageContainer = styled.div`
       width: 88px;
       height: 55px;
-      border: 1px solid #E1E3E5;
+      border: 1px solid ${ colors.cubeImagesBorder };
       border-radius: 10px;
       position: relative;
       filter: grayscale(100%);
@@ -47,7 +48,7 @@ const renderImages = (iconPaths) => {
 		return (
 			<ImageContainer
 				key={ i }
-				className={ classes.cubeImages }
+				className={ classes.smallImages }
 				iconPath={ iconPath }
 			/>
 		);

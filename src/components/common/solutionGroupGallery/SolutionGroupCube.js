@@ -12,7 +12,7 @@ import { classes as additionalImagesClasses } from './SolutionGroupCubeBodySmall
 const Container = styled.div`  
 	width: 300px;
 	height: 305px;
-    box-shadow: 0px 2px 6px #0000001A;
+    box-shadow: 0px 2px 6px ${ colors.cubeShadow };
     background-color: ${ hexToRgb(colors.solutionCubeBg, 1) };
     border-radius: 8px 8px 8px 8px;
     overflow: hidden;
@@ -21,7 +21,7 @@ const Container = styled.div`
     transition: box-shadow .3s;
     
     :hover {
-      box-shadow: 0px 10px 20px #0000001A;
+      box-shadow: 0px 10px 20px ${ colors.cubeShadow };
     }
     
     :hover .${ footerClasses.container } {
@@ -30,7 +30,7 @@ const Container = styled.div`
       height: 200px;
       justify-content: start;
       
-      > .${ footerClasses.title } {
+      > .${ footerClasses.label } {
         color: ${ colors.background };
         font-weight: bold;
         margin-top: 25px;
@@ -41,17 +41,17 @@ const Container = styled.div`
       }
     }
     
-    :hover .${ additionalImagesClasses.cubeImages } {
+    :hover .${ additionalImagesClasses.smallImages } {
       filter: none;
     }
 `;
 
 const SolutionGroupCube = (props) => {
 	const { onClick, mainImagePath, iconPaths, label, features, id, backGroundImage } = props;
-	const onChoose = useCallback(() => onClick(id), [ onClick, id ]);
+	const handleClick = useCallback(() => onClick(id), [ onClick, id ]);
 
 	return (
-		<Container onClick={ onChoose }>
+		<Container onClick={ handleClick }>
 			<SolutionGroupCubeBody
 				mainImagePath={ mainImagePath }
 				iconPaths={ iconPaths }
@@ -65,11 +65,15 @@ const SolutionGroupCube = (props) => {
 	);
 };
 
+SolutionGroupCube.defaultProps = {
+	iconPaths: [],
+};
+
 SolutionGroupCube.propTypes = {
-	id: PropTypes.number,
-	mainImagePath: PropTypes.string,
+	id: PropTypes.number.isRequired,
+	mainImagePath: PropTypes.string.isRequired,
 	iconPaths: PropTypes.arrayOf(PropTypes.string),
-	label: PropTypes.string,
+	label: PropTypes.string.isRequired,
 	features: PropTypes.arrayOf(PropTypes.string),
 	onClick: PropTypes.func,
 	backGroundImage: PropTypes.string,
