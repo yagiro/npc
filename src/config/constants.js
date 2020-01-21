@@ -38,7 +38,7 @@ export const colors = {
 	buttonGrey: '#6B6F81',
 	borderGrey: '#D2D5D9',
 	textDark: '#4C5059',
-	textGrey: '#4D4D4D',
+	textGrey: '##4D4D4D',
 };
 
 export const fonts = {
