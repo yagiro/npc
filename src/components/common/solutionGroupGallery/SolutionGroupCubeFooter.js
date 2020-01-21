@@ -9,7 +9,7 @@ const classPrefix = 'solution-group-footer';
 export const classes = {
 	container: createClassName(classPrefix, 'container'),
 	list:  createClassName(classPrefix, 'list'),
-	title:  createClassName(classPrefix, 'title'),
+	label:  createClassName(classPrefix, 'label'),
 };
 
 const Container = styled.div`
@@ -18,7 +18,7 @@ const Container = styled.div`
     justify-content: center;
 	width: 100%;
 	height: 48px;
-	box-shadow: 0px -1px 3px #0000001A;
+	box-shadow: 0px -1px 3px ${ colors.cubeShadow };
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -27,7 +27,7 @@ const Container = styled.div`
 	transition: height .3s, background-color .2s;
 	overflow: hidden;
 	
-	> .${ classes.title } {
+	> .${ classes.label } {
 	  font: ${ fonts.mediumText };
 	  color: ${ colors.solutionGroupTitle };
 	  text-transform: capitalize;
@@ -54,7 +54,7 @@ const SolutionGroupCubeBodyFooter = (props) => {
 	const { label, features } = props;
 	return (
 		<Container className={ classes.container }>
-			<div className={ classes.title }>{ label }</div>
+			<div className={ classes.label }>{ label }</div>
 			<ul className={ classes.list }>
 				{ features.map((feature, i) => <li key={ i }>{feature}</li>) }
 			</ul>

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import SolutionGroupCube from './SolutionGroupCube';
 
 const Container = styled.div`
-	margin: 50px auto;
+	margin: 20px auto;
     display: grid;
     grid-gap: 30px;
     grid-template-columns: repeat(auto-fill, 300px);
@@ -40,6 +40,10 @@ const SolutionGroupGallery = (props) => {
 	);
 };
 
+SolutionGroupGallery.defaultProps = {
+	cubes: [],
+};
+
 SolutionGroupGallery.propTypes = {
 	cubes: PropTypes.arrayOf(PropTypes.shape({
 		id: PropTypes.number,
@@ -48,7 +52,7 @@ SolutionGroupGallery.propTypes = {
 		label: PropTypes.string,
 		features: PropTypes.arrayOf(PropTypes.string),
 		backGroundImage: PropTypes.string,
-	}).isRequired),
+	})),
 	onChoose: PropTypes.func,
 };
 
