@@ -5,7 +5,7 @@ const Checkbox = ({ label, isChecked, onChange }) => {
 
 	return (
 		<label className="checkbox-container" >{ label }
-			<input type="checkbox" checked={ isChecked } readOnly onChange={ onChange }/>
+			<input type="checkbox" checked={ isChecked } readOnly onChange={ ()=> onChange(!isChecked) }/>
 			<span className="checkbox-checkmark"> </span>
 		</label>
 	);
