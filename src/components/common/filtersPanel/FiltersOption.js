@@ -1,9 +1,14 @@
 import React from 'react';
 import Checkbox from '../../generic/Checkbox';
+import styled from 'styled-components';
+
+const Container = styled.div`
+	margin-bottom: 12px;
+`;
 
 const FiltersOption = ({ option, checked, onRemoveFilterOption, onAddFilterOption, chosenFilters }) => {
 	return (
-		<div key={ option.value }>
+		<Container key={ option.value }>
 			<Checkbox label={ option.label } isChecked={ checked } onChange={() => {
 				// our onChange depends on "checked":
 				// if filter-option checked we need to remove option by click
@@ -11,7 +16,7 @@ const FiltersOption = ({ option, checked, onRemoveFilterOption, onAddFilterOptio
 				const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
 				onChange(option, chosenFilters);
 			}}/>
-		</div>
+		</Container>
 	);
 };
 

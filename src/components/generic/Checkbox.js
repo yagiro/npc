@@ -17,7 +17,6 @@ const Container = styled.div`
 	  display: block;
 	  position: relative;
 	  padding-left: 25px;
-	  margin-bottom: 12px;
 	  cursor: pointer;
 	  font-size: 14px;
 	  color: ${ colors.textLightGray };
