@@ -20,7 +20,7 @@ const Container = styled.div`
 	  margin-bottom: 12px;
 	  cursor: pointer;
 	  font-size: 14px;
-	  color: ${ props => props.color };
+	  color: ${ colors.textLightGray };
 	  font-family: DIN, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	  -webkit-user-select: none;
 	  -moz-user-select: none;
@@ -85,10 +85,10 @@ const Container = styled.div`
 `;
 
 
-const Checkbox = ({ label, isChecked, onChange, color }) => {
+const Checkbox = ({ label, isChecked, onChange }) => {
 
 	return (
-		<Container color={ color }>
+		<Container>
 			<label className={ classes.container } >{ label }
 				<input type="checkbox" checked={ isChecked } readOnly onChange={ () => onChange(!isChecked) }/>
 				<span className={ classes.checkmark }> </span>
@@ -100,7 +100,6 @@ const Checkbox = ({ label, isChecked, onChange, color }) => {
 Checkbox.defaultProps = {
 	label: 'no label',
 	onChange: () => {},
-	color: colors.textLightGray
 };
 
 Checkbox.propTypes = {
