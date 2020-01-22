@@ -50,6 +50,11 @@ export const filterBlockTypes = {
 	comboFilter: 'comboFilter',
 };
 
+export const solutionPackageTypes = {
+	base: 'base',
+	plus: 'plus',
+	turbo: 'turbo',
+};
 export const socialUrls = {
 	facebook: 'https://www.facebook.com/checkpointsoftware',
 	twitter: 'https://twitter.com/checkpointsw',
