@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -9,6 +9,7 @@ import SolutionSummaryFlags from './SolutionSummaryFlags';
 import SolutionSummaryAddCardButton from './SolutionSummaryAddCardButton';
 import SolutionSummaryInclude from './SolutionSummaryInclude';
 import { colors } from '../../../config/constants';
+import { createClassName } from '../../../lib/classNameHelper';
 
 export const currency = {
 	USD: '$',
@@ -16,23 +17,31 @@ export const currency = {
 	EUR: '€',
 };
 
+const classPrefix = 'solution-summary';
+export const classes = {
+	body: createClassName(classPrefix, 'body'),
+	include: createClassName(classPrefix, 'include'),
+};
+
 const Container = styled.div`
 	background-color: ${ colors.background };
 	
-	> div:first-child {
+	> .${ classes.body } {
 		padding: 30px;
 	}
 
-	> div:last-child {
+	> .${ classes.include } {
 		border-top: 1px ${ colors.textLightGray } solid;
+		height: ${ props => props.inBottom ? 0 : 'auto' };
 	}
+	
+	
 `;
 
 const MainContainer = styled.div`
 	z-index: 100;
 	top: ${ props => props.top+'px' };
 	position: ${ props => props.position};
-	//position: absolute;
 	right: ${ props => props.inBottom ? 0 : '20px'};
 	transition:${ props => props.transition};
 `;
@@ -42,7 +51,7 @@ const SolutionSummary = (props) => {
 	const handlerAddCart = useCallback(() => onAddToCart, [ onAddToCart ]);
 	const handlerFlagChange = useCallback((id, value) => onFlagChange(id, value), [ onFlagChange ]);
 
-	const elem = useRef(null);
+	// const elem = useRef(null);
 
 	const [ position, setPosition ] = useState('fixed');
 	const [ topPos, setTopPos ] = useState(0);
@@ -71,7 +80,7 @@ const SolutionSummary = (props) => {
 		<MainContainer inBottom={ inBottom } top={ topPos } transition={ transition } position={ position }>
 			<Card>
 				<Container>
-					<div ref={ elem }>
+					<div className={ classes.body }>
 						<SolutionSummaryHeader
 							price={ totalPrice }
 							currency={ currency }
@@ -90,7 +99,7 @@ const SolutionSummary = (props) => {
 					</div>
 					{
 						!inBottom &&
-						<div>
+						<div className={ classes.include }>
 							<SolutionSummaryInclude
 
 							/>
