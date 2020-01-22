@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CollapseWrapper from './components/generic/CollapseWrapper';
 import ItemCard from './components/common/itemCard/ItemCard';
-import { cardTypes } from './config/constants';
+import { cardTypes, solutionPackageTypes } from './config/constants';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
 import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
@@ -10,6 +10,7 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 
 class App extends Component {
 
@@ -27,6 +28,16 @@ class App extends Component {
 
 		return (
 			<div className="App">
+				{
+					mockData.solutionPackage.map((item, i) =>
+						<SolutionPackage
+							key={ i }
+							type={ item.type }
+							subtitle={ item.subtitle }
+							gbpsAmount={ item.gbpsAmount }
+						/>
+					)
+				}<br/><br/>
 
 				<DumbTabNavigation
 					options={ mockData.menuItems }

@@ -49,3 +49,8 @@ export const filterBlockTypes = {
 	multiple: 'multiple',
 };
 
+export const solutionPackageTypes = {
+	base: 'base',
+	plus: 'plus',
+	turbo: 'turbo',
+};
