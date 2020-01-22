@@ -56,7 +56,12 @@ const Button = (props) => {
 
 
 	return (
-		<Container styleType={ styleType } width={ width } height = { height } onClick={ handleClick }>
+		<Container
+			styleType={ styleType }
+			width={ width }
+			height = { height }
+			onClick={ handleClick }
+		>
 			{ children }
 		</Container>
 	);
