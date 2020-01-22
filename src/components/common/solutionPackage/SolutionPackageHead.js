@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { strObjToArray } from '../../../lib/utils';
-import { colors, solutionPackageTypes } from '../../../config/constants';
 import { ReactSVG } from 'react-svg';
-import { buildAssetAbsolutePath, buildImageUrl } from '../../../lib/assetsHelper';
+
+import { solutionPackageTypes } from '../../../config/constants';
+import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
 import SolutionPackageHeadContent from './SolutionPackageHeadContent';
 
@@ -31,8 +31,7 @@ export const classes = {
 	images: createClassName(classPrefix, 'images'),
 };
 
-const Container = styled.div`  
-	border: 1px solid blue;
+const Container = styled.div`
 	height: 197px;
 	background-image: linear-gradient(180deg, ${ props => typeSettings[props.type].gradientColors[0] } 0%, 
 		${ props => typeSettings[props.type].gradientColors[1] } 100%);
@@ -45,7 +44,6 @@ const Container = styled.div`
 		
 		> * {
 			margin-left: 14px;
-			z-index: 0;
 			
 			svg {
 				height: 65px;
@@ -56,7 +54,8 @@ const Container = styled.div`
 `;
 
 const renderFlashes = (type) => {
-	const arr = Array(typeSettings[type].flashCount).fill(null);
+	const arr = Array(typeSettings[type].flashCount);
+	arr.fill(null);
 	return arr.map((item, i) =>
 		<ReactSVG
 			key={ i }
@@ -72,6 +71,7 @@ const SolutionPackageHead = (props) => {
 				{ renderFlashes(type) }
 			</div>
 			<SolutionPackageHeadContent
+				type={ type }
 				title={ typeSettings[props.type].title }
 				{...otherProps}
 			/>
@@ -80,7 +80,7 @@ const SolutionPackageHead = (props) => {
 };
 
 SolutionPackageHead.propTypes = {
-	type: PropTypes.oneOf(strObjToArray(solutionPackageTypes)).isRequired,
+	type: PropTypes.string,
 	subtitle: PropTypes.string,
 	gbpsAmount: PropTypes.number,
 };
