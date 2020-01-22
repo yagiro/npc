@@ -9,8 +9,8 @@ import { ReactSVG } from 'react-svg';
 
 const classPrefix = 'menu-item';
 export const classes = {
-    icon: createClassName(classPrefix, 'icon'),
-    activeIcon: createClassName(classPrefix, 'active-icon'),
+	icon: createClassName(classPrefix, 'icon'),
+	activeIcon: createClassName(classPrefix, 'active-icon'),
 };
 
 const Container = styled.div`  
@@ -26,25 +26,25 @@ const Container = styled.div`
 `;
 
 const ImageTabItem = (props) => {
-    const { isActive, image } = props;
+	const { isActive, image } = props;
 
-    return (
-        <Container>
-            <ReactSVG
-                className={ classNames(classes.icon, { [classes.activeIcon]: isActive }) }
-                src={ buildAssetAbsolutePath(image) }
-            />
-        </Container>
-    );
+	return (
+		<Container>
+			<ReactSVG
+				className={ classNames(classes.icon, { [classes.activeIcon]: isActive }) }
+				src={ buildAssetAbsolutePath(image) }
+			/>
+		</Container>
+	);
 };
 
 ImageTabItem.defaultProps = {
-    isActive: false,
+	isActive: false,
 };
 
 ImageTabItem.propTypes = {
-    isActive: PropTypes.bool,
-    image: PropTypes.string.isRequired,
+	isActive: PropTypes.bool,
+	image: PropTypes.string.isRequired,
 };
 
 export default ImageTabItem;

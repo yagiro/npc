@@ -1,4 +1,4 @@
-import { cardTypes } from './constants';
+import { cardTypes, solutionPackageTypes } from './constants';
 
 export const mockData = {
 
@@ -206,6 +206,20 @@ export const mockData = {
 			},
 		},
 
+	],
+
+	solutionPackage: [
+		{
+			type: solutionPackageTypes.base,
+			subtitle: '26000 Next Generation Appliance',
+			gbpsAmount: 24
+		},
+		{
+			type: solutionPackageTypes.turbo,
+			subtitle: '26000 Next Generation Appliance With 5 Virtual Systems',
+			gbpsAmount: 30
+		}
+	]
 	],
 	// MOCK FOR MENU
 	homePageMiddleTabs: [
