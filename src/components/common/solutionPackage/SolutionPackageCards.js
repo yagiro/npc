@@ -28,7 +28,7 @@ const getSlots = (cards, availableSlotsCount) => {
 	const slots = cards.concat(Array(emptySlotsCount).fill(null));
 	return slots;
 };
-	
+
 const SolutionPackageCards = ({ availableSlotsCount, cards, backgroundColor }) => {
 	const [ isOpen, setIsOpen ] = useState(false);
 

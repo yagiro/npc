@@ -58,7 +58,7 @@ const renderDetails = (drives, availableSlotsCount, type) => {
 		</DetailItem>
 	);
 };
-	
+
 const SolutionPackageStorage = ({ drives, availableSlotsCount, type, backgroundColor }) => {
 	const [ isOpen, setIsOpen ] = useState(false);
 

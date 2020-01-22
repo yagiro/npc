@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CollapseWrapper from './components/generic/CollapseWrapper';
 import ItemCard from './components/common/itemCard/ItemCard';
-import { cardTypes } from './config/constants';
+import { cardTypes, solutionPackageTypes } from './config/constants';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
 import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
@@ -11,7 +11,6 @@ import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigati
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
-import Homepage from './components/homepage/Homepage';
 
 class App extends Component {
 

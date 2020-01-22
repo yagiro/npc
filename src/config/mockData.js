@@ -395,7 +395,7 @@ export const mockData = {
 			]
 		}
 	],
-	
+
 	// MOCK FOR MENU
 	homePageMiddleTabs: [
 		{
