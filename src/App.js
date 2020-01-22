@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import CollapseWrapper from './components/common/collapseWrapper/CollapseWrapper';
+import CollapseWrapper from './components/generic/CollapseWrapper';
 import ItemCard from './components/common/itemCard/ItemCard';
 import { cardTypes } from './config/constants';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
@@ -10,7 +10,7 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
-import SolutionSummary from './components/common/solutionSummary/SolutionSummary';
+import SolutionSummaryContainer from './components/common/solutionSummary/SolutionSummaryContainer';
 
 class App extends Component {
 
@@ -28,15 +28,6 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<SolutionSummary
-					totalPrice={ 165000 }
-					items={[
-						{ label: 'Products', price: 165000 },
-						{ label: 'Services', price: 150 },
-						{ label: 'Support', price: 200 },
-					]}
-					onCheck={ (val) => console.log(val) }
-				/>
 				<br/><br/>
 				<DumbTabNavigation
 					options={ mockData.menuItems }
@@ -83,6 +74,23 @@ class App extends Component {
 					onCompare={ (models) => console.log('Compare button clicked', models) }
 					onModelRemove={ (model) => console.log('Model removing', model) }
 					onChange={ (models) => this.setState({ models }) }
+				/>
+				<SolutionSummaryContainer
+					totalPrice={ 165000 }
+					items={[
+						{ label: 'Products', price: 165000 },
+						{ label: 'Services', price: 150 },
+						{ label: 'Support', price: 200 },
+					]}
+					flags={[
+						{
+							id: 1,
+							label: 'High Availability (HA) cluster of two appliances',
+							value: false,
+						}
+					]}
+					onFlagChange={ (id, val) => console.log('Flag', id, val) }
+					isBottom={ false }
 				/>
 			</div>
 		);
