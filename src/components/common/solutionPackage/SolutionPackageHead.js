@@ -42,7 +42,8 @@ const Container = styled.div`
 `;
 
 const renderFlashes = (type) => {
-	const arr = Array(solutionPackageSettings[type].flashCount).fill(null);
+	const arr = Array(solutionPackageSettings[type].flashCount);
+	arr.fill(null);
 	return arr.map((item, i) =>
 		<ReactSVG
 			key={ i }
