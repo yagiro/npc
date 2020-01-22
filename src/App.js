@@ -10,7 +10,6 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
-import SolutionSummary from './components/common/solutionSummary/SolutionSummary';
 import SolutionSummaryContainer from './components/common/solutionSummary/SolutionSummaryContainer';
 
 class App extends Component {
