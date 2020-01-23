@@ -28,16 +28,21 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				{
-					mockData.solutionPackage.map((item, i) =>
-						<SolutionPackage
-							key={ i }
-							type={ item.type }
-							subtitle={ item.subtitle }
-							gbpsAmount={ item.gbpsAmount }
-						/>
-					)
-				}<br/><br/>
+				<div style={{ display: 'flex' }}>
+					{
+						mockData.solutionPackage.map((item, i) =>
+							<SolutionPackage
+								key={ i }
+								type={ item.type }
+								subtitle={ item.subtitle }
+								gbpsAmount={ item.gbpsAmount }
+								price={ item.price }
+								sku={ item.sku }
+								selected={ item.selected }
+							/>
+						)
+					}<br/><br/>
+				</div>
 
 				<DumbTabNavigation
 					options={ mockData.menuItems }

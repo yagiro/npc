@@ -192,12 +192,18 @@ export const mockData = {
 		{
 			type: solutionPackageTypes.base,
 			subtitle: '26000 Next Generation Appliance',
-			gbpsAmount: 24
+			gbpsAmount: 24,
+			price: 165000,
+			sku: 'SKU:CPAP-MHS-6803',
+			selected: true,
 		},
 		{
 			type: solutionPackageTypes.turbo,
 			subtitle: '26000 Next Generation Appliance With 5 Virtual Systems',
-			gbpsAmount: 30
+			gbpsAmount: 30,
+			price: 210000,
+			sku: 'SKU:CPAP-MHS-6803',
+			selected: false,
 		}
 	]
 };

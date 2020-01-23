@@ -25,7 +25,7 @@ const Container = styled.div`
 	justify-content: space-between;
 	color: ${ colors.background };
 	
-	> div:first-child {
+	& > div:first-child {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -60,7 +60,7 @@ const Container = styled.div`
 			border-width: 2px;
 			border-style: solid;
 			border-color: ${ colors.checkPointPink };
-			border-left-color: ${ (props) => props.type === solutionPackageTypes.turbo ? 
+			border-left-color: ${ ({ type }) => type === solutionPackageTypes.turbo ? 
 		colors.checkPointPink : colors.borderGrey };
 			display: flex;
 			justify-content: center;

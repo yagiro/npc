@@ -40,7 +40,9 @@ export const colors = {
 };
 
 export const fonts = {
+	paragraphSmall: '12px DIN Pro',
 	paragraph: '14px DIN Pro',
+	paragraphMiddle: '16px DIN Pro',
 	paragraphBig: '18px DIN Pro',
 	header: '32px DIN Pro',
 	headerSecond: '30px DIN Pro',
