@@ -39,7 +39,6 @@ export const colors = {
 	borderGrey: '#D2D5D9',
 	solutionCubeBg: '#F6F6F6',
 	solutionGroupTitle: '#4C5059',
-	cubeShadow: '#0000001A',
 	cubeImagesBorder: '#E1E3E5',
 };
 

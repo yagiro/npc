@@ -39,7 +39,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<SolutionGroupGallery
-					cubes={ mockData.solutionCubes }
+					solutionGroups={ mockData.solutionCubes }
 					onChoose={ (value) => console.log(value) }
 				/>
 				<DumbTabNavigation

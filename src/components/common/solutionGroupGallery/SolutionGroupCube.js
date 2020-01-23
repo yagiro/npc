@@ -3,63 +3,67 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import SolutionGroupCubeBody from './SolutionGroupCubeBody';
-import SolutionGroupCubeBodyFooter from './SolutionGroupCubeFooter';
+import SolutionGroupCubeFooter from './SolutionGroupCubeFooter';
 import { hexToRgb } from '../../../lib/utils';
 import { colors } from '../../../config/constants';
 import { classes as footerClasses } from './SolutionGroupCubeFooter';
 import { classes as additionalImagesClasses } from './SolutionGroupCubeBodySmallImages';
+import { zIndexMap } from './solutionGroupCubeHelper';
 
-const Container = styled.div`  
+const CUBE_HEIGHT_PX = 305;
+
+const Container = styled.div`
 	width: 300px;
-	height: 305px;
-    box-shadow: 0px 2px 6px ${ colors.cubeShadow };
-    background-color: ${ hexToRgb(colors.solutionCubeBg, 1) };
-    border-radius: 8px 8px 8px 8px;
+	height: ${ props => props.height }px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+    background-color: ${ colors.solutionCubeBg };
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
     transition: box-shadow .3s;
     
-    :hover {
-      box-shadow: 0px 10px 20px ${ colors.cubeShadow };
-    }
-    
-    :hover .${ footerClasses.container } {
-      z-index: 20;
-      background-color: rgba(${ hexToRgb(colors.checkPointPink) }, .95);
-      height: 200px;
-      justify-content: start;
+    &:hover {
+		box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
       
-      > .${ footerClasses.label } {
-        color: ${ colors.background };
-        font-weight: bold;
-        margin-top: 25px;
-      }
-      
-      .${ footerClasses.list } {
-        display: block;
-      }
-    }
-    
-    :hover .${ additionalImagesClasses.smallImages } {
-      filter: none;
+		.${ additionalImagesClasses.smallImage } {
+			filter: none;
+		}
+		
+		.${ footerClasses.container } {
+			z-index: ${ zIndexMap.footerContainer };
+			background-color: rgba(${ hexToRgb(colors.checkPointPink) }, .95);
+			height: ${ props => Math.round(props.height * 0.66) }px;
+			justify-content: flex-start;
+			  
+			& > .${ footerClasses.label } {
+			color: ${ colors.background };
+			font-weight: bold;
+			margin-top: 25px;
+		}
+		  
+		.${ footerClasses.list } {
+			display: block;
+		}
     }
 `;
 
 const SolutionGroupCube = (props) => {
-	const { onClick, mainImagePath, iconPaths, label, features, id, backGroundImage } = props;
+	const { onClick, mainImagePath, iconPaths, title, features, id, backgroundImage } = props;
 	const handleClick = useCallback(() => onClick(id), [ onClick, id ]);
 
 	return (
-		<Container onClick={ handleClick }>
+		<Container onClick={ handleClick } height={ CUBE_HEIGHT_PX }>
 			<SolutionGroupCubeBody
+				cubeHeight={ CUBE_HEIGHT_PX }
 				mainImagePath={ mainImagePath }
 				iconPaths={ iconPaths }
-				backGroundImage={ backGroundImage }
+				backgroundImage={ backgroundImage }
 			/>
-			<SolutionGroupCubeBodyFooter
+			<SolutionGroupCubeFooter
+				cubeHeight={ CUBE_HEIGHT_PX }
 				features={ features }
-				label={ label }
+				title={ title }
 			/>
 		</Container>
 	);
@@ -67,16 +71,17 @@ const SolutionGroupCube = (props) => {
 
 SolutionGroupCube.defaultProps = {
 	iconPaths: [],
+	onClick: (id) => console.log(`${ id } is clicked`),
 };
 
 SolutionGroupCube.propTypes = {
-	id: PropTypes.number.isRequired,
+	id: PropTypes.any.isRequired,
 	mainImagePath: PropTypes.string.isRequired,
 	iconPaths: PropTypes.arrayOf(PropTypes.string),
-	label: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 	features: PropTypes.arrayOf(PropTypes.string),
 	onClick: PropTypes.func,
-	backGroundImage: PropTypes.string,
+	backgroundImage: PropTypes.string,
 };
 
 export default SolutionGroupCube;
