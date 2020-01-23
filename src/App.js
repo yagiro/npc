@@ -30,7 +30,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<SolutionGroupGallery
-					cubes={ mockData.solutionCubes }
+					solutionGroups={ mockData.solutionCubes }
 					onChoose={ (value) => console.log(value) }
 				/>
 				<DumbTabNavigation
@@ -56,7 +56,7 @@ class App extends Component {
 					show={ showCompare }
 					onChange={ (models) => this.setState({ models: models })}
 					onShow={ (show) => this.setState({ showCompare: show }) } />
-				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) }value={ 1 }
+				<NumberSelector data={ mockData.paginationButtons } onChange={ (value) => console.log(value) } value={ 1 }
 				/>
 
 				<Checkbox/>

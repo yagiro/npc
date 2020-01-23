@@ -5,16 +5,17 @@ import styled from 'styled-components';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
 import { colors } from '../../../config/constants';
+import { zIndexMap } from './solutionGroupCubeHelper';
 
 const classPrefix = 'solution-group-additional-images';
 export const classes = { 
-	smallImages: createClassName(classPrefix, 'small-image'),
+	smallImage: createClassName(classPrefix, 'small-image'),
 };
 
 const Container = styled.div`
   display: flex;
 
-  & .${ classes.smallImages }:not(:first-child) {
+  & .${ classes.smallImage }:not(:first-child) {
     margin-left: 30px;
   }
 `;
@@ -27,9 +28,9 @@ const ImageContainer = styled.div`
       position: relative;
       filter: grayscale(100%);
       transition: all .3s;
-      z-index: 15;
+      z-index: ${ zIndexMap.smallImage };
 
-      ::before {
+      &::before {
         content: "";
         position: absolute;
         top: 0;
@@ -48,7 +49,7 @@ const renderImages = (iconPaths) => {
 		return (
 			<ImageContainer
 				key={ i }
-				className={ classes.smallImages }
+				className={ classes.smallImage }
 				iconPath={ iconPath }
 			/>
 		);

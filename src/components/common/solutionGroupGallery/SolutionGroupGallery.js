@@ -6,54 +6,55 @@ import SolutionGroupCube from './SolutionGroupCube';
 
 const Container = styled.div`
 	margin: 20px auto;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fill, 300px);
-    justify-content: center;
-    max-width: 1000px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 1000px;
+	
+	& > * {
+		margin: 15px;
+	}
 `;
 
-const renderCubes = (cubes, onChoose) => {
-	return cubes.map(cube => {
-		const { id, mainImagePath, iconPaths, label, features, backGroundImage } = cube;
+const renderCubes = (solutionGroups) => {
+	return solutionGroups.map(cube => {
+		const { id, mainImagePath, iconPaths, title, features, backgroundImage } = cube;
 		return (
 			<SolutionGroupCube
 				id={ id }
 				key={ id }
 				mainImagePath={ mainImagePath }
 				iconPaths={ iconPaths }
-				label={ label }
+				title={ title }
 				features={ features }
-				onClick={ onChoose }
-				backGroundImage={ backGroundImage }
+				backgroundImage={ backgroundImage }
 			/>
 		);
 	});
 };
 
 const SolutionGroupGallery = (props) => {
-	const { cubes, onChoose } = props;
+	const { solutionGroups } = props;
 	return (
 		<Container>
-			{ renderCubes(cubes, onChoose) }
+			{ renderCubes(solutionGroups) }
 		</Container>
 	);
 };
 
 SolutionGroupGallery.defaultProps = {
-	cubes: [],
+	solutionGroups: [],
 };
 
 SolutionGroupGallery.propTypes = {
-	cubes: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number,
+	solutionGroups: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.any,
 		mainImagePath: PropTypes.string,
 		iconPaths: PropTypes.arrayOf(PropTypes.string),
-		label: PropTypes.string,
+		title: PropTypes.string,
 		features: PropTypes.arrayOf(PropTypes.string),
-		backGroundImage: PropTypes.string,
+		backgroundImage: PropTypes.string,
 	})),
-	onChoose: PropTypes.func,
 };
 
 export default SolutionGroupGallery;
