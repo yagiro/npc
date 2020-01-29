@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CollapseWrapper from './components/generic/CollapseWrapper';
 import ItemCard from './components/common/itemCard/ItemCard';
-import { cardTypes, solutionPackageTypes } from './config/constants';
+import { cardTypes } from './config/constants';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
 import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
@@ -48,12 +48,8 @@ class App extends Component {
 								price={ item.price }
 								sku={ item.sku }
 								selected={ item.selected }
-							price={ item.price }
-								selected={ item.selected }
 								onSelect={ () => console.log(i) }
-								category={ item.category }
-								attrs={ item.attributes }
-								sku={ item.sku }/>
+							/>
 						)
 					}<br/><br/>
 				</div>

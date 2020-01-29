@@ -29,6 +29,10 @@ const getSlots = (cards, availableSlotsCount) => {
 	return slots;
 };
 
+const Clickable = styled.div`
+	cursor: pointer;
+`;
+
 const SolutionPackageCards = ({ availableSlotsCount, cards, backgroundColor }) => {
 	const [ isOpen, setIsOpen ] = useState(false);
 
