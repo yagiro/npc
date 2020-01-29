@@ -22,8 +22,8 @@ const Container = styled.div`
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    margin-top: 64px !important;
-    padding-top: 25px !important;
+    margin-top: 64px;
+    padding-top: 25px;
 `;
 
 const Content = styled.div`
@@ -38,25 +38,25 @@ const LeftSection = styled.div`
 `;
 
 const LinksSection = styled.div`
-	margin-top: 15px !important;
+	margin-top: 15px;
 	display: flex;
 	flex: 1;
 	
-	    > a {
-    text-decoration: none;
-    transition: color 0.2s;
-    color: ${colors.paragraphBlack};
+	> a {
+		text-decoration: none;
+		transition: color 0.2s;
+		color: ${colors.paragraphBlack};
 
 		&:hover {
-		color: ${colors.checkPointPink};
+			color: ${colors.checkPointPink};	
 		}
-    }
+	}
     
-          > .${classes.social} {
-margin-left: 30px !important;
-    text-decoration: none;
-    transition: color 0.2s;
-    };
+	> .${classes.social} {
+		margin-left: 30px;
+		text-decoration: none;
+		transition: color 0.2s;
+	};
 `;
 
 
@@ -73,7 +73,7 @@ const Footer = () => {
 			<Content>
 				<LeftSection>
 					<Title size="22px" margin="0 0 30px 0">WELCOME TO THE FUTURE OF CYBER SECURITY</Title>
-					<Paragraph color={ colors.paragraphBlack }>© 1994 - { new Date().getFullYear() } Check Point Software Technologies Ltd. All rights reserved</Paragraph>
+					<Paragraph color="black">© 1994 - { new Date().getFullYear() } Check Point Software Technologies Ltd. All rights reserved</Paragraph>
 					<LinksSection>
 						<a href="https://www.checkpoint.com/copyright/" target="_blank" rel="noopener noreferrer"><Span size="14px" margin="0 10px 0 0">Copyright</Span></a> |
 						<a href="https://www.checkpoint.com/privacy/" rel="noopener noreferrer" target="_blank"><Span size="14px" margin="0 0 0 10px">Privacy Policy</Span></a>
