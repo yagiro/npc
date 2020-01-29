@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TopControls from './TopControls';
 import GetQuoteSection from './GetQuoteSection';
+import SolutionsGroupSection from './SolutionsGroupSection';
 
 const Container = styled.div`
 	width: 100%;
@@ -17,6 +18,7 @@ const Content = () => {
 		<Container>
 			<TopControls/>
 			<GetQuoteSection/>
+			<SolutionsGroupSection/>
 		</Container>
 	);
 };
