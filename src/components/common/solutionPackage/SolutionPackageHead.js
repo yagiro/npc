@@ -3,28 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ReactSVG } from 'react-svg';
 
-import { solutionPackageTypes } from '../../../config/constants';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
 import SolutionPackageHeadContent from './SolutionPackageHeadContent';
-
-const typeSettings = {
-	[solutionPackageTypes.base]: {
-		gradientColors: [ '#7D7D7D', '#616161' ],
-		flashCount: 1,
-		title: 'Base package',
-	},
-	[solutionPackageTypes.plus]: {
-		gradientColors: [ '#7D7D7D', '#616161' ],
-		flashCount: 2,
-		title: 'Base package',
-	},
-	[solutionPackageTypes.turbo]: {
-		gradientColors: [ '#A13C71', '#752650' ],
-		flashCount: 3,
-		title: 'Base package',
-	},
-};
+import { solutionPackageData } from './SolutionPackageData';
 
 const classPrefix = 'solution-package-head';
 export const classes = {
@@ -33,8 +15,8 @@ export const classes = {
 
 const Container = styled.div`
 	height: 197px;
-	background-image: linear-gradient(180deg, ${ props => typeSettings[props.type].gradientColors[0] } 0%, 
-		${ props => typeSettings[props.type].gradientColors[1] } 100%);
+	background-image: linear-gradient(180deg, ${ props => solutionPackageData[props.type].head.gradientColors[0] } 0%, 
+		${ props => solutionPackageData[props.type].head.gradientColors[1] } 100%);
 	position: relative;
 		
 	.${ classes.images } {
@@ -54,7 +36,7 @@ const Container = styled.div`
 `;
 
 const renderFlashes = (type) => {
-	const arr = Array(typeSettings[type].flashCount);
+	const arr = Array(solutionPackageData[type].head.flashCount);
 	arr.fill(null);
 	return arr.map((item, i) =>
 		<ReactSVG
@@ -72,7 +54,7 @@ const SolutionPackageHead = (props) => {
 			</div>
 			<SolutionPackageHeadContent
 				type={ type }
-				title={ typeSettings[props.type].title }
+				title={ solutionPackageData[props.type].head.title }
 				{...otherProps}
 			/>
 		</Container>

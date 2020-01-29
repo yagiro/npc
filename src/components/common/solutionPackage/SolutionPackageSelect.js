@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { colors, fonts } from '../../../config/constants';
 
 const Container = styled.div`  
@@ -15,17 +16,21 @@ const Container = styled.div`
 	cursor: pointer;
 `;
 
-const SolutionPackageSelect = ({ selected }) => {
+const SolutionPackageSelect = ({ selected, onClick }) => {
 
 	return (
-		<Container selected={ selected }>
+		<Container
+			selected={ selected }
+			onClick={ onClick }
+		>
 			Selected
 		</Container>
 	);
 };
 
 SolutionPackageSelect.propTypes = {
-	selected: PropTypes.bool
+	selected: PropTypes.bool,
+	onClick: PropTypes.func,
 };
 
 export default SolutionPackageSelect;

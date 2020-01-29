@@ -1,29 +1,22 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { colors } from '../../../config/constants';
+import React from 'react';
+
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
-import SolutionPackageItem, { backgroundColors } from './SolutionPackageItem';
-import { classes as textItemClasses } from './SolutionPackageItemText';
+import SolutionPackageItem from './SolutionPackageItem';
 
-const Container = styled.div`  
-
-`;
-
-const SolutionPackageRam = (props) => {
+const SolutionPackageRam = () => {
 
 	return (
-		<SolutionPackageItem backgroundColor={ backgroundColors.grey }>
-			<Container>
+		<SolutionPackageItem backgroundColor="grey">
+			<div>
 				<Image path={ buildAssetAbsolutePath('/images/solution-package/power-supply.png') } />
 				<SolutionPackageItemText
 					header="Triple PSUs"
 					text="PowerSupply"
 				/>
 				<div/>
-			</Container>
+			</div>
 		</SolutionPackageItem>
 	);
 };

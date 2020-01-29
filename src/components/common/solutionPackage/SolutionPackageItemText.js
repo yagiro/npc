@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import classNames from 'classnames';
 import { fonts } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
 
@@ -38,7 +39,7 @@ const Container = styled.div`
 		color: #8F97A1;
 		line-height: 1em;
 		position: relative;
-		top: 1px;
+		top: 3px;
 	}
 `;
 
@@ -47,7 +48,7 @@ const SolutionPackageItemText = (props) => {
 	return (
 		<Container>
 			<div>
-				<span className={ chips && classes.chips }>
+				<span className={ classNames({ [classes.chips]: chips }) }>
 					{ header }
 				</span>
 			</div>
