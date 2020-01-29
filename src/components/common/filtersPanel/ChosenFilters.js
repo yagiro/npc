@@ -104,8 +104,20 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 		let arrOptionValues = [];
 		
 		Object.keys(chosenFilters).forEach(function(key) {
-			arrOptionValues.push(...chosenFilters[key].value);
+
+			if(chosenFilters[key].dropdownFilter) {
+				// so we now that this is combo-filter
+
+				chosenFilters[key].value.forEach((value)=> {
+					arrOptionValues.push(`${chosenFilters[key].dropdownFilter.label} ${value}`);
+				});
+
+			} else {
+				arrOptionValues.push(...chosenFilters[key].value);
+			}
 		});
+		
+		console.log(arrOptionValues);
 
 		return arrOptionValues.map((optionValue) => {
 

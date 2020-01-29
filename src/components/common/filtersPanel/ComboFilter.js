@@ -1,18 +1,34 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
+import React, { useCallback, useEffect } from 'react';
 import styled from 'styled-components';
+import { buildChosenFiltersOnAdd, buildChosenFiltersOnRemove } from './filtersHelpers';
 import Title from '../../generic/Title';
 import { colors } from '../../../config/constants';
 import FiltersOption from './FiltersOption';
-import { buildChosenFiltersOnAdd, buildChosenFiltersOnRemove } from './filtersHelpers';
+import PropTypes from 'prop-types';
+import Select from 'react-select';
+
 
 const Container = styled.div`
 	display: block;
 `;
 
-const MultipleOptionsFilter = ({ title, innerFilters, chosenFilters, onChange }) => {
+// styles for react-select
+const customStyles = {
+	control: (base) => ({
+		...base,
+		marginBottom: '20px'
+	}),
+};
+
+const ComboFilter = ({ filterId, title, innerFilters, chosenFilters, onChange }) => {
 
 	const options = innerFilters.multipleOptionsFilter.options;
+	const dropDownOptions = innerFilters.dropdownFilter.options;
+
+	//componentDidMount : we need to set Default value to select
+	useEffect(() => {
+		handleDropdownChange(dropDownOptions[0], chosenFilters);
+	}, [ ]);
 
 
 	const isChecked = (chosenFilters, filterId, value) => {
@@ -30,11 +46,43 @@ const MultipleOptionsFilter = ({ title, innerFilters, chosenFilters, onChange })
 		const updatedChosenFilters = buildChosenFiltersOnRemove(option, chosenFilters);
 		onChange(updatedChosenFilters);
 	}, [ onChange ]);
+	
+	// 
+	const handleDropdownChange = useCallback((dropdownOption, chosenFilters) => {
 
+		const prevFilter = { ...chosenFilters[filterId] };
+		const multipleOptions = prevFilter.value || new Set([]);
+		const updatedFilter = { ...prevFilter, dropdownFilter: dropdownOption, value: multipleOptions, filterId };
+		
+		onChange({ ...chosenFilters, [filterId]: updatedFilter });
+	}, [filterId, onChange]);
+	
 	return (
 		<Container>
 			<Title color={ colors.textLightGray } margin="0 0 15px 0">{ title }</Title>
 			{/*// render list of filter-options*/}
+
+			<Select
+				styles={ customStyles }
+				value={ chosenFilters[filterId] ? chosenFilters[filterId].dropdownFilter : null }
+				onChange={ (dropdownOption) => {
+					handleDropdownChange(dropdownOption, chosenFilters);
+				} }
+				options={ dropDownOptions }
+				components={{
+					IndicatorSeparator: () => null
+				}}
+				theme={ theme => ({
+					...theme,
+					borderRadius: 3,
+					colors: {
+						...theme.colors,
+						primary25: '#E856851A',
+						primary: 'rgba(236,64,122,0.5)',
+					},
+				}) }
+			/>
+			
 			<div>
 				{ options.map((option) => {
 					const checked = isChecked(chosenFilters, option.filterId, option.value);
@@ -42,12 +90,12 @@ const MultipleOptionsFilter = ({ title, innerFilters, chosenFilters, onChange })
 					return (
 						<FiltersOption
 							key={ option.value }
-							option={ option } 
+							option={ option }
 							checked={ checked }
 							onRemoveFilterOption={ handleRemoveFilterOption }
 							onAddFilterOption={ handleAddFilterOption }
 							chosenFilters={ chosenFilters }
-						/>					
+						/>
 					);
 				})
 				}
@@ -57,7 +105,7 @@ const MultipleOptionsFilter = ({ title, innerFilters, chosenFilters, onChange })
 	);
 };
 
-MultipleOptionsFilter.propTypes = {
+ComboFilter.propTypes = {
 	filterId: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number
@@ -68,4 +116,4 @@ MultipleOptionsFilter.propTypes = {
 	onChange: PropTypes.func.isRequired,
 };
 
-export default MultipleOptionsFilter;
+export default ComboFilter;

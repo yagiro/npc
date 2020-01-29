@@ -134,56 +134,84 @@ export const mockData = {
 		{
 			title: 'Market Segment',
 			type: 'multiple',
-			id: 1,
-			options: [ 
-				{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
-				{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
-				{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment'  },
-			],
+			id: 'marketSegment',
+			innerFilters: {
+				multipleOptionsFilter: {
+					options: [
+						{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
+						{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
+						{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment'  },
+					],
+				}
+			},
 		},
 		{
 			title: 'Connectivity',
 			type: 'multiple',
-			id: 2,
-			options: [
-				{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' } ,
-				{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
-				{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
-			],
+			id: 'connectivity',
+			innerFilters: {
+				multipleOptionsFilter: {
+					options: [
+						{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' } ,
+						{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
+						{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
+					],
+				}
+			},
 		},
 		{
 			title: 'Radandecncy',
 			type: 'multiple',
-			id: 3,
-			options: [
-				{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' } ,
-				{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
-				{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
-				{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },
-			],
+			id: 'radandecncy',
+			innerFilters: {
+				multipleOptionsFilter: {
+					options: [
+						{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' } ,
+						{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
+						{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
+						{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },
+					],
+				}
+			},
 		},
 		{
 			title: 'Performance',
-			type: 'multiple',
-			id: 4,
-			options: [
-				{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' } ,
-				{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
-				{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
-				{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
-				{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },
-			],
-		},		{
+			id: 'performance',
+			type: 'comboFilter',
+			innerFilters: {
+				dropdownFilter: {
+					options: [
+						{ value: 'genV', label: 'Gen V Security' },
+						{ value: 'gev3', label: 'Gen 3 Security' },
+						{ value: 'gev2', label: 'Gen 2 Security' },
+					]
+				},
+				multipleOptionsFilter: {
+					options: [
+						{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' } ,
+						{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
+						{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
+						{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
+						{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },
+					],
+				},
+			},
+		},
+		{
 			title: 'Phisical Form Factur',
 			type: 'multiple',
-			id: 5,
-			options: [
-				{ value: 'desktop', label: 'Desktop' } ,
-				{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
-				{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
-				{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
-				{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
-			],
+			id: 'phisicalFormFactur',
+			innerFilters: {
+				multipleOptionsFilter: {
+					options: [
+						{ value: 'desktop', label: 'Desktop' } ,
+						{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
+						{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
+						{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
+						{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
+					],
+				}
+			},
 		},
 
 	]

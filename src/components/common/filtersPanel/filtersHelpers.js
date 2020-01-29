@@ -35,7 +35,8 @@ export const buildFilterOptionObject = (filters) => {
 	let filterOptionsObject = {};
 
 	filters.forEach((filter)=> {
-		filter.options.forEach((option)=> {
+
+		filter.innerFilters.multipleOptionsFilter.options.forEach((option)=> {
 			filterOptionsObject = { ...filterOptionsObject, [option.value] : option };
 		});
 	});
