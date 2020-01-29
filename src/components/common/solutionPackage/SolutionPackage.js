@@ -12,6 +12,14 @@ import SolutionPackagePower from './SolutionPackagePower';
 import SolutionPackagePrice from './SolutionPackagePrice';
 import SolutionPackageSelect from './SolutionPackageSelect';
 import { colors } from '../../../config/constants';
+import { createClassName } from '../../../lib/classNameHelper';
+import Image from '../../generic/Image';
+import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
+
+const classPrefix = 'solution-package';
+export const classes = {
+	corner: createClassName(classPrefix, 'selected-corner'),
+};
 
 const Container = styled.div`
 	margin: 5px;
@@ -23,6 +31,19 @@ const Container = styled.div`
 	background-color: ${ colors.background };
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	
+	& > .${ classes.corner } {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 56px;
+		height: 50px;
+		background-color: #EC5888;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+  		//-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+		//z-index: 100;
+	}
 `;
 
 const SolutionPackage = (props) => {
@@ -34,6 +55,9 @@ const SolutionPackage = (props) => {
 				subtitle={ subtitle }
 				gbpsAmount={ gbpsAmount }
 			/>
+			<div className={ classes.corner } >
+				<Image path={ buildAssetAbsolutePath('/images/solution-package/checked.png') } />
+			</div>
 			<SolutionPackageIncluded type={ type }/>
 			<SolutionPackageCards type={ type }/>
 			<SolutionPackageStorage type={ type }/>
