@@ -12,6 +12,7 @@ import Paragraph from '../generic/Paragraph';
 import Title from '../generic/Title';
 import Button from '../generic/Button';
 import Span from '../generic/Span';
+import Footer from "./Footer";
 
 
 const classPrefix = 'home-page';
@@ -54,7 +55,7 @@ const TabsContainerTop = styled.div`
 `;
 
 const MainImageContainer = styled.div`
-	width: 100vw;
+	width: 98vw;
 
 	> img {
 		max-height: 200px;
@@ -159,6 +160,7 @@ const Homepage = () => {
 				</OurSolutionsContainer>
 				<MockSolutionsGroup/>
 			</Content>
+			<Footer/>
 		</Container>
 	);
 };
