@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, fonts } from '../../../config/constants';
-import { classes as textItemClasses } from './SolutionPackageItemText';
+import { fonts } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
 import { formatCurrency } from '../../../lib/formatters';
 
@@ -14,7 +13,7 @@ export const classes = {
 };
 
 const Container = styled.div`  
-	flex: 1;
+	height: 150px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
