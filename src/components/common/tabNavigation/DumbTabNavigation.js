@@ -9,7 +9,7 @@ import ImageTabItem from './ImageTabItem';
 const Container = styled.div`  
 	display: flex;
     
-    > .${menuItemClasses.container}:not(:last-child) {
+    > .${ menuItemClasses.container }:not(:last-child) {
       margin-right: 35px;
     }
 `;
@@ -24,17 +24,17 @@ const DumbTabNavigation = (props) => {
 
 				return (
 					<TabItem
-						key={id}
-						isActive={activeTabId === id}
-						onClick={() => onChange(id)}>
+						key={ id }
+						isActive={ activeTabId === id }
+						onClick={ () => onChange(id) }>
 						{
 							imagePath &&
 							<ImageTabItem
-								image={imagePath}
-								isActive={activeTabId === id}
+								image={ imagePath }
+								isActive={ activeTabId === id }
 							/>
 						}
-						{label}
+						{ label }
 					</TabItem>
 				);
 			})}
