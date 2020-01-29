@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { colors, solutionPackageTypes } from '../../../config/constants';
+import React from 'react';
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
-import SolutionPackageItem, { backgroundColors } from './SolutionPackageItem';
-import { classes as textItemClasses } from './SolutionPackageItemText';
+import SolutionPackageItem from './SolutionPackageItem';
 
-const SolutionPackageRam = (props) => {
+const SolutionPackageRam = () => {
 
 	return (
 		<SolutionPackageItem>

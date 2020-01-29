@@ -1,41 +1,72 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, solutionPackageTypes } from '../../../config/constants';
+
+import { fonts } from '../../../config/constants';
 import SolutionPackageItem, { backgroundColors } from './SolutionPackageItem';
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
-import { classes as textItemClasses } from './SolutionPackageItemText';
+import SolutionPackageCardArrow from './SolutionPackageCardArrow';
+import SolutionPackageAccordeon from './SolutionPackageAccordeon';
+import { solutionPackageData } from './SolutionPackageData';
 
-const content = {
-	[solutionPackageTypes.base]: {
-		header: <>1 <span className={ textItemClasses.additional }>/2</span> HDD</>,
-		chips: false,
-	},
-	[solutionPackageTypes.plus]: {
-		header: <>2 <span className={ textItemClasses.additional }>/2</span> SSD</>,
-		chips: true,
-	},
-	[solutionPackageTypes.turbo]: {
-		header: <>2 <span className={ textItemClasses.additional }>/2</span> SSD</>,
-		chips: true,
-	},
-};
+const Clicable = styled.div`
+	cursor: pointer;
+`;
+
+const DetailItem = styled.div`
+	height: 50px;
+	display: flex;
+	align-items: center;
+	margin: 0 0 0 45px;
+	
+	& > div {
+		& strong {
+			font: ${ fonts.paragraphBig };
+			font-weight: bold;
+		}
+		font: ${ fonts.paragraph };
+		line-height: 1em;
+		color: #333333;
+	}
+	
+	& > div:not(:first-child) {
+		margin-left: 13px;
+	}
+`;
 
 const SolutionPackageStorage = ({ type }) => {
+	const [ isOpen, setIsOpen ] = useState(false);
+
+	const renderDetails = () => {
+		return solutionPackageData[type].storage.details.map((item, i) => {
+			return (
+				<DetailItem key={ i }>
+					{ item.icon && <Image width="24px" path={ buildAssetAbsolutePath(item.icon) } /> }
+					<div>{ item.context }</div>
+				</DetailItem>
+			);
+		});
+	};
 
 	return (
 		<SolutionPackageItem>
-			<div>
+			<Clicable onClick={ () => setIsOpen(!isOpen) }>
 				<Image path={ buildAssetAbsolutePath('/images/solution-package/server.png') } />
 				<SolutionPackageItemText
-					header={ <>{ content[type].header }</> }
+					header={ <>{ solutionPackageData[type].storage.header }</> }
 					text="Storage"
-					chips={ content[type].chips }
+					chips={ solutionPackageData[type].storage.chips }
 				/>
-				<Image path={ buildAssetAbsolutePath('/images/solution-package/right-arrow.png') } />
-			</div>
+				<SolutionPackageCardArrow isOpen={ isOpen } />
+			</Clicable>
+			<SolutionPackageAccordeon
+				isOpen={ isOpen }
+				backgroundColor={ backgroundColors.white }
+			>
+				{ renderDetails() }
+			</SolutionPackageAccordeon>
 		</SolutionPackageItem>
 	);
 };

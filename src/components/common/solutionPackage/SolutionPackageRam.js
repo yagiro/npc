@@ -1,38 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { colors, solutionPackageTypes } from '../../../config/constants';
+
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
-import SolutionPackageItem, { backgroundColors } from './SolutionPackageItem';
-import { classes as textItemClasses } from './SolutionPackageItemText';
-
-const content = {
-	[solutionPackageTypes.base]: {
-		header: '48GB',
-		chips: false,
-	},
-	[solutionPackageTypes.plus]: {
-		header: '96GB',
-		chips: true,
-	},
-	[solutionPackageTypes.turbo]: {
-		header: '96GB',
-		chips: true,
-	},
-};
+import SolutionPackageItem from './SolutionPackageItem';
+import { solutionPackageData } from './SolutionPackageData';
 
 const SolutionPackageRam = ({ type }) => {
 
 	return (
-		<SolutionPackageItem backgroundColor={ backgroundColors.grey }>
+		<SolutionPackageItem backgroundColor="grey">
 			<div>
 				<Image path={ buildAssetAbsolutePath('/images/solution-package/ram-memory.png') } />
 				<SolutionPackageItemText
-					header={ content[type].header }
+					header={ solutionPackageData[type].ram.header }
 					text="Ram"
-					chips={ content[type].chips }
+					chips={ solutionPackageData[type].ram.chips }
 				/>
 				<div/>
 			</div>

@@ -1,0 +1,110 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+import { colors, fonts } from '../../../config/constants';
+import { createClassName } from '../../../lib/classNameHelper';
+import classNames from 'classnames';
+
+const classPrefix = 'solution-package-cards-ditails';
+export const classes = {
+	slot: createClassName(classPrefix, 'slot'),
+	arrow: createClassName(classPrefix, 'arrow'),
+	filledSlot: createClassName(classPrefix, 'fill-slot'),
+	emptySlot: createClassName(classPrefix, 'empty-slot'),
+	brownBorder: createClassName(classPrefix, 'brown-border'),
+};
+
+const Container = styled.div`
+ 	.${ classes.slot } {
+		display: flex;
+		margin: 0 0 0 45px;
+		height: 35px;
+		align-items: center;
+		background-color: inherit;
+		
+		& > div:first-child {
+			font: ${ fonts.paragraph };
+			line-height: 1em;
+			color: ${ colors.textLightGray };
+			margin-right: 15px;
+		}
+		
+		.${ classes.filledSlot } {
+		 	display: flex;
+		 	justify-content: space-around;
+		 	background-color: ${ colors.background };
+		 	min-width: 150px;
+		 	
+		 	&::after {
+				content: '';
+				height: 25px;
+				width: 5px;
+				background-color: #006699;
+			}
+
+			&.${ classes.brownBorder }::after {
+				background-color: #B87333;
+			}
+		 	
+		 	& > div {
+		 		margin: 5px 0;
+		 		flex: 1;
+		 		font: ${ fonts.paragraph };
+		 		line-height: 1em;
+		 		color: #333333;
+		 		text-align: center;
+		 	}
+		 	
+		 	& > div:not(:last-child) {
+		 		border-right: 1px ${ colors.borderGrey } solid;
+		 		flex: 1;
+		 	}
+		 	
+		 	& > div:last-child {
+				flex: 1.5;
+			}
+		}
+	
+		.${ classes.emptySlot } {
+			font: ${ fonts.paragraphBig };
+			line-height: 1em;
+			color: #333333;
+		}
+	}
+`;
+
+const SolutionPackageCardDetails = ({ details }) => {
+
+	const renderDetails = () => {
+		return details.map((slot, index) => {
+			return (
+				<div key={ index } className={ classes.slot } >
+					<div>Slot { index + 1 }</div>
+					<div className={ classNames(
+						{ [classes.emptySlot]: !slot },
+						{ [classes.filledSlot]: slot },
+						{ [classes.brownBorder]: index === 0 && slot }) }
+					>
+						{ slot ?
+							slot.map((item, i) => <div key={ i }>{ item }</div>) :
+							<div className={ classes.emptySlot }>Open</div>
+						}
+					</div>
+				</div>
+			);
+		});
+	};
+
+	return (
+		<Container>
+			{ renderDetails() }
+		</Container>
+	);
+};
+
+SolutionPackageCardDetails.propTypes = {
+	details: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+};
+
+export default SolutionPackageCardDetails;

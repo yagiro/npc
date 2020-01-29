@@ -26,7 +26,7 @@ const Container = styled.div`
 		}
 		
 		& > *:first-child {
-			width: 16px;
+			width: 24px;
 		}
 		
 		& > *:last-child {
@@ -38,14 +38,14 @@ const Container = styled.div`
 
 const SolutionPackageItem = ({ backgroundColor, children }) => {
 	return (
-		<Container backgroundColor={ backgroundColor }>
+		<Container backgroundColor={ backgroundColors[backgroundColor] }>
 			{ children }
 		</Container>
 	);
 };
 
 SolutionPackageItem.defaultProps = {
-	backgroundColor: backgroundColors.white,
+	backgroundColor: 'white',
 };
 
 SolutionPackageItem.propTypes = {
