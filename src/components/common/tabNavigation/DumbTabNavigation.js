@@ -18,8 +18,8 @@ const DumbTabNavigation = (props) => {
 	const { options, onChange, activeTabId } = props;
 
 	return (
-		<Container activeValue={activeTabId}>
-			{options.map((tab) => {
+		<Container activeValue={ activeTabId }>
+			{ options.map((tab) => {
 				const { id, label, imagePath } = tab;
 
 				return (
@@ -37,7 +37,7 @@ const DumbTabNavigation = (props) => {
 						{ label }
 					</TabItem>
 				);
-			})}
+			}) }
 		</Container>
 	);
 };
