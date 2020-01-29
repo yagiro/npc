@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import SpecificationCard from './common/SpecificationCard';
 import { colors, specificationsTypes } from '../../../../config/constants';
-import Title from "../../../generic/Title";
+import Title from '../../../generic/Title';
 
 const Container = styled.div`
  	display: flex;
@@ -63,6 +64,12 @@ const SmallBusinessesMainSection = ({ title, description, specificationsTitles }
 			</SpecificationsSection>
 		</Container>
 	);
+};
+
+SmallBusinessesMainSection.propTypes = {
+	specificationsTitles: PropTypes.object,
+	title: PropTypes.string,
+	description: PropTypes.string,
 };
 
 export default SmallBusinessesMainSection;

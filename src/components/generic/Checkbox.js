@@ -45,6 +45,7 @@ const Container = styled.div`
 	  width: 16px;
 	  background-color: #eee;
 	  border-radius: 3px;
+	  transition: background-color .3s;
 	}
 	
 	/* On mouse-over, add a grey background color */

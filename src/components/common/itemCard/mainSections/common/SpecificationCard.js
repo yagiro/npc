@@ -70,7 +70,8 @@ const SpecificationCard = ({ specificationType, specificationTitle }) => {
 };
 
 SpecificationCard.propTypes = {
-	specificationType: PropTypes.oneOf(Object.values(specificationsTypes)).isRequired
+	specificationType: PropTypes.oneOf(Object.values(specificationsTypes)).isRequired,
+	specificationTitle: PropTypes.string.isRequired,
 };
 
 export default SpecificationCard;

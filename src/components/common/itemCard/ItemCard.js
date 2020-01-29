@@ -12,6 +12,7 @@ import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSectio
 import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
 import ManagementMainSection from './mainSections/ManagementMainSection';
 import { cardTypes, colors, fonts } from '../../../config/constants';
+import Checkbox from '../../generic/Checkbox';
 
 const Container = styled.div`
 	display: flex;
@@ -46,6 +47,7 @@ const RightSection = styled.div`
 
 const ButtonSection = styled.div`  
 	display: flex;
+	justify-content: space-between;
 `;
 
 const Label = styled.label`  
@@ -77,9 +79,7 @@ const ItemCard = ({ cardType, data, ...otherProps }) => {
 		<Container>
 			<MainSection { ...data }/>
 			<RightSection>
-				<Label>
-					<input type="checkbox" name="checkbox" value="value"/> Compare
-				</Label>
+				<Checkbox label="Compare"/>
 				<PriceSection { ...data } />
 				<ButtonSection>
 					<PdfIcon/>
@@ -93,7 +93,16 @@ const ItemCard = ({ cardType, data, ...otherProps }) => {
 };
 
 ItemCard.propTypes = {
-	cardType: PropTypes.oneOf(Object.values(cardTypes)).isRequired
+	cardType: PropTypes.oneOf(Object.values(cardTypes)).isRequired,
+	data: PropTypes.shape({
+		title: PropTypes.string,
+		price: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number
+		]),
+		description: PropTypes.string,
+		specificationsTitles: PropTypes.object
+	})
 };
 
 export default ItemCard;
