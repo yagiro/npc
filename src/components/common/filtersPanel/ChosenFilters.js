@@ -90,7 +90,6 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 	const [ filterOptionLabels, setFilterOptionLabels ] = useState({});
 	useEffect(() => {
 		const filterOptionsObject = buildFilterOptionObject(filters);
-		console.log(filterOptionsObject);
 		setFilterOptionLabels(filterOptionsObject);
 	}, [ filters ]);
 	
@@ -116,8 +115,6 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 				arrOptionValues.push(...chosenFilters[key].value);
 			}
 		});
-		
-		console.log(arrOptionValues);
 
 		return arrOptionValues.map((optionValue) => {
 

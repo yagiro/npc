@@ -6,8 +6,6 @@ const MockFiltersContainer = () => {
 
 	const [ chosenFilters, setChosenFilters ] = useState({});
 
-	console.log(chosenFilters);
-
 	return (
 		<div>
 			<FiltersPanel

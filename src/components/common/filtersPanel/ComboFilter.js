@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Select from 'react-select';
 import { buildChosenFiltersOnAdd, buildChosenFiltersOnRemove } from './filtersHelpers';
 import Title from '../../generic/Title';
 import { colors } from '../../../config/constants';
 import FiltersOption from './FiltersOption';
-import PropTypes from 'prop-types';
-import Select from 'react-select';
-
 
 const Container = styled.div`
 	display: block;

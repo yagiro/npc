@@ -20,9 +20,13 @@ export const buildChosenFiltersOnRemove = (option, chosenFilters, valueForRemovi
 	const filter = chosenFilters[option.filterId];
 	const prevOptions = [ ...filter.value ];
 	const updatedOptions = prevOptions.filter((filterOption) => {
+
+		// for comboFilter
 		if(valueForRemoving) {
 			return filterOption !== valueForRemoving;
 		}
+
+		// for multipleOptions Filter
 		return filterOption !== option.value;
 	});
 	return {
@@ -34,16 +38,19 @@ export const buildChosenFiltersOnRemove = (option, chosenFilters, valueForRemovi
 	};
 };
 
-// build object where [key] it's option-value and [value] it's option
 export const buildFilterOptionObject = (filters) => {
 
 	let filterOptionsObject = {};
 
 	filters.forEach((filter)=> {
+
+		// for multipleOptions Filter
 		filter.innerFilters.multipleOptionsFilter.options.forEach((option)=> {
 			filterOptionsObject = { ...filterOptionsObject, [option.value] : option };
 		});
 
+
+		// for comboFilter
 		if(filter.innerFilters.dropdownFilter){
 			filter.innerFilters.dropdownFilter.options.forEach((dropdownOption)=> {
 				const dropdownValue = dropdownOption.value;
