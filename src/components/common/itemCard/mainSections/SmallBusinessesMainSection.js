@@ -2,8 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, specificationsTypes } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../config/constants';
 import Title from '../../../generic/Title';
+import classNames from 'classnames';
+import { classes } from '../../../../config/mockData';
+import Image from '../../../generic/Image';
+import { buildAssetAbsolutePath } from '../../../../lib/assetsHelper';
+import PortInfo, { portTypes } from './PortInfo';
 
 const Container = styled.div`
  	display: flex;
@@ -11,6 +16,7 @@ const Container = styled.div`
   	//height: 100%;
 	justify-content: space-between;
 	margin: 30px;
+	min-width: 430px;
 `;
 
 const DescriptionSection = styled.div`
@@ -134,15 +140,24 @@ const SmallBusinessesMainSection = ({ title, description, specificationsTitles }
 				<UlTitle>HARDWARE SPECIFICATION</UlTitle>
 				{
 					specificationsTitles.wanPort &&
-					JSON.stringify(specificationsTitles.wanPort)
+					<PortInfo
+						type={ portTypes.wanPort }
+						{ ...specificationsTitles.wanPort }
+					/>
 				}
 				{
 					specificationsTitles.sfpDmzPort &&
-					JSON.stringify(specificationsTitles.sfpDmzPort)
+					<PortInfo
+						type={ portTypes.sfpDmzPort }
+						{ ...specificationsTitles.sfpDmzPort }
+					/>
 				}
 				{
 					specificationsTitles.lanPort &&
-					JSON.stringify(specificationsTitles.lanPort)
+					<PortInfo
+						type={ portTypes.lanPort }
+						{ ...specificationsTitles.lanPort }
+					/>
 				}
 				{
 					specificationsTitles.ports &&

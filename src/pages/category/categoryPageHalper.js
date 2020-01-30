@@ -49,7 +49,7 @@
  */
 
 /**
- * @typedef {Object} NormalizesSubModel
+ * @typedef {Object} NormalizedSubModel
  * @property {string} title
  * @property {number} price
  * @property {string} description
@@ -57,7 +57,7 @@
  */
 
 /**
- * @typedef {Object} NormalizesSubModel
+ * @typedef {Object} NormalizedModel
  * @property {string} id
  * @property {string} name
  * @property {string} groupId
@@ -67,7 +67,7 @@
 /**
  *
  * @param {Array<SubModel>} subModels
- * @returns {Array<NormalizesSubModel>}
+ * @returns {Array<NormalizedModel>}
  */
 export const subModelsNormalizer = (models) => {
 	return models.map(model => {
