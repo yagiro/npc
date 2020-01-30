@@ -27,11 +27,9 @@ const TopControls = () => {
 				<TabNavigation
 					options={ mockData.menuItems }
 					defaultActiveTabId={ 2 }
-					// activeTabId={ selectedMenuItem }
-					onChange={(value) => {
+					onChange={ (value) => {
 						console.log(value);
-						// this.setState({ selectedMenuItem: value })
-					}}
+					} }
 				/>
 			</TabsContainerTop>
 		</>

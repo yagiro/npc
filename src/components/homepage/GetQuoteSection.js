@@ -60,10 +60,8 @@ const GetQuoteSection = () => {
 				<TabNavigation
 					options={ mockData.homePageMiddleTabs }
 					defaultActiveTabId={ 1 }
-					// activeTabId={ selectedMenuItem }
 					onChange={(value) => {
 						console.log(value);
-						// this.setState({ selectedMenuItem: value })
 					}}
 				/>
 			</TabsContainerMiddle>
