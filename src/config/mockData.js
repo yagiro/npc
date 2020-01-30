@@ -178,13 +178,12 @@ export const mockData = {
 					]
 				},
 				multipleOptionsFilter: {
-					options: [
-						{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' },
-						{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
-						{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
-						{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
-						{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },
-					],
+			options: [
+				{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' },
+				{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
+				{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
+				{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
+				{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },],
 				},
 			},
 		},
@@ -252,6 +251,57 @@ export const mockData = {
 		},
 	],
 
+	// MOCK FOR CATEGORY PAGE
+	categoryPage: {
+		models: [
+			{
+				id: '1500',
+				name: '1500',
+				groupId: 'smbAppliances',
+				subModels: [
+					{
+						id: '1590',
+						name: '1590 Next Generation Appliance',
+						// description: 'The Check Point 910 security gateway',
+						description: 'The Check Point 910 security gateway is an all-inclusive security appliance for medium size businesses. The 910 Appliance offers enterprise-class Check Point security, with double connection capacity in a rack mount form factor. The Check Point 910 security gateway is an all-inclusive security appliance for medium size businesses. The 910 Appliance offers enterprise-class Check Point security, with double connection capacity in a rack mount form factor.',
+						startingPrice: 2300,
+						dataSheetUrl: 'https://www.checkpoint.com/downloads/products/1500-security-gateway-datasheet.pdf',
+						attrs: [
+							{ type: 'formFactor', value: 'Desktop' },
+							{ type: 'wireless', value: '802.11ax wave 2 4x4 MIMO (Optional)' },
+						],
+						specs: [
+							{ type: 'wanPort', value: { size: 1, gbe: 1, material: 'Copper', } },
+							{ type: 'sfpDmzPort', value: { size: 1, gbe: 1, material: 'Copper', } },
+							{ type: 'lanPort', value: { size: 8, gbe: 1, material: 'Copper', } },
+						],
+					},
+				],
+			},
+			{
+				id: '700',
+				name: '700',
+				groupId: 'smbAppliances',
+				subModels: [
+					{
+						id: '790',
+						name: '790 Next Generation Threat Prevention',
+						description: 'The Check Point 790 appliance is an all-inclusive security...',
+						startingPrice: 1999,
+						dataSheetUrl: 'https://www.checkpoint.com/downloads/products/datasheets/ds-700-appliance.pdf',
+						attrs: [
+							{ type: 'formFactor', value: 'Desktop' },
+							{ type: 'wireless', value: 'Optional' },
+						],
+						specs: [
+							{ type: 'ports', value: '18x1GbE' },
+							{ type: 'supportsExternal', value: '3G/4G/LTE' },
+						],
+					},
+				],
+			},
+		]
+	}
 	solutionPackage: [
 		{
 			type: solutionPackageTypes.base,

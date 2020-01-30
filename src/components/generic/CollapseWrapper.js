@@ -15,9 +15,9 @@ const ToggleArea = styled.div`
   width: 300px;
 `;
 
-function CollapseWrapper({ children, imgSource, title }) {
+function CollapseWrapper({ children, imgSource, title, isOpen }) {
 
-	const [ isCollapse, setIsCollapse ] = useState(false);
+	const [ isCollapse, setIsCollapse ] = useState(isOpen);
 	const handleClick = useCallback(() => {
 		setIsCollapse(!isCollapse);
 	}, [ isCollapse, setIsCollapse ]);
@@ -40,6 +40,7 @@ function CollapseWrapper({ children, imgSource, title }) {
 CollapseWrapper.propTypes = {
 	title: PropTypes.string,
 	imgSource: PropTypes.string,
+	isOpen: PropTypes.bool,
 };
 
 export default CollapseWrapper;

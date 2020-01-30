@@ -15,9 +15,15 @@ export const classes = {
 
 const Container = styled.div`  
     .${ classes.icon } {
-      margin-right: 6px;
-      fill: ${ colors.menuGray };
-      transition: fill .2s;
+    	margin-right: 6px;
+    	fill: ${ colors.menuGray };
+     	transition: fill .2s;
+     	width: auto;
+     	position: relative;
+     	
+     	svg {
+     		heigh: 40px;
+     	}
     }
         
     .${ classes.activeIcon } {
