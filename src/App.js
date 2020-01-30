@@ -41,7 +41,8 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<PopperList/>
+
+				<MockContainerPopperList/>
 
 				<MockContainerPopperList/>
 				<div style={{ display: 'flex' }}>
