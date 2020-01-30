@@ -10,6 +10,7 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import PopperList from './components/generic/PopperList';
 
 class App extends Component {
 
@@ -27,6 +28,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
+				<PopperList/>
 
 				<DumbTabNavigation
 					options={ mockData.menuItems }
