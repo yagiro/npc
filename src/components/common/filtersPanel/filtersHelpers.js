@@ -16,10 +16,15 @@ export const buildChosenFiltersOnAdd = (option, chosenFilters) => {
 };
 
 // remove option from chosen filters
-export const buildChosenFiltersOnRemove = (option, chosenFilters) => {
+export const buildChosenFiltersOnRemove = (option, chosenFilters, valueForRemoving) => {
 	const filter = chosenFilters[option.filterId];
 	const prevOptions = [ ...filter.value ];
-	const updatedOptions = prevOptions.filter((filterOption) => filterOption !== option.value);
+	const updatedOptions = prevOptions.filter((filterOption) => {
+		if(valueForRemoving) {
+			return filterOption !== valueForRemoving;
+		}
+		return filterOption !== option.value;
+	});
 	return {
 		...chosenFilters,
 		[filter.filterId]: {
@@ -35,10 +40,29 @@ export const buildFilterOptionObject = (filters) => {
 	let filterOptionsObject = {};
 
 	filters.forEach((filter)=> {
-
 		filter.innerFilters.multipleOptionsFilter.options.forEach((option)=> {
 			filterOptionsObject = { ...filterOptionsObject, [option.value] : option };
 		});
+
+		if(filter.innerFilters.dropdownFilter){
+			filter.innerFilters.dropdownFilter.options.forEach((dropdownOption)=> {
+				const dropdownValue = dropdownOption.value;
+
+				filter.innerFilters.multipleOptionsFilter.options.forEach((option)=> {
+
+					const dropdownUpgradedOption = {
+						value: `${dropdownValue}${option.value}`,
+						label: `${dropdownOption.label} ${option.label}`,
+						filterId: filter.id,
+						valueForRemoving: option.value,
+					};
+
+					filterOptionsObject = { ...filterOptionsObject, [`${dropdownValue}${option.value}`] : dropdownUpgradedOption };
+				});
+				
+			});
+		}
+
 	});
 
 	return filterOptionsObject;
