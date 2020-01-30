@@ -1,7 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Image from '../Image';
 import Span from '../Span';
-import styled from 'styled-components';
 import { colors } from '../../../config/constants';
 
 const MenuItemContainer = styled.div`
@@ -38,8 +39,9 @@ const IconContainer = styled.div`
 const PopperItemList = ({ selectedValue, option, setOpen, onChange  }) => {
     
 	const handleItemClick = (option) => {
-		setOpen( false);
-		onChange( option.value);
+		setOpen(false);
+		onChange(option.value);
+		console.log(option.value);
 	};
     
 	return (
@@ -53,6 +55,17 @@ const PopperItemList = ({ selectedValue, option, setOpen, onChange  }) => {
 			<Span size="14px" margin="0 0 0 20px">{ option.label } </Span>
 		</MenuItemContainer>
 	);
+};
+
+PopperItemList.propTypes = {
+	option: PropTypes.shape({
+		value: PropTypes.any.isRequired,
+		label: PropTypes.string.isRequired,
+		imagePath: PropTypes.string,
+	}).isRequired,
+	onChange: PropTypes.func,
+	setOpen: PropTypes.func,
+	selectedValue: PropTypes.any,
 };
 
 export default PopperItemList;
