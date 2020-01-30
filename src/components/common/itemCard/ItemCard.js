@@ -16,13 +16,10 @@ import Checkbox from '../../generic/Checkbox';
 
 const Container = styled.div`
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 	min-height: 263px;
 	border-radius: 3px;
-	-webkit-box-shadow: 0 2px 6px #0000001A;
-	-moz-box-shadow: 0 2px 6px #0000001A;
-	box-shadow: 0 2px 6px #0000001A;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 	margin-bottom: 1rem;
 	background: #FFFFFF;
 	box-sizing: border-box;
@@ -35,14 +32,14 @@ const RightSection = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 275px;
-	height: 100%;
+	//height: 100%;
 	background: #F7F8F9;
 	padding: 30px;
 	box-sizing: border-box;
 	justify-content: space-between;
-	position: absolute;
-	top: 0;
-	right:0
+	//position: absolute;
+	//top: 0;
+	//right:0
 `;
 
 const ButtonSection = styled.div`  
@@ -71,7 +68,7 @@ const priceSections = {
 };
 
 const ItemCard = ({ cardType, data, ...otherProps }) => {
-
+	console.log(cardType, data);
 	const MainSection = mainSections[cardType];
 	const PriceSection = priceSections[cardType];
 

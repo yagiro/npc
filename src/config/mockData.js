@@ -8,13 +8,14 @@ export const mockData = {
 		additionalLabel: 'Advanced',
 		description: 'Check Point Unified Endpoint Security Advanced offers comprehensive, enterprise-grade endpoint and mobile device security that protects PCs, Mac, iOS and Android devices against known, unknown and Zero-day threats.',
 		includedPackages: [
-			{	id: 1, feature: 'SandBlast Agent Advanced.' },
-			{	id: 2, feature: 'SandBlast Mobile Per Device' },
-			{	id: 3, feature: 'Two 6500 gateways' },
-			{	id: 4, feature: '450 Gbps using 52 gateways' },
+			{ id: 1, feature: 'SandBlast Agent Advanced.' },
+			{ id: 2, feature: 'SandBlast Mobile Per Device' },
+			{ id: 3, feature: 'Two 6500 gateways' },
+			{ id: 4, feature: '450 Gbps using 52 gateways' },
 		],
 		price: 59,
-		additionalText: '1 PC/YEAR & 1 Mobile/Year' },
+		additionalText: '1 PC/YEAR & 1 Mobile/Year'
+	},
 
 	// MOCK FOR MANAGEMENT CARD
 	[cardTypes.management]: {
@@ -43,12 +44,12 @@ export const mockData = {
 	[cardTypes.cloudGuard]: {
 		price: 1500,
 		additionalText: '1 PC/YEAR & 1 Mobile/Year',
-		title: 'CloudGuard IaaS for NSX Next Generation Threat Prevention Gateway' ,
+		title: 'CloudGuard IaaS for NSX Next Generation Threat Prevention Gateway',
 		description: 'The Check Point CloudGuard IaaS Security Gateway for industry leading Hypervisors (VMware ESXi, Hyper-V and KVM) protects your assets from internal and external threats with the full range of Check Point Software Blades . Combined with advanced integration options, security is tailored to fit the most dynamic environment needs. Virtual gateways as well as physical gateways are managed by a unified management platform',
 		includedPackages: [
-			{	id: 1, feature: 'Hyper-Visors supported: VMware ESXi, Hyper-V, KVM.' },
-			{	id: 2, feature: 'CloudGuard IaaS controller with integration to NSX and vCenter.' },
-			{	id: 3, feature: 'Unified management for both virtual and physical gateways.' },
+			{ id: 1, feature: 'Hyper-Visors supported: VMware ESXi, Hyper-V, KVM.' },
+			{ id: 2, feature: 'CloudGuard IaaS controller with integration to NSX and vCenter.' },
+			{ id: 3, feature: 'Unified management for both virtual and physical gateways.' },
 		]
 	},
 
@@ -77,9 +78,9 @@ export const mockData = {
 			networkInterfaces: 'Up to 25 GbE'
 		},
 		includedPackages: [
-			{	id: 1, feature: 'SandBlast Agent Advanced.' },
-			{	id: 2, feature: 'SandBlast Mobile Per Device' },
-			{	id: 3, feature: 'Two 6500 gateways' },
+			{ id: 1, feature: 'SandBlast Agent Advanced.' },
+			{ id: 2, feature: 'SandBlast Mobile Per Device' },
+			{ id: 3, feature: 'Two 6500 gateways' },
 		],
 		genBlocks: [
 			{ title: 'Gen V Security', subTitle: 'Full Threat Prevention with Sandblast Zero-Day', gbps: '16.4' },
@@ -135,10 +136,10 @@ export const mockData = {
 			title: 'Market Segment',
 			type: 'multiple',
 			id: 1,
-			options: [ 
-				{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
-				{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
-				{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment'  },
+			options: [
+				{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' },
+				{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment' },
+				{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment' },
 			],
 		},
 		{
@@ -146,7 +147,7 @@ export const mockData = {
 			type: 'multiple',
 			id: 2,
 			options: [
-				{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' } ,
+				{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' },
 				{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
 				{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
 			],
@@ -156,7 +157,7 @@ export const mockData = {
 			type: 'multiple',
 			id: 3,
 			options: [
-				{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' } ,
+				{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' },
 				{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
 				{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
 				{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },
@@ -167,24 +168,75 @@ export const mockData = {
 			type: 'multiple',
 			id: 4,
 			options: [
-				{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' } ,
+				{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' },
 				{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
 				{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
 				{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
 				{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },
 			],
-		},		{
+		}, {
 			title: 'Phisical Form Factur',
 			type: 'multiple',
 			id: 5,
 			options: [
-				{ value: 'desktop', label: 'Desktop' } ,
+				{ value: 'desktop', label: 'Desktop' },
 				{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
-				{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
+				{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur' },
 				{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
 				{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
 			],
 		},
+	],
 
-	]
+	// MOCK FOR CATEGORY PAGE
+	categoryPage: {
+		models: [
+			{
+				id: '1500',
+				name: '1500',
+				groupId: 'smbAppliances',
+				subModels: [
+					{
+						id: '1590',
+						name: '1590 Next Generation Appliance',
+						// description: 'The Check Point 910 security gateway',
+						description: 'The Check Point 910 security gateway is an all-inclusive security appliance for medium size businesses. The 910 Appliance offers enterprise-class Check Point security, with double connection capacity in a rack mount form factor. The Check Point 910 security gateway is an all-inclusive security appliance for medium size businesses. The 910 Appliance offers enterprise-class Check Point security, with double connection capacity in a rack mount form factor.',
+						startingPrice: 2300,
+						dataSheetUrl: 'https://www.checkpoint.com/downloads/products/1500-security-gateway-datasheet.pdf',
+						attrs: [
+							{ type: 'formFactor', value: 'Desktop' },
+							{ type: 'wireless', value: '802.11ax wave 2 4x4 MIMO (Optional)' },
+						],
+						specs: [
+							{ type: 'wanPort', value: { size: 1, gbe: 1, material: 'Copper', } },
+							{ type: 'sfpDmzPort', value: { size: 1, gbe: 1, material: 'Copper', } },
+							{ type: 'lanPort', value: { size: 8, gbe: 1, material: 'Copper', } },
+						],
+					},
+				],
+			},
+			{
+				id: '700',
+				name: '700',
+				groupId: 'smbAppliances',
+				subModels: [
+					{
+						id: '790',
+						name: '790 Next Generation Threat Prevention',
+						description: 'The Check Point 790 appliance is an all-inclusive security...',
+						startingPrice: 1999,
+						dataSheetUrl: 'https://www.checkpoint.com/downloads/products/datasheets/ds-700-appliance.pdf',
+						attrs: [
+							{ type: 'formFactor', value: 'Desktop' },
+							{ type: 'wireless', value: 'Optional' },
+						],
+						specs: [
+							{ type: 'ports', value: '18x1GbE' },
+							{ type: 'supportsExternal', value: '3G/4G/LTE' },
+						],
+					},
+				],
+			},
+		]
+	}
 };

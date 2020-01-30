@@ -8,8 +8,8 @@ import { createClassName } from '../../../lib/classNameHelper';
 const classPrefix = 'menu-item';
 const MS_TRANSITION = 400;
 export const classes = {
-    container: createClassName(classPrefix, 'container'),
-    content: createClassName(classPrefix, 'content'),
+	container: createClassName(classPrefix, 'container'),
+	content: createClassName(classPrefix, 'content'),
 };
 
 const Container = styled.div`  
@@ -41,28 +41,28 @@ const Container = styled.div`
 `;
 
 const TabItem = (props) => {
-    const { children, className, ...otherProps } = props;
+	const { children, className, ...otherProps } = props;
 
-    return (
-        <Container
-            className={ classNames(classes.container, className) }
-            { ...otherProps }
-        >
-            <div className={ classes.content }>
-                { children }
-            </div>
-        </Container>
-    );
+	return (
+		<Container
+			className={ classNames(classes.container, className) }
+			{ ...otherProps }
+		>
+			<div className={ classes.content }>
+				{ children }
+			</div>
+		</Container>
+	);
 };
 
 TabItem.defaultProps = {
-    isActive: false,
+	isActive: false,
 };
 
 TabItem.propTypes = {
-    isActive: PropTypes.bool,
-    onClick: PropTypes.func,
-    children: PropTypes.node,
+	isActive: PropTypes.bool,
+	onClick: PropTypes.func,
+	children: PropTypes.node,
 };
 
 export default TabItem;
