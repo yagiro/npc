@@ -10,6 +10,7 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import PopperList from './components/generic/PopperList';
 import Homepage from './components/homepage/Homepage';
 
 class App extends Component {
@@ -26,7 +27,7 @@ class App extends Component {
 
 	render() {
 		const { showCompare, models, selectedMenuItem, showHomePage } = this.state;
-		
+
 		if(showHomePage) {
 			return (
 				<div className="App">
@@ -37,6 +38,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
+				<PopperList/>
 
 				<DumbTabNavigation
 					options={ mockData.menuItems }
