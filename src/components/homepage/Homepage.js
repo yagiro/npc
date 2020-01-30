@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { createClassName } from '../../lib/classNameHelper';
-import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
-
-const classPrefix = 'home-page';
-export const classes = {
-	header: createClassName(classPrefix, 'header'),
-};
+import Banner from './Banner';
+import mainImage from '../../assets/homepage/main_img.png';
+import TopControls from './TopControls';
+import MainTabNavigation from './MainTabNavigation';
 
 const Container = styled.div`
     display: flex;
@@ -20,7 +17,9 @@ const Container = styled.div`
 const Homepage = () => {
 	return (
 		<Container>
-			<Header/> {/*Header should be removed*/}
+			<TopControls/>
+			<Banner imagePath={ mainImage }/>
+			<MainTabNavigation/>
 			<Content/>
 			<Footer/>
 		</Container>

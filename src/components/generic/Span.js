@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Span = styled.span`
-	margin: ${ ({ margin }) => margin } !important;
+	margin: ${ ({ margin }) => margin };
 	font-size: ${ ({ size }) => size };
 	font-weight: ${ ({ bold }) => bold ? 'bold' :'normal'};
 	${ ({ color }) => !color ? '' : `color: ${ color };` };

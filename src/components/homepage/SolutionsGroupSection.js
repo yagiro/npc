@@ -23,7 +23,7 @@ const SolutionsGroupSection = () => {
 	return (
 		<>
 			<OurSolutionsContainer>
-				<Title size="30px">Our Solutions
+				<Title size="30px"><Span size="30px" margin="0 0 0 5px" color={ colors.checkPointPink }>Our</Span> Solutions
 					<Span size="12px" margin="0 0 0 5px" color={ colors.checkPointPink }>•</Span>
 				</Title>
 			</OurSolutionsContainer>

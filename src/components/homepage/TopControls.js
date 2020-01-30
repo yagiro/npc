@@ -4,6 +4,14 @@ import TabNavigation from '../common/tabNavigation/TabNavigation';
 import { mockData } from '../../config/mockData';
 import { colors } from '../../config/constants';
 
+const Container = styled.div`
+	width: 100%;
+	max-width: 1188px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
 const MockTopBar = styled.div`
 	max-width: 1188px;
 	height: 43px;
@@ -21,7 +29,7 @@ const TabsContainerTop = styled.div`
 
 const TopControls = () => {
 	return (
-		<>
+		<Container>
 			<MockTopBar/>
 			<TabsContainerTop>
 				<TabNavigation
@@ -32,7 +40,7 @@ const TopControls = () => {
 					} }
 				/>
 			</TabsContainerTop>
-		</>
+		</Container>
 	);
 };
 

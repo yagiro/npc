@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import TopControls from './TopControls';
-import GetQuoteSection from './GetQuoteSection';
+import GetInfinityQuoteSection from './GetInfinityQuoteSection';
 import SolutionsGroupSection from './SolutionsGroupSection';
 
 const Container = styled.div`
@@ -16,8 +15,7 @@ const Container = styled.div`
 const Content = () => {
 	return (
 		<Container>
-			<TopControls/>
-			<GetQuoteSection/>
+			<GetInfinityQuoteSection/>
 			<SolutionsGroupSection/>
 		</Container>
 	);
