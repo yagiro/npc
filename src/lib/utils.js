@@ -8,19 +8,6 @@ export const hexToRgb = (hex) => {
 	const r = (bigint >> 16) & 255;
 	const g = (bigint >> 8) & 255;
 	const b = bigint & 255;
-	const result = r + ',' + g + ',' + b;
-	return result;
-};
-
-/**
- *
- * @param {object} obj with string values
- * @returns {array} array of objects values
- */
-export const strObjToArray = (obj) => {
-	const result = [];
-	for (let key in obj) {
-		result.push(obj[key]);
-	}
+	const result = `${r},${g},${b}`;
 	return result;
 };

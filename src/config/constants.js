@@ -37,6 +37,8 @@ export const colors = {
 	headerGrey: '#727781',
 	buttonGrey: '#6B6F81',
 	borderGrey: '#D2D5D9',
+	grey_100: '#F7F8F9',
+	pink_100: '#EC5888'
 };
 
 export const fonts = {

@@ -2,6 +2,11 @@ import React from 'react';
 
 import { solutionPackageTypes } from '../../../config/constants';
 import { classes as textItemClasses } from './SolutionPackageItemText';
+import SolutionPackageCards from "./SolutionPackageCards";
+import SolutionPackageStorage from "./SolutionPackageStorage";
+import SolutionPackageRam from "./SolutionPackageRam";
+import SolutionPackageLom from "./SolutionPackageLom";
+import SolutionPackagePower from "./SolutionPackagePower";
 
 
 export const solutionPackageData = {
@@ -115,4 +120,20 @@ export const solutionPackageData = {
 			]
 		},
 	},
+};
+
+export const packageAttrTypes = {
+    ioCards: 'ioCards',
+    storage: 'storage',
+    ram: 'ram',
+    lom: 'lom',
+    powerSupply: 'powerSupply',
+};
+
+export const attrComps = {
+    [packageAttrTypes.ioCards]: SolutionPackageCards,
+    [packageAttrTypes.storage]: SolutionPackageStorage,
+    [packageAttrTypes.ram]: SolutionPackageRam,
+    [packageAttrTypes.lom]: SolutionPackageLom,
+    [packageAttrTypes.powerSupply]: SolutionPackagePower,
 };

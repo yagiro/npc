@@ -49,19 +49,19 @@ const Container = styled.div`
 `;
 
 const SolutionPackagePrice = (props) => {
-	const { price, sku } = props;
+	const { price, category } = props;
 	return (
 		<Container>
-			<div className={ classes.chips }>Product</div>
-			<div className={ classes.price }>${ formatCurrency(price) }</div>
-			<div className={ classes.sku }>{ sku }</div>
+			<div className={ classes.chips }>{ category }</div>
+			<div className={ classes.price }>{ formatCurrency(price) }</div>
+			<div className={ classes.sku }>SKU:CPAP-MHS-6803</div>
 		</Container>
 	);
 };
 
 SolutionPackagePrice.propTypes = {
 	price: PropTypes.number,
-	sku: PropTypes.string,
+    category: PropTypes.string,
 };
 
 export default SolutionPackagePrice;

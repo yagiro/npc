@@ -4,15 +4,16 @@ import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
+import PropTypes from "prop-types";
 
-const SolutionPackageRam = () => {
+const SolutionPackageRam = ({ backgroundColor, type }) => {
 
 	return (
-		<SolutionPackageItem backgroundColor="grey">
+		<SolutionPackageItem backgroundColor={ backgroundColor }>
 			<div>
 				<Image path={ buildAssetAbsolutePath('/images/solution-package/power-supply.png') } />
 				<SolutionPackageItemText
-					header="Triple PSUs"
+					header={ type }
 					text="PowerSupply"
 				/>
 				<div/>
@@ -22,7 +23,8 @@ const SolutionPackageRam = () => {
 };
 
 SolutionPackageRam.propTypes = {
-
+    type: PropTypes.string,
+    backgroundColor: PropTypes.string,
 };
 
 export default SolutionPackageRam;

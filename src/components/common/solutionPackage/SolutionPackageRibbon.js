@@ -26,16 +26,16 @@ const Container = styled.div`
 	padding-left: 12px;
 `;
 
-const SolutionPackageRibbon = ({ children }) => {
+const SolutionPackageRibbon = ({ label }) => {
 	return (
-		<Container show={ children }>
-			{ children }
+		<Container show={ !!label }>
+			{ label }
 		</Container>
 	);
 };
 
 SolutionPackageRibbon.propTypes = {
-	show: PropTypes.node,
+    label: PropTypes.string,
 };
 
 export default SolutionPackageRibbon;
