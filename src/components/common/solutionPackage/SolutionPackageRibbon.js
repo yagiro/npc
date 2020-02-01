@@ -35,7 +35,7 @@ const SolutionPackageRibbon = ({ label }) => {
 };
 
 SolutionPackageRibbon.propTypes = {
-	label: PropTypes.string,
+    label: PropTypes.string,
 };
 
 export default SolutionPackageRibbon;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Image from '../../generic/Image';
 import SolutionPackageItem from './SolutionPackageItem';
-import SolutionPackageItemText, { classes as textItemClasses } from './SolutionPackageItemText';
+import SolutionPackageItemText, {classes as textItemClasses} from './SolutionPackageItemText';
 import SolutionPackageCardArrow from './SolutionPackageCardArrow';
 import SolutionPackageCardDetails from './SolutionPackageCardDetails';
 import SolutionPackageAccordion from './SolutionPackageAccordion';
@@ -63,9 +63,9 @@ const SolutionPackageCards = ({ availableSlotsCount, cards, backgroundColor }) =
 };
 
 SolutionPackageCards.propTypes = {
-	availableSlotsCount: PropTypes.number,
-	cards: PropTypes.array,
-	backgroundColor: PropTypes.string,
+    availableSlotsCount: PropTypes.number,
+    cards: PropTypes.array,
+    backgroundColor: PropTypes.string,
 };
 
 export default SolutionPackageCards;

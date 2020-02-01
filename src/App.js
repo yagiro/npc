@@ -49,6 +49,8 @@ class App extends Component {
 								sku={ item.sku }
 								selected={ item.selected }
 								onSelect={ () => console.log(i) }
+								category={ item.category }
+								attrs={ item.attributes }
 							/>
 						)
 					}<br/><br/>

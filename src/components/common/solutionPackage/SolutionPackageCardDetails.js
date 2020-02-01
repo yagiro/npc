@@ -111,9 +111,9 @@ const SolutionPackageCardDetails = ({ details }) => {
 
 SolutionPackageCardDetails.propTypes = {
 	details: PropTypes.arrayOf(PropTypes.shape({
-		amount: PropTypes.number,
-		size: PropTypes.number,
-		material: PropTypes.string,
+        amount: PropTypes.number,
+        size: PropTypes.number,
+        material: PropTypes.string,
 	})),
 };
 

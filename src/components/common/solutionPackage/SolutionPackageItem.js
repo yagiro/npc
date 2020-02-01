@@ -33,7 +33,7 @@ const Container = styled.div`
 
 const SolutionPackageItem = ({ backgroundColor, children }) => {
 	return (
-		<Container backgroundColor={ backgroundColors[backgroundColor] }>
+		<Container backgroundColor={ backgroundColor }>
 			{ children }
 		</Container>
 	);

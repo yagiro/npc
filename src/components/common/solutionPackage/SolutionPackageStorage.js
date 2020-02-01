@@ -6,7 +6,7 @@ import { fonts } from '../../../config/constants';
 import SolutionPackageItem from './SolutionPackageItem';
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
-import SolutionPackageItemText, { classes as textItemClasses } from './SolutionPackageItemText';
+import SolutionPackageItemText, {classes as textItemClasses} from './SolutionPackageItemText';
 import SolutionPackageCardArrow from './SolutionPackageCardArrow';
 import SolutionPackageAccordion from './SolutionPackageAccordion';
 
@@ -91,13 +91,13 @@ const SolutionPackageStorage = ({ drives, availableSlotsCount, type, backgroundC
 };
 
 SolutionPackageStorage.propTypes = {
-	type: PropTypes.string,
-	availableSlotsCount: PropTypes.number,
-	drives: PropTypes.arrayOf(PropTypes.shape({
-		size: PropTypes.number,
+    type: PropTypes.string,
+    availableSlotsCount: PropTypes.number,
+    drives: PropTypes.arrayOf(PropTypes.shape({
+        size: PropTypes.number,
 		unit: PropTypes.string,
 	})),
-	backgroundColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
 };
 
 export default SolutionPackageStorage;
