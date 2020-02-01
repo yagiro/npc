@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItem, { backgroundColors } from './SolutionPackageItem';
-import SolutionPackageItemText from './SolutionPackageItemText';
+import SolutionPackageItemText, {classes as textItemClasses} from './SolutionPackageItemText';
 import SolutionPackageAccordeon from './SolutionPackageAccordeon';
 import { createClassName } from '../../../lib/classNameHelper';
 import SolutionPackageCardArrow from './SolutionPackageCardArrow';
@@ -24,28 +24,33 @@ const Clickable = styled.div`
 	cursor: pointer;
 `;
 
-const SolutionPackageCards = ({ type }) => {
+const SolutionPackageCards = ({ availableSlotsCount, cards, backgroundColor }) => {
 	const [ isOpen, setIsOpen ] = useState(false);
 
 	const getSlots = () => {
-		const slots = solutionPackageData[type].card.details.slots;
-		const additionalElems = solutionPackageData[type].card.details.slotsTotal - slots.length;
-		if (additionalElems > 0) {
-			for (let i = 0; i < additionalElems; i++) {
+		const slots = [ ...cards ];
+		const emptySlotsCount = availableSlotsCount - cards.length;
+		if (emptySlotsCount > 0) {
+			for (let i = 0; i < emptySlotsCount; i++) {
 				slots.push(null);
 			}
 		}
 		return slots;
 	};
 
+	const HeaderComponent =
+		<>
+			{ cards.length }<span className={ textItemClasses.additional }>/{ availableSlotsCount }</span>
+		</>;
+
 	return (
-		<SolutionPackageItem backgroundColor="grey" >
+		<SolutionPackageItem backgroundColor={ backgroundColor } >
 			<Clickable onClick={ () => setIsOpen(!isOpen) }>
 				<Image path={ buildAssetAbsolutePath('/images/solution-package/ethernet.png') } />
 				<SolutionPackageItemText
-					header={ solutionPackageData[type].card.header }
+					header={ HeaderComponent }
 					text="I/O Cards"
-					chips={ solutionPackageData[type].card.chips }
+					chips={ cards.length >= availableSlotsCount }
 				/>
 				<SolutionPackageCardArrow isOpen={ isOpen } />
 			</Clickable>
@@ -57,7 +62,9 @@ const SolutionPackageCards = ({ type }) => {
 };
 
 SolutionPackageCards.propTypes = {
-	type: PropTypes.string.isRequired,
+    availableSlotsCount: PropTypes.number,
+    cards: PropTypes.array,
+    backgroundColor: PropTypes.string,
 };
 
 export default SolutionPackageCards;

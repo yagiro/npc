@@ -6,7 +6,7 @@ import { colors, fonts } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
 import classNames from 'classnames';
 
-const classPrefix = 'solution-package-cards-ditails';
+const classPrefix = 'solution-package-cards-details';
 export const classes = {
 	slot: createClassName(classPrefix, 'slot'),
 	arrow: createClassName(classPrefix, 'arrow'),
@@ -82,12 +82,18 @@ const SolutionPackageCardDetails = ({ details }) => {
 				<div key={ index } className={ classes.slot } >
 					<div>Slot { index + 1 }</div>
 					<div className={ classNames(
-						{ [classes.emptySlot]: !slot },
-						{ [classes.filledSlot]: slot },
-						{ [classes.brownBorder]: index === 0 && slot }) }
+						{
+							[classes.emptySlot]: !slot,
+							[classes.filledSlot]: slot,
+							[classes.brownBorder]: index === 0 && slot
+						})}
 					>
 						{ slot ?
-							slot.map((item, i) => <div key={ i }>{ item }</div>) :
+							<>
+								<div>{ slot.amount }x</div>
+                                <div>{ slot.size }GB</div>
+                                <div>{ slot.material }</div>
+							</>:
 							<div className={ classes.emptySlot }>Open</div>
 						}
 					</div>
@@ -104,7 +110,11 @@ const SolutionPackageCardDetails = ({ details }) => {
 };
 
 SolutionPackageCardDetails.propTypes = {
-	details: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+	details: PropTypes.arrayOf(PropTypes.shape({
+        amount: PropTypes.number,
+        size: PropTypes.number,
+        material: PropTypes.string,
+	})),
 };
 
 export default SolutionPackageCardDetails;

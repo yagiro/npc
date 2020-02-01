@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
-	height: ${ props => props.isOpen ? props.innerDiv.current ? props.innerDiv.current.clientHeight : 0 : 0 }px;
+	height: ${ props => props.isOpen ? props.height : 0 }px;
 	overflow: hidden;
 	transition: height .2s;
 	background-color: ${ ({ backgroundColor }) => backgroundColor };
@@ -15,7 +15,7 @@ const SolutionPackageAccordeon = ({ children, isOpen, backgroundColor }) => {
 	return (
 		<Container
 			isOpen={ isOpen }
-			innerDiv={ innerDiv }
+            height={ innerDiv.current ? innerDiv.current.clientHeight : 0 }
 			backgroundColor={ backgroundColor }
 		>
 			<div ref={ innerDiv }>

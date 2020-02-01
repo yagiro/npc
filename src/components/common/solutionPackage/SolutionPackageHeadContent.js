@@ -61,7 +61,7 @@ const Container = styled.div`
 			border-style: solid;
 			border-color: ${ colors.checkPointPink };
 			border-left-color: ${ ({ type }) => type === solutionPackageTypes.turbo ? 
-		colors.checkPointPink : colors.borderGrey };
+				colors.checkPointPink : colors.borderGrey };
 			display: flex;
 			justify-content: center;
 			align-items: center;

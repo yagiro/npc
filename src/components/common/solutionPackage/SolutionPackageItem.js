@@ -38,18 +38,18 @@ const Container = styled.div`
 
 const SolutionPackageItem = ({ backgroundColor, children }) => {
 	return (
-		<Container backgroundColor={ backgroundColors[backgroundColor] }>
+		<Container backgroundColor={ backgroundColor }>
 			{ children }
 		</Container>
 	);
 };
 
 SolutionPackageItem.defaultProps = {
-	backgroundColor: 'white',
+	backgroundColor: colors.background,
 };
 
 SolutionPackageItem.propTypes = {
-	backgroundColor: PropTypes.oneOf(['grey', 'white'])
+	backgroundColor: PropTypes.string
 };
 
 export default SolutionPackageItem;
