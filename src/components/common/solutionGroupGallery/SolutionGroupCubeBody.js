@@ -14,15 +14,15 @@ const Container = styled.div.attrs(props => ({
 	position: relative;
 	
 	&::before {
-	  content: "";
-	  ${ ({ backgroundAttr }) => backgroundAttr };
-      opacity: .7;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: absolute;
-      z-index: ${ zIndexMap.bodyBackground };   
+		content: "";
+		${ ({ backgroundAttr }) => backgroundAttr };
+		opacity: .7;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		position: absolute;
+		z-index: ${ zIndexMap.bodyBackground };   
 	}
 `;
 
