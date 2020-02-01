@@ -1,24 +1,20 @@
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import SolutionPackageHead from './SolutionPackageHead';
 import SolutionPackageIncluded from './SolutionPackageIncluded';
-import SolutionPackageCards from './SolutionPackageCards';
-import SolutionPackageStorage from './SolutionPackageStorage';
-import SolutionPackageRam from './SolutionPackageRam';
-import SolutionPackageLom from './SolutionPackageLom';
-import SolutionPackagePower from './SolutionPackagePower';
 import SolutionPackagePrice from './SolutionPackagePrice';
 import SolutionPackageSelect from './SolutionPackageSelect';
-import { colors, solutionPackageTypes } from '../../../config/constants';
-import { createClassName } from '../../../lib/classNameHelper';
+import {colors, solutionPackageTypes} from '../../../config/constants';
+import {createClassName} from '../../../lib/classNameHelper';
 import SolutionPackageRibbon from './SolutionPackageRibbon';
 import SolutionPackageCorner from './SolutionPackageCorner';
+import { attrComps } from './SolutionPackageData';
 
 const classPrefix = 'solution-package';
 export const classes = {
-	corner: createClassName(classPrefix, 'selected-corner'),
+    corner: createClassName(classPrefix, 'selected-corner'),
 };
 
 const Container = styled.div`
@@ -33,52 +29,64 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	border: ${ ({ selected }) => selected ? 1 : 0 }px solid #DE3970;
+	border: ${ ({selected}) => selected ? 1 : 0 }px solid #DE3970;
 
 `;
 
 const SolutionPackage = (props) => {
-	const { type, gbpsAmount, subtitle, price, sku, selected, onSelect } = props;
+    const {type, gbpsAmount, subtitle, price, selected, onSelect, category, attrs} = props;
 
-	const handleSelect = useCallback(() => onSelect(), [ onSelect ]);
+    const handleSelect = useCallback(() => onSelect(), [onSelect]);
 
-	return (
-		<Container selected={ selected }>
-			<SolutionPackageHead
-				type={ type }
-				subtitle={ subtitle }
-				gbpsAmount={ gbpsAmount }
-			/>
-			<SolutionPackageRibbon>
-				{ type === solutionPackageTypes.turbo ? 'Extra Security Power' : null }
-			</SolutionPackageRibbon>
-			<SolutionPackageCorner selected={ selected } />
-			<SolutionPackageIncluded type={ type }/>
-			<SolutionPackageCards type={ type }/>
-			<SolutionPackageStorage type={ type }/>
-			<SolutionPackageRam type={ type }/>
-			<SolutionPackageLom/>
-			<SolutionPackagePower/>
-			<SolutionPackagePrice
-				price={ price }
-				sku={ sku }
-			/>
-			<SolutionPackageSelect
-				selected={ selected }
-				onClick={ handleSelect }
-			/>
-		</Container>
-	);
+    return (
+        <Container selected={selected}>
+            <SolutionPackageHead
+                type={type}
+                subtitle={subtitle}
+                gbpsAmount={gbpsAmount}
+            />
+            <SolutionPackageRibbon label={type === solutionPackageTypes.turbo ? 'Extra Security Power' : null}/>
+            <SolutionPackageCorner selected={selected}/>
+            <SolutionPackageIncluded type={type}/>
+            {
+                attrs.map((attr, i) => {
+                    const AttrComp = attrComps[attr.type];
+                    return !AttrComp ? null :
+                        <AttrComp
+                            key={ i }
+                            backgroundColor={ i%2 === 0 ? colors.grey_100 : colors.background }
+                            {...attr.data}
+                        />
+                })
+            }
+            <SolutionPackagePrice
+                price={price}
+                category={category}
+            />
+            <SolutionPackageSelect
+                selected={selected}
+                onClick={handleSelect}
+            />
+        </Container>
+    );
+};
+
+SolutionPackage.defaultProps = {
+    attrs: [],
 };
 
 SolutionPackage.propTypes = {
-	type: PropTypes.string.isRequired,
-	subtitle: PropTypes.string,
-	gbpsAmount: PropTypes.number,
-	price: PropTypes.number,
-	sku: PropTypes.string,
-	selected: PropTypes.bool,
-	onSelect: PropTypes.func,
+    type: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    gbpsAmount: PropTypes.number,
+    price: PropTypes.number,
+    selected: PropTypes.bool,
+    onSelect: PropTypes.func,
+    category: PropTypes.string,
+    attrs: PropTypes.arrayOf(PropTypes.shape({
+        type: PropTypes.string,
+        data: PropTypes.any
+    }))
 };
 
 export default SolutionPackage;

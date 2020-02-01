@@ -3,15 +3,16 @@ import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
+import PropTypes from "prop-types";
 
-const SolutionPackageRam = () => {
+const SolutionPackageLom = ({ backgroundColor, included }) => {
 
 	return (
-		<SolutionPackageItem>
+        <SolutionPackageItem backgroundColor={ backgroundColor }>
 			<div>
 				<Image path={ buildAssetAbsolutePath('/images/solution-package/mainboard.png') } />
 				<SolutionPackageItemText
-					header="LOM Optional"
+					header={ `LOM ${ included ? 'Optional' : '???' }` }
 					text="Light-out Mgmt (LOM)"
 				/>
 				<div/>
@@ -20,8 +21,10 @@ const SolutionPackageRam = () => {
 	);
 };
 
-SolutionPackageRam.propTypes = {
+SolutionPackageLom.propTypes = {
 	// type: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string,
+	included: PropTypes.bool,
 };
 
-export default SolutionPackageRam;
+export default SolutionPackageLom;
