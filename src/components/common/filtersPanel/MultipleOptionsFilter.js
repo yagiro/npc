@@ -14,7 +14,6 @@ const MultipleOptionsFilter = ({ title, data, chosenFilters, onChange }) => {
 
 	const options = data.options;
 
-
 	const isChecked = (chosenFilters, filterId, value) => {
 		return !!(chosenFilters[filterId] && chosenFilters[filterId].value.has(value));
 	};
