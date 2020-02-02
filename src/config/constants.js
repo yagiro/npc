@@ -45,6 +45,7 @@ export const colors = {
 export const fonts = {
 	paragraph: '14px/21px DIN pro',
 	mediumText: '18px/27px DIN',
+	mediumText: '18px/27px DIN',
 	header: '32px/47px DIN pro',
 };
 
