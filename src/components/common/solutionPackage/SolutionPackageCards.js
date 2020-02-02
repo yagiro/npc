@@ -49,7 +49,7 @@ const SolutionPackageCards = ({ availableSlotsCount, cards, backgroundColor }) =
 				<SolutionPackageItemText
 					header={ HeaderComponent }
 					text="I/O Cards"
-					chips={ cards.length >= availableSlotsCount }
+					chips={ false }
 				/>
 				<SolutionPackageCardArrow isOpen={ isOpen } />
 			</Clickable>

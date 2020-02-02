@@ -10,7 +10,7 @@ const Container = styled.div`
 	justify-content: center;
 	align-items: center;
 	background-color: ${({ selected }) => selected ? '#DE3970' : '#F6F6F6' };
-	font: ${ fonts.paragraphMiddle };
+	font-size: ${ fonts.paragraphMiddle };
 	line-height: 1em;
 	color: ${({ selected }) => selected ? colors.background : colors.checkPointPink };
 	cursor: pointer;

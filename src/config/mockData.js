@@ -369,7 +369,7 @@ export const mockData = {
 				},
 				{
 					type: 'lom',
-					data: { included: true },
+					data: { included: false },
 				},
 				{
 					type: 'powerSupply',
