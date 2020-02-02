@@ -5,14 +5,15 @@ import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
-import PropTypes from "prop-types";
+
+const lomImage = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
 
 const lomImageUrl = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
 
 const SolutionPackageLom = ({ backgroundColor, included }) => {
 
 	return (
-        <SolutionPackageItem backgroundColor={ backgroundColor }>
+		<SolutionPackageItem backgroundColor={ backgroundColor }>
 			<div>
 				<Image path={ lomImageUrl } />
 				<SolutionPackageItemText

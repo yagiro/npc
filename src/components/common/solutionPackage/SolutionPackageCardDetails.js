@@ -102,6 +102,8 @@ const renderDetails = (details) => {
 
 const SolutionPackageCardDetails = ({ details }) => {
 
+const SolutionPackageCardDetails = ({ details }) => {
+
 	return (
 		<Container>
 			{ renderDetails(details) }
@@ -111,9 +113,9 @@ const SolutionPackageCardDetails = ({ details }) => {
 
 SolutionPackageCardDetails.propTypes = {
 	details: PropTypes.arrayOf(PropTypes.shape({
-        amount: PropTypes.number,
-        size: PropTypes.number,
-        material: PropTypes.string,
+		amount: PropTypes.number,
+		size: PropTypes.number,
+		material: PropTypes.string,
 	})),
 };
 

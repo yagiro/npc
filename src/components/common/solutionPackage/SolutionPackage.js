@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -6,15 +6,15 @@ import SolutionPackageHead from './SolutionPackageHead';
 import SolutionPackageIncluded from './SolutionPackageIncluded';
 import SolutionPackageFooter from './SolutionPackageFooter';
 import SolutionPackageSelect from './SolutionPackageSelect';
-import {colors, solutionPackageTypes} from '../../../config/constants';
-import {createClassName} from '../../../lib/classNameHelper';
+import { colors, solutionPackageTypes } from '../../../config/constants';
+import { createClassName } from '../../../lib/classNameHelper';
 import SolutionPackageRibbon from './SolutionPackageRibbon';
 import SolutionPackageCorner from './SolutionPackageCorner';
 import { attrComps } from './SolutionPackageHelper';
 
 const classPrefix = 'solution-package';
 export const classes = {
-    corner: createClassName(classPrefix, 'selected-corner'),
+	corner: createClassName(classPrefix, 'selected-corner'),
 };
 
 const Container = styled.div`
@@ -29,7 +29,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	border: ${ ({selected}) => selected ? 1 : 0 }px solid #DE3970;
+	border: ${ ({ selected }) => selected ? 1 : 0 }px solid #DE3970;
 
 `;
 
@@ -46,9 +46,9 @@ const renderPackageInfoAttrs = (attrs) => {
 };
 
 const SolutionPackage = (props) => {
-	const { type, gbpsAmount, subtitle, price, selected, onSelect, category, attrs, sku } = props;
+	const { type, gbpsAmount, subtitle, price, selected, onSelect, category, attrs , sku } = props;
 
-    const handleSelect = useCallback(() => onSelect(), [onSelect]);
+	const handleSelect = useCallback(() => onSelect(), [onSelect]);
 
 	return (
 		<Container selected={ selected }>
