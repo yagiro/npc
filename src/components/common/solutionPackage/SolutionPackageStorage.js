@@ -8,9 +8,12 @@ import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText, { classes as textItemClasses } from './SolutionPackageItemText';
 import SolutionPackageCardArrow from './SolutionPackageCardArrow';
-import SolutionPackageAccordeon from './SolutionPackageAccordeon';
+import SolutionPackageAccordion from './SolutionPackageAccordion';
 
-const Clicable = styled.div`
+const detailItemImage = buildAssetAbsolutePath('/images/solution-package/hard-disk-drive.png');
+const packageItemImage = buildAssetAbsolutePath('/images/solution-package/server.png');
+
+const Clickable = styled.div`
 	cursor: pointer;
 `;
 
@@ -35,14 +38,9 @@ const DetailItem = styled.div`
 	}
 `;
 
-const renderDetails = (drives, availableSlotsCount) => {
-	const allDrives = [ ...drives ];
+const renderDetails = (drives, availableSlotsCount, type) => {
 	const emptyDriveCount = availableSlotsCount - drives.length;
-	if (emptyDriveCount > 0) {
-		for (let i = 0; i < emptyDriveCount; i++) {
-			allDrives.push(null);
-		}
-	}
+	const allDrives = [ ...drives, ...Array(emptyDriveCount).fill(null) ];
 
 	return allDrives.map((drive, i) =>
 		<DetailItem key={ i }>
@@ -51,11 +49,11 @@ const renderDetails = (drives, availableSlotsCount) => {
 					<>
 						<Image
 							width="24px"
-							path={ buildAssetAbsolutePath('/images/solution-package/hard-disk-drive.png') }
+							path={ detailItemImage }
 						/>
 						<div><strong>{ drive.size }{ drive.unit }</strong></div>
 					</> :
-					<div><strong>HDD1</strong> Optional</div>
+					<div><strong>{ type }{ i + 1 }</strong> Optional</div>
 			}
 		</DetailItem>
 	);
@@ -73,21 +71,21 @@ const SolutionPackageStorage = ({ drives, availableSlotsCount, type, backgroundC
 
 	return (
 		<SolutionPackageItem backgroundColor={ backgroundColor } >
-			<Clicable onClick={ () => setIsOpen(!isOpen) }>
-				<Image path={ buildAssetAbsolutePath('/images/solution-package/server.png') } />
+			<Clickable onClick={ () => setIsOpen(!isOpen) }>
+				<Image path={ packageItemImage } />
 				<SolutionPackageItemText
 					header={ HeaderComponent }
 					text="Storage"
-					chips={ false }
+					highlighted={ false }
 				/>
 				<SolutionPackageCardArrow isOpen={ isOpen } />
-			</Clicable>
-			<SolutionPackageAccordeon
+			</Clickable>
+			<SolutionPackageAccordion
 				isOpen={ isOpen }
 				backgroundColor={ backgroundColor }
 			>
-				{ renderDetails(drives, availableSlotsCount) }
-			</SolutionPackageAccordeon>
+				{ renderDetails(drives, availableSlotsCount, type) }
+			</SolutionPackageAccordion>
 		</SolutionPackageItem>
 	);
 };

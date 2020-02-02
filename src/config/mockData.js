@@ -211,6 +211,7 @@ export const mockData = {
 			price: 165000,
 			selected: true,
 			category: 'Product',
+			sku: 'SKU:CPAP-MHS-6803',
 			attributes: [
 				{
 					type: 'ioCards',
@@ -256,6 +257,7 @@ export const mockData = {
 			price: 180000,
 			selected: false,
 			category: 'Product',
+			sku: 'SKU:CPAP-MHS-6803',
 			attributes: [
 				{
 					type: 'ioCards',
@@ -317,6 +319,7 @@ export const mockData = {
 			price: 210000,
 			selected: false,
 			category: 'Product',
+			sku: 'SKU:CPAP-MHS-6803',
 			attributes: [
 				{
 					type: 'ioCards',

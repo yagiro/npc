@@ -75,15 +75,15 @@ const Container = styled.div`
 `;
 
 const renderDetails = (details) => {
-	return details.map((slot, index) => {
+	return details.map((slot, i) => {
 		return (
-			<div key={ index } className={ classes.slot } >
-				<div>Slot { index + 1 }</div>
+			<div key={ i } className={ classes.slot } >
+				<div>Slot { i + 1 }</div>
 				<div className={ classNames(
 					{
 						[classes.emptySlot]: !slot,
 						[classes.filledSlot]: slot,
-						[classes.brownBorder]: index === 0 && slot
+						[classes.brownBorder]: i === 0 && slot
 					})}
 				>
 					{ slot ?
@@ -101,7 +101,6 @@ const renderDetails = (details) => {
 };
 	
 const SolutionPackageCardDetails = ({ details }) => {
-
 
 	return (
 		<Container>

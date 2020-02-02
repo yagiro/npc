@@ -10,7 +10,7 @@ import { colors, solutionPackageTypes } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
 import SolutionPackageRibbon from './SolutionPackageRibbon';
 import SolutionPackageCorner from './SolutionPackageCorner';
-import { attrComps } from './SolutionPackageHalper';
+import { attrComps } from './SolutionPackageHelper';
 
 const classPrefix = 'solution-package';
 export const classes = {
@@ -40,34 +40,35 @@ const renderPackageInfoAttrs = (attrs) => {
 			<AttrComp
 				key={ i }
 				backgroundColor={ i%2 === 0 ? colors.grey_100 : colors.background }
-				{...attr.data}
+				{ ...attr.data }
 			/>;
 	});
 };
 
 const SolutionPackage = (props) => {
-	const { type, gbpsAmount, subtitle, price, selected, onSelect, category, attrs } = props;
+	const { type, gbpsAmount, subtitle, price, selected, onSelect, category, attrs, sku } = props;
 
 	const handleSelect = useCallback(() => onSelect(), [onSelect]);
 
 	return (
-		<Container selected={selected}>
+		<Container selected={ selected }>
 			<SolutionPackageHead
-				type={type}
-				subtitle={subtitle}
-				gbpsAmount={gbpsAmount}
+				type={ type }
+				subtitle={ subtitle }
+				gbpsAmount={ gbpsAmount }
 			/>
-			<SolutionPackageRibbon label={type === solutionPackageTypes.turbo ? 'Extra Security Power' : null}/>
-			<SolutionPackageCorner selected={selected}/>
-			<SolutionPackageIncluded type={type}/>
+			<SolutionPackageRibbon label={ type === solutionPackageTypes.turbo ? 'Extra Security Power' : null }/>
+			<SolutionPackageCorner selected={ selected }/>
+			<SolutionPackageIncluded type={ type }/>
 			{ renderPackageInfoAttrs(attrs) }
 			<SolutionPackagePrice
-				price={price}
-				category={category}
+				sku={ sku }
+				price={ price }
+				category={ category }
 			/>
 			<SolutionPackageSelect
-				selected={selected}
-				onClick={handleSelect}
+				selected={ selected }
+				onClick={ handleSelect }
 			/>
 		</Container>
 	);
@@ -85,36 +86,10 @@ SolutionPackage.propTypes = {
 	selected: PropTypes.bool,
 	onSelect: PropTypes.func,
 	category: PropTypes.string,
+	sku: PropTypes.string,
 	attrs: PropTypes.arrayOf(PropTypes.shape({
 		type: PropTypes.oneOf([ 'ioCards', 'storage', 'ram', 'lom', 'powerSupply' ]),
-		data: PropTypes.oneOfType([
-			PropTypes.shape({
-				availableSlotsCount: PropTypes.number,
-				cards: PropTypes.arrayOf(PropTypes.shape({
-					amount: PropTypes.number,
-					size: PropTypes.number,
-					material: PropTypes.string,
-				})),
-			}),
-			PropTypes.shape({
-				availableSlotsCount: PropTypes.number,
-				type: PropTypes.string,
-				drives: PropTypes.arrayOf(PropTypes.shape({
-					size: PropTypes.number,
-					unit: PropTypes.string,
-				})),
-			}),
-			PropTypes.shape({
-				size: PropTypes.number,
-				unit: PropTypes.string,
-			}),
-			PropTypes.shape({
-				included: PropTypes.bool
-			}),
-			PropTypes.shape({
-				type: PropTypes.string,
-			}),
-		]),
+		data: PropTypes.object,
 	}))
 };
 

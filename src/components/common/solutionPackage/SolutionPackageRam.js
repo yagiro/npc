@@ -17,7 +17,7 @@ const SolutionPackageRam = ({ size, unit, backgroundColor }) => {
 				<SolutionPackageItemText
 					header={ size + unit }
 					text="Ram"
-					chips={ false }
+					highlighted={ false }
 				/>
 				<div/>
 			</div>

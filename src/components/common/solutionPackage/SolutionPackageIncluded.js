@@ -5,7 +5,7 @@ import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 
 const includeImage = buildAssetAbsolutePath('/images/solution-package/include.png');
-const arroeImage = buildAssetAbsolutePath('/images/solution-package/include.png');
+const arrowImage = buildAssetAbsolutePath('/images/solution-package/right-arrow.png');
 
 const SolutionPackageIncluded = () => {
 
@@ -14,7 +14,7 @@ const SolutionPackageIncluded = () => {
 			<div>
 				<Image path={ buildAssetAbsolutePath(includeImage) } />
 				<div>Software Included</div>
-				<Image path={ buildAssetAbsolutePath(arroeImage) } />
+				<Image path={ buildAssetAbsolutePath(arrowImage) } />
 			</div>
 		</SolutionPackageItem>
 	);

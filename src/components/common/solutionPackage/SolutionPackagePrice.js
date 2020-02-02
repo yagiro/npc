@@ -50,12 +50,12 @@ const Container = styled.div`
 `;
 
 const SolutionPackagePrice = (props) => {
-	const { price, category } = props;
+	const { price, category, sku } = props;
 	return (
 		<Container>
 			<div className={ classes.chips }>{ category }</div>
 			<div className={ classes.price }>{ formatCurrency(price) }</div>
-			<div className={ classes.sku }>SKU:CPAP-MHS-6803</div>
+			<div className={ classes.sku }>{ sku }</div>
 		</Container>
 	);
 };
@@ -63,6 +63,7 @@ const SolutionPackagePrice = (props) => {
 SolutionPackagePrice.propTypes = {
 	price: PropTypes.number,
 	category: PropTypes.string,
+	sku: PropTypes.string,
 };
 
 export default SolutionPackagePrice;
