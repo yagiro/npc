@@ -1,6 +1,6 @@
 /**
  *
- * @param {string} hex color
+ * @param {string} hex color 
  * @returns {string} rgb color, example - '13,26,165'
  */
 export const hexToRgb = (hex) => {
