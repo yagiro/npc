@@ -6,14 +6,14 @@ import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
 
-const powerImage = buildAssetAbsolutePath('/images/solution-package/power-supply.png');
+const powerImageUrl = buildAssetAbsolutePath('/images/solution-package/power-supply.png');
 
 const SolutionPackageRam = ({ backgroundColor, type }) => {
 
 	return (
 		<SolutionPackageItem backgroundColor={ backgroundColor }>
 			<div>
-				<Image path={ powerImage } />
+				<Image path={ powerImageUrl } />
 				<SolutionPackageItemText
 					header={ type }
 					text="PowerSupply"

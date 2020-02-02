@@ -10,8 +10,8 @@ import SolutionPackageItemText, { classes as textItemClasses } from './SolutionP
 import SolutionPackageCardArrow from './SolutionPackageCardArrow';
 import SolutionPackageAccordion from './SolutionPackageAccordion';
 
-const detailItemImage = buildAssetAbsolutePath('/images/solution-package/hard-disk-drive.png');
-const packageItemImage = buildAssetAbsolutePath('/images/solution-package/server.png');
+const detailItemImageUrl = buildAssetAbsolutePath('/images/solution-package/hard-disk-drive.png');
+const packageItemImageUrl = buildAssetAbsolutePath('/images/solution-package/server.png');
 
 const Clickable = styled.div`
 	cursor: pointer;
@@ -49,7 +49,7 @@ const renderDetails = (drives, availableSlotsCount, type) => {
 					<>
 						<Image
 							width="24px"
-							path={ detailItemImage }
+							path={ detailItemImageUrl }
 						/>
 						<div><strong>{ drive.size }{ drive.unit }</strong></div>
 					</> :
@@ -72,7 +72,7 @@ const SolutionPackageStorage = ({ drives, availableSlotsCount, type, backgroundC
 	return (
 		<SolutionPackageItem backgroundColor={ backgroundColor } >
 			<Clickable onClick={ () => setIsOpen(!isOpen) }>
-				<Image path={ packageItemImage } />
+				<Image path={ packageItemImageUrl } />
 				<SolutionPackageItemText
 					header={ HeaderComponent }
 					text="Storage"
