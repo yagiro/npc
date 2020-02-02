@@ -15,7 +15,7 @@ const SolutionPackageLom = ({ backgroundColor, included }) => {
 			<div>
 				<Image path={ lomImage } />
 				<SolutionPackageItemText
-					header={ `LOM ${ included ? 'Optional' : '???' }` }
+					header={ `LOM ${ included ? 'Included' : 'Optional' }` }
 					text="Light-out Mgmt (LOM)"
 				/>
 				<div/>
