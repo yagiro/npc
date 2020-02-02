@@ -117,7 +117,6 @@ PopperList.propTypes = {
 	onChange: PropTypes.func,
 	value: PropTypes.any,
 	children: PropTypes.element.isRequired,
-	arrowRef: PropTypes.object,
 };
 
 export default PopperList;
