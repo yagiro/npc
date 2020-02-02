@@ -46,9 +46,9 @@ DumbTabNavigation.defaultProps = {
 };
 
 DumbTabNavigation.propTypes = {
-	activeTabId: PropTypes.number,
+	activeTabId: PropTypes.any,
 	options: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number,
+		id: PropTypes.any,
 		label: PropTypes.string,
 		imagePath: PropTypes.string,
 	})),
