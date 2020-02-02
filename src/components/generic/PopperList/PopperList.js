@@ -39,6 +39,7 @@ const ArrowContainer = styled.div`
 const PopperList = ({ value, onChange, options, children }) => {
 
 	const [ anchorEl, setAnchorEl ] = React.useState(null);
+	const [ arrowRef, setArrowRef ] = React.useState(null);
 	const [ open, setOpen ] = React.useState(false);
 	const [ placement, setPlacement ] = React.useState();
 
