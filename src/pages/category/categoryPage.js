@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
 import CollapseWrapper from '../../components/generic/CollapseWrapper';
 import ItemCard from '../../components/common/itemCard/ItemCard';
+import TabNavigation from '../../components/common/tabNavigation/TabNavigation';
 import { cardTypes, colors, fonts } from '../../config/constants';
 import { mockData } from '../../config/mockData';
-import { subModelsNormalizer } from './categoryPageHalper';
-import TabNavigation from '../../components/common/tabNavigation/TabNavigation';
+import { modelsAdapter } from './categoryPageHalper';
 
-const normalisedModels = subModelsNormalizer(mockData.categoryPage.models);
+const normalisedModels = modelsAdapter(mockData.categoryPage.models);
 const MODELS_OPACITY_MS = 200;
 const DEFAULT_TAB = 'smbAppliances';
 
@@ -24,8 +25,7 @@ const TitleContainer = styled.div`
 		color: #4C5059;
 		font: ${ fonts.header };
 		line-height: 1em;
-		margin: 0;
-		margin-bottom: 10px;
+		margin: 0 0 10px 0;
 		
 		strong {
 			color: #EC407A;
@@ -68,39 +68,37 @@ const renderSubModels = (cardsData) => {
 	});
 };
 
+const renderModels = (filteredModels) => {
+	return filteredModels.map(model => {
+		return <CollapseWrapper
+			key={ model.id }
+			title={ model.name }
+			imgSource="https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png"
+		>
+			{ renderSubModels(model.subModels) }
+		</CollapseWrapper>;
+	});
+};
+
 const CategoryPage = () => {
 	const [ disapear, setDisapear ] = useState(false);
-	const [ models, setModels ] = useState(filterModelsByTabId(normalisedModels, DEFAULT_TAB));
+	const [ filteredModels, setFilteredModels ] = useState(filterModelsByTabId(normalisedModels, DEFAULT_TAB));
 
 	const prepareRenderModels = (tabId) => {
 		setDisapear(true);
 		setTimeout(() => {
 			setDisapear(false);
 			const newModels = filterModelsByTabId(normalisedModels, tabId);
-			setModels(newModels);
-		}, MODELS_OPACITY_MS);
-	};
-
-	const renderModels = () => {
-		return models.map(model => {
-			return <CollapseWrapper
-				key={ model.id }
-				title={ model.name }
-				imgSource="https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png"
-			>
-				{ renderSubModels(model.subModels) }
-			</CollapseWrapper>;
-		});
+			setFilteredModels(newModels);
+		}, MODELS_OPACITY_MS/2);
 	};
 
 	return (
 		<Container>
-
 			<TitleContainer>
 				<h2>Solution for Small and Medium Business<strong>.</strong></h2>
 				Over <b>1,300</b> Security Gateway Appliance & Solutions
 			</TitleContainer>
-
 			<TabNavigationContainer>
 				<TabNavigation
 					defaultActiveTabId={ DEFAULT_TAB }
@@ -111,17 +109,11 @@ const CategoryPage = () => {
 					]}
 					onChange={ (val) => prepareRenderModels(val) } />
 			</TabNavigationContainer>
-
 			<ModelsWrapper disapear={ disapear }>
-				{ renderModels() }
+				{ renderModels(filteredModels) }
 			</ModelsWrapper>
-
 		</Container>
 	);
-};
-
-CategoryPage.propTypes = {
-
 };
 
 export default CategoryPage;
