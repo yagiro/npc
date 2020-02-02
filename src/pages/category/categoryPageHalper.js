@@ -69,7 +69,7 @@
  * @param {Array<SubModel>} subModels
  * @returns {Array<NormalizedModel>}
  */
-export const subModelsNormalizer = (models) => {
+export const modelsAdapter = (models) => {
 	return models.map(model => {
 		const result = { ...model };
 		result.subModels = model.subModels.map(subModel => {
