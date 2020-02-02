@@ -7,7 +7,7 @@ import SolutionGroupCubeBodyImage from './SolutionGroupCubeBodyImage';
 import { cssAttrIf, zIndexMap } from './solutionGroupCubeHelper';
 
 const Container = styled.div.attrs(props => ({
-	backgroundAttr: cssAttrIf('background', 'url', props.backgroundImage),
+	backgroundAttr: cssAttrIf('background', `url(${props.backgroundImage})`, props.backgroundImage),
 }))`  
 	height: ${ props => Math.round(props.cubeHeight * 0.84) }px;
 	padding: 30px;
