@@ -1,5 +1,3 @@
-import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
-
 export const zIndexMap = {
 	footerContainer: 20,
 	bodyBackground: 10,
