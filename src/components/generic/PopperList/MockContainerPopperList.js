@@ -17,8 +17,8 @@ const MockContainerPopperList = () => {
 				value={ selectedValue } 
 				onChange={ setSelectedValue }>
 				<>
-					<Image path={ menu } width="15px" height="15px"/>
-					<Span size="14px" color={ colors.textLightGray }>Our Solutions</Span>
+					<Image path={menu} width="15px" height="15px"/>
+					<Span size="14px" color={colors.textLightGray}>Our Solutions</Span>
 				</>
 			</PopperList>
 		</div>
