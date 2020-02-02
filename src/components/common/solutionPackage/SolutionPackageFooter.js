@@ -55,7 +55,7 @@ const SolutionPackageFooter = (props) => {
 		<Container>
 			<div className={ classes.chips }>{ category }</div>
 			<div className={ classes.price }>{ formatCurrency(price) }</div>
-			<div className={ classes.sku }>SKU: { sku }</div>
+			<div className={ classes.sku }>SKU:{ sku }</div>
 		</Container>
 	);
 };
