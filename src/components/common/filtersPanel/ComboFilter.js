@@ -19,10 +19,10 @@ const customStyles = {
 	}),
 };
 
-const ComboFilter = ({ filterId, title, innerFilters, chosenFilters, onChange }) => {
+const ComboFilter = ({ filterId, title, data, chosenFilters, onChange }) => {
 
-	const options = innerFilters.multipleOptionsFilter.options;
-	const dropDownOptions = innerFilters.dropdownFilter.options;
+	const options = data.multipleOptionsFilter.options;
+	const dropDownOptions = data.dropdownFilter.options;
 
 	//componentDidMount : we need to set Default value to select
 	useEffect(() => {
@@ -110,9 +110,24 @@ ComboFilter.propTypes = {
 		PropTypes.number
 	]).isRequired,
 	title: PropTypes.string,
-	innerFilters: PropTypes.object.isRequired,
 	chosenFilters: PropTypes.object.isRequired,
 	onChange: PropTypes.func.isRequired,
+	data: PropTypes.shape({
+		dropdownFilter: PropTypes.shape({
+			options: PropTypes.arrayOf(PropTypes.shape({
+				value: PropTypes.any,
+				label: PropTypes.any,
+				filterId: PropTypes.any
+			})),
+		}).isRequired,
+		multipleOptionsFilter:  PropTypes.shape({
+			options: PropTypes.arrayOf(PropTypes.shape({
+				value: PropTypes.any,
+				label: PropTypes.any,
+				filterId: PropTypes.any
+			})),
+		}).isRequired,
+	}),
 };
 
 export default ComboFilter;

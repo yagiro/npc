@@ -45,18 +45,18 @@ export const buildFilterOptionObject = (filters) => {
 	filters.forEach((filter)=> {
 
 		// for multipleOptions Filter
-		filter.innerFilters.multipleOptionsFilter.options.forEach((option)=> {
-			filterOptionsObject = { ...filterOptionsObject, [option.value] : option };
-		});
-
+		if(filter.data.options) {
+			filter.data.options.forEach((option)=> {
+				filterOptionsObject = { ...filterOptionsObject, [option.value] : option };
+			});
+		}
 
 		// for comboFilter
-		if(filter.innerFilters.dropdownFilter){
-			filter.innerFilters.dropdownFilter.options.forEach((dropdownOption)=> {
+		if(filter.data.dropdownFilter){
+			filter.data.dropdownFilter.options.forEach((dropdownOption)=> {
 				const dropdownValue = dropdownOption.value;
 
-				filter.innerFilters.multipleOptionsFilter.options.forEach((option)=> {
-
+				filter.data.multipleOptionsFilter.options.forEach((option)=> {
 					const dropdownUpgradedOption = {
 						value: `${dropdownValue}${option.value}`,
 						label: `${dropdownOption.label} ${option.label}`,

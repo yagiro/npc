@@ -135,55 +135,49 @@ export const mockData = {
 			title: 'Market Segment',
 			type: 'multiple',
 			id: 'marketSegment',
-			innerFilters: {
-				multipleOptionsFilter: {
-					options: [
-						{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
-						{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
-						{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment'  },
-					],
-				}
-			},
+			data: {
+				options: [
+					{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
+					{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
+					{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment'  },
+				],
+			}
 		},
 		{
 			title: 'Connectivity',
 			type: 'multiple',
 			id: 'connectivity',
-			innerFilters: {
-				multipleOptionsFilter: {
-					options: [
-						{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' } ,
-						{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
-						{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
-					],
-				}
+			data: {
+				options: [
+					{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' } ,
+					{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
+					{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
+				],
 			},
 		},
 		{
 			title: 'Radandecncy',
 			type: 'multiple',
 			id: 'radandecncy',
-			innerFilters: {
-				multipleOptionsFilter: {
-					options: [
-						{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' } ,
-						{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
-						{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
-						{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },
-					],
-				}
+			data: {
+				options: [
+					{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' } ,
+					{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
+					{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
+					{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },
+				],
 			},
 		},
 		{
 			title: 'Performance',
 			id: 'performance',
 			type: 'comboFilter',
-			innerFilters: {
+			data: {
 				dropdownFilter: {
 					options: [
-						{ value: 'genV', label: 'Gen V Security' },
-						{ value: 'gev3', label: 'Gen 3 Security' },
-						{ value: 'gev2', label: 'Gen 2 Security' },
+						{ value: 'genV', label: 'Gen V Security', filterId: 'performance' },
+						{ value: 'gev3', label: 'Gen 3 Security', filterId: 'performance' },
+						{ value: 'gev2', label: 'Gen 2 Security', filterId: 'performance' },
 					]
 				},
 				multipleOptionsFilter: {
@@ -201,16 +195,14 @@ export const mockData = {
 			title: 'Phisical Form Factur',
 			type: 'multiple',
 			id: 'phisicalFormFactur',
-			innerFilters: {
-				multipleOptionsFilter: {
-					options: [
-						{ value: 'desktop', label: 'Desktop' } ,
-						{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
-						{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
-						{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
-						{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
-					],
-				}
+			data: {
+				options: [
+					{ value: 'desktop', label: 'Desktop' } ,
+					{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
+					{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
+					{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
+					{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
+				],
 			},
 		},
 

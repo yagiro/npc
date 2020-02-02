@@ -10,9 +10,9 @@ const Container = styled.div`
 	display: block;
 `;
 
-const MultipleOptionsFilter = ({ title, innerFilters, chosenFilters, onChange }) => {
+const MultipleOptionsFilter = ({ title, data, chosenFilters, onChange }) => {
 
-	const options = innerFilters.multipleOptionsFilter.options;
+	const options = data.options;
 
 
 	const isChecked = (chosenFilters, filterId, value) => {
@@ -63,7 +63,13 @@ MultipleOptionsFilter.propTypes = {
 		PropTypes.number
 	]).isRequired,
 	title: PropTypes.string,
-	innerFilters: PropTypes.object.isRequired,
+	data: PropTypes.shape({
+		options: PropTypes.arrayOf(PropTypes.shape({
+			value: PropTypes.any,
+			label: PropTypes.any,
+			filterId: PropTypes.any
+		})),
+	}).isRequired,
 	chosenFilters: PropTypes.object.isRequired,
 	onChange: PropTypes.func.isRequired,
 };

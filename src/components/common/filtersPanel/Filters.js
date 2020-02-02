@@ -31,7 +31,7 @@ const Filters = ({ filters, chosenFilters, onChange }) => {
 	// function render block of filter-options for specific filter-type
 	const renderFilterBlocks = (filters) => {
 		// render filter-blocks
-		return filters.map(({ id, title, innerFilters, type }, i) => {
+		return filters.map(({ id, title, data, type }, i) => {
 			const FilterBlock = filterBlockComponents[type];
 
 
@@ -43,7 +43,7 @@ const Filters = ({ filters, chosenFilters, onChange }) => {
 					<FilterBlock
 						filterId={ id }
 						title={ title }
-						innerFilters={ innerFilters }
+						data={ data }
 						chosenFilters={ chosenFilters }
 						onChange={ onChange }
 					/>
