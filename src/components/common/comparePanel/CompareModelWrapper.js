@@ -14,15 +14,6 @@ const Container = styled.div`
 	width: 250px;
 	height: 80px;
 	transition: box-shadow .2s;
-	
-	// .model-content-leave {
-    //   opacity: 1;
-    // }
-    //
-    // .model-content-leave.model-content-leave-active {
-    //   opacity: 0;
-    //   transition: opacity ${ props => props.animationTimeMs }ms;
-    // }
 `;
 
 const CompareModelWrapper = ({ index, model, animationTimeMs, onClose, ...otherProps }) => {

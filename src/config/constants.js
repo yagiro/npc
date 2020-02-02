@@ -24,10 +24,10 @@ export const specificationsTypes = {
 
 export const colors = {
 	checkPointPink: '#EC407A',
-	checkPointPinkHover: '#d63f76',
+	checkPointPinkHover: '#D63F76',
 	textLightGray: '#858991',
 	lightgray: '#CACFD2',
-	whitesmoke: '#eeeeee',
+	whitesmoke: '#EEEEEE',
 	menuGray: '#606060',
 	background: '#FFFFFF',
 	boxShadowGrey: '#00000029',
@@ -37,10 +37,14 @@ export const colors = {
 	headerGrey: '#727781',
 	buttonGrey: '#6B6F81',
 	borderGrey: '#D2D5D9',
+	solutionCubeBg: '#F6F6F6',
+	solutionGroupTitle: '#4C5059',
+	cubeImagesBorder: '#E1E3E5',
 };
 
 export const fonts = {
 	paragraph: '14px/21px DIN pro',
+	mediumText: '18px/27px DIN',
 	header: '32px/47px DIN pro',
 };
 

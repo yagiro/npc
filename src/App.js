@@ -10,6 +10,7 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
 
 class App extends Component {
@@ -20,13 +21,13 @@ class App extends Component {
 			showCompare: false,
 			compareModels: [],
 			selectedMenuItem: 1,
-			showHomePage: true
+			showHomePage: false
 		};
 	}
 
 	render() {
 		const { showCompare, models, selectedMenuItem, showHomePage } = this.state;
-		
+
 		if(showHomePage) {
 			return (
 				<div className="App">
@@ -37,7 +38,10 @@ class App extends Component {
 
 		return (
 			<div className="App">
-
+				<SolutionGroupGallery
+					solutionGroups={ mockData.solutionCubes }
+					onChoose={ (value) => console.log(value) }
+				/>
 				<DumbTabNavigation
 					options={ mockData.menuItems }
 					activeTabId={ selectedMenuItem }

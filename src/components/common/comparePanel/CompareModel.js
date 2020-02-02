@@ -10,8 +10,8 @@ import CompareModelInfo from './CompareModelInfo';
 
 const classPrefix = 'compare-card';
 export const classes = {
-    image: createClassName(classPrefix, 'image'),
-    info: createClassName(classPrefix, 'info'),
+	image: createClassName(classPrefix, 'image'),
+	info: createClassName(classPrefix, 'info'),
 };
 
 const Container = styled.div`  
@@ -30,38 +30,38 @@ const Container = styled.div`
 `;
 
 const CompareModel = (props) => {
-    const { onClose, data } = props;
-    const { title, price, image } = data || {};
-    const [ show, setShow ] = useState(false);
+	const { onClose, data } = props;
+	const { title, price, image } = data || {};
+	const [ show, setShow ] = useState(false);
 
-    useEffect(() => {
-        setTimeout(() => setShow(!!data), 0);
-    }, [ data ]);
+	useEffect(() => {
+		setTimeout(() => setShow(!!data), 0);
+	}, [ data ]);
 
-    const handleClick = useCallback (() => {
-        if (onClose) onClose();
-    }, [ onClose ]);
+	const handleClick = useCallback (() => {
+		if (onClose) onClose();
+	}, [ onClose ]);
 
-    if (!data) return null;
+	if (!data) return null;
 
-    return (
-        <Container show={ show }>
-            <div className={ classes.image }>
-                <Image path={ buildAssetAbsolutePath(image) }/>
-            </div>
-            <CompareModelInfo title={ title } price={ price }/>
-            <CompareModelCloseButton onClick={ handleClick }/>
-        </Container>
-    );
+	return (
+		<Container show={ show }>
+			<div className={ classes.image }>
+				<Image path={ buildAssetAbsolutePath(image) }/>
+			</div>
+			<CompareModelInfo title={ title } price={ price }/>
+			<CompareModelCloseButton onClick={ handleClick }/>
+		</Container>
+	);
 };
 
 CompareModel.propTypes = {
-    data: PropTypes.shape({
-        image: PropTypes.string,
-        title: PropTypes.string,
-        price: PropTypes.number,
-    }),
-    onClose: PropTypes.func,
+	data: PropTypes.shape({
+		image: PropTypes.string,
+		title: PropTypes.string,
+		price: PropTypes.number,
+	}),
+	onClose: PropTypes.func,
 };
 
 export default CompareModel;
