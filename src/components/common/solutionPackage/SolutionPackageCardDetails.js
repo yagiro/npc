@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import classNames from 'classnames';
 
 import { colors, fonts } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
-import classNames from 'classnames';
 
 const classPrefix = 'solution-package-cards-details';
 export const classes = {
@@ -74,46 +74,47 @@ const Container = styled.div`
 	}
 `;
 
+const renderDetails = (details) => {
+	return details.map((slot, index) => {
+		return (
+			<div key={ index } className={ classes.slot } >
+				<div>Slot { index + 1 }</div>
+				<div className={ classNames(
+					{
+						[classes.emptySlot]: !slot,
+						[classes.filledSlot]: slot,
+						[classes.brownBorder]: index === 0 && slot
+					})}
+				>
+					{ slot ?
+						<>
+							<div>{ slot.amount }x</div>
+							<div>{ slot.size }GB</div>
+							<div>{ slot.material }</div>
+						</>:
+						<div className={ classes.emptySlot }>Open</div>
+					}
+				</div>
+			</div>
+		);
+	});
+};
+	
 const SolutionPackageCardDetails = ({ details }) => {
 
-	const renderDetails = () => {
-		return details.map((slot, index) => {
-			return (
-				<div key={ index } className={ classes.slot } >
-					<div>Slot { index + 1 }</div>
-					<div className={ classNames(
-						{
-							[classes.emptySlot]: !slot,
-							[classes.filledSlot]: slot,
-							[classes.brownBorder]: index === 0 && slot
-						})}
-					>
-						{ slot ?
-							<>
-								<div>{ slot.amount }x</div>
-                                <div>{ slot.size }GB</div>
-                                <div>{ slot.material }</div>
-							</>:
-							<div className={ classes.emptySlot }>Open</div>
-						}
-					</div>
-				</div>
-			);
-		});
-	};
 
 	return (
 		<Container>
-			{ renderDetails() }
+			{ renderDetails(details) }
 		</Container>
 	);
 };
 
 SolutionPackageCardDetails.propTypes = {
 	details: PropTypes.arrayOf(PropTypes.shape({
-        amount: PropTypes.number,
-        size: PropTypes.number,
-        material: PropTypes.string,
+		amount: PropTypes.number,
+		size: PropTypes.number,
+		material: PropTypes.string,
 	})),
 };
 

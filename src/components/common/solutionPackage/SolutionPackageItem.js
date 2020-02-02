@@ -4,11 +4,6 @@ import styled from 'styled-components';
 
 import { colors, fonts } from '../../../config/constants';
 
-export const backgroundColors = {
-	grey: '#F7F8F9',
-	white: colors.background,
-};
-
 const Container = styled.div`  
 	font: ${ fonts.paragraph };
 	

@@ -1,17 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
-import PropTypes from "prop-types";
+
+const powerImage = buildAssetAbsolutePath('/images/solution-package/power-supply.png');
 
 const SolutionPackageRam = ({ backgroundColor, type }) => {
 
 	return (
 		<SolutionPackageItem backgroundColor={ backgroundColor }>
 			<div>
-				<Image path={ buildAssetAbsolutePath('/images/solution-package/power-supply.png') } />
+				<Image path={ powerImage } />
 				<SolutionPackageItemText
 					header={ type }
 					text="PowerSupply"
@@ -23,8 +25,8 @@ const SolutionPackageRam = ({ backgroundColor, type }) => {
 };
 
 SolutionPackageRam.propTypes = {
-    type: PropTypes.string,
-    backgroundColor: PropTypes.string,
+	type: PropTypes.string,
+	backgroundColor: PropTypes.string,
 };
 
 export default SolutionPackageRam;

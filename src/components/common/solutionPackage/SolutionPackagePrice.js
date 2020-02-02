@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { fonts } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
 import { formatCurrency } from '../../../lib/formatters';
@@ -61,7 +62,7 @@ const SolutionPackagePrice = (props) => {
 
 SolutionPackagePrice.propTypes = {
 	price: PropTypes.number,
-    category: PropTypes.string,
+	category: PropTypes.string,
 };
 
 export default SolutionPackagePrice;
