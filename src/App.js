@@ -47,7 +47,6 @@ class App extends Component {
 								subtitle={ item.subtitle }
 								gbpsAmount={ item.gbpsAmount }
 								price={ item.price }
-								sku={ item.sku }
 								selected={ item.selected }
 								onSelect={ () => console.log(i) }
 								category={ item.category }

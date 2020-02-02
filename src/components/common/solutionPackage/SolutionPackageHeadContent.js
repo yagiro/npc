@@ -60,8 +60,7 @@ const Container = styled.div`
 			border-width: 2px;
 			border-style: solid;
 			border-color: ${ colors.checkPointPink };
-			border-left-color: ${ ({ type }) => type === solutionPackageTypes.turbo ? 
-				colors.checkPointPink : colors.borderGrey };
+			border-left-color: ${ ({ type }) => type === solutionPackageTypes.turbo ? colors.checkPointPink : colors.borderGrey };
 			display: flex;
 			justify-content: center;
 			align-items: center;

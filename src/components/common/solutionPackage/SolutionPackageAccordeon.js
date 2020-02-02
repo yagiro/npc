@@ -15,7 +15,7 @@ const SolutionPackageAccordeon = ({ children, isOpen, backgroundColor }) => {
 	return (
 		<Container
 			isOpen={ isOpen }
-            height={ innerDiv.current ? innerDiv.current.clientHeight : 0 }
+			height={ innerDiv.current ? innerDiv.current.clientHeight : 0 }
 			backgroundColor={ backgroundColor }
 		>
 			<div ref={ innerDiv }>
