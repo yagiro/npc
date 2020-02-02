@@ -211,7 +211,7 @@ export const mockData = {
 			price: 165000,
 			selected: true,
 			category: 'Product',
-			sku: 'SKU:CPAP-MHS-6803',
+			sku: 'CPAP-MHS-6803',
 			attributes: [
 				{
 					type: 'ioCards',
@@ -255,9 +255,9 @@ export const mockData = {
 			subtitle: '26000 Next Generation Appliance With 5 Virtual Systems',
 			gbpsAmount: 24,
 			price: 180000,
-			selected: false,
+			selected: true,
 			category: 'Product',
-			sku: 'SKU:CPAP-MHS-6803',
+			sku: 'CPAP-MHS-6803',
 			attributes: [
 				{
 					type: 'ioCards',
@@ -319,7 +319,7 @@ export const mockData = {
 			price: 210000,
 			selected: false,
 			category: 'Product',
-			sku: 'SKU:CPAP-MHS-6803',
+			sku: 'CPAP-MHS-6803',
 			attributes: [
 				{
 					type: 'ioCards',

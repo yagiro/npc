@@ -40,7 +40,7 @@ const DetailItem = styled.div`
 
 const renderDetails = (drives, availableSlotsCount, type) => {
 	const emptyDriveCount = availableSlotsCount - drives.length;
-	const allDrives = [ ...drives, ...Array(emptyDriveCount).fill(null) ];
+	const allDrives = drives.concat(Array(emptyDriveCount).fill(null));
 
 	return allDrives.map((drive, i) =>
 		<DetailItem key={ i }>

@@ -16,9 +16,9 @@ export const classes = {
 
 const Container = styled.div`
 	height: 197px;
-	background-image: linear-gradient(180deg, 
-		${ props => solutionPackageSettings[props.type].gradientColors[0] } 0%,
-		${ props => solutionPackageSettings[props.type].gradientColors[1] } 100%);
+	background-image: ${ ({ type }) => `linear-gradient(180deg, 
+		${ solutionPackageSettings[type].gradientColors[0] } 0%,
+		${ solutionPackageSettings[type].gradientColors[1] } 100%)` };
 	position: relative;
 		
 	.${ classes.images } {
