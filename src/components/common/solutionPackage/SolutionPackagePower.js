@@ -6,7 +6,7 @@ import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
 
-const powerImage = buildAssetAbsolutePath('/images/solution-package/power-supply.png');
+const powerImageUrl = buildAssetAbsolutePath('/images/solution-package/power-supply.png');
 
 const powerImageUrl = buildAssetAbsolutePath('/images/solution-package/power-supply.png');
 

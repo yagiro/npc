@@ -6,7 +6,7 @@ import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
 
-const lomImage = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
+const lomImageUrl = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
 
 const lomImageUrl = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
 
