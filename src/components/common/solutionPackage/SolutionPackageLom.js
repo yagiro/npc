@@ -6,14 +6,14 @@ import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
 
-const lomImage = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
+const lomImageUrl = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
 
 const SolutionPackageLom = ({ backgroundColor, included }) => {
 
 	return (
 		<SolutionPackageItem backgroundColor={ backgroundColor }>
 			<div>
-				<Image path={ lomImage } />
+				<Image path={ lomImageUrl } />
 				<SolutionPackageItemText
 					header={ `LOM ${ included ? 'Included' : 'Optional' }` }
 					text="Light-out Mgmt (LOM)"
