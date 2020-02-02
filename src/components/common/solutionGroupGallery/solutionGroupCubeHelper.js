@@ -8,4 +8,4 @@ export const zIndexMap = {
 };
 
 export const cssAttrIf = (attrKey, attrVal, condition) =>
-	condition ? `${ attrKey } : ${ attrVal }(${ buildAssetAbsolutePath(condition) })` : '';
+	!condition ? '' : `${ attrKey }: ${ attrVal };`;
