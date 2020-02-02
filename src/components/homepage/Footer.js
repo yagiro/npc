@@ -73,7 +73,7 @@ const socialUrlsAndIcons = [
 	createSocialLink(socialUrls.youtube, faYoutubeSquare),
 ];
 
-const renderSocialLink = (socialLinks) => {
+const renderSocialLinks = (socialLinks) => {
 	return socialLinks.map(({ href, faIcon }) => {
 		return <a key={ href } className={ classes.social } href={ href }> <FontAwesomeIcon icon={ faIcon } size="2x"/></a>;
 	});
@@ -94,7 +94,7 @@ const Footer = () => {
 				<RightSection>
 					<Title size="20px" margin="18px 40px 0 0" bold>Follow Us</Title>
 					<LinksSection>
-						{ renderSocialLink(socialUrlsAndIcons) }
+						{ renderSocialLinks(socialUrlsAndIcons) }
 					</LinksSection>
 				</RightSection>
 			</Content>

@@ -37,7 +37,7 @@ TabNavigation.propTypes = {
         label: PropTypes.string,
         imagePath: PropTypes.string,
     })),
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
 };
 
 export default TabNavigation;
