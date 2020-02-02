@@ -45,14 +45,14 @@ export const buildFilterOptionObject = (filters) => {
 	filters.forEach((filter)=> {
 
 		// for multipleOptions Filter
-		if(filter.data.options) {
+		if (filter.data.options) {
 			filter.data.options.forEach((option)=> {
 				filterOptionsObject = { ...filterOptionsObject, [option.value] : option };
 			});
 		}
 
 		// for comboFilter
-		if(filter.data.dropdownFilter){
+		if (filter.data.dropdownFilter) {
 			filter.data.dropdownFilter.options.forEach((dropdownOption)=> {
 				const dropdownValue = dropdownOption.value;
 
