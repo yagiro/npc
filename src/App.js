@@ -21,7 +21,7 @@ class App extends Component {
 			showCompare: false,
 			compareModels: [],
 			selectedMenuItem: 1,
-			showHomePage: true
+			showHomePage: false
 		};
 	}
 
