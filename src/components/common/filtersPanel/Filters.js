@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {colors, filterBlockTypes} from '../../../config/constants';
+import { colors, filterBlockTypes } from '../../../config/constants';
 import MultipleOptionsFilter from './MultipleOptionsFilter';
+import ComboFilter from './ComboFilter';
 
 const Container = styled.div`
 	display: flex;
@@ -21,7 +22,8 @@ const VerticalDivider = styled.div`
 `;
 
 const filterBlockComponents = {
-	[filterBlockTypes.multiple]: MultipleOptionsFilter
+	[filterBlockTypes.multiple]: MultipleOptionsFilter,
+	[filterBlockTypes.comboFilter]: ComboFilter
 };
 
 const Filters = ({ filters, chosenFilters, onChange }) => {
@@ -29,9 +31,10 @@ const Filters = ({ filters, chosenFilters, onChange }) => {
 	// function render block of filter-options for specific filter-type
 	const renderFilterBlocks = (filters) => {
 		// render filter-blocks
-
-		return filters.map(({ id, title, options, type }, i) => {
+		return filters.map(({ id, title, data, type }, i) => {
 			const FilterBlock = filterBlockComponents[type];
+
+
 			return (
 				<FilterBlockContainer key={ id }>
 					{
@@ -40,7 +43,7 @@ const Filters = ({ filters, chosenFilters, onChange }) => {
 					<FilterBlock
 						filterId={ id }
 						title={ title }
-						options={ options }
+						data={ data }
 						chosenFilters={ chosenFilters }
 						onChange={ onChange }
 					/>

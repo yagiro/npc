@@ -102,19 +102,29 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 
 		// encapsulate buildOptionValueArr
 		let arrOptionValues = [];
-		
+
 		Object.keys(chosenFilters).forEach(function(key) {
-			arrOptionValues.push(...chosenFilters[key].value);
+
+			if(chosenFilters[key].dropdownFilter) {
+				// so we now that this is combo-filter
+				chosenFilters[key].value.forEach((value)=> {
+					arrOptionValues.push(`${chosenFilters[key].dropdownFilter.value}${value}`);
+				});
+
+			} else {
+				arrOptionValues.push(...chosenFilters[key].value);
+			}
 		});
 
 		return arrOptionValues.map((optionValue) => {
 
 			const option = getOptionByValue(filters, optionValue);
+
 			return (
 				<ChosenFilterContainer key={ option.value }>
 					{ option.label }
 					<CrossImgWrapper onClick={() => {
-						onRemoveFilterOption(option, chosenFilters);
+						onRemoveFilterOption(option, chosenFilters, option.valueForRemoving);
 					}}>
 						<Image path={ CloseImage } width="8px" height="8px"/>
 					</CrossImgWrapper>
@@ -129,8 +139,8 @@ const ChosenFilters = ({ chosenFilters, onChange, filters }) => {
 	}, [ onChange ]);
 
 	// remove filter-option click handler
-	const onRemoveFilterOption = useCallback((option, chosenFilters) => {
-		const updatedChosenFilters = buildChosenFiltersOnRemove(option, chosenFilters);
+	const onRemoveFilterOption = useCallback((option, chosenFilters, valueForRemoving) => {
+		const updatedChosenFilters = buildChosenFiltersOnRemove(option, chosenFilters, valueForRemoving);
 		onChange(updatedChosenFilters);
 	}, [ onChange ]);
 	

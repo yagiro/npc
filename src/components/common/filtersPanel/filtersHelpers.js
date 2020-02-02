@@ -16,10 +16,19 @@ export const buildChosenFiltersOnAdd = (option, chosenFilters) => {
 };
 
 // remove option from chosen filters
-export const buildChosenFiltersOnRemove = (option, chosenFilters) => {
+export const buildChosenFiltersOnRemove = (option, chosenFilters, valueForRemoving) => {
 	const filter = chosenFilters[option.filterId];
 	const prevOptions = [ ...filter.value ];
-	const updatedOptions = prevOptions.filter((filterOption) => filterOption !== option.value);
+	const updatedOptions = prevOptions.filter((filterOption) => {
+
+		// for comboFilter
+		if(valueForRemoving) {
+			return filterOption !== valueForRemoving;
+		}
+
+		// for multipleOptions Filter
+		return filterOption !== option.value;
+	});
 	return {
 		...chosenFilters,
 		[filter.filterId]: {
@@ -29,15 +38,38 @@ export const buildChosenFiltersOnRemove = (option, chosenFilters) => {
 	};
 };
 
-// build object where [key] it's option-value and [value] it's option
 export const buildFilterOptionObject = (filters) => {
 
 	let filterOptionsObject = {};
 
 	filters.forEach((filter)=> {
-		filter.options.forEach((option)=> {
-			filterOptionsObject = { ...filterOptionsObject, [option.value] : option };
-		});
+
+		// for multipleOptions Filter
+		if (filter.data.options) {
+			filter.data.options.forEach((option)=> {
+				filterOptionsObject = { ...filterOptionsObject, [option.value] : option };
+			});
+		}
+
+		// for comboFilter
+		if (filter.data.dropdownFilter) {
+			filter.data.dropdownFilter.options.forEach((dropdownOption)=> {
+				const dropdownValue = dropdownOption.value;
+
+				filter.data.multipleOptionsFilter.options.forEach((option)=> {
+					const dropdownUpgradedOption = {
+						value: `${dropdownValue}${option.value}`,
+						label: `${dropdownOption.label} ${option.label}`,
+						filterId: filter.id,
+						valueForRemoving: option.value,
+					};
+
+					filterOptionsObject = { ...filterOptionsObject, [`${dropdownValue}${option.value}`] : dropdownUpgradedOption };
+				});
+				
+			});
+		}
+
 	});
 
 	return filterOptionsObject;

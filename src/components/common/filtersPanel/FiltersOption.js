@@ -1,6 +1,6 @@
 import React from 'react';
-import Checkbox from '../../generic/Checkbox';
 import styled from 'styled-components';
+import Checkbox from '../../generic/Checkbox';
 
 const Container = styled.div`
 	margin-bottom: 12px;
@@ -15,7 +15,8 @@ const FiltersOption = ({ option, checked, onRemoveFilterOption, onAddFilterOptio
 				// if filter-option unchecked we need to add filter option
 				const onChange = checked ? onRemoveFilterOption : onAddFilterOption;
 				onChange(option, chosenFilters);
-			}}/>
+			}}
+			/>
 		</Container>
 	);
 };

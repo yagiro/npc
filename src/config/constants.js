@@ -47,5 +47,6 @@ export const fonts = {
 // filter-block types
 export const filterBlockTypes = {
 	multiple: 'multiple',
+	comboFilter: 'comboFilter',
 };
 

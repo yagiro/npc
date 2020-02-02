@@ -1,10 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import Image from '../../generic/Image';
 import CloseImage from '../../../assets/compare/x.png';
 import Span from '../../generic/Span';
-import styled from 'styled-components';
 
 const Container = styled.div`
 	display: flex;

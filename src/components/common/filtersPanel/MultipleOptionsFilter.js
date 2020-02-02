@@ -10,7 +10,9 @@ const Container = styled.div`
 	display: block;
 `;
 
-const MultipleOptionsFilter = ({ title, options, chosenFilters, onChange }) => {
+const MultipleOptionsFilter = ({ title, data, chosenFilters, onChange }) => {
+
+	const options = data.options;
 
 	const isChecked = (chosenFilters, filterId, value) => {
 		return !!(chosenFilters[filterId] && chosenFilters[filterId].value.has(value));
@@ -55,9 +57,18 @@ const MultipleOptionsFilter = ({ title, options, chosenFilters, onChange }) => {
 };
 
 MultipleOptionsFilter.propTypes = {
-	filterId: PropTypes.number.isRequired,
+	filterId: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]).isRequired,
 	title: PropTypes.string,
-	options: PropTypes.array.isRequired,
+	data: PropTypes.shape({
+		options: PropTypes.arrayOf(PropTypes.shape({
+			value: PropTypes.any,
+			label: PropTypes.any,
+			filterId: PropTypes.any
+		})),
+	}).isRequired,
 	chosenFilters: PropTypes.object.isRequired,
 	onChange: PropTypes.func.isRequired,
 };
