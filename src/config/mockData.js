@@ -258,7 +258,7 @@ export const mockData = {
 				id: '1500',
 				name: '1500',
 				groupId: 'smbAppliances',
-				image: 'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png',
+				image: '/images/categorypage/model.png',
 				subModels: [
 					{
 						id: '1590',
@@ -283,6 +283,7 @@ export const mockData = {
 				id: '700',
 				name: '700',
 				groupId: 'smbAppliances',
+				image: '/images/categorypage/model.png',
 				subModels: [
 					{
 						id: '790',
@@ -306,6 +307,7 @@ export const mockData = {
 				id: '2500',
 				name: '2500',
 				groupId: 'smbManagment',
+				image: '/images/categorypage/model.png',
 				subModels: [
 					{
 						id: '1590',
@@ -331,6 +333,7 @@ export const mockData = {
 				id: '3500',
 				name: '3500',
 				groupId: 'smbZoneAlarm',
+				image: '/images/categorypage/model.png',
 				subModels: [
 					{
 						id: '1590',
@@ -355,6 +358,7 @@ export const mockData = {
 				id: '3700',
 				name: '3700',
 				groupId: 'smbZoneAlarm',
+				image: '/images/categorypage/model.png',
 				subModels: [
 					{
 						id: '790',
@@ -377,6 +381,7 @@ export const mockData = {
 				id: '3200',
 				name: '3200',
 				groupId: 'smbZoneAlarm',
+				image: '/images/categorypage/model.png',
 				subModels: [
 					{
 						id: '790',

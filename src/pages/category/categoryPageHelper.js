@@ -90,3 +90,35 @@ export const modelsAdapter = (models) => {
 		return result;
 	});
 };
+
+const createTabSetting = (id, label, imagePath, models) => ({ id, label, imagePath, models });
+
+const filterModelsByTabId = (models, tabId) => models.filter(model => model.groupId === tabId);
+
+export const tabIds = ['smbAppliances', 'smbManagment', 'smbZoneAlarm'];
+
+export const buildModelsByTabs = (models) => {
+	return {
+		[ tabIds[0] ]: filterModelsByTabId(models, tabIds[0]),
+		[ tabIds[1] ]: filterModelsByTabId(models, tabIds[1]),
+		[ tabIds[2] ]: filterModelsByTabId(models, tabIds[2]),
+	};
+};
+
+export const tabSettings = [
+	createTabSetting(
+		tabIds[0],
+		'SMB Appliances',
+		'/images/categorypage/tab1.svg',
+	),
+	createTabSetting(
+		tabIds[1],
+		'SMB Managment',
+		'/images/categorypage/tab2.svg',
+	),
+	createTabSetting(
+		tabIds[2],
+		'SMB Zone Alarm',
+		'/images/categorypage/tab3.svg',
+	),
+];

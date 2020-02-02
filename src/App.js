@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import CategoryPage from './pages/category/categoryPage';
+import { modelsAdapter } from './pages/category/categoryPageHelper';
+import { mockData } from './config/mockData';
+
+const models = modelsAdapter(mockData.categoryPage.models);
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
@@ -30,6 +34,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
+				<CategoryPage models={ models } />
 				<div style={{ display: 'flex' }}>
 					{
 						mockData.solutionPackage.map((item, i) =>

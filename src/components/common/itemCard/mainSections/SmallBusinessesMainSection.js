@@ -2,12 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, fonts, specificationsTypes } from '../../../../config/constants';
+import { colors, specificationsTypes } from '../../../../config/constants';
 import Title from '../../../generic/Title';
-import classNames from 'classnames';
-import { classes } from '../../../../config/mockData';
-import Image from '../../../generic/Image';
-import { buildAssetAbsolutePath } from '../../../../lib/assetsHelper';
 import PortInfo, { portTypes } from './PortInfo';
 
 const Container = styled.div`
@@ -20,9 +16,6 @@ const Container = styled.div`
 `;
 
 const DescriptionSection = styled.div`
- 	//width: 60%;
- 	//height: 100%;
-	//margin-top: 48px;
 	width: 60%;
 	padding: 0;
 	display: flex;
@@ -33,7 +26,6 @@ const DescriptionSection = styled.div`
 const SpecificationsSection = styled.div`
  	 width: 40%;
  	 height: 100%;
-	 //margin-top: 48px;
 `;
 
 const Description = styled.div`
@@ -51,17 +43,10 @@ const UlTitle = styled.div`
 	margin-bottom: 7px;
 `;
 
-const WirelessText = styled.div`
-	font-weight: bold;
-	font-size: 14px;
-`;
-
 const VerticalDivider = styled.div`
 	width: 1px;
-	//height: 150px;
 	background: ${colors.lightgray};
 	margin: 15px 15px 0 10px;
-	//margin: 15px 15px 0 10px;
 `;
 
 const DescriptionFooter = styled.div`

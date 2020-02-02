@@ -11,7 +11,7 @@ import NetworkMainSection from './mainSections/NetworkMainSection';
 import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSection';
 import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
 import ManagementMainSection from './mainSections/ManagementMainSection';
-import { cardTypes, colors, fonts } from '../../../config/constants';
+import { cardTypes, fonts } from '../../../config/constants';
 import Checkbox from '../../generic/Checkbox';
 
 const Container = styled.div`
@@ -32,24 +32,16 @@ const RightSection = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 275px;
-	//height: 100%;
 	background: #F7F8F9;
 	padding: 30px;
 	box-sizing: border-box;
 	justify-content: space-between;
-	//position: absolute;
-	//top: 0;
-	//right:0
 `;
 
 const ButtonSection = styled.div`  
 	display: flex;
 	justify-content: space-between;
 `;
-
-const Label = styled.label`  
-	color: ${ colors.textLightGray };
-	font-size: 14px;`;
 
 const mainSections = {
 	[cardTypes.cloudGuard]: CloudGuardMainSection,
