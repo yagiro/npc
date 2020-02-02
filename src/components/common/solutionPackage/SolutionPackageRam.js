@@ -6,14 +6,14 @@ import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import SolutionPackageItemText from './SolutionPackageItemText';
 import SolutionPackageItem from './SolutionPackageItem';
 
-const ramImage = buildAssetAbsolutePath('/images/solution-package/ram-memory.png');
+const ramImageUrl = buildAssetAbsolutePath('/images/solution-package/ram-memory.png');
 
 const SolutionPackageRam = ({ size, unit, backgroundColor }) => {
 
 	return (
 		<SolutionPackageItem backgroundColor={ backgroundColor }>
 			<div>
-				<Image path={ ramImage } />
+				<Image path={ ramImageUrl } />
 				<SolutionPackageItemText
 					header={ size + unit }
 					text="Ram"

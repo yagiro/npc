@@ -8,7 +8,7 @@ import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
 import { solutionPackageSettings } from './SolutionPackageHelper';
 
-const flashImage = buildAssetAbsolutePath('/images/flash.svg');
+const flashImageUrl = buildAssetAbsolutePath('/images/flash.svg');
 const classPrefix = 'solution-package-head';
 export const classes = {
 	images: createClassName(classPrefix, 'images'),
@@ -16,9 +16,13 @@ export const classes = {
 
 const Container = styled.div`
 	height: 197px;
-	background-image: ${ ({ type }) => `linear-gradient(180deg, 
-		${ solutionPackageSettings[type].gradientColors[0] } 0%,
-		${ solutionPackageSettings[type].gradientColors[1] } 100%)` };
+	background-image: ${ ({ type }) => {
+		const [ gradientStartColor, gradientEndColor ] = solutionPackageSettings[type].gradientColors;
+		return `linear-gradient(180deg, 
+			${ gradientStartColor } 0%,
+			${ gradientEndColor } 100%)`; 
+	}};
+	
 	position: relative;
 		
 	.${ classes.images } {
@@ -42,7 +46,7 @@ const renderFlashes = (type) => {
 	return arr.map((item, i) =>
 		<ReactSVG
 			key={ i }
-			src={ flashImage }
+			src={ flashImageUrl }
 		/>);
 };
 
@@ -55,7 +59,7 @@ const SolutionPackageHead = (props) => {
 			</div>
 			<SolutionPackageHeadContent
 				type={ type }
-				title={ solutionPackageSettings[props.type].title }
+				title={ solutionPackageSettings[type].title }
 				{ ...otherProps }
 			/>
 		</Container>
