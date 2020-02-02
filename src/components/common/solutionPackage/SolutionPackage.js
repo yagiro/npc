@@ -46,7 +46,7 @@ const renderPackageInfoAttrs = (attrs) => {
 };
 
 const SolutionPackage = (props) => {
-	const { type, gbpsAmount, subtitle, price, selected, onSelect, category, attrs , sku } = props;
+	const { type, gbpsAmount, subtitle, price, selected, onSelect, category, attrs, sku } = props;
 
 	const handleSelect = useCallback(() => onSelect(), [onSelect]);
 
