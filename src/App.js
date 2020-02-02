@@ -12,7 +12,6 @@ import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCt
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 import Homepage from './components/homepage/Homepage';
-import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 
 class App extends Component {
 
