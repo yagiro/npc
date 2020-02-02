@@ -15,44 +15,46 @@ const Container = styled.div`
 `;
 
 const DumbTabNavigation = (props) => {
-    const { options, onChange, activeTabId } = props;
+	const { options, onChange, activeTabId } = props;
 
-    return (
-        <Container activeValue={ activeTabId }>
-            { options.map((tab) => {
-                const { id, label, imagePath } = tab;
+	return (
+		<Container activeValue={ activeTabId }>
+			{ options.map((tab) => {
+				const { id, label, imagePath } = tab;
 
-                return (
-                    <TabItem
-                        key={ id }
-                        isActive={ activeTabId === id }
-                        onClick={ () => onChange(id) }
-                    >
-                        <ImageTabItem
-                            image={ imagePath }
-                            isActive={ activeTabId === id }
-                        />
-                        { label }
-                    </TabItem>
-                );
-            }) }
-        </Container>
-    );
+				return (
+					<TabItem
+						key={ id }
+						isActive={ activeTabId === id }
+						onClick={ () => onChange(id) }>
+						{
+							imagePath &&
+							<ImageTabItem
+								image={ imagePath }
+								isActive={ activeTabId === id }
+							/>
+						}
+						{ label }
+					</TabItem>
+				);
+			}) }
+		</Container>
+	);
 };
 
 DumbTabNavigation.defaultProps = {
-    options: [],
-    activeTabId: null,
+	options: [],
+	activeTabId: null,
 };
 
 DumbTabNavigation.propTypes = {
-    activeTabId: PropTypes.number,
-    options: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number,
-        label: PropTypes.string,
-        imagePath: PropTypes.string,
-    })),
-    onChange: PropTypes.func.isRequired,
+	activeTabId: PropTypes.number,
+	options: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number,
+		label: PropTypes.string,
+		imagePath: PropTypes.string,
+	})),
+	onChange: PropTypes.func.isRequired,
 };
 
 export default DumbTabNavigation;
