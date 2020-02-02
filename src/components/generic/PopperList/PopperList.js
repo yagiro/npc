@@ -27,9 +27,19 @@ const PopperListContainer = styled.div`
 	min-width: 235px;
 `;
 
+const ArrowContainer = styled.div`
+	width: 15px;
+	height: 10px;
+	background-color: white;
+	top: -10px;
+	position: absolute;
+	clip-path: polygon(0 100%, 50% 0, 50% 0, 100% 100%);
+`;
+
 const PopperList = ({ value, onChange, options, children }) => {
 
 	const [ anchorEl, setAnchorEl ] = React.useState(null);
+	const [ arrowRef, setArrowRef ] = React.useState(null);
 	const [ open, setOpen ] = React.useState(false);
 	const [ placement, setPlacement ] = React.useState();
 
@@ -39,7 +49,11 @@ const PopperList = ({ value, onChange, options, children }) => {
 		setOpen(prev => placement !== newPlacement || !prev);
 		setPlacement(newPlacement);
 	};
-	
+
+	const handleArrowRef = node => {
+		setArrowRef(node);
+	};
+
 	const renderMenuItems = (options) => {
 		return options.map((option)=> {
 			return (
@@ -65,11 +79,18 @@ const PopperList = ({ value, onChange, options, children }) => {
 						enabled: true,
 						boundariesElement: 'scrollParent',
 					},
+					arrow: {
+						enabled: !!arrowRef,
+						element: arrowRef,
+					},
 				}}>
 				{({ TransitionProps }) => (
-					<Fade { ...TransitionProps } timeout={ 350 }>
+					<Fade {...TransitionProps} timeout={ 350 }>
 						<Paper>
 							<PopperListContainer>
+								{
+									<ArrowContainer ref={ handleArrowRef }/>
+								}
 								{
 									renderMenuItems(options)
 								}
@@ -95,7 +116,8 @@ PopperList.propTypes = {
 	).isRequired,
 	onChange: PropTypes.func,
 	value: PropTypes.any,
-	children: PropTypes.element.isRequired
+	children: PropTypes.element.isRequired,
+	arrowRef: PropTypes.object,
 };
 
 export default PopperList;
