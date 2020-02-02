@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
 import { colors, fonts } from '../../../../config/constants';
 import Image from '../../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../../lib/assetsHelper';
@@ -9,7 +10,7 @@ export const portTypes = {
 	wanPort: 'Wan port',
 	sfpDmzPort: 'SFP DMZ port',
 	lanPort: 'SFP DMZ port',
-}
+};
 
 const Container = styled.div`
 	display: flex;
@@ -101,7 +102,11 @@ const PortInfo = ({ type, size, gbe, material }) => {
 };
 
 PortInfo.propTypes = {
-	type: PropTypes.oneOf(),
+	type: PropTypes.oneOf([
+		portTypes.sfpDmzPort,
+		portTypes.wanPort,
+		portTypes.lanPort,
+	]),
 	size: PropTypes.number,
 	gbe: PropTypes.number,
 	material: PropTypes.string,

@@ -12,10 +12,13 @@ const ToggleArea = styled.div`
   cursor: pointer;
   align-items: center;
   justify-content: space-around;
-  width: 300px;
+  width: min-content;
+  & > span {
+	  margin-right: 8px;
+  }
 `;
 
-function CollapseWrapper({ children, imgSource, title, isOpen }) {
+function CollapseWrapper({ children, imagePath, title, isOpen }) {
 
 	const [ isCollapse, setIsCollapse ] = useState(isOpen);
 	const handleClick = useCallback(() => {
@@ -25,12 +28,12 @@ function CollapseWrapper({ children, imgSource, title, isOpen }) {
 	return (
 		<div>
 			<ToggleArea  onClick={ handleClick }>
-				<Image path={ imgSource } alt="img" width="100"/>
+				<Image path={ imagePath } alt="img" width="100"/>
 				<span>{ title }</span>
 				{ isCollapse && <FontAwesomeIcon icon={ faAngleUp } /> }
 				{ !isCollapse && <FontAwesomeIcon icon={ faAngleDown } /> }
 			</ToggleArea>
-			<Collapse isOpened={ isCollapse } initialStyle={{ height: '0px', overflow: 'hidden' }} >
+			<Collapse isOpened={ isCollapse }>
 				{ children }
 			</Collapse>
 		</div>
@@ -39,7 +42,7 @@ function CollapseWrapper({ children, imgSource, title, isOpen }) {
 
 CollapseWrapper.propTypes = {
 	title: PropTypes.string,
-	imgSource: PropTypes.string,
+	imagePath: PropTypes.string,
 	isOpen: PropTypes.bool,
 };
 
