@@ -5,27 +5,21 @@ import SolutionPackageRam from './SolutionPackageRam';
 import SolutionPackageLom from './SolutionPackageLom';
 import SolutionPackagePower from './SolutionPackagePower';
 
-export const solutionPackageHalper = {
+export const solutionPackageSettings = {
 	[solutionPackageTypes.base]: {
-		head: {
-			gradientColors: [ '#7D7D7D', '#616161' ],
-			flashCount: 1,
-			title: 'Base package',
-		},
+		gradientColors: [ '#7D7D7D', '#616161' ],
+		flashCount: 1,
+		title: 'Base package',
 	},
 	[solutionPackageTypes.plus]: {
-		head: {
-			gradientColors: [ '#E95585', '#AA1E44 ' ],
-			flashCount: 2,
-			title: 'Base package',
-		},
+		gradientColors: [ '#E95585', '#AA1E44 ' ],
+		flashCount: 2,
+		title: 'Base package',
 	},
 	[solutionPackageTypes.turbo]: {
-		head: {
-			gradientColors: [ '#A13C71', '#752650' ],
-			flashCount: 3,
-			title: 'Base package',
-		},
+		gradientColors: [ '#A13C71', '#752650' ],
+		flashCount: 3,
+		title: 'Base package',
 	},
 };
 

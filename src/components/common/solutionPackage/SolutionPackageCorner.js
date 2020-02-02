@@ -6,6 +6,8 @@ import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { colors } from '../../../config/constants';
 
+const checkImage = buildAssetAbsolutePath('/images/solution-package/checked.png');
+
 const Container = styled.div`
 	display: ${ ({ selected }) => selected ? 'block' : 'none' };
 	position: absolute;
@@ -29,7 +31,7 @@ const SolutionPackageCorner = ({ selected }) => {
 	return (
 		<Container selected={ selected } >
 			<div>
-				<Image path={ buildAssetAbsolutePath('/images/solution-package/checked.png') } />
+				<Image path={ checkImage } />
 			</div>
 		</Container>
 	);

@@ -45,11 +45,11 @@ const Container = styled.div`
 `;
 
 const SolutionPackageItemText = (props) => {
-	const { header, text, chips } = props;
+	const { header, text, highlighted } = props;
 	return (
 		<Container>
 			<div>
-				<span className={ classNames({ [classes.chips]: chips }) }>
+				<span className={ classNames({ [classes.chips]: highlighted }) }>
 					{ header }
 				</span>
 			</div>
@@ -63,7 +63,7 @@ const SolutionPackageItemText = (props) => {
 SolutionPackageItemText.propTypes = {
 	header: PropTypes.node,
 	text: PropTypes.string,
-	chips: PropTypes.bool,
+	highlighted: PropTypes.bool,
 };
 
 export default SolutionPackageItemText;

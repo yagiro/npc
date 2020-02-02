@@ -7,7 +7,7 @@ import SolutionPackageItem from './SolutionPackageItem';
 import SolutionPackageItemText, { classes as textItemClasses } from './SolutionPackageItemText';
 import SolutionPackageCardArrow from './SolutionPackageCardArrow';
 import SolutionPackageCardDetails from './SolutionPackageCardDetails';
-import SolutionPackageAccordeon from './SolutionPackageAccordeon';
+import SolutionPackageAccordion from './SolutionPackageAccordion';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
 
@@ -24,13 +24,8 @@ const Clickable = styled.div`
 `;
 
 const getSlots = (cards, availableSlotsCount) => {
-	const slots = [ ...cards ];
 	const emptySlotsCount = availableSlotsCount - cards.length;
-	if (emptySlotsCount > 0) {
-		for (let i = 0; i < emptySlotsCount; i++) {
-			slots.push(null);
-		}
-	}
+	const slots = [ ...cards, ...Array(emptySlotsCount).fill(null) ];
 	return slots;
 };
 	
@@ -49,16 +44,16 @@ const SolutionPackageCards = ({ availableSlotsCount, cards, backgroundColor }) =
 				<SolutionPackageItemText
 					header={ HeaderComponent }
 					text="I/O Cards"
-					chips={ false }
+					highlighted={ false }
 				/>
 				<SolutionPackageCardArrow isOpen={ isOpen } />
 			</Clickable>
-			<SolutionPackageAccordeon
+			<SolutionPackageAccordion
 				isOpen={ isOpen }
 				backgroundColor={ backgroundColor }
 			>
 				<SolutionPackageCardDetails details={ getSlots(cards, availableSlotsCount) } />
-			</SolutionPackageAccordeon>
+			</SolutionPackageAccordion>
 		</SolutionPackageItem>
 	);
 };

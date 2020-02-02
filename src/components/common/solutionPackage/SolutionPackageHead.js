@@ -6,7 +6,7 @@ import { ReactSVG } from 'react-svg';
 import SolutionPackageHeadContent from './SolutionPackageHeadContent';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
-import { solutionPackageHalper } from './SolutionPackageHalper';
+import { solutionPackageSettings } from './SolutionPackageHelper';
 
 const flashImage = buildAssetAbsolutePath('/images/flash.svg');
 const classPrefix = 'solution-package-head';
@@ -16,8 +16,9 @@ export const classes = {
 
 const Container = styled.div`
 	height: 197px;
-	background-image: linear-gradient(180deg, ${ props => solutionPackageHalper[props.type].head.gradientColors[0] } 0%, 
-		${ props => solutionPackageHalper[props.type].head.gradientColors[1] } 100%);
+	background-image: linear-gradient(180deg, 
+		${ props => solutionPackageSettings[props.type].gradientColors[0] } 0%,
+		${ props => solutionPackageSettings[props.type].gradientColors[1] } 100%);
 	position: relative;
 		
 	.${ classes.images } {
@@ -37,7 +38,7 @@ const Container = styled.div`
 `;
 
 const renderFlashes = (type) => {
-	const arr = Array(solutionPackageHalper[type].head.flashCount).fill(null);
+	const arr = Array(solutionPackageSettings[type].flashCount).fill(null);
 	return arr.map((item, i) =>
 		<ReactSVG
 			key={ i }
@@ -54,8 +55,8 @@ const SolutionPackageHead = (props) => {
 			</div>
 			<SolutionPackageHeadContent
 				type={ type }
-				title={ solutionPackageHalper[props.type].head.title }
-				{...otherProps}
+				title={ solutionPackageSettings[props.type].title }
+				{ ...otherProps }
 			/>
 		</Container>
 	);
