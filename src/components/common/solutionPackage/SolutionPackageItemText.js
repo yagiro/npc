@@ -17,7 +17,7 @@ const Container = styled.div`
 	display: inline-block;
 	  
 	& > div:first-child {
-		font: ${ fonts.paragraphBig };
+		font-size: ${ fonts.paragraphBig };
 		font-weight: bold;
 		color: #333333;
 		line-height: 1em;

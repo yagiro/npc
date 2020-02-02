@@ -24,7 +24,7 @@ const Container = styled.div`
 		background-color: inherit;
 		
 		& > div:first-child {
-			font: ${ fonts.paragraph };
+			font-size: ${ fonts.paragraph };
 			line-height: 1em;
 			color: ${ colors.textLightGray };
 			margin-right: 15px;
@@ -50,7 +50,7 @@ const Container = styled.div`
 		 	& > div {
 		 		margin: 5px 0;
 		 		flex: 1;
-		 		font: ${ fonts.paragraph };
+		 		font-size: ${ fonts.paragraph };
 		 		line-height: 1em;
 		 		color: #333333;
 		 		text-align: center;

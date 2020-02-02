@@ -19,7 +19,7 @@ const Container = styled.div`
 	height: 15px;
 	background-color: #56B8E6;
 	clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%);
-	font: ${ fonts.paragraphSmall };
+	font-size: ${ fonts.paragraphSmall };
 	line-height: 1em;
 	color: #16181D;
 	padding-top: 2px;
