@@ -199,8 +199,57 @@ export const mockData = {
 					{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
 					{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
 				],
-			}, },
+			},
+		},
+	],
 
+	solutionCubes: [
+		{
+			id: 1,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png'],
+			title: 'Network security',
+			features: ['item 1', 'item 2', 'item 3', 'item 4'],
+			backgroundImage: '/images/generic-city1-background-2000x660.png',
+		},
+		{
+			id: 2,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png', 'images/CloudGuard_Alibaba-Cloud.png'],
+			title: 'cloud guard',
+			features: ['item 1', 'item 2', 'item 3'],
+		},
+		{
+			id: 3,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png'],
+			title: 'Network security',
+			features: ['item 1', 'item 2', 'item 3', 'item 4'],
+			backgroundImage: '/images/generic-city1-background-2000x660.png',
+		},
+		{
+			id: 4,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png', 'images/CloudGuard_Alibaba-Cloud.png'],
+			title: 'cloud guard',
+			features: ['item 1', 'item 2', 'item 3'],
+		},
+		{
+			id: 5,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png'],
+			title: 'Network security',
+			features: ['item 1', 'item 2', 'item 3', 'item 4'],
+			backgroundImage: '/images/generic-city1-background-2000x660.png',
+		},
+		{
+			id: 6,
+			mainImagePath: '/images/security-gateway-appliance-16000-hero-image-2.png',
+			iconPaths: ['images/CloudGuard_Alibaba-Cloud.png', 'images/CloudGuard_Alibaba-Cloud.png'],
+			title: 'cloud guard',
+			features: ['item 1', 'item 2', 'item 3'],
+			backgroundImage: '/images/generic-city1-background-2000x660.png',
+		},
 	],
 
 	solutionPackage: [

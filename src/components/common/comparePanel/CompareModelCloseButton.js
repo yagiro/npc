@@ -8,7 +8,7 @@ import CloseImage from '../../../assets/compare/x.png';
 
 const classPrefix = 'compare-buttons';
 export const classes = {
-    container: createClassName(classPrefix, 'container'),
+	container: createClassName(classPrefix, 'container'),
 };
 
 const Container = styled.div`
@@ -22,20 +22,20 @@ const Container = styled.div`
 `;
 
 const CompareModelCloseButton = (props) => {
-    const { onClick } = props;
+	const { onClick } = props;
 
-    return (
-        <Container>
-            <Image
-                onClick={ onClick }
-                path={ CloseImage }
-            />
-        </Container>
-    );
+	return (
+		<Container>
+			<Image
+				onClick={ onClick }
+				path={ CloseImage }
+			/>
+		</Container>
+	);
 };
 
 CompareModelCloseButton.propTypes = {
-    onClick: PropTypes.func,
+	onClick: PropTypes.func,
 };
 
 export default CompareModelCloseButton;

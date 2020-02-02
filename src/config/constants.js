@@ -24,10 +24,10 @@ export const specificationsTypes = {
 
 export const colors = {
 	checkPointPink: '#EC407A',
-	checkPointPinkHover: '#d63f76',
+	checkPointPinkHover: '#D63F76',
 	textLightGray: '#858991',
 	lightgray: '#CACFD2',
-	whitesmoke: '#eeeeee',
+	whitesmoke: '#EEEEEE',
 	menuGray: '#606060',
 	background: '#FFFFFF',
 	boxShadowGrey: '#00000029',
@@ -50,6 +50,10 @@ export const fonts = {
 	headerSecond: '30px',
 	headerFourth: '24px',
 	headerFifth: '24px',
+	solutionCubeBg: '#F6F6F6',
+	solutionGroupTitle: '#4C5059',
+	cubeImagesBorder: '#E1E3E5',
+  mediumText: '18px/27px DIN',
 };
 
 // filter-block types

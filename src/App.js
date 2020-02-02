@@ -11,6 +11,7 @@ import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigati
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
+import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
 
 class App extends Component {
@@ -57,6 +58,10 @@ class App extends Component {
 					}<br/><br/>
 				</div>
 
+				<SolutionGroupGallery
+					solutionGroups={ mockData.solutionCubes }
+					onChoose={ (value) => console.log(value) }
+				/>
 				<DumbTabNavigation
 					options={ mockData.menuItems }
 					activeTabId={ selectedMenuItem }

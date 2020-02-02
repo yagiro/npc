@@ -8,7 +8,7 @@ import { buttonStyleTypes } from '../../generic/Button';
 
 const classPrefix = 'compare-buttons';
 export const classes = {
-    container: createClassName(classPrefix, 'container'),
+	container: createClassName(classPrefix, 'container'),
 };
 
 const Container = styled.div`
@@ -18,35 +18,35 @@ const Container = styled.div`
 `;
 
 const CompareButtons = (props) => {
-    const { onClose, handleCompare, width, height } = props;
+	const { onClose, handleCompare, width, height } = props;
 
-    return (
-        <Container>
-            <Button
-                styleType={ buttonStyleTypes.fill }
-                onClick={ handleCompare }
-                width={ width }
-                height={ height }
-            >
+	return (
+		<Container>
+			<Button
+				styleType={ buttonStyleTypes.fill }
+				onClick={ handleCompare }
+				width={ width }
+				height={ height }
+			>
                 Compare
-            </Button>
-            <Button
-                styleType={ buttonStyleTypes.empty }
-                onClick={ onClose }
-                width={ width }
-                height={ height }
-            >
+			</Button>
+			<Button
+				styleType={ buttonStyleTypes.empty }
+				onClick={ onClose }
+				width={ width }
+				height={ height }
+			>
                 Close
-            </Button>
-        </Container>
-    );
+			</Button>
+		</Container>
+	);
 };
 
 CompareButtons.propTypes = {
-    onCompare: PropTypes.func,
-    onClose: PropTypes.func,
-    width: PropTypes.string,
-    height: PropTypes.string,
+	onCompare: PropTypes.func,
+	onClose: PropTypes.func,
+	width: PropTypes.string,
+	height: PropTypes.string,
 };
 
 export default CompareButtons;

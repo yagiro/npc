@@ -8,7 +8,7 @@ import { formatCurrency } from '../../../lib/formatters';
 
 const classPrefix = 'compare-buttons';
 export const classes = {
-    container: createClassName(classPrefix, 'container'),
+	container: createClassName(classPrefix, 'container'),
 };
 
 const Container = styled.div`
@@ -19,21 +19,21 @@ const Container = styled.div`
 `;
 
 const CompareModelInfo = (props) => {
-    const { title, price } = props;
+	const { title, price } = props;
 
-    return (
-        <Container>
-            <Paragraph color={ paragraphColors.dark }>{ title }</Paragraph>
-            <Paragraph color={ paragraphColors.black } weight="bold">
+	return (
+		<Container>
+			<Paragraph color={ paragraphColors.dark }>{ title }</Paragraph>
+			<Paragraph color={ paragraphColors.black } weight="bold">
                 ${ formatCurrency(price) }
-            </Paragraph>
-        </Container>
-    );
+			</Paragraph>
+		</Container>
+	);
 };
 
 CompareModelInfo.propTypes = {
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+	title: PropTypes.string.isRequired,
+	price: PropTypes.number.isRequired,
 };
 
 export default CompareModelInfo;

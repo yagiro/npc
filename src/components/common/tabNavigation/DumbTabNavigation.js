@@ -27,12 +27,10 @@ const DumbTabNavigation = (props) => {
 						key={ id }
 						isActive={ activeTabId === id }
 						onClick={ () => onChange(id) }>
-						{
-							imagePath &&
-							<ImageTabItem
-								image={ imagePath }
-								isActive={ activeTabId === id }
-							/>
+					{
+						imagePath &&<ImageTabItem
+							image={ imagePath }
+							isActive={ activeTabId === id }/>
 						}
 						{ label }
 					</TabItem>
