@@ -9,7 +9,7 @@ const Container = styled.div`
 	background-color: ${ ({ backgroundColor }) => backgroundColor };
 `;
 
-const SolutionPackageAccordeon = ({ children, isOpen, backgroundColor }) => {
+const SolutionPackageAccordion = ({ children, isOpen, backgroundColor }) => {
 	const innerDiv = useRef(null);
 
 	return (
@@ -25,10 +25,10 @@ const SolutionPackageAccordeon = ({ children, isOpen, backgroundColor }) => {
 	);
 };
 
-SolutionPackageAccordeon.propTypes = {
+SolutionPackageAccordion.propTypes = {
 	isOpen: PropTypes.bool,
 	children: PropTypes.node,
 	backgroundColor: PropTypes.string,
 };
 
-export default SolutionPackageAccordeon;
+export default SolutionPackageAccordion;

@@ -6,6 +6,7 @@ import { createClassName } from '../../../lib/classNameHelper';
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 
+const arrowImage = buildAssetAbsolutePath('/images/solution-package/right-arrow.png');
 const classPrefix = 'solution-package-arrow';
 export const classes = {
 	container: createClassName(classPrefix, 'container'),
@@ -21,7 +22,7 @@ const SolutionPackageCardArrow = (props) => {
 	return (
 		<Container isOpen={ isOpen }>
 			<div className={ classes.arrow }>
-				<Image path={ buildAssetAbsolutePath('/images/solution-package/right-arrow.png') } />
+				<Image path={ arrowImage } />
 			</div>
 		</Container>
 	);
