@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
+
 import { fonts } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
 

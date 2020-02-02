@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
-import {colors} from "../../../config/constants";
+import { colors } from '../../../config/constants';
 
 const Container = styled.div`
 	display: ${ ({ selected }) => selected ? 'block' : 'none' };
@@ -36,7 +36,7 @@ const SolutionPackageCorner = ({ selected }) => {
 };
 
 SolutionPackageCorner.propTypes = {
-	show: PropTypes.node,
+	selected: PropTypes.bool,
 };
 
 export default SolutionPackageCorner;
