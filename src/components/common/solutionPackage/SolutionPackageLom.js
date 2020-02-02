@@ -8,8 +8,6 @@ import SolutionPackageItem from './SolutionPackageItem';
 
 const lomImageUrl = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
 
-const lomImageUrl = buildAssetAbsolutePath('/images/solution-package/mainboard.png');
-
 const SolutionPackageLom = ({ backgroundColor, included }) => {
 
 	return (
@@ -28,8 +26,6 @@ const SolutionPackageLom = ({ backgroundColor, included }) => {
 
 SolutionPackageLom.propTypes = {
 	backgroundColor: PropTypes.string,
-	included: PropTypes.bool,
-    backgroundColor: PropTypes.string,
 	included: PropTypes.bool,
 };
 

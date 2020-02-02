@@ -137,10 +137,10 @@ export const mockData = {
 			type: 'multiple',
 			id: 'marketSegment',
 			data: {
-			options: [
-				{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' },
-				{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment' },
-				{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment' },],
+				options: [
+					{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' },
+					{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment' },
+					{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment' },],
 			}
 		},
 		{
@@ -148,22 +148,22 @@ export const mockData = {
 			type: 'multiple',
 			id: 'connectivity',
 			data: {
-			options: [
-				{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' },
-				{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
-				{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
-			],
+				options: [
+					{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' },
+					{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
+					{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
+				],
+			},
 		},
-		},
-			{title: 'Radandecncy',
+		{ title: 'Radandecncy',
 			type: 'multiple',
 			id: 'radandecncy',
 			data: {
-			options: [
-				{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' },
-				{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
-				{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
-				{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },],
+				options: [
+					{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' },
+					{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
+					{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
+					{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },],
 			},
 		},
 		{
@@ -171,35 +171,35 @@ export const mockData = {
 			type: 'comboFilter',
 			data: {
 				dropdownFilter: {
-			options: [
+					options: [
 						{ value: 'genV', label: 'Gen V Security', filterId: 'performance' },
 						{ value: 'gev3', label: 'Gen 3 Security', filterId: 'performance' },
 						{ value: 'gev2', label: 'Gen 2 Security', filterId: 'performance' },
 					]
 				},
 				multipleOptionsFilter: {
-			options: [
-				{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' },
-				{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
-				{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
-				{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
-				{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },
-			],
-		},
+					options: [
+						{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' },
+						{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
+						{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
+						{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
+						{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },
+					],
+				},
 			},
 		},
-		{title: 'Phisical Form Factur',
+		{ title: 'Phisical Form Factur',
 			type: 'multiple',
 			id: 'phisicalFormFactur',
 			data: {
-			options: [
-				{ value: 'desktop', label: 'Desktop' },
-				{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
-				{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur' },
-				{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
-				{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
-			],
-		},},
+				options: [
+					{ value: 'desktop', label: 'Desktop' },
+					{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
+					{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur' },
+					{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
+					{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
+				],
+			}, },
 
 	],
 
@@ -309,14 +309,6 @@ export const mockData = {
 					data: { type: 'Tiple PSUs' },
 				},
 			]
-		},
-		{
-			type: solutionPackageTypes.plus,
-			subtitle: '26000 Next Generation Appliance With 5 Virtual Systems',
-			gbpsAmount: 24,
-			price: 180000,
-			sku: 'SKU:CPAP-MHS-6803',
-			selected: false,
 		},
 		{
 			type:solutionPackageTypes.turbo,

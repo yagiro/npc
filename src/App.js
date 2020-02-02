@@ -11,6 +11,7 @@ import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigati
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
+import Homepage from './components/homepage/Homepage';
 
 class App extends Component {
 

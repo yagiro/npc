@@ -102,8 +102,6 @@ const renderDetails = (details) => {
 
 const SolutionPackageCardDetails = ({ details }) => {
 
-const SolutionPackageCardDetails = ({ details }) => {
-
 	return (
 		<Container>
 			{ renderDetails(details) }

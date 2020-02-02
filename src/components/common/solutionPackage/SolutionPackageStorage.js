@@ -62,9 +62,6 @@ const renderDetails = (drives, availableSlotsCount, type) => {
 const SolutionPackageStorage = ({ drives, availableSlotsCount, type, backgroundColor }) => {
 	const [ isOpen, setIsOpen ] = useState(false);
 
-const SolutionPackageStorage = ({ drives, availableSlotsCount, type, backgroundColor }) => {
-	const [ isOpen, setIsOpen ] = useState(false);
-
 	const HeaderComponent =
 		<>
 			{ drives.length }

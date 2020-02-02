@@ -8,8 +8,6 @@ import SolutionPackageItem from './SolutionPackageItem';
 
 const powerImageUrl = buildAssetAbsolutePath('/images/solution-package/power-supply.png');
 
-const powerImageUrl = buildAssetAbsolutePath('/images/solution-package/power-supply.png');
-
 const SolutionPackageRam = ({ backgroundColor, type }) => {
 
 	return (
