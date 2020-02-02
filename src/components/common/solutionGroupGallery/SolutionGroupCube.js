@@ -15,17 +15,17 @@ const CUBE_HEIGHT_PX = 305;
 const Container = styled.div`
 	width: 300px;
 	height: ${ props => props.height }px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-    background-color: ${ colors.solutionCubeBg };
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: box-shadow .3s;
-    
-    &:hover {
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+	background-color: ${ colors.solutionCubeBg };
+	border-radius: 8px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	transition: box-shadow .3s;
+	
+	&:hover {
 		box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
-      
+
 		.${ additionalImagesClasses.smallImage } {
 			filter: none;
 		}
@@ -35,17 +35,17 @@ const Container = styled.div`
 			background-color: rgba(${ hexToRgb(colors.checkPointPink) }, .95);
 			height: ${ props => Math.round(props.height * 0.66) }px;
 			justify-content: flex-start;
-			  
+
 			& > .${ footerClasses.label } {
-			color: ${ colors.background };
-			font-weight: bold;
-			margin-top: 25px;
-		}
-		  
+				color: ${ colors.background };
+				font-weight: bold;
+				margin-top: 25px;
+			}
+
 		.${ footerClasses.list } {
 			display: block;
 		}
-    }
+	}
 `;
 
 const SolutionGroupCube = (props) => {
