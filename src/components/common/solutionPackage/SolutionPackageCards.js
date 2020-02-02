@@ -25,7 +25,7 @@ const Clickable = styled.div`
 
 const getSlots = (cards, availableSlotsCount) => {
 	const emptySlotsCount = availableSlotsCount - cards.length;
-	const slots = [ ...cards, ...Array(emptySlotsCount).fill(null) ];
+	const slots = cards.concat(Array(emptySlotsCount).fill(null));
 	return slots;
 };
 	
