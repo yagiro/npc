@@ -28,7 +28,7 @@ const Container = styled.div`
 		border-radius: 39px;
 		background-color: #DCEEFB;
 		height: 20px;
-		font: ${ fonts.paragraphSmall };
+		font-size: ${ fonts.paragraphSmall };
 		letter-spacing: 0.05px;
 		color: #0F609B;
 		line-height: 1em;
@@ -36,14 +36,14 @@ const Container = styled.div`
 	}
 	
 	.${ classes.price } {
-		font: ${ fonts.headerFourth };
+		font-size: ${ fonts.headerFourth };
 		line-height: 1em;
 		font-weight: bold;
 		color: #333333;
 	}
 	
 	.${ classes.sku } {
-		font: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraph };
 		letter-spacing: 0;
 		color: #A2A2A2;
 	}

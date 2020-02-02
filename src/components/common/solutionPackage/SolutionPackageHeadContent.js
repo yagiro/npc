@@ -32,7 +32,7 @@ const Container = styled.div`
 	}
 	
 	.${ classes.title } {
-		font: ${ fonts.headerFourth };
+		font-size: ${ fonts.headerFourth };
 		line-height: 1em;
 		text-align: center;
 		font-weight: bold;
@@ -42,7 +42,7 @@ const Container = styled.div`
 	.${ classes.subtitle } {
 		margin-top: 3px;
 		text-align: center;
-		font: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraph };
 		text-transform: capitalize;
 		line-height: 1.5em;
 		max-width: 80%;
@@ -76,7 +76,7 @@ const Container = styled.div`
 		
 		.${ classes.gbpsText } {
 			> div:last-child {
-				font: ${ fonts.headerFifth };
+				font-size: ${ fonts.headerFifth };
 				color: #E1E3E5;
 			}
 		}

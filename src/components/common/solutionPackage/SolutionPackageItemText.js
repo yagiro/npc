@@ -17,7 +17,7 @@ const Container = styled.div`
 	display: inline-block;
 	  
 	& > div:first-child {
-		font: ${ fonts.paragraphBig };
+		font-size: ${ fonts.paragraphBig };
 		font-weight: bold;
 		color: #333333;
 		line-height: 1em;
@@ -36,7 +36,7 @@ const Container = styled.div`
 	}
 	
 	& > div:last-child {
-		font: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraph };
 		color: #8F97A1;
 		line-height: 1em;
 		position: relative;

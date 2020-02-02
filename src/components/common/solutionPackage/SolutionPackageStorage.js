@@ -22,7 +22,7 @@ const DetailItem = styled.div`
 	
 	& > div {
 		& strong {
-			font: ${ fonts.paragraphBig };
+			font-size: ${ fonts.paragraphBig };
 			font-weight: bold;
 		}
 		font: ${ fonts.paragraph };
@@ -64,7 +64,6 @@ const renderDetails = (drives, availableSlotsCount) => {
 const SolutionPackageStorage = ({ drives, availableSlotsCount, type, backgroundColor }) => {
 	const [ isOpen, setIsOpen ] = useState(false);
 
-
 	const HeaderComponent =
 		<>
 			{ drives.length }
@@ -79,7 +78,7 @@ const SolutionPackageStorage = ({ drives, availableSlotsCount, type, backgroundC
 				<SolutionPackageItemText
 					header={ HeaderComponent }
 					text="Storage"
-					chips={ drives.length >= availableSlotsCount }
+					chips={ false }
 				/>
 				<SolutionPackageCardArrow isOpen={ isOpen } />
 			</Clicable>

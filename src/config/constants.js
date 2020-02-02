@@ -42,14 +42,14 @@ export const colors = {
 };
 
 export const fonts = {
-	paragraphSmall: '12px DIN Pro',
-	paragraph: '14px DIN Pro',
-	paragraphMiddle: '16px DIN Pro',
-	paragraphBig: '18px DIN Pro',
-	header: '32px DIN Pro',
-	headerSecond: '30px DIN Pro',
-	headerFourth: '24px DIN Pro',
-	headerFifth: '24px DIN Pro',
+	paragraphSmall: '12px',
+	paragraph: '14px',
+	paragraphMiddle: '16px',
+	paragraphBig: '18px',
+	header: '32px',
+	headerSecond: '30px',
+	headerFourth: '24px',
+	headerFifth: '24px',
 };
 
 // filter-block types
