@@ -68,7 +68,6 @@ const priceSections = {
 };
 
 const ItemCard = ({ cardType, data, ...otherProps }) => {
-	console.log(cardType, data);
 	const MainSection = mainSections[cardType];
 	const PriceSection = priceSections[cardType];
 

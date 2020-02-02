@@ -8,9 +8,13 @@ import { cardTypes, colors, fonts } from '../../config/constants';
 import { mockData } from '../../config/mockData';
 import { modelsAdapter } from './categoryPageHalper';
 
-const normalisedModels = modelsAdapter(mockData.categoryPage.models);
-const MODELS_OPACITY_MS = 200;
+const adaptedModels = modelsAdapter(mockData.categoryPage.models);
 const DEFAULT_TAB = 'smbAppliances';
+const tabs = [
+	{ id: 'smbAppliances', label: 'SMB Appliances', imagePath: '/images/categorypage/tab1.svg' },
+	{ id: 'smbManagment', label: 'SMB Managment', imagePath: '/images/categorypage/tab2.svg' },
+	{ id: 'smbZoneAlarm', label: 'SMB Zone Alarm', imagePath: '/images/categorypage/tab3.svg' },
+];
 
 const Container = styled.div`
 	margin: 0 auto;
@@ -34,21 +38,11 @@ const TitleContainer = styled.div`
 	}
 `;
 
+/**
+ * For some appear/disappear effects in the future
+ */
 const ModelsWrapper = styled.div`
-	& > * {
-		animation:appear ${ MODELS_OPACITY_MS }ms;
-		opacity: ${props => props.disapear ? 0 : 1 };
-		transition: opacity ${ MODELS_OPACITY_MS }ms;
-		
-		@keyframes appear {
-			0% {
-				opacity: 0;
-			}
-			100% {
-				opacity: 1;
-			}
-		}
-	}
+	
 `;
 
 const TabNavigationContainer = styled.div`
@@ -81,16 +75,11 @@ const renderModels = (filteredModels) => {
 };
 
 const CategoryPage = () => {
-	const [ disapear, setDisapear ] = useState(false);
-	const [ filteredModels, setFilteredModels ] = useState(filterModelsByTabId(normalisedModels, DEFAULT_TAB));
+	const [ filteredModels, setFilteredModels ] = useState(filterModelsByTabId(adaptedModels, DEFAULT_TAB));
 
-	const prepareRenderModels = (tabId) => {
-		setDisapear(true);
-		setTimeout(() => {
-			setDisapear(false);
-			const newModels = filterModelsByTabId(normalisedModels, tabId);
-			setFilteredModels(newModels);
-		}, MODELS_OPACITY_MS/2);
+	const handleChange = (tab) => {
+		const newFilteredModels = filterModelsByTabId(adaptedModels, tab);
+		setFilteredModels(newFilteredModels);
 	};
 
 	return (
@@ -102,14 +91,10 @@ const CategoryPage = () => {
 			<TabNavigationContainer>
 				<TabNavigation
 					defaultActiveTabId={ DEFAULT_TAB }
-					options={[
-						{ id: 'smbAppliances', label: 'SMB Appliances', imagePath: '/images/categorypage/tab1.svg' },
-						{ id: 'smbManagment', label: 'SMB Managment', imagePath: '/images/categorypage/tab2.svg' },
-						{ id: 'smbZoneAlarm', label: 'SMB Zone Alarm', imagePath: '/images/categorypage/tab3.svg' },
-					]}
-					onChange={ (val) => prepareRenderModels(val) } />
+					options={ tabs }
+					onChange={ handleChange } />
 			</TabNavigationContainer>
-			<ModelsWrapper disapear={ disapear }>
+			<ModelsWrapper>
 				{ renderModels(filteredModels) }
 			</ModelsWrapper>
 		</Container>

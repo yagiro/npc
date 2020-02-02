@@ -258,6 +258,7 @@ export const mockData = {
 				id: '1500',
 				name: '1500',
 				groupId: 'smbAppliances',
+				image: 'https://h50003.www5.hpe.com/digmedialib/prodimg/lowres/i00017951.png',
 				subModels: [
 					{
 						id: '1590',
