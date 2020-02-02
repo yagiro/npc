@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faLinkedin, faYoutubeSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import { colors } from '../../config/constants';
+import { colors, socialUrls } from '../../config/constants';
 import Paragraph from '../generic/Paragraph';
 import Span from '../generic/Span';
 import Title from '../generic/Title';
@@ -56,31 +56,30 @@ const LinksSection = styled.div`
 	};
 `;
 
-
 const RightSection = styled.div`
 	display: flex;
 	justify-content: flex-end;
 `;
 
+const currentYear = new Date().getFullYear();
 
+const createSocialLink = (href, faIcon) => ({ href, faIcon });
+
+// social Urls with icons
+const socialUrlsAndIcons = [
+	createSocialLink(socialUrls.facebook, faFacebookSquare),
+	createSocialLink(socialUrls.twitter, faTwitterSquare),
+	createSocialLink(socialUrls.linkedin, faLinkedin),
+	createSocialLink(socialUrls.youtube, faYoutubeSquare),
+];
+
+const renderSocialLink = (socialLinks) => {
+	return socialLinks.map(({ href, faIcon }) => {
+		return <a key={ href } className={ classes.social } href={ href }> <FontAwesomeIcon icon={ faIcon } size="2x"/></a>;
+	});
+};
 
 const Footer = () => {
-
-	const currentYear = new Date().getFullYear();
-
-	const socialLinks = [
-		{ href: 'https://www.facebook.com/checkpointsoftware', faIcon: faFacebookSquare },
-		{ href: 'https://twitter.com/checkpointsw', faIcon: faTwitterSquare },
-		{ href: 'https://www.linkedin.com/company/check-point-software-technologies', faIcon: faLinkedin },
-		{ href: 'https://goo.gl/nkMfP2', faIcon: faYoutubeSquare },
-	];
-	
-	const renderSocialLink = (socialLinks) => {
-		return socialLinks.map(({ href, faIcon }) => {
-			return <a key={ href } className={ classes.social } href={ href }> <FontAwesomeIcon icon={ faIcon } size="2x"/></a>;
-		});
-	};
-	
 	return (
 		<Container>
 			<Content>
@@ -95,9 +94,7 @@ const Footer = () => {
 				<RightSection>
 					<Title size="20px" margin="18px 40px 0 0" bold>Follow Us</Title>
 					<LinksSection>
-						{
-							renderSocialLink(socialLinks)
-						}
+						{ renderSocialLink(socialUrlsAndIcons) }
 					</LinksSection>
 				</RightSection>
 			</Content>

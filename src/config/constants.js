@@ -49,3 +49,9 @@ export const filterBlockTypes = {
 	multiple: 'multiple',
 };
 
+export const socialUrls = {
+	facebook: 'https://www.facebook.com/checkpointsoftware',
+	twitter: 'https://twitter.com/checkpointsw',
+	linkedin: 'https://www.linkedin.com/company/check-point-software-technologies',
+	youtube: 'https://goo.gl/nkMfP2'
+};

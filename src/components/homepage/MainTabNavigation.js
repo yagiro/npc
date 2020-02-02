@@ -16,9 +16,7 @@ const MainTabNavigation = () => {
 			<TabNavigation
 				options={ mockData.homePageMiddleTabs }
 				defaultActiveTabId={ 1 }
-				onChange={(value) => {
-					console.log(value);
-				}}
+				onChange={ () => {} }
 			/>
 		</TabsContainerMiddle>
 	);
