@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import SolutionPackageHead from './SolutionPackageHead';
 import SolutionPackageIncluded from './SolutionPackageIncluded';
-import SolutionPackagePrice from './SolutionPackagePrice';
+import SolutionPackageFooter from './SolutionPackageFooter';
 import SolutionPackageSelect from './SolutionPackageSelect';
 import { colors, solutionPackageTypes } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
@@ -61,7 +61,7 @@ const SolutionPackage = (props) => {
 			<SolutionPackageCorner selected={ selected }/>
 			<SolutionPackageIncluded type={ type }/>
 			{ renderPackageInfoAttrs(attrs) }
-			<SolutionPackagePrice
+			<SolutionPackageFooter
 				sku={ sku }
 				price={ price }
 				category={ category }
