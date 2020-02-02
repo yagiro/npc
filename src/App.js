@@ -50,6 +50,7 @@ class App extends Component {
 								onSelect={ () => console.log(i) }
 								category={ item.category }
 								attrs={ item.attributes }
+								sku={ item.sku }
 							/>
 						)
 					}<br/><br/>

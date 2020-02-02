@@ -63,6 +63,7 @@ const SolutionPackage = (props) => {
 			{ renderPackageInfoAttrs(attrs) }
 			<SolutionPackageFooter
 				sku={ sku }
+				sku={ sku }
 				price={ price }
 				category={ category }
 			/>
