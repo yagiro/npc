@@ -10,6 +10,7 @@ import MockFiltersContainer from './components/common/filtersPanel/MockFiltersCo
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
 
@@ -38,6 +39,25 @@ class App extends Component {
 
 		return (
 			<div className="App">
+				<div style={{ display: 'flex' }}>
+					{
+						mockData.solutionPackage.map((item, i) =>
+							<SolutionPackage
+								key={ i }
+								type={ item.type }
+								subtitle={ item.subtitle }
+								gbpsAmount={ item.gbpsAmount }
+								price={ item.price }
+								selected={ item.selected }
+								onSelect={ () => console.log(i) }
+								category={ item.category }
+								attrs={ item.attributes }
+								sku={ item.sku }
+							/>
+						)
+					}<br/><br/>
+				</div>
+
 				<SolutionGroupGallery
 					solutionGroups={ mockData.solutionCubes }
 					onChoose={ (value) => console.log(value) }

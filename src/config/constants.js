@@ -37,15 +37,23 @@ export const colors = {
 	headerGrey: '#727781',
 	buttonGrey: '#6B6F81',
 	borderGrey: '#D2D5D9',
-	solutionCubeBg: '#F6F6F6',
-	solutionGroupTitle: '#4C5059',
-	cubeImagesBorder: '#E1E3E5',
+	grey_100: '#F7F8F9',
+	pink_100: '#EC5888'
 };
 
 export const fonts = {
-	paragraph: '14px/21px DIN pro',
-	mediumText: '18px/27px DIN',
-	header: '32px/47px DIN pro',
+	paragraphSmall: '12px',
+	paragraph: '14px',
+	paragraphMiddle: '16px',
+	paragraphBig: '18px',
+	header: '32px',
+	headerSecond: '30px',
+	headerFourth: '24px',
+	headerFifth: '24px',
+	solutionCubeBg: '#F6F6F6',
+	solutionGroupTitle: '#4C5059',
+	cubeImagesBorder: '#E1E3E5',
+  mediumText: '18px/27px DIN',
 };
 
 // filter-block types
@@ -54,6 +62,11 @@ export const filterBlockTypes = {
 	comboFilter: 'comboFilter',
 };
 
+export const solutionPackageTypes = {
+	base: 'base',
+	plus: 'plus',
+	turbo: 'turbo',
+};
 export const socialUrls = {
 	facebook: 'https://www.facebook.com/checkpointsoftware',
 	twitter: 'https://twitter.com/checkpointsw',

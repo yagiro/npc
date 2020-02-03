@@ -1,4 +1,4 @@
-import { cardTypes } from './constants';
+import { cardTypes, solutionPackageTypes } from './constants';
 
 export const mockData = {
 
@@ -8,13 +8,14 @@ export const mockData = {
 		additionalLabel: 'Advanced',
 		description: 'Check Point Unified Endpoint Security Advanced offers comprehensive, enterprise-grade endpoint and mobile device security that protects PCs, Mac, iOS and Android devices against known, unknown and Zero-day threats.',
 		includedPackages: [
-			{	id: 1, feature: 'SandBlast Agent Advanced.' },
-			{	id: 2, feature: 'SandBlast Mobile Per Device' },
-			{	id: 3, feature: 'Two 6500 gateways' },
-			{	id: 4, feature: '450 Gbps using 52 gateways' },
+			{ id: 1, feature: 'SandBlast Agent Advanced.' },
+			{ id: 2, feature: 'SandBlast Mobile Per Device' },
+			{ id: 3, feature: 'Two 6500 gateways' },
+			{ id: 4, feature: '450 Gbps using 52 gateways' },
 		],
 		price: 59,
-		additionalText: '1 PC/YEAR & 1 Mobile/Year' },
+		additionalText: '1 PC/YEAR & 1 Mobile/Year'
+	},
 
 	// MOCK FOR MANAGEMENT CARD
 	[cardTypes.management]: {
@@ -43,12 +44,12 @@ export const mockData = {
 	[cardTypes.cloudGuard]: {
 		price: 1500,
 		additionalText: '1 PC/YEAR & 1 Mobile/Year',
-		title: 'CloudGuard IaaS for NSX Next Generation Threat Prevention Gateway' ,
+		title: 'CloudGuard IaaS for NSX Next Generation Threat Prevention Gateway',
 		description: 'The Check Point CloudGuard IaaS Security Gateway for industry leading Hypervisors (VMware ESXi, Hyper-V and KVM) protects your assets from internal and external threats with the full range of Check Point Software Blades . Combined with advanced integration options, security is tailored to fit the most dynamic environment needs. Virtual gateways as well as physical gateways are managed by a unified management platform',
 		includedPackages: [
-			{	id: 1, feature: 'Hyper-Visors supported: VMware ESXi, Hyper-V, KVM.' },
-			{	id: 2, feature: 'CloudGuard IaaS controller with integration to NSX and vCenter.' },
-			{	id: 3, feature: 'Unified management for both virtual and physical gateways.' },
+			{ id: 1, feature: 'Hyper-Visors supported: VMware ESXi, Hyper-V, KVM.' },
+			{ id: 2, feature: 'CloudGuard IaaS controller with integration to NSX and vCenter.' },
+			{ id: 3, feature: 'Unified management for both virtual and physical gateways.' },
 		]
 	},
 
@@ -77,9 +78,9 @@ export const mockData = {
 			networkInterfaces: 'Up to 25 GbE'
 		},
 		includedPackages: [
-			{	id: 1, feature: 'SandBlast Agent Advanced.' },
-			{	id: 2, feature: 'SandBlast Mobile Per Device' },
-			{	id: 3, feature: 'Two 6500 gateways' },
+			{ id: 1, feature: 'SandBlast Agent Advanced.' },
+			{ id: 2, feature: 'SandBlast Mobile Per Device' },
+			{ id: 3, feature: 'Two 6500 gateways' },
 		],
 		genBlocks: [
 			{ title: 'Gen V Security', subTitle: 'Full Threat Prevention with Sandblast Zero-Day', gbps: '16.4' },
@@ -89,7 +90,7 @@ export const mockData = {
 	},
 
 	// MOCK FOR PAGINATOR
-	paginationButtons: [ 1, 2, 3, 4, 5 ],
+	paginationButtons: [1, 2, 3, 4, 5],
 
 	// MOCK FOR COMPARE PANEL
 	compareList: [
@@ -137,10 +138,9 @@ export const mockData = {
 			id: 'marketSegment',
 			data: {
 				options: [
-					{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' } ,
-					{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment'  },
-					{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment'  },
-				],
+					{ value: 'branchOffice', label: 'Branch Office', filterId: 'marketSegment' },
+					{ value: 'smallEnterprise', label: 'Small Enterprise', filterId: 'marketSegment' },
+					{ value: 'midsizeEnterprise', label: 'Midsize Enterprise', filterId: 'marketSegment' },],
 			}
 		},
 		{
@@ -149,28 +149,25 @@ export const mockData = {
 			id: 'connectivity',
 			data: {
 				options: [
-					{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' } ,
+					{ value: '1gbe', label: '1 GbE', filterId: 'connectivity' },
 					{ value: '10gbe', label: '10 GbE', filterId: 'connectivity' },
 					{ value: '25gbe', label: '25 GbE (5)', filterId: 'connectivity' },
 				],
 			},
 		},
-		{
-			title: 'Radandecncy',
+		{ title: 'Radandecncy',
 			type: 'multiple',
 			id: 'radandecncy',
 			data: {
 				options: [
-					{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' } ,
+					{ value: 'acPower', label: 'AC Power', filterId: 'radandecncy' },
 					{ value: 'dcPower', label: 'DC Power', filterId: 'radandecncy' },
 					{ value: 'ssdStorage', label: 'SSD storage', filterId: 'radandecncy' },
-					{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },
-				],
+					{ value: 'hhdStorage', label: 'HDD Storage', filterId: 'radandecncy' },],
 			},
 		},
 		{
-			title: 'Performance',
-			id: 'performance',
+			title: 'Performance',id: 'performance',
 			type: 'comboFilter',
 			data: {
 				dropdownFilter: {
@@ -182,7 +179,7 @@ export const mockData = {
 				},
 				multipleOptionsFilter: {
 					options: [
-						{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' } ,
+						{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' },
 						{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
 						{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
 						{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
@@ -191,15 +188,14 @@ export const mockData = {
 				},
 			},
 		},
-		{
-			title: 'Phisical Form Factur',
+		{ title: 'Phisical Form Factur',
 			type: 'multiple',
 			id: 'phisicalFormFactur',
 			data: {
 				options: [
-					{ value: 'desktop', label: 'Desktop' } ,
+					{ value: 'desktop', label: 'Desktop' },
 					{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
-					{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
+					{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur' },
 					{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
 					{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
 				],
@@ -255,6 +251,197 @@ export const mockData = {
 			backgroundImage: '/images/generic-city1-background-2000x660.png',
 		},
 	],
+
+	solutionPackage: [
+		{
+			type: solutionPackageTypes.base,
+			subtitle: '26000 Next Generation Appliance',
+			gbpsAmount: 24,
+			price: 165000,
+			selected: true,
+			category: 'Product',
+			sku: 'CPAP-MHS-6803',attributes: [
+				{
+					type: 'ioCards',
+					data: {
+						availableSlotsCount: 8,
+						cards: [
+							{
+								amount: 8,
+								size: 1,
+								material: 'Copper',
+							},
+						]
+					},
+				},
+				{
+					type: 'storage',
+					data: {
+						type: 'HDD',
+						availableSlotsCount: 2,
+						drives: [
+							{ size: 1, unit: 'TB' },
+						],
+					}
+				},
+				{
+					type: 'ram',
+					data: { size: 48, unit: 'GB' },
+				},
+				{
+					type: 'lom',
+					data: { included: true },
+				},
+				{
+					type: 'powerSupply',
+					data: { type: 'Tiple PSUs' },
+				},
+			]
+		},
+		{
+			type: solutionPackageTypes.plus,
+			subtitle: '26000 Next Generation Appliance With 5 Virtual Systems',
+			gbpsAmount: 24,
+			price: 180000,
+			selected: true,
+			category: 'Product',sku: 'CPAP-MHS-6803',
+			attributes: [
+				{
+					type: 'ioCards',
+					data: {
+						availableSlotsCount: 8,
+						cards: [
+							{
+								amount: 8,
+								size: 1,
+								material: 'Copper',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+						]
+					},
+				},
+				{
+					type: 'storage',
+					data: {
+						type: 'SSD',
+						availableSlotsCount: 2,
+						drives: [
+							{ size: 480, unit: 'GB' },
+							{ size: 480, unit: 'GB' },
+						],
+					}
+				},
+				{
+					type: 'ram',
+					data: { size: 96, unit: 'GB' },
+				},
+				{
+					type: 'lom',
+					data: { included: true },
+				},
+				{
+					type: 'powerSupply',
+					data: { type: 'Tiple PSUs' },
+				},
+			]
+		},
+		{
+			type:solutionPackageTypes.turbo,
+			subtitle: '26000 Next Generation Appliance With 5 Virtual Systems',
+			gbpsAmount: 30,
+			price: 210000,
+			selected: false,
+			category: 'Product',sku: 'CPAP-MHS-6803',
+			attributes: [
+				{
+					type: 'ioCards',
+					data: {
+						availableSlotsCount: 8,
+						cards: [
+							{
+								amount: 8,
+								size: 1,
+								material: 'Copper',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+							{
+								amount: 4,
+								size: 10,
+								material: 'Fiber',
+							},
+							{
+								amount: 2,
+								size: 40,
+								material: 'Fiber',
+							},
+						]
+					},
+				},
+				{
+					type: 'storage',
+					data: {
+						type: 'SSD',
+						availableSlotsCount: 2,
+						drives: [
+							{ size: 480, unit: 'GB' },
+							{ size: 480, unit: 'GB' },
+						],
+					}
+				},
+				{
+					type: 'ram',
+					data: { size: 96, unit: 'GB' },
+				},
+				{
+					type: 'lom',
+					data: { included: false },
+				},
+				{
+					type: 'powerSupply',
+					data: { type: 'Tiple PSUs' },
+				},
+			]
+		}
+	],
+
 	// MOCK FOR MENU
 	homePageMiddleTabs: [
 		{
