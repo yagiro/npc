@@ -38,10 +38,12 @@ const ArrowContainer = styled.div`
 
 const PopperList = ({ value, onChange, options, children }) => {
 
+	// fields for MUI Popper
 	const [ anchorEl, setAnchorEl ] = React.useState(null);
 	const [ open, setOpen ] = React.useState(false);
 	const [ placement, setPlacement ] = React.useState();
 
+	// add arrow to popper
 	const [ arrowRef, setArrowRef ] = React.useState(null);
 
 	//show and hide PopperList
@@ -71,7 +73,11 @@ const PopperList = ({ value, onChange, options, children }) => {
 
 	return (
 		<div>
-			<Popper open={ open } anchorEl={ anchorEl } placement={ placement } transition
+			<Popper
+				open={ open }
+				anchorEl={ anchorEl }
+				placement={ placement }
+				transition
 				modifiers={{
 					flip: {
 						enabled: true,
