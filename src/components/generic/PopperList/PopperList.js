@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 import Paper from '@material-ui/core/Paper';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { colors } from '../../../config/constants';
 import PopperItemList from './PopperItemList';
 
@@ -53,6 +54,10 @@ const PopperList = ({ value, onChange, options, children }) => {
 		setPlacement(newPlacement);
 	};
 
+	const handleClickAway = () => {
+		setOpen(false);
+	};
+
 	const handleArrowRef = node => {
 		setArrowRef(node);
 	};
@@ -63,7 +68,7 @@ const PopperList = ({ value, onChange, options, children }) => {
 				<PopperItemList
 					key={ option.value }
 					option={ option }
-					onChange={ onChange }
+					onClick={ onChange }
 					selectedValue={ value }
 					setOpen={ setOpen }
 				/>
@@ -94,14 +99,17 @@ const PopperList = ({ value, onChange, options, children }) => {
 				{({ TransitionProps }) => (
 					<Fade {...TransitionProps} timeout={ 350 }>
 						<Paper>
-							<PopperListContainer>
-								{
-									<ArrowContainer ref={ handleArrowRef }/>
-								}
-								{
-									renderMenuItems(options)
-								}
-							</PopperListContainer>
+							<ClickAwayListener onClickAway={ handleClickAway }>
+
+								<PopperListContainer>
+									{
+										<ArrowContainer ref={ handleArrowRef }/>
+									}
+									{
+										renderMenuItems(options)
+									}
+								</PopperListContainer>
+							</ClickAwayListener>
 						</Paper>
 					</Fade>
 				)}
@@ -123,7 +131,7 @@ PopperList.propTypes = {
 	).isRequired,
 	onChange: PropTypes.func,
 	value: PropTypes.any,
-	children: PropTypes.element.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 export default PopperList;

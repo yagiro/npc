@@ -211,16 +211,6 @@ export const mockData = {
 		{ value: 'smallBusinesses', label: 'Small Businesses', imagePath: '/images/Infinity-tag@2x.png' },
 		{ value: 'supportAndServices', label: 'Support & Services', imagePath: '/images/Infinity-tag@2x.png' },
 	],
-	popperListOptions: [
-		{ value: 'infinity', label: 'Infinity', imagePath: '/images/Infinity-tag@2x.png' },
-		{ value: 'networkSecurity', label: 'Network Security', imagePath: '/images/Infinity-tag@2x.png' },
-		{ value: 'cloudSecurity', label: 'Cloud Security', imagePath: '/images/Infinity-tag@2x.png' },
-		{ value: 'management', label: 'Management', imagePath: '/images/Infinity-tag@2x.png' },
-		{ value: 'mobileAndEndpoint', label: 'Mobile & Endpoint', imagePath: '/images/Infinity-tag@2x.png' },
-		{ value: 'smallBusinesses', label: 'Small Businesses', imagePath: '/images/Infinity-tag@2x.png' },
-		{ value: 'supportAndServices', label: 'Support & Services', imagePath: '/images/Infinity-tag@2x.png' },
-	],
-
 	solutionCubes: [
 		{
 			id: 1,

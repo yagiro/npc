@@ -11,17 +11,23 @@ const MockContainerPopperList = () => {
 	const [ selectedValue, setSelectedValue ] = useState(null);
 	
 	return (
-		<div>
-			<PopperList 
-				options={ mockData.popperListOptions } 
-				value={ selectedValue } 
-				onChange={ setSelectedValue }>
-				<>
-					<Image path={ menu } width="15px" height="15px"/>
-					<Span size="14px" color={ colors.textLightGray }>Our Solutions</Span>
-				</>
-			</PopperList>
-		</div>
+		<PopperList 
+			options={ mockData.popperListOptions } 
+			value={ selectedValue } 
+			onChange={ setSelectedValue }
+		>
+			<Image
+				path={ menu }
+				width="15px"
+				height="15px"
+			/>
+			<Span
+				size="14px"
+				color={ colors.textLightGray }
+			>
+					Our Solutions
+			</Span>
+		</PopperList>
 	);
 };
 
