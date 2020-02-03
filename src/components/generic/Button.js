@@ -40,7 +40,7 @@ const Container = styled.div`
 	padding: 0 5px;
 	
 	width: ${ (props) => props.width ? props.width : 'auto' };
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 	height:  ${ (props) => props.height ? props.height : 'auto' };
 	
 	&:hover {

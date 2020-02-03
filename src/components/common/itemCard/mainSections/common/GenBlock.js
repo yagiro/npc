@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../../../../config/constants';
+import { colors, fonts } from '../../../../../config/constants';
 
 const Container = styled.div`
  	display: flex;
@@ -10,7 +10,7 @@ const Left = styled.div`
  	display: flex;
  	width: 80%;
  	flex-wrap: wrap;
- 	font-size: 14px;
+ 	font-size: ${ fonts.paragraphNormal };
  	align-content: center;
 `;
 
@@ -35,7 +35,7 @@ const SubTitle = styled.div`
 `;
 
 const GbpsText = styled.div`
-	font-size: 13px;
+	font-size: ${ fonts.paragraphSmall };
 `;
 
 const GenBlock = ({ title, subTitle, gbps }) => {

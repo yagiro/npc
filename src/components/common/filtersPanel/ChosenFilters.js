@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Image from '../../generic/Image';
 import CloseImage from '../../../assets/compare/x.png';
-import { colors } from '../../../config/constants';
+import { colors, fonts } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
 import { buildChosenFiltersOnRemove, buildFilterOptionObject } from './filtersHelpers';
 import TransitionGroupWrapper from '../../generic/TransitionGroupWrapper';
@@ -65,7 +65,7 @@ const ChosenFilterContainer = styled.div`
 	text-transform: capitalize;
 	line-height: 100%;
 	padding-left: 5px;
-	font-size: 12px;
+	font-size: ${ fonts.paragraphSmall };
 	color: ${ colors.textLightGray };
 `;
 

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { colors, fonts } from '../../../config/constants';
 
 const Container = styled.div`  
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 	
 	& > div:first-child {
 		display: flex;

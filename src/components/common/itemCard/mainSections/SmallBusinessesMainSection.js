@@ -42,8 +42,13 @@ const Description = styled.div`
 
 const UlTitle = styled.div`
 	color: ${ colors.textLightGray };
-	font-size: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 	margin-bottom: 7px;
+`;
+
+const WirelessText = styled.div`
+	font-weight: bold;
+	font-size: ${ fonts.paragraphNormal };
 `;
 
 const VerticalDivider = styled.div`

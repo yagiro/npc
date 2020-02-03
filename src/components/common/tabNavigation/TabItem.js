@@ -22,7 +22,7 @@ const Container = styled.div`
     
     > .${ classes.content } {
         display: flex;
-        font: ${ fonts.paragraph };
+        font-size: ${ fonts.paragraphNormal };
         line-height: 14px;
         color: ${ props => props.isActive ? colors.checkPointPink : colors.menuGray };
         transition: color ${ Math.round(MS_TRANSITION / 2) }ms;

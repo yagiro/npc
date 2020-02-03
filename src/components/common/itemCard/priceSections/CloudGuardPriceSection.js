@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../../../config/constants';
+import { colors, fonts } from '../../../../config/constants';
 
 const Container = styled.div`  
 	display: flex;
@@ -15,13 +15,14 @@ const PriceText = styled.span`
 const SubPriceText = styled.span`  
 	text-align: center;
 	color: ${colors.textLightGray};
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	margin-top: 15px;`;
 
 const UpPriceText = styled.span`  
 	text-align: center;
 	color: ${colors.textLightGray};
-	font-size: 14px;`;
+	font-size: ${ fonts.paragraphNormal };
+`;
 
 const CloudGuardPriceSection = ({ price, additionalText }) => {
 

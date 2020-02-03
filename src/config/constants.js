@@ -42,22 +42,20 @@ export const colors = {
 	borderGrey: '#D2D5D9',
 	grey_100: '#F7F8F9',
 	pink_100: '#EC5888',
+	solutionCubeBg: '#F6F6F6',
+	solutionGroupTitle: '#4C5059',
+	cubeImagesBorder: '#E1E3E5',
 	dividerGray: '#858991',
 };
 
 export const fonts = {
 	paragraphSmall: '12px',
-	paragraph: '14px',
+	paragraphNormal: '14px',
 	paragraphMiddle: '16px',
 	paragraphBig: '18px',
-	header: '32px',
-	headerSecond: '30px',
-	headerFourth: '24px',
-	headerFifth: '24px',
-	solutionCubeBg: '#F6F6F6',
-	solutionGroupTitle: '#4C5059',
-	cubeImagesBorder: '#E1E3E5',
-	mediumText: '18px/27px DIN',
+	headerSmall: '24px',
+	headerNormal: '30px',
+	headerBig: '32px',
 };
 
 // filter-block types

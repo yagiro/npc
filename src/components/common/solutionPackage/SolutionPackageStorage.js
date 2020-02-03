@@ -28,7 +28,7 @@ const DetailItem = styled.div`
 			font-size: ${ fonts.paragraphBig };
 			font-weight: bold;
 		}
-		font: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraphNormal };
 		line-height: 1em;
 		color: #333333;
 	}

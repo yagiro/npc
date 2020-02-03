@@ -24,7 +24,7 @@ const Container = styled.div`
 	box-sizing: border-box;
 	position: relative;
 	color: #4C5059;
-	font-size: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 `;
 
 const RightSection = styled.div`  

@@ -12,7 +12,7 @@ import FiltersToggleButton from './FiltersToggleButton';
 const Container = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 `;
 
 const TopSection = styled.div`

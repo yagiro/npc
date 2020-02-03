@@ -4,7 +4,7 @@ import Image from '../../../generic/Image';
 import GenBlock from './common/GenBlock';
 import verified from '../../../../assets/verified@2x.png';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, specificationsTypes, } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes, } from '../../../../config/constants';
 import Title from '../../../generic/Title';
 
 const Container = styled.div`
@@ -54,7 +54,7 @@ const FeatureContainer = styled.div`
 `;
 
 const FeatureText = styled.div`
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	margin-left: 6px;
 	margin-top: 6px;
 `;
