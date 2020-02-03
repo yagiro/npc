@@ -58,7 +58,7 @@ const priceSections = {
 	[cardTypes.management]: ManagementPriceSection,
 };
 
-const ItemCard = ({ cardType, data, ...otherProps }) => {
+const ItemCard = ({ cardType, data }) => {
 	const MainSection = mainSections[cardType];
 	const PriceSection = priceSections[cardType];
 
