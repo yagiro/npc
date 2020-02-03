@@ -20,12 +20,11 @@ const Container = styled.div`
 	min-height: 263px;
 	border-radius: 3px;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-	margin-bottom: 1rem;
 	background: #FFFFFF;
 	box-sizing: border-box;
 	position: relative;
 	color: #4C5059;
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraph };
 `;
 
 const RightSection = styled.div`  

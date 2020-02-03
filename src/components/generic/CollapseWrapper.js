@@ -6,6 +6,12 @@ import Image from './Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { createClassName } from '../../lib/classNameHelper';
+
+const classPrefix = 'toggle-area';
+export const classes = {
+	container: createClassName(classPrefix, 'container'),
+};
 
 const ToggleArea = styled.div`
   display: flex;
@@ -26,8 +32,8 @@ function CollapseWrapper({ children, imagePath, title, isOpen }) {
 	}, [ isCollapse, setIsCollapse ]);
 
 	return (
-		<div>
-			<ToggleArea  onClick={ handleClick }>
+		<>
+			<ToggleArea  onClick={ handleClick } className={ classes.container }>
 				<Image path={ imagePath } alt="img" width="100"/>
 				<span>{ title }</span>
 				{ isCollapse && <FontAwesomeIcon icon={ faAngleUp } /> }
@@ -36,7 +42,7 @@ function CollapseWrapper({ children, imagePath, title, isOpen }) {
 			<Collapse isOpened={ isCollapse }>
 				{ children }
 			</Collapse>
-		</div>
+		</>
 	);
 }
 

@@ -53,7 +53,7 @@ export const fonts = {
 	solutionCubeBg: '#F6F6F6',
 	solutionGroupTitle: '#4C5059',
 	cubeImagesBorder: '#E1E3E5',
-  mediumText: '18px/27px DIN',
+	mediumText: '18px/27px DIN',
 };
 
 // filter-block types

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, specificationsTypes } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../config/constants';
 import Title from '../../../generic/Title';
 import PortInfo, { portTypes } from './PortInfo';
 
@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const DescriptionSection = styled.div`
-	width: 60%;
+	width: 65%;
 	padding: 0;
 	display: flex;
 	flex-direction: column;
@@ -24,12 +24,12 @@ const DescriptionSection = styled.div`
 `;
 
 const SpecificationsSection = styled.div`
- 	 width: 40%;
+ 	 //width: 40%;
  	 height: 100%;
 `;
 
 const Description = styled.div`
-	font-size: 14px;
+	font-size: ${ fonts.paragraph };
 	flex: 1;
 	& > div {
 		margin-top: 6px;
@@ -39,7 +39,7 @@ const Description = styled.div`
 
 const UlTitle = styled.div`
 	color: ${ colors.textLightGray };
-	font-size: 14px;
+	font-size: ${ fonts.paragraph };
 	margin-bottom: 7px;
 `;
 
@@ -50,7 +50,9 @@ const VerticalDivider = styled.div`
 `;
 
 const DescriptionFooter = styled.div`
+	font-size: ${ fonts.paragraph };
 	display: flex;
+	
 	& > div {
 		&:not(:first-child) {
 			margin-left: 30px;

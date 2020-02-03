@@ -51,8 +51,7 @@ const PortParams = styled.div`
 	
 	& > div {
 		margin: 5px 0;
-		width: 20% ;
-		font: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraph };
 		line-height: 1em;
 		color: #333333;
 		text-align: center;
@@ -60,7 +59,6 @@ const PortParams = styled.div`
 		 	
 	& > div:not(:last-child) {
 		 border-right: 1px ${ colors.borderGrey } solid;
-		 width: 30%;
 	}
 		 	
 	& > div:first-child {
@@ -73,7 +71,7 @@ const PortParams = styled.div`
 `;
 
 const PortParamsFooter = styled.div`
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraph };
 	color: #858991;
 	line-height: 1em;
 	margin-top: 4px;

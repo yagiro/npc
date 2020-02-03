@@ -7,23 +7,28 @@ import ItemCard from '../../components/common/itemCard/ItemCard';
 import DumbTabNavigation from '../../components/common/tabNavigation/DumbTabNavigation';
 import { cardTypes, colors, fonts } from '../../config/constants';
 import { buildAssetAbsolutePath } from '../../lib/assetsHelper';
-import { buildModelsGroupedByTabs, tabIds, tabSettings } from './categoryPageHelper';
+import { buildModelsGroupedByTabs, tabIds, tabOptions } from './categoryPageHelper';
+import { classes as classesToggleArea } from '../../components/generic/CollapseWrapper';
 
 const Container = styled.div`
-	margin: 0 auto;
+	margin: 30px auto;
 	max-width: 1312px;
 	& > div {
 		width: 890px;
 	}
+	
+	& .${ classesToggleArea.container } {
+		padding-top: 15px;
+	}
 `;
 
 const Title = styled.div`
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraph };
 	margin-bottom: 35px;
 	
 	h2 {
 		color: ${ colors.paragraphBlack };
-		font: ${ fonts.header };
+		font-size: ${ fonts.header };
 		line-height: 1em;
 		margin: 0 0 10px 0;
 		
@@ -36,7 +41,7 @@ const Title = styled.div`
 
 const TabNavigationContainer = styled.div`
 	border-bottom: 1px ${ colors.lightgray } solid;
-	margin: 20px 0;
+	margin: 20px 0 0 0;
 `;
 
 const renderSubModels = (subModels) => {
@@ -60,6 +65,7 @@ const renderModels = (modelsGroupedByTabs, activeTabId) => {
 				key={ model.id }
 				title={ model.name }
 				imagePath={ modelImageUrl }
+				isOpen={ true }
 			>
 				{ renderSubModels(model.subModels) }
 			</CollapseWrapper>
@@ -90,7 +96,7 @@ const CategoryPage = ({ models }) => {
 				<TabNavigationContainer>
 					<DumbTabNavigation
 						activeTabId={ activeTabId }
-						options={ tabSettings }
+						options={ tabOptions }
 						onChange={ handleChange }
 					/>
 				</TabNavigationContainer>

@@ -178,12 +178,12 @@ export const mockData = {
 					]
 				},
 				multipleOptionsFilter: {
-			options: [
-				{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' },
-				{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
-				{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
-				{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
-				{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },],
+					options: [
+						{ value: '01gbps', label: '0-1 Gbps', filterId: 'performance' },
+						{ value: '15gbps', label: '1-5 Gbps', filterId: 'performance' },
+						{ value: '510gbps', label: '5-10 Gbps', filterId: 'performance' },
+						{ value: '1040gbps', label: '10-40 Gbps', filterId: 'performance' },
+						{ value: 'more40gbps', label: '40 and more Gbps', filterId: 'performance' },],
 				},
 			},
 		},
@@ -401,7 +401,7 @@ export const mockData = {
 				],
 			},
 		]
-	}
+	},
 	solutionPackage: [
 		{
 			type: solutionPackageTypes.base,

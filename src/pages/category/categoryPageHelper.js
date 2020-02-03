@@ -71,23 +71,23 @@
  */
 export const modelsAdapter = (models) => {
 	return models.map(model => {
-		const result = { ...model };
-		result.subModels = model.subModels.map(subModel => {
-			const res = {
+		const adaptedModel = { ...model };
+		adaptedModel.subModels = model.subModels.map(subModel => {
+			const adaptedSubModel = {
 				title: subModel.name,
 				price: subModel.startingPrice,
 				description: subModel.description,
 				specificationsTitles: {},
 			};
 			subModel.specs.forEach(spec => {
-				res.specificationsTitles[spec.type] = spec.value;
+				adaptedSubModel.specificationsTitles[spec.type] = spec.value;
 			});
 			subModel.attrs.forEach(attr => {
-				res.specificationsTitles[attr.type] = attr.value;
+				adaptedSubModel.specificationsTitles[attr.type] = attr.value;
 			});
-			return res;
+			return adaptedSubModel;
 		});
-		return result;
+		return adaptedModel;
 	});
 };
 
@@ -103,7 +103,7 @@ export const buildModelsGroupedByTabs = (models) => {
 };
 
 const createTabSetting = (id, label, imagePath, models) => ({ id, label, imagePath, models });
-export const tabSettings = [
+export const tabOptions = [
 	createTabSetting(
 		tabIds[0],
 		'SMB Appliances',
