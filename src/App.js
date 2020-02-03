@@ -13,6 +13,7 @@ import TabNavigation from './components/common/tabNavigation/TabNavigation';
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
+import MockStepperContainer from "./components/generic/verticalMiniStepper/MockStepperContainer";
 
 class App extends Component {
 
@@ -39,6 +40,9 @@ class App extends Component {
 
 		return (
 			<div className="App">
+
+				<MockStepperContainer/>
+
 				<div style={{ display: 'flex' }}>
 					{
 						mockData.solutionPackage.map((item, i) =>

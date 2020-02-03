@@ -453,4 +453,13 @@ export const mockData = {
 			label: 'RecentActivity',
 		}
 	],
+	
+	// MOCK DATA FOR VERTICAL STEPPER
+	stepsForStepper: [
+		{ id: 1, label: 'Select Appliances Configuration' },
+		{ id: 2, label: 'Select security Subscription' },
+		{ id: 3, label: 'Choose Solution Period' },
+		{ id: 4, label: 'Select A Support Plan' },
+		{ id: 5, label: 'Extend Your Solution' },
+	],
 };
