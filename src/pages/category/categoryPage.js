@@ -82,8 +82,8 @@ const CategoryPage = ({ models }) => {
 	}, []);
 
 	useEffect(() => {
-		const newModelsByTabs = buildModelsGroupedByTabs(models);
-		setModelsGroupedByTabs(newModelsByTabs);
+		const newModelsGroupedByTabs = buildModelsGroupedByTabs(models);
+		setModelsGroupedByTabs(newModelsGroupedByTabs);
 	}, [ models ]);
 
 	return (
