@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const parColors = {
 	default: colors.paragraphGrey,
-	dark: colors.paragraphDarkGrey,
+	dark: colors.headerGrey,
 	black: colors.paragraphBlack,
 };
 

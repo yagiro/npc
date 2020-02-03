@@ -17,7 +17,7 @@ const Container = styled.div`
 	transition: background-color .2s;
 	
 	&:hover {
-		background-color: ${ colors.boxShadowGrey };
+		background-color: ${ colors.borderGrey };
 	}
 `;
 

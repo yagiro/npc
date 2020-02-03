@@ -23,7 +23,7 @@ const Container = styled.div`
 	justify-content: center;
 	height: 100px;
 	background: ${ colors.background };
-	box-shadow: 0px -2px 4px ${ colors.boxShadowGrey };
+	box-shadow: 0px -2px 4px ${ colors.borderGrey };
 	opacity: ${ props => props.opacity };
 	transition: opacity ${ MS_FADE_IN_ANIMATION }ms;
 	position: fixed;

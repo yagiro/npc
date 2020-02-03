@@ -39,7 +39,7 @@ const renderPackageInfoAttrs = (attrs) => {
 		return !AttrComp ? null :
 			<AttrComp
 				key={ i }
-				backgroundColor={ i%2 === 0 ? colors.grey_100 : colors.background }
+				backgroundColor={ i%2 === 0 ? colors.solutionCubeBg : colors.background }
 				{ ...attr.data }
 			/>;
 	});
