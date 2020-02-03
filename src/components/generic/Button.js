@@ -17,7 +17,7 @@ const buttonStyles = {
 		hoverBgColor: 'none',
 	},
 	bordered: {
-		bgColor: colors.boxShadowGrey,
+		bgColor: colors.borderGrey,
 		labelColor: colors.buttonGrey,
 		border: `1px solid ${ colors.checkPointPinkHover }`,
 		hoverBgColor: 'none',

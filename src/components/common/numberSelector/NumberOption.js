@@ -18,7 +18,7 @@ const Container = styled.div`
 	justify-content: center;
 	background-color:  ${ (props) => props.selected ? colors.checkPointPink : colors.background };
 	color: ${ (props) => props.selected ? colors.background : 'auto' };
-	box-shadow: ${ (props) => props.selected ? 'none' : `0px 2px 4px ${ colors.boxShadowGrey }` };
+	box-shadow: ${ (props) => props.selected ? 'none' : `0px 2px 4px ${ colors.borderGrey }` };
 	width: 30px;
 	height: 27px;
 	border-radius: 4px;

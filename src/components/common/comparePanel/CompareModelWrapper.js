@@ -8,7 +8,7 @@ import CompareModel from './CompareModel';
 
 const Container = styled.div`  
 	background: ${ colors.background } 0% 0% no-repeat padding-box;
-	box-shadow: ${ (props) => props.isEmpty ? 'none' : `0px 3px 6px ${ colors.boxShadowGrey }` };
+	box-shadow: ${ (props) => props.isEmpty ? 'none' : `0px 3px 6px ${ colors.borderGrey }` };
 	border: 1px solid ${ colors.borderGrey };
 	border-radius: 6px;
 	width: 250px;
