@@ -91,13 +91,10 @@ export const modelsAdapter = (models) => {
 	});
 };
 
-const createTabSetting = (id, label, imagePath, models) => ({ id, label, imagePath, models });
-
-const filterModelsByTabId = (models, tabId) => models.filter(model => model.groupId === tabId);
-
 export const tabIds = ['smbAppliances', 'smbManagment', 'smbZoneAlarm'];
 
-export const buildModelsByTabs = (models) => {
+const filterModelsByTabId = (models, tabId) => models.filter(model => model.groupId === tabId);
+export const buildModelsGroupedByTabs = (models) => {
 	return {
 		[ tabIds[0] ]: filterModelsByTabId(models, tabIds[0]),
 		[ tabIds[1] ]: filterModelsByTabId(models, tabIds[1]),
@@ -105,6 +102,7 @@ export const buildModelsByTabs = (models) => {
 	};
 };
 
+const createTabSetting = (id, label, imagePath, models) => ({ id, label, imagePath, models });
 export const tabSettings = [
 	createTabSetting(
 		tabIds[0],
