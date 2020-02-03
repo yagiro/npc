@@ -9,7 +9,7 @@ const parColors = {
 };
 
 const Paragraph = styled.p`
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 	color: ${ (props) => parColors[props.color] };
 	letter-spacing: 0;
 	text-transform: capitalize;

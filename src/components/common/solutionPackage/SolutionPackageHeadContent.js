@@ -32,7 +32,7 @@ const Container = styled.div`
 	}
 	
 	.${ classes.title } {
-		font-size: ${ fonts.headerFourth };
+		font-size: ${ fonts.headerSmall };
 		line-height: 1em;
 		text-align: center;
 		font-weight: bold;
@@ -42,7 +42,7 @@ const Container = styled.div`
 	.${ classes.subtitle } {
 		margin-top: 3px;
 		text-align: center;
-		font-size: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraphNormal };
 		text-transform: capitalize;
 		line-height: 1.5em;
 		max-width: 80%;
@@ -65,7 +65,7 @@ const Container = styled.div`
 			justify-content: center;
 			align-items: center;
 			border-radius: 50%;
-			font: ${ fonts.headerFourth };
+			font-size: ${ fonts.headerSmall };
 			line-height: 1em;
 			font-weight: bold;
 			transform: rotate(45deg);
@@ -76,7 +76,7 @@ const Container = styled.div`
 		
 		.${ classes.gbpsText } {
 			> div:last-child {
-				font-size: ${ fonts.headerFifth };
+				font-size: ${ fonts.headerSmall };
 				color: #E1E3E5;
 			}
 		}

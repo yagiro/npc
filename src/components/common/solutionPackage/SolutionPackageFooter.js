@@ -36,14 +36,14 @@ const Container = styled.div`
 	}
 	
 	.${ classes.price } {
-		font-size: ${ fonts.headerFourth };
+		font-size: ${ fonts.headerSmall };
 		line-height: 1em;
 		font-weight: bold;
 		color: #333333;
 	}
 	
 	.${ classes.sku } {
-		font-size: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraphNormal };
 		letter-spacing: 0;
 		color: #A2A2A2;
 	}

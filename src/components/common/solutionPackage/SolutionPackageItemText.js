@@ -36,7 +36,7 @@ const Container = styled.div`
 	}
 	
 	& > div:last-child {
-		font-size: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraphNormal };
 		color: #8F97A1;
 		line-height: 1em;
 		position: relative;

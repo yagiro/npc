@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, specificationsTypes } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../config/constants';
 import Title from '../../../generic/Title';
 
 const Container = styled.div`
@@ -23,17 +23,18 @@ const SpecificationsSection = styled.div`
 `;
 
 const Description = styled.span`
-	font-size: 14px;`;
+	font-size: ${ fonts.paragraphNormal };
+`;
 
 const UlTitle = styled.div`
 	color: ${ colors.textLightGray };
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	margin-bottom: 7px;
 `;
 
 const WirelessText = styled.div`
 	font-weight: bold;
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 `;
 
 const VerticalDivider = styled.div`

@@ -28,14 +28,14 @@ const Container = styled.div`
 	overflow: hidden;
 	
 	& > .${ classes.label } {
-		font: ${ fonts.mediumText };
+		font-size: ${ fonts.paragraphBig };
 		color: ${ colors.solutionGroupTitle };
 		text-transform: capitalize;
 	}
 	
 	& .${ classes.list } {
 		list-style-type: disc;
-		font: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraphNormal };
 		line-height: 30px;
 		color: ${ colors.background };
 		text-transform: capitalize;

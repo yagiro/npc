@@ -28,7 +28,7 @@ const Container = styled.div`
 	box-sizing: border-box;
 	position: relative;
 	color: #4C5059;
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 `;
 
 const RightSection = styled.div`  
@@ -50,10 +50,6 @@ const ButtonSection = styled.div`
 	justify-content: space-between;
 `;
 
-const Label = styled.label`  
-	color: ${ colors.textLightGray };
-	font-size: 14px;`;
-
 const mainSections = {
 	[cardTypes.cloudGuard]: CloudGuardMainSection,
 	[cardTypes.network]: NetworkMainSection,
@@ -70,7 +66,7 @@ const priceSections = {
 	[cardTypes.management]: ManagementPriceSection,
 };
 
-const ItemCard = ({ cardType, data, ...otherProps }) => {
+const ItemCard = ({ cardType, data }) => {
 
 	const MainSection = mainSections[cardType];
 	const PriceSection = priceSections[cardType];
