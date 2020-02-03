@@ -43,7 +43,6 @@ class App extends Component {
 
 				<MockContainerPopperList/>
 
-				<MockContainerPopperList/>
 				<div style={{ display: 'flex' }}>
 					{
 						mockData.solutionPackage.map((item, i) =>

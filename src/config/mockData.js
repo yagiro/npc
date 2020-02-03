@@ -191,16 +191,14 @@ export const mockData = {
 		{ title: 'Phisical Form Factur',
 			type: 'multiple',
 			id: 'phisicalFormFactur',
-			innerFilters: {
-				multipleOptionsFilter: {
-					options: [
-						{ value: 'desktop', label: 'Desktop' } ,
-						{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
-						{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
-						{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
-						{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
-					],
-				}
+			data: {
+				options: [
+					{ value: 'desktop', label: 'Desktop' } ,
+					{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
+					{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
+					{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
+					{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
+				],
 			},
 		},
 
