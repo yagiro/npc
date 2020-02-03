@@ -24,7 +24,7 @@ const Container = styled.div`
 	-moz-box-shadow: 0 2px 6px #0000001A;
 	box-shadow: 0 2px 6px #0000001A;
 	margin-bottom: 1rem;
-	background: #FFFFFF;
+	background-color: ${ colors.background };
 	box-sizing: border-box;
 	position: relative;
 	color: #4C5059;
@@ -36,7 +36,7 @@ const RightSection = styled.div`
 	flex-direction: column;
 	width: 275px;
 	height: 100%;
-	background: #F7F8F9;
+	background-color: ${ colors.solutionCubeBg };
 	padding: 30px;
 	box-sizing: border-box;
 	justify-content: space-between;

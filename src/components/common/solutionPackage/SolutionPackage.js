@@ -29,7 +29,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	border: ${ ({ selected }) => selected ? 1 : 0 }px solid #DE3970;
+	border: ${ ({ selected }) => selected ? 1 : 0 }px solid ${ colors.pink_1 };
 
 `;
 

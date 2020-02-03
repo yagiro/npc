@@ -35,7 +35,7 @@ const Container = styled.div`
       height: 2px;
       position: absolute;
       bottom: 0;
-      background: ${ colors.checkPointPink };
+      background-color: ${ colors.checkPointPink };
       transition: all ${ MS_TRANSITION }ms cubic-bezier(0,1.07,.56,.95);
     }
 `;

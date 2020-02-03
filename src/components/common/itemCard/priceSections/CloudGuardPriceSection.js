@@ -9,7 +9,7 @@ const Container = styled.div`
 	justify-content: center;`;
 
 const PriceText = styled.span`  
-	font-size: 30px;
+	font-size: ${ fonts.headerNormal };
 	text-align: center;`;
 
 const SubPriceText = styled.span`  

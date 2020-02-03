@@ -15,7 +15,7 @@ export const classes = {
 
 const Container = styled.div`
     height: 164px;
-    background: ${ colors.background };
+    background-color: ${ colors.background };
     width: 100%;
     display: flex;
     position: relative;

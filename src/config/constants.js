@@ -44,6 +44,23 @@ export const colors = {
 
 	background: '#FFFFFF', // done
 	paragraphBlack: '#16181D', // done
+
+	blue_1: '#0F609B', // blue 850
+	blue_2: '#DCEEFB', // blue 50
+	blue_3: '#56B8E6', // blue 300
+
+	brown_1: '#B87333', // brown 600
+
+	green_1: '#AEDAAA', // green 100
+
+	grey_2: '#7D7D7D', // grey 320
+
+	pink_1: '#DE3970', // pink 450
+	pink_2: '#E95585', // pink 350
+	pink_3: '#AA1E44', // pink 780
+	pink_4: '#A13C71', // pink 850
+	pink_5: '#752650', // pink 900
+
 };
 
 export const fonts = {

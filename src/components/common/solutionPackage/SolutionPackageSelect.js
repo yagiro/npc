@@ -9,7 +9,7 @@ const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: ${({ selected }) => selected ? '#DE3970' : '#F6F6F6' };
+	background-color: ${({ selected }) => selected ? colors.pink_1 : colors.solutionCubeBg };
 	font-size: ${ fonts.paragraphMiddle };
 	line-height: 1em;
 	color: ${({ selected }) => selected ? colors.background : colors.checkPointPink };

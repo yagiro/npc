@@ -17,7 +17,7 @@ const FilterBlockContainer = styled.div`
 const VerticalDivider = styled.div`
 	width: 1px;
 	height: 120px;
-	background: ${ colors.lightgray };
+	background-color: ${ colors.lightgray };
 	margin: 50px 25px 0 25px;
 `;
 

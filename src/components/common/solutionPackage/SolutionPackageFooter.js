@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { fonts } from '../../../config/constants';
+import { colors, fonts } from '../../../config/constants';
 import { createClassName } from '../../../lib/classNameHelper';
 import { formatCurrency } from '../../../lib/formatters';
 
@@ -26,11 +26,11 @@ const Container = styled.div`
 	
 	.${ classes.chips } {
 		border-radius: 39px;
-		background-color: #DCEEFB;
+		background-color: ${ colors.blue_2 };
 		height: 20px;
 		font-size: ${ fonts.paragraphSmall };
 		letter-spacing: 0.05px;
-		color: #0F609B;
+		color: ${ colors.blue_1 };
 		line-height: 1em;
 		padding: 4px 12px;
 	}
