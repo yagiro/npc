@@ -38,7 +38,8 @@ export const colors = {
 	buttonGrey: '#6B6F81',
 	borderGrey: '#D2D5D9',
 	grey_100: '#F7F8F9',
-	pink_100: '#EC5888'
+	pink_100: '#EC5888',
+	dividerGray: '#858991',
 };
 
 export const fonts = {
@@ -53,7 +54,7 @@ export const fonts = {
 	solutionCubeBg: '#F6F6F6',
 	solutionGroupTitle: '#4C5059',
 	cubeImagesBorder: '#E1E3E5',
-  mediumText: '18px/27px DIN',
+	mediumText: '18px/27px DIN',
 };
 
 // filter-block types

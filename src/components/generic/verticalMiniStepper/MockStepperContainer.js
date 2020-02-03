@@ -7,13 +7,11 @@ const MockStepperContainer = () => {
 	const [ activeStep, setActiveStep ] = useState();
 
 	return (
-		<div>
-			<VerticalMiniStepper
-				onChange={ setActiveStep }
-				activeStepId={ activeStep }
-				steps={ mockData.stepsForStepper }
-			/>
-		</div>
+		<VerticalMiniStepper
+			onChange={ setActiveStep }
+			activeStepId={ activeStep }
+			steps={ mockData.stepsForStepper }
+		/>
 	);
 };
 
