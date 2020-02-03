@@ -28,7 +28,7 @@ const Title = styled.div`
 	
 	h2 {
 		color: ${ colors.paragraphBlack };
-		font-size: ${ fonts.header };
+		font: ${ fonts.header };
 		line-height: 1em;
 		margin: 0 0 10px 0;
 		

@@ -71,7 +71,7 @@ const PortParams = styled.div`
 `;
 
 const PortParamsFooter = styled.div`
-	font-size: ${ fonts.paragraph };
+	font: ${ fonts.paragraph };
 	color: #858991;
 	line-height: 1em;
 	margin-top: 4px;
