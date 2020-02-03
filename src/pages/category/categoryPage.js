@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import CollapseWrapper from '../../components/generic/CollapseWrapper';
 import ItemCard from '../../components/common/itemCard/ItemCard';
+import DumbTabNavigation from '../../components/common/tabNavigation/DumbTabNavigation';
 import { cardTypes, colors, fonts } from '../../config/constants';
 import { buildAssetAbsolutePath } from '../../lib/assetsHelper';
-import { buildModelsByTabs, tabIds, tabSettings } from './categoryPageHelper';
-import DumbTabNavigation from '../../components/common/tabNavigation/DumbTabNavigation';
+import { buildModelsGroupedByTabs, tabIds, tabSettings } from './categoryPageHelper';
 
 const Container = styled.div`
 	margin: 0 auto;
@@ -17,7 +17,7 @@ const Container = styled.div`
 	}
 `;
 
-const TitleContainer = styled.div`
+const Title = styled.div`
 	font: ${ fonts.paragraph };
 	margin-bottom: 35px;
 	
@@ -51,15 +51,15 @@ const renderSubModels = (subModels) => {
 	});
 };
 
-const renderModels = (modelsByTabs, activeTab) => {
-	if (!modelsByTabs || !activeTab) return null;
-	return modelsByTabs[activeTab].map(model => {
-		const imagePath = buildAssetAbsolutePath(model.image);
+const renderModels = (modelsGroupedByTabs, activeTabId) => {
+	if (!modelsGroupedByTabs || !activeTabId) return null;
+	return modelsGroupedByTabs[activeTabId].map(model => {
+		const modelImageUrl = buildAssetAbsolutePath(model.image);
 		return (
 			<CollapseWrapper
 				key={ model.id }
 				title={ model.name }
-				imagePath={ imagePath }
+				imagePath={ modelImageUrl }
 			>
 				{ renderSubModels(model.subModels) }
 			</CollapseWrapper>
@@ -68,33 +68,33 @@ const renderModels = (modelsByTabs, activeTab) => {
 };
 
 const CategoryPage = ({ models }) => {
-	const [ modelsByTabs, setModelsByTabs ] = useState(null);
-	const [ activeTab, setActiveTab ] = useState(tabIds[0]);
+	const [ modelsGroupedByTabs, setModelsGroupedByTabs ] = useState(null);
+	const [ activeTabId, setActiveTabId ] = useState(tabIds[0]);
 
 	const handleChange = useCallback((tab) => {
-		setActiveTab(tab);
+		setActiveTabId(tab);
 	}, []);
 
 	useEffect(() => {
-		const newModelsByTabs = buildModelsByTabs(models);
-		setModelsByTabs(newModelsByTabs);
+		const newModelsByTabs = buildModelsGroupedByTabs(models);
+		setModelsGroupedByTabs(newModelsByTabs);
 	}, [ models ]);
 
 	return (
 		<Container>
 			<div>
-				<TitleContainer>
+				<Title>
 					<h2>Solution for Small and Medium Business<strong>.</strong></h2>
 					Over <strong>1,300</strong> Security Gateway Appliance & Solutions
-				</TitleContainer>
+				</Title>
 				<TabNavigationContainer>
 					<DumbTabNavigation
-						activeTabId={ activeTab }
+						activeTabId={ activeTabId }
 						options={ tabSettings }
 						onChange={ handleChange }
 					/>
 				</TabNavigationContainer>
-				{ renderModels(modelsByTabs, activeTab) }
+				{ renderModels(modelsGroupedByTabs, activeTabId) }
 			</div>
 		</Container>
 	);
@@ -103,6 +103,5 @@ const CategoryPage = ({ models }) => {
 CategoryPage.propTypes = {
 	models: PropTypes.array,
 };
-
 
 export default CategoryPage;
