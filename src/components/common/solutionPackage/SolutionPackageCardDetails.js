@@ -40,11 +40,11 @@ const Container = styled.div`
 				content: '';
 				height: 25px;
 				width: 5px;
-				background-color: #006699;
+				background-color: ${ colors.blue_1 };
 			}
 
 			&.${ classes.brownBorder }::after {
-				background-color: #B87333;
+				background-color: ${ colors.brown_1 };
 			}
 		 	
 		 	& > div {

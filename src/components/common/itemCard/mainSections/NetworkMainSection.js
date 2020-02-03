@@ -43,7 +43,7 @@ const Description = styled.div`
 const VerticalDivider = styled.div`
 	width: 1px;
 	height: 150px;
-	background: ${ colors.lightgray };
+	background-color: ${ colors.lightgray };
 	margin: 30px 15px 0 10px;
 `;
 

@@ -29,7 +29,7 @@ const Container = styled.div`
 	align-items: center;
 	justify-content: space-around;
 	
-	background: ${ (props) => buttonStyles[props.styleType].bgColor };
+	background-color: ${ (props) => buttonStyles[props.styleType].bgColor };
 	border: ${ (props) => buttonStyles[props.styleType].border };
 	box-sizing: border-box;
 	

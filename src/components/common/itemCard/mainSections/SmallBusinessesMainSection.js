@@ -53,7 +53,7 @@ const WirelessText = styled.div`
 
 const VerticalDivider = styled.div`
 	width: 1px;
-	background: ${colors.lightgray};
+	background-color: ${colors.lightgray};
 	margin: 15px 15px 0 10px;
 `;
 

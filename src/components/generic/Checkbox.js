@@ -43,14 +43,14 @@ const Container = styled.div`
 	  left: 0;
 	  height: 16px;
 	  width: 16px;
-	  background-color: #eee;
+	  background-color: ${ colors.whitesmoke };
 	  border-radius: 3px;
 	  transition: background-color .3s;
 	}
 	
 	/* On mouse-over, add a grey background color */
 	.${ classes.container }:hover input ~ .${ classes.checkmark } {
-	  background-color: #ccc;
+	  background-color: ${ colors.lightgray };
 	}
 	
 	/* When the checkbox is checked, add a blue background */
