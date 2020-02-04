@@ -6,40 +6,50 @@ import Image from './Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { createClassName } from '../../lib/classNameHelper';
+
+const classPrefix = 'toggle-area';
+export const classes = {
+	container: createClassName(classPrefix, 'container'),
+};
 
 const ToggleArea = styled.div`
   display: flex;
   cursor: pointer;
   align-items: center;
   justify-content: space-around;
-  width: 300px;
+  width: min-content;
+  & > span {
+	  margin-right: 8px;
+  }
 `;
 
-function CollapseWrapper({ children, imgSource, title }) {
+function CollapseWrapper({ children, imagePath, title, isOpen }) {
 
-	const [ isCollapse, setIsCollapse ] = useState(false);
+	const [ isCollapse, setIsCollapse ] = useState(isOpen);
 	const handleClick = useCallback(() => {
 		setIsCollapse(!isCollapse);
 	}, [ isCollapse, setIsCollapse ]);
 
 	return (
-		<div>
-			<ToggleArea  onClick={ handleClick }>
-				<Image path={ imgSource } alt="img" width="100"/>
+		<>
+			<ToggleArea  onClick={ handleClick } className={ classes.container }>
+				<Image path={ imagePath } alt="img" width="100"/>
 				<span>{ title }</span>
 				{ isCollapse && <FontAwesomeIcon icon={ faAngleUp } /> }
 				{ !isCollapse && <FontAwesomeIcon icon={ faAngleDown } /> }
 			</ToggleArea>
-			<Collapse isOpened={ isCollapse } initialStyle={{ height: '0px', overflow: 'hidden' }} >
+			<Collapse isOpened={ isCollapse }>
 				{ children }
 			</Collapse>
-		</div>
+		</>
 	);
 }
 
 CollapseWrapper.propTypes = {
 	title: PropTypes.string,
-	imgSource: PropTypes.string,
+	imagePath: PropTypes.string,
+	isOpen: PropTypes.bool,
 };
 
 export default CollapseWrapper;
