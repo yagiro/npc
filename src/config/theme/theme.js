@@ -1,5 +1,5 @@
 import { fontSizes } from './typography';
-import palette from './palitte';
+import palette from './palette';
 
 const theme = {
 	palette,

@@ -6,7 +6,7 @@ import SolutionPackageHead from './SolutionPackageHead';
 import SolutionPackageIncluded from './SolutionPackageIncluded';
 import SolutionPackageFooter from './SolutionPackageFooter';
 import SolutionPackageSelect from './SolutionPackageSelect';
-import { colors, solutionPackageTypes } from '../../../config/constants';
+import { colors, solutionPackageTypes } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 import SolutionPackageRibbon from './SolutionPackageRibbon';
 import SolutionPackageCorner from './SolutionPackageCorner';

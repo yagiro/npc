@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { colors, fonts } from '../../../config/constants';
+import { colors, fonts } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 
 const classPrefix = 'menu-item';

@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 import CompareTitle from './CompareTitle';
 import CompareModelWrapper from './CompareModelWrapper';

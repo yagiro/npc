@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import CategoryPage from './pages/category/categoryPage';
 import { modelsAdapter } from './pages/category/categoryPageHelper';
+import CollapseWrapper from './components/generic/CollapseWrapper';
+import ItemCard from './components/common/itemCard/ItemCard';
+import { cardTypes } from './app/consts/consts';
+import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
+import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
 
 import MockFiltersContainer from './components/common/filtersPanel/MockFiltersContainer';

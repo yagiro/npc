@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Title from '../generic/Title';
 import Span from '../generic/Span';
-import { colors } from '../../config/constants';
+import { colors } from '../../app/consts/consts';
 
 const OurSolutionsContainer = styled.div`
 	display: flex;

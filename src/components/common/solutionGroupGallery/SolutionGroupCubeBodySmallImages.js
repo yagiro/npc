@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { createClassName } from '../../../lib/classNameHelper';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import { zIndexMap } from './solutionGroupCubeHelper';
 
 const classPrefix = 'solution-group-additional-images';

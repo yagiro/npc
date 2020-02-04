@@ -5,7 +5,7 @@ import Image from '../../../generic/Image';
 import Title from '../../../generic/Title';
 import verified from '../../../../assets/verified@2x.png';
 import CommonPriceSection from '../priceSections/CommonPriceSection';
-import { colors, fonts } from '../../../../config/constants';
+import { colors, fonts } from '../../../../app/consts/consts';
 
 const Container = styled.div`
 	display: flex;

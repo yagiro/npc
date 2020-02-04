@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, fonts, specificationsTypes } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../app/consts/consts';
 import Title from '../../../generic/Title';
 import PortInfo from './PortInfo';
 

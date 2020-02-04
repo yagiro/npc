@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import CompareModel from './CompareModel';
 
 const Container = styled.div`  
