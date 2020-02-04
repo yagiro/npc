@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faLinkedin, faYoutubeSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import { colors, socialUrls } from '../../config/constants';
+import { colors, socialUrls } from '../../app/consts/consts';
 import Paragraph from '../generic/Paragraph';
 import Span from '../generic/Span';
 import Title from '../generic/Title';

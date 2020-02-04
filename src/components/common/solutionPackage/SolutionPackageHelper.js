@@ -1,4 +1,4 @@
-import { colors, solutionPackageTypes } from '../../../config/constants';
+import { colors, solutionPackageTypes } from '../../../app/consts/consts';
 import SolutionPackageCards from './SolutionPackageCards';
 import SolutionPackageStorage from './SolutionPackageStorage';
 import SolutionPackageRam from './SolutionPackageRam';

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { colors, fonts } from '../../../../config/constants';
+import { colors, fonts } from '../../../../app/consts/consts';
 
 const Container = styled.div`  
 	display: flex;

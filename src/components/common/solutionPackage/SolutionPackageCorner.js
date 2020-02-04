@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 
 const checkImageUrl = buildAssetAbsolutePath('/images/solution-package/checked.png');
 

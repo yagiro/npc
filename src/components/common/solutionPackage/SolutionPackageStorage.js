@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { fonts } from '../../../config/constants';
+import { fonts } from '../../../app/consts/consts';
 import SolutionPackageItem from './SolutionPackageItem';
 import Image from '../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';

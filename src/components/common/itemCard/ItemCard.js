@@ -11,7 +11,7 @@ import NetworkMainSection from './mainSections/NetworkMainSection';
 import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSection';
 import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
 import ManagementMainSection from './mainSections/ManagementMainSection';
-import { cardTypes, colors, fonts } from '../../../config/constants';
+import { cardTypes, colors, fonts } from '../../../app/consts/consts';
 import Checkbox from '../../generic/Checkbox';
 
 const Container = styled.div`

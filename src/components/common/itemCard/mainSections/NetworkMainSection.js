@@ -4,7 +4,7 @@ import Image from '../../../generic/Image';
 import GenBlock from './common/GenBlock';
 import verified from '../../../../assets/verified@2x.png';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, fonts, specificationsTypes, } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes, } from '../../../../app/consts/consts';
 import Title from '../../../generic/Title';
 
 const Container = styled.div`

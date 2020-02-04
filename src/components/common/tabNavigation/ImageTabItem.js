@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 import { buildAssetAbsolutePath } from '../../../lib/assetsHelper';
 import { ReactSVG } from 'react-svg';

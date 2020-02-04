@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Image from '../../generic/Image';
 import CloseImage from '../../../assets/compare/x.png';
-import { colors, fonts } from '../../../config/constants';
+import { colors, fonts } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 import { buildChosenFiltersOnRemove, buildFilterOptionObject } from './filtersHelpers';
 import TransitionGroupWrapper from '../../generic/TransitionGroupWrapper';

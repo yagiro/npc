@@ -12,7 +12,7 @@ import ram from '../../../../../assets/specifications/ram.png';
 import supportsExternal from '../../../../../assets/specifications/supportsExternal.png';
 import maxNetworkPorts from '../../../../../assets/specifications/maxNetworkPorts.png';
 import storage from '../../../../../assets/specifications/storage.png';
-import { colors, fonts, specificationsTypes } from '../../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../../app/consts/consts';
 
 const Container = styled.div`
 	display: flex;

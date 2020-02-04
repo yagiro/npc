@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CollapseWrapper from './components/generic/CollapseWrapper';
 import ItemCard from './components/common/itemCard/ItemCard';
-import { cardTypes } from './config/constants';
+import { cardTypes } from './app/consts/consts';
 import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
 import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
