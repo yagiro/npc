@@ -2,6 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../../config/constants';
+import { createClassName } from '../../../lib/classNameHelper';
+
+const classPrefix = 'vertical-mini-stepper';
+export const classes = {
+	stepContainer: createClassName(classPrefix, 'step-container'),
+};
+
+const Container = styled.div`
+	& > div:last-child .${ classes.stepContainer } {
+		display: none;
+	} 
+`;
 
 const StepContainer = styled.div`
 	display: flex;
@@ -19,9 +31,18 @@ const StepCircle = styled.div`
 	width: 20px;
 	height: 20px;
 	border-radius: 10px;
-	border: ${ props => props.isActive ? colors.checkPointPink : colors.dividerGray } 1px solid;
+	border: ${ ({ isActive }) => isActive ? colors.checkPointPink : colors.dividerGray } 1px solid;
 	transition: border .3s;
 	cursor: pointer;
+`;
+
+const StepPoint = styled.div`
+	display: flex;
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+	background: ${ ({ isActive })=> isActive ? colors.checkPointPink : colors.background };
+	transition: background .3s;
 `;
 
 const StepConnector = styled.div`
@@ -38,24 +59,15 @@ const LabelContainer = styled.div`
 	margin-left: 10px;
 	height: min-content;
 	cursor: pointer;
-	color: ${ props => props.isActive ? colors.checkPointPink : colors.paragraphBlack };
+	color: ${ ({ isActive }) => isActive ? colors.checkPointPink : colors.paragraphBlack };
 	transition: background .3s;
 	line-height: 1.6;
 `;
 
-const StepPoint = styled.div`
-	display: flex;
-	width: 12px;
-	height: 12px;
-	border-radius: 6px;
-	background: ${ props => props.isActive ? colors.checkPointPink : colors.background };
-	transition: background .3s;
-`;
-
-const VerticalMiniStepper = ( { steps, activeStepId, onChange } ) => {
+const VerticalMiniStepper = ({ steps, activeStepId, onChange }) => {
 
 	const stepsRender = (steps) => {
-		return steps.map(({ id, label }, i)=> {
+		return steps.map(({ id, label })=> {
 
 			const isActive = activeStepId === id;
 			const handleClick = () => onChange(id);
@@ -63,7 +75,8 @@ const VerticalMiniStepper = ( { steps, activeStepId, onChange } ) => {
 			return (
 				<StepContainer
 					key={ id }
-					isActive={ isActive }>
+					isActive={ isActive }
+				>
 					<StepCircleContainer>
 						<StepCircle
 							isActive={ isActive }
@@ -71,8 +84,8 @@ const VerticalMiniStepper = ( { steps, activeStepId, onChange } ) => {
 						>
 							<StepPoint isActive={ isActive }/>
 						</StepCircle>
-						{/*don't need connector to last element*/}
-						{ i !== steps.length - 1 && <StepConnector/> }
+
+						<StepConnector className={ classes.stepContainer }/>
 					</StepCircleContainer>
 					<LabelContainer
 						onClick={ handleClick }
@@ -84,13 +97,11 @@ const VerticalMiniStepper = ( { steps, activeStepId, onChange } ) => {
 			);
 		});
 	};
-    
+
 	return (
-		<div>
-			{
-				stepsRender(steps)
-			}
-		</div>
+		<Container>
+			{ stepsRender(steps) }
+		</Container>
 	);
 };
 
