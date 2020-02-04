@@ -192,16 +192,24 @@ export const mockData = {
 			id: 'phisicalFormFactur',
 			data: {
 				options: [
-					{ value: 'desktop', label: 'Desktop' },
+					{ value: 'desktop', label: 'Desktop' } ,
 					{ value: '1u', label: '1 U', filterId: 'phisicalFormFactur' },
-					{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur' },
+					{ value: '2u', label: '2 U', filterId: 'phisicalFormFactur'  },
 					{ value: '3u', label: '3 U', filterId: 'phisicalFormFactur' },
 					{ value: '4u', label: '4 U', filterId: 'phisicalFormFactur' },
 				],
 			},
 		},
 	],
-
+	popperListOptions: [
+		{ value: 'infinity', label: 'Infinity', imagePath: '/images/Infinity-tag@2x.png' },
+		{ value: 'networkSecurity', label: 'Network Security', imagePath: '/images/Infinity-tag@2x.png' },
+		{ value: 'cloudSecurity', label: 'Cloud Security', imagePath: '/images/Infinity-tag@2x.png' },
+		{ value: 'management', label: 'Management', imagePath: '/images/Infinity-tag@2x.png' },
+		{ value: 'mobileAndEndpoint', label: 'Mobile & Endpoint', imagePath: '/images/Infinity-tag@2x.png' },
+		{ value: 'smallBusinesses', label: 'Small Businesses', imagePath: '/images/Infinity-tag@2x.png' },
+		{ value: 'supportAndServices', label: 'Support & Services', imagePath: '/images/Infinity-tag@2x.png' },
+	],
 	solutionCubes: [
 		{
 			id: 1,

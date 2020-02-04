@@ -4,6 +4,12 @@ import CategoryPage from './pages/category/categoryPage';
 import { modelsAdapter } from './pages/category/categoryPageHelper';
 import { mockData } from './config/mockData';
 
+import MockFiltersContainer from './components/common/filtersPanel/MockFiltersContainer';
+import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
+import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
+import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import MockContainerPopperList from './components/generic/PopperList/MockContainerPopperList';
+
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
@@ -53,6 +59,9 @@ class App extends Component {
 
 		return (
 			<div className="App">
+
+				<MockContainerPopperList/>
+
 				<div style={{ display: 'flex' }}>
 					{
 						mockData.solutionPackage.map((item, i) =>
