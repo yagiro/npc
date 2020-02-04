@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Image from '../Image';
 import Span from '../Span';
 import { colors } from '../../../config/constants';
-import { cssAttrIf } from '../../common/solutionGroupGallery/solutionGroupCubeHelper';
+import { cssAttrIf } from '../../../lib/utils';
 
 const Container = styled.div.attrs(props => ({
 	backgroundColorAttr: cssAttrIf('background-color', colors.whitesmoke, props.selected),
@@ -46,7 +46,7 @@ const PopperListItem = ({ selected, option, setOpen, onClick  }) => {
 		setOpen(false);
 		onClick(option.value);
 		console.log(option.value);
-	}, [ onClick, setOpen ]);
+	}, [onClick, option.value, setOpen]);
     
 	return (
 		<Container

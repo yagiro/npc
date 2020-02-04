@@ -11,3 +11,6 @@ export const hexToRgb = (hex) => {
 	const result = `${r},${g},${b}`;
 	return result;
 };
+
+export const cssAttrIf = (attrKey, attrVal, condition) =>
+	!condition ? '' : `${ attrKey }: ${ attrVal };`;

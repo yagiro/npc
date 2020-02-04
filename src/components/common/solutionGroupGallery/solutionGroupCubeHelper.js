@@ -4,6 +4,3 @@ export const zIndexMap = {
 	bodyImage: 15,
 	smallImage: 15,
 };
-
-export const cssAttrIf = (attrKey, attrVal, condition) =>
-	!condition ? '' : `${ attrKey }: ${ attrVal };`;

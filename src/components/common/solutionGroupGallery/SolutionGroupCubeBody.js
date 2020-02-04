@@ -4,7 +4,8 @@ import styled from 'styled-components';
 
 import SolutionGroupCubeBodySmallImages from './SolutionGroupCubeBodySmallImages';
 import SolutionGroupCubeBodyImage from './SolutionGroupCubeBodyImage';
-import { cssAttrIf, zIndexMap } from './solutionGroupCubeHelper';
+import { zIndexMap } from './solutionGroupCubeHelper';
+import { cssAttrIf } from '../../../lib/utils';
 
 const Container = styled.div.attrs(props => ({
 	backgroundAttr: cssAttrIf('background', `url(${ props.backgroundImage })`, props.backgroundImage),
