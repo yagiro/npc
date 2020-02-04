@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Popper from '@material-ui/core/Popper';
@@ -6,7 +6,7 @@ import Fade from '@material-ui/core/Fade';
 import Paper from '@material-ui/core/Paper';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { colors } from '../../../config/constants';
-import PopperItemList from './PopperItemList';
+import PopperListItem from './PopperListItem';
 
 const ToggleButtonContainer = styled.div`
 	width: 130px;
@@ -40,9 +40,9 @@ const ArrowContainer = styled.div`
 const PopperList = ({ value, onChange, options, children }) => {
 
 	// fields for MUI Popper
-	const [ anchorEl, setAnchorEl ] = React.useState(null);
-	const [ open, setOpen ] = React.useState(false);
-	const [ placement, setPlacement ] = React.useState();
+	const [ anchorEl, setAnchorEl ] = useState(null);
+	const [ open, setOpen ] = useState(false);
+	const [ placement, setPlacement ] = useState();
 
 	// add arrow to popper
 	const [ arrowRef, setArrowRef ] = React.useState(null);
@@ -54,22 +54,22 @@ const PopperList = ({ value, onChange, options, children }) => {
 		setPlacement(newPlacement);
 	};
 
-	const handleClickAway = () => {
+	const handleClickAway = useCallback(() => {
 		setOpen(false);
-	};
+	}, [ setOpen ]);
 
-	const handleArrowRef = node => {
+	const handleArrowRef = useCallback(node => {
 		setArrowRef(node);
-	};
+	}, [ setArrowRef ]);
 
 	const renderMenuItems = (options) => {
 		return options.map((option)=> {
 			return (
-				<PopperItemList
+				<PopperListItem
 					key={ option.value }
 					option={ option }
 					onClick={ onChange }
-					selectedValue={ value }
+					selected={ value === option.value }
 					setOpen={ setOpen }
 				/>
 			);
@@ -100,14 +100,9 @@ const PopperList = ({ value, onChange, options, children }) => {
 					<Fade {...TransitionProps} timeout={ 350 }>
 						<Paper>
 							<ClickAwayListener onClickAway={ handleClickAway }>
-
 								<PopperListContainer>
-									{
-										<ArrowContainer ref={ handleArrowRef }/>
-									}
-									{
-										renderMenuItems(options)
-									}
+									{ <ArrowContainer ref={ handleArrowRef }/> }
+									{ renderMenuItems(options) }
 								</PopperListContainer>
 							</ClickAwayListener>
 						</Paper>

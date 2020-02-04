@@ -4,8 +4,12 @@ import PropTypes from 'prop-types';
 import Image from '../Image';
 import Span from '../Span';
 import { colors } from '../../../config/constants';
+import { cssAttrIf } from '../../common/solutionGroupGallery/solutionGroupCubeHelper';
 
-const MenuItemContainer = styled.div`
+const Container = styled.div.attrs(props => ({
+	backgroundColorAttr: cssAttrIf('background-color', colors.whitesmoke, props.selected),
+	colorAttr: cssAttrIf('color', colors.checkPointPink, props.selected),
+}))`
 	display: flex;
 	align-items: center;
 	padding: 5px 15px;
@@ -13,8 +17,8 @@ const MenuItemContainer = styled.div`
 	transition: background-color .4s, color .4s, filter .4s;
 	line-height: 1;
 
- 	background-color:  ${ (props) => props.selected ? colors.whitesmoke : '' };
- 	color:  ${ (props) => props.selected ? colors.checkPointPink : '' };
+ 	${ ({ backgroundColorAttr }) => backgroundColorAttr };
+ 	${ ({ colorAttr }) => colorAttr };
  	filter:  ${ (props) => props.selected ? 'grayscale(0)' : 'grayscale(100%)' };
 
 	&:hover {
@@ -36,20 +40,18 @@ const IconContainer = styled.div`
 	box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.08);
 `;
 
-const PopperItemList = ({ selectedValue, option, setOpen, onClick  }) => {
+const PopperListItem = ({ selected, option, setOpen, onClick  }) => {
 
-	const handleItemClick = useCallback((option) => {
+	const handleItemClick = useCallback(() => {
 		setOpen(false);
 		onClick(option.value);
 		console.log(option.value);
 	}, [ onClick, setOpen ]);
     
 	return (
-		<MenuItemContainer 
-			selected={ selectedValue === option.value }
-			onClick={ ()=> {
-				handleItemClick(option);
-			} }>
+		<Container
+			selected={ selected }
+			onClick={ handleItemClick }>
 			<IconContainer>
 				<Image
 					path={ option.imagePath }
@@ -62,11 +64,11 @@ const PopperItemList = ({ selectedValue, option, setOpen, onClick  }) => {
 				margin="0 0 0 20px">
 				{ option.label }
 			</Span>
-		</MenuItemContainer>
+		</Container>
 	);
 };
 
-PopperItemList.propTypes = {
+PopperListItem.propTypes = {
 	option: PropTypes.shape({
 		value: PropTypes.any.isRequired,
 		label: PropTypes.string.isRequired,
@@ -74,7 +76,7 @@ PopperItemList.propTypes = {
 	}).isRequired,
 	onClick: PropTypes.func,
 	setOpen: PropTypes.func,
-	selectedValue: PropTypes.any,
+	selected: PropTypes.bool,
 };
 
-export default PopperItemList;
+export default PopperListItem;
