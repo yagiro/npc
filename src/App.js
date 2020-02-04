@@ -13,6 +13,7 @@ import MockContainerPopperList from './components/generic/PopperList/MockContain
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
+import MockStepperContainer from "./components/generic/verticalMiniStepper/MockStepperContainer";
 import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
 import TabNavigation from './components/common/tabNavigation/TabNavigation';
 import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
@@ -60,6 +61,7 @@ class App extends Component {
 		return (
 			<div className="App">
 
+				<MockStepperContainer/>
 				<MockContainerPopperList/>
 
 				<div style={{ display: 'flex' }}>
