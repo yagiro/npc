@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const VerticalMiniStepper = ({ steps, activeStepId, onChange }) => {
 
-	const stepsRender = (steps) => {
+	const stepsRender = useCallback((steps, activeStepId) => {
 		return steps.map(({ id, label })=> {
 
 			const isActive = activeStepId === id;
@@ -34,11 +34,11 @@ const VerticalMiniStepper = ({ steps, activeStepId, onChange }) => {
 				/>
 			);
 		});
-	};
+	}, [ onChange ]);
 
 	return (
 		<Container>
-			{ stepsRender(steps) }
+			{ stepsRender(steps, activeStepId) }
 		</Container>
 	);
 };
