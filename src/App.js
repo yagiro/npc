@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import CollapseWrapper from './components/generic/CollapseWrapper';
-import ItemCard from './components/common/itemCard/ItemCard';
-import { cardTypes } from './config/constants';
-import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
-import NumberSelector from './components/common/numberSelector/NumberSelector';
+import CategoryPage from './pages/category/categoryPage';
+import { modelsAdapter } from './pages/category/categoryPageHelper';
 import { mockData } from './config/mockData';
-import MockFiltersContainer from './components/common/filtersPanel/MockFiltersContainer';
-import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
-import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
-import TabNavigation from './components/common/tabNavigation/TabNavigation';
+
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
+import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
+import TabNavigation from './components/common/tabNavigation/TabNavigation';
+import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
+import NumberSelector from './components/common/numberSelector/NumberSelector';
+import MockFiltersContainer from './components/common/filtersPanel/MockFiltersContainer';
+import CollapseWrapper from './components/generic/CollapseWrapper';
+import ItemCard from './components/common/itemCard/ItemCard';
+import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
+import { cardTypes } from './config/constants';
+
+const modelsAdapted = modelsAdapter(mockData.categoryPage.models);
 
 class App extends Component {
 
@@ -22,17 +27,26 @@ class App extends Component {
 			showCompare: false,
 			compareModels: [],
 			selectedMenuItem: 1,
-			showHomePage: false
+			showHomePage: false,
+			showCategoryPage: true,
 		};
 	}
 
 	render() {
-		const { showCompare, models, selectedMenuItem, showHomePage } = this.state;
+		const { showCompare, models, selectedMenuItem, showHomePage, showCategoryPage } = this.state;
 
-		if(showHomePage) {
+		if (showHomePage) {
 			return (
 				<div className="App">
 					<Homepage/>
+				</div>
+			);
+		}
+
+		if (showCategoryPage) {
+			return (
+				<div className="App">
+					<CategoryPage models={ modelsAdapted } />
 				</div>
 			);
 		}

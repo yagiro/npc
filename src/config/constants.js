@@ -19,7 +19,10 @@ export const specificationsTypes = {
 	ram: 'ram',
 	powerSupply: 'powerSupply',
 	maxNetworkPorts: 'maxNetworkPorts',
-	networkInterfaces: 'networkInterfaces'
+	networkInterfaces: 'networkInterfaces',
+	wanPort: 'wanPort',
+	sfpDmzPort: 'sfpDmzPort',
+	lanPort: 'lanPort',
 };
 
 export const colors = {
@@ -53,7 +56,7 @@ export const fonts = {
 	solutionCubeBg: '#F6F6F6',
 	solutionGroupTitle: '#4C5059',
 	cubeImagesBorder: '#E1E3E5',
-  mediumText: '18px/27px DIN',
+	mediumText: '18px/27px DIN',
 };
 
 // filter-block types

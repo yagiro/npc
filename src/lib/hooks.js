@@ -10,18 +10,18 @@ import { useEffect, useState } from 'react';
 const defaultDisplay = 'flex';
 
 export const useFadeAnimation = (isOpen, timeout) => {
-    const [ display, setDisplay ] = useState(defaultDisplay);
-    const [ opacity, setOpacity ] = useState(0);
+	const [ display, setDisplay ] = useState(defaultDisplay);
+	const [ opacity, setOpacity ] = useState(0);
 
-    useEffect(() => {
-        if (isOpen) {
-            setDisplay(defaultDisplay);
-            setTimeout(() => setOpacity(1), 0);
-        } else {
-            setOpacity(0);
-            setTimeout(() => setDisplay('none'), timeout);
-        }
-    }, [ isOpen, timeout ]);
+	useEffect(() => {
+		if (isOpen) {
+			setDisplay(defaultDisplay);
+			setTimeout(() => setOpacity(1), 0);
+		} else {
+			setOpacity(0);
+			setTimeout(() => setDisplay('none'), timeout);
+		}
+	}, [ isOpen, timeout ]);
 
-    return { display, opacity };
+	return { display, opacity };
 };

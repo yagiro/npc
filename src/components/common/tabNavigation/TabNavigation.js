@@ -30,10 +30,10 @@ TabNavigation.defaultProps = {
 };
 
 TabNavigation.propTypes = {
-	defaultActiveTabId: PropTypes.number,
-	activeTabId: PropTypes.number,
+	defaultActiveTabId: PropTypes.any,
+	activeTabId: PropTypes.any,
 	options: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number,
+		id: PropTypes.any,
 		label: PropTypes.string,
 		imagePath: PropTypes.string,
 	})),
