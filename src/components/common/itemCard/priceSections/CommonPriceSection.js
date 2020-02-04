@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { colors } from '../../../../config/constants';
+import { formatCurrency } from '../../../../lib/formatters';
 
 const Container = styled.div`  
 	display: flex;
@@ -23,7 +24,7 @@ const CommonPriceSection = ({ price, additionalText, ...otherProps }) => {
 
 	return (
 		<Container>
-			<PriceText>${ price }</PriceText>
+			<PriceText>{ formatCurrency(price) }</PriceText>
 			<SubPriceText>{ additionalText }</SubPriceText>
 		</Container>
 	);

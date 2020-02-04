@@ -19,7 +19,10 @@ export const specificationsTypes = {
 	ram: 'ram',
 	powerSupply: 'powerSupply',
 	maxNetworkPorts: 'maxNetworkPorts',
-	networkInterfaces: 'networkInterfaces'
+	networkInterfaces: 'networkInterfaces',
+	wanPort: 'wanPort',
+	sfpDmzPort: 'sfpDmzPort',
+	lanPort: 'lanPort',
 };
 
 export const colors = {

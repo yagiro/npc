@@ -11,48 +11,36 @@ import NetworkMainSection from './mainSections/NetworkMainSection';
 import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSection';
 import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
 import ManagementMainSection from './mainSections/ManagementMainSection';
-import { cardTypes, colors, fonts } from '../../../config/constants';
+import { cardTypes, fonts } from '../../../config/constants';
 import Checkbox from '../../generic/Checkbox';
 
 const Container = styled.div`
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 	min-height: 263px;
 	border-radius: 3px;
-	-webkit-box-shadow: 0 2px 6px #0000001A;
-	-moz-box-shadow: 0 2px 6px #0000001A;
-	box-shadow: 0 2px 6px #0000001A;
-	margin-bottom: 1rem;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 	background: #FFFFFF;
 	box-sizing: border-box;
 	position: relative;
 	color: #4C5059;
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraph };
 `;
 
 const RightSection = styled.div`  
 	display: flex;
 	flex-direction: column;
 	width: 275px;
-	height: 100%;
 	background: #F7F8F9;
 	padding: 30px;
 	box-sizing: border-box;
 	justify-content: space-between;
-	position: absolute;
-	top: 0;
-	right:0
 `;
 
 const ButtonSection = styled.div`  
 	display: flex;
 	justify-content: space-between;
 `;
-
-const Label = styled.label`  
-	color: ${ colors.textLightGray };
-	font-size: 14px;`;
 
 const mainSections = {
 	[cardTypes.cloudGuard]: CloudGuardMainSection,
@@ -70,8 +58,7 @@ const priceSections = {
 	[cardTypes.management]: ManagementPriceSection,
 };
 
-const ItemCard = ({ cardType, data, ...otherProps }) => {
-
+const ItemCard = ({ cardType, data }) => {
 	const MainSection = mainSections[cardType];
 	const PriceSection = priceSections[cardType];
 
@@ -101,7 +88,8 @@ ItemCard.propTypes = {
 			PropTypes.number
 		]),
 		description: PropTypes.string,
-		specificationsTitles: PropTypes.object
+		attrs: PropTypes.array,
+		specs: PropTypes.array,
 	})
 };
 
