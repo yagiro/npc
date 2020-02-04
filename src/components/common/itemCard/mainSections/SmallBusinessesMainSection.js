@@ -4,19 +4,23 @@ import PropTypes from 'prop-types';
 import SpecificationCard from './common/SpecificationCard';
 import { colors, fonts, specificationsTypes } from '../../../../config/constants';
 import Title from '../../../generic/Title';
-import PortInfo, { portTypes } from './PortInfo';
+import PortInfo from './PortInfo';
+
+export const attrLabels = {
+	formFactor: 'Form Factor',
+	wireless: 'Wireless',
+};
 
 const Container = styled.div`
  	display: flex;
  	width: calc(100% - 275px);
-  	//height: 100%;
 	justify-content: space-between;
 	margin: 30px;
 	min-width: 430px;
 `;
 
 const DescriptionSection = styled.div`
-	width: 65%;
+	width: 63%;
 	padding: 0;
 	display: flex;
 	flex-direction: column;
@@ -24,7 +28,6 @@ const DescriptionSection = styled.div`
 `;
 
 const SpecificationsSection = styled.div`
- 	 //width: 40%;
  	 height: 100%;
 `;
 
@@ -81,28 +84,61 @@ const DescriptionText = styled.div.attrs(prop => ({
 	}
 `;
 
-const SmallBusinessesMainSection = ({ title, description, specificationsTitles }) => {
+const specificationComponents = {
+	[specificationsTypes.wanPort] : PortInfo,
+	[specificationsTypes.sfpDmzPort]: PortInfo,
+	[specificationsTypes.lanPort]: PortInfo,
+	[specificationsTypes.ports]: SpecificationCard,
+	[specificationsTypes.supportsExternal]: SpecificationCard,
+};
+
+const renderSpecifications = (specifications) => {
+	return specifications.map((spec, i) => {
+		const SpecificationComponent = specificationComponents[spec.type];
+		if (!SpecificationComponent) return null;
+		// prepare props for PortInfo or SpecificationCard cases
+		let props = { specificationType: spec.type };
+		props = typeof spec.value === 'object' ?
+			{ ...props, ...spec.value } : { ...props, specificationTitle: spec.value };
+		return (
+			<SpecificationComponent	key={ i } { ...props }/>
+		);
+	});
+};
+
+const renderAttrs = (attrs) => {
+	return attrs.map((attr, i) => {
+		return (
+			<div key={ i }>
+				<div><strong>{ attr.value }</strong></div>
+				<div>{ attrLabels[attr.type] }</div>
+			</div>
+		);
+	});
+};
+
+const SmallBusinessesMainSection = ({ title, description, attrs, specs }) => {
 	const [ showAllDescription, setShowAllDescription ] = useState(true);
-	const decriptionElem = useRef(null);
+	const descriptionElem = useRef(null);
 
 	useEffect(() => {
-		if (decriptionElem.current) {
-			setShowAllDescription(decriptionElem.current.offsetHeight < 60);
+		if (descriptionElem.current) {
+			setShowAllDescription(descriptionElem.current.offsetHeight < 60);
 		}
-	}, [ decriptionElem ]);
+	}, []);
 
 	return (
 		<Container>
 			<DescriptionSection>
-				<Title bold size="18px">
+				<Title
+					bold
+					size="18px"
+				>
 					{ title }
 				</Title>
 				<Description>
-					<DescriptionText
-						showAllDescription={ showAllDescription }
-						decriptionElem={ decriptionElem }
-					>
-						<span ref={ decriptionElem }>{ description }</span>
+					<DescriptionText showAllDescription={ showAllDescription }>
+						<span ref={ descriptionElem }>{ description }</span>
 					</DescriptionText>
 					{
 						!showAllDescription &&
@@ -112,54 +148,13 @@ const SmallBusinessesMainSection = ({ title, description, specificationsTitles }
 					}
 				</Description>
 				<DescriptionFooter>
-					<div>
-						<div><strong>{ specificationsTitles.formFactor }</strong></div>
-						<div>Form Factor</div>
-					</div>
-					<div>
-						<div><strong>{ specificationsTitles.wireless }</strong></div>
-						<div>Wireless</div>
-					</div>
+					{ renderAttrs(attrs) }
 				</DescriptionFooter>
 			</DescriptionSection>
 			<VerticalDivider/>
 			<SpecificationsSection>
 				<UlTitle>HARDWARE SPECIFICATION</UlTitle>
-				{
-					specificationsTitles.wanPort &&
-					<PortInfo
-						type={ portTypes.wanPort }
-						{ ...specificationsTitles.wanPort }
-					/>
-				}
-				{
-					specificationsTitles.sfpDmzPort &&
-					<PortInfo
-						type={ portTypes.sfpDmzPort }
-						{ ...specificationsTitles.sfpDmzPort }
-					/>
-				}
-				{
-					specificationsTitles.lanPort &&
-					<PortInfo
-						type={ portTypes.lanPort }
-						{ ...specificationsTitles.lanPort }
-					/>
-				}
-				{
-					specificationsTitles.ports &&
-					<SpecificationCard
-						specificationType={ specificationsTypes.ports }
-						specificationTitle={ specificationsTitles.ports }
-					/>
-				}
-				{
-					specificationsTitles.supportsExternal &&
-					<SpecificationCard
-						specificationType={ specificationsTypes.supportsExternal }
-						specificationTitle={ specificationsTitles.supportsExternal }
-					/>
-				}
+				{ renderSpecifications(specs) }
 			</SpecificationsSection>
 		</Container>
 	);
@@ -169,6 +164,8 @@ SmallBusinessesMainSection.propTypes = {
 	specificationsTitles: PropTypes.object,
 	title: PropTypes.string,
 	description: PropTypes.string,
+	attrs: PropTypes.array,
+	specs: PropTypes.array,
 };
 
 export default SmallBusinessesMainSection;

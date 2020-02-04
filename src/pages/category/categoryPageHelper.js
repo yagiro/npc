@@ -30,10 +30,17 @@
  */
 
 /**
+ * @typedef {Object} SlotData
+ * @property {number} size
+ * @property {number} gbe
+ * @property {string} material
+ */
+
+/**
  * @typedef {Object} specificationsTitles
- * @property {{size: number, gbe: number, material: string}} wanPort
- * @property {{size: number, gbe: number, material: string}} sfpDmzPort
- * @property {{size: number, gbe: number, material: string}} lanPort
+ * @property {SlotData} wanPort
+ * @property {SlotData} sfpDmzPort
+ * @property {SlotData} lanPort
  * @property {string} ports
  * @property {string} supportsExternal
  * @property {string} formFactor
@@ -77,13 +84,12 @@ export const modelsAdapter = (models) => {
 				title: subModel.name,
 				price: subModel.startingPrice,
 				description: subModel.description,
+				attrs: subModel.attrs,
+				specs: subModel.specs,
 				specificationsTitles: {},
 			};
 			subModel.specs.forEach(spec => {
 				adaptedSubModel.specificationsTitles[spec.type] = spec.value;
-			});
-			subModel.attrs.forEach(attr => {
-				adaptedSubModel.specificationsTitles[attr.type] = attr.value;
 			});
 			return adaptedSubModel;
 		});
@@ -91,7 +97,7 @@ export const modelsAdapter = (models) => {
 	});
 };
 
-export const tabIds = ['smbAppliances', 'smbManagment', 'smbZoneAlarm'];
+export const tabIds = [ 'smbAppliances', 'smbManagment', 'smbZoneAlarm' ];
 
 const filterModelsByTabId = (models, tabId) => models.filter(model => model.groupId === tabId);
 export const buildModelsGroupedByTabs = (models) => {

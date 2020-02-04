@@ -2,15 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { colors, fonts } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../config/constants';
 import Image from '../../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../../lib/assetsHelper';
 
-export const portTypes = {
+export const portTypeLabels = {
 	wanPort: 'Wan port',
 	sfpDmzPort: 'SFP DMZ port',
-	lanPort: 'SFP DMZ port',
+	lanPort: 'Lan port',
 };
+
+const portsImageUrl = buildAssetAbsolutePath('/images/categorypage/ports.png');
 
 const Container = styled.div`
 	display: flex;
@@ -59,10 +61,7 @@ const PortParams = styled.div`
 		 	
 	& > div:not(:last-child) {
 		 border-right: 1px ${ colors.borderGrey } solid;
-	}
-		 	
-	& > div:first-child {
-		width: 25%;
+		 padding: 0 8px;
 	}
 	
 	& > div:last-child {
@@ -77,12 +76,12 @@ const PortParamsFooter = styled.div`
 	margin-top: 4px;
 `;
 
-const PortInfo = ({ type, size, gbe, material }) => {
+const PortInfo = ({ specificationType, size, gbe, material }) => {
 	return (
 		<Container>
 			<ImageContainer>
 				<Image
-					path={ buildAssetAbsolutePath('/images/categorypage/ports.png') }
+					path={ portsImageUrl }
 					width="24px"
 				/>
 			</ImageContainer>
@@ -92,7 +91,7 @@ const PortInfo = ({ type, size, gbe, material }) => {
 					<div>{ gbe }GbE</div>
 					<div>{ material }</div>
 				</PortParams>
-				<PortParamsFooter>{ type }</PortParamsFooter>
+				<PortParamsFooter>{ portTypeLabels[specificationType] }</PortParamsFooter>
 			</div>
 		</Container>
 		
@@ -100,11 +99,7 @@ const PortInfo = ({ type, size, gbe, material }) => {
 };
 
 PortInfo.propTypes = {
-	type: PropTypes.oneOf([
-		portTypes.sfpDmzPort,
-		portTypes.wanPort,
-		portTypes.lanPort,
-	]),
+	specificationType: PropTypes.oneOf(Object.values(specificationsTypes)),
 	size: PropTypes.number,
 	gbe: PropTypes.number,
 	material: PropTypes.string,

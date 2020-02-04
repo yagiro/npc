@@ -35,7 +35,7 @@ class App extends Component {
 	render() {
 		const { showCompare, models, selectedMenuItem, showHomePage, showCategoryPage } = this.state;
 
-		if(showHomePage) {
+		if (showHomePage) {
 			return (
 				<div className="App">
 					<Homepage/>
@@ -43,7 +43,7 @@ class App extends Component {
 			);
 		}
 
-		if(showCategoryPage) {
+		if (showCategoryPage) {
 			return (
 				<div className="App">
 					<CategoryPage models={ modelsAdapted } />

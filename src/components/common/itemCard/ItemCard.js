@@ -88,7 +88,8 @@ ItemCard.propTypes = {
 			PropTypes.number
 		]),
 		description: PropTypes.string,
-		specificationsTitles: PropTypes.object
+		attrs: PropTypes.array,
+		specs: PropTypes.array,
 	})
 };
 
