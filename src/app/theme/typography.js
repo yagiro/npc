@@ -1,4 +1,4 @@
-const fontSizes = {
+export const fontSizes = {
 	xs: '12px',
 	sm: '14px',
 	md: '16px',
@@ -7,5 +7,3 @@ const fontSizes = {
 	xxl: '30px',
 	xxxl: '32px',
 };
-
-export default fontSizes;
