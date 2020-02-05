@@ -44,8 +44,6 @@ export const colors = {
 	cubeImagesBorder: '#E1E3E5',
 	whitesmoke: '#EEEEEE',
 	solutionCubeBg: '#F6F6F6',
-	solutionGroupTitle: '#4C5059',
-	cubeImagesBorder: '#E1E3E5',
 	dividerGray: '#858991',
 
 	background: '#FFFFFF', // done

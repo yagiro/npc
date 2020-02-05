@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import CollapseWrapper from '../../components/generic/CollapseWrapper';
 import ItemCard from '../../components/common/itemCard/ItemCard';
 import DumbTabNavigation from '../../components/common/tabNavigation/DumbTabNavigation';
-import { cardTypes, colors, fonts } from '../../config/constants';
+import { cardTypes, colors, fonts } from '../../app/consts/consts';
 import { buildAssetAbsolutePath } from '../../lib/assetsHelper';
 import { buildModelsGroupedByTabs, tabIds, tabOptions } from './categoryPageHelper';
 import { classes as classesToggleArea } from '../../components/generic/CollapseWrapper';

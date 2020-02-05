@@ -4,7 +4,7 @@ import PopperList from './PopperList';
 import Image from '../Image';
 import menu from '../../../assets/popperList/menu@2x.png';
 import Span from '../Span';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 
 const MockContainerPopperList = () => {
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Image from '../Image';
 import Span from '../Span';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import { cssAttrIf } from '../../../lib/utils';
 
 const Container = styled.div.attrs(props => ({
