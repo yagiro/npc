@@ -44,7 +44,6 @@ export const colors = {
 	cubeImagesBorder: '#E1E3E5',
 	whitesmoke: '#EEEEEE',
 	solutionCubeBg: '#F6F6F6',
-	dividerGray: '#858991',
 
 	background: '#FFFFFF', // done
 	paragraphBlack: '#16181D', // done
@@ -64,7 +63,7 @@ export const colors = {
 	pink_3: '#AA1E44', // pink 780
 	pink_4: '#A13C71', // pink 850
 	pink_5: '#752650', // pink 900
-
+	dividerGray: '#858991',
 };
 
 export const fonts = {
