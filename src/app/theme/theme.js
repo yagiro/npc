@@ -1,9 +1,9 @@
-import { fontSizes } from './typography';
+import typography from './typography';
 import palette from './palette';
 
 const theme = {
 	palette,
-	fontSizes,
+	typography,
 };
 
 export default theme;

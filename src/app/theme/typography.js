@@ -7,3 +7,9 @@ export const fontSizes = {
 	xxl: '30px',
 	xxxl: '32px',
 };
+
+const typography = {
+	fontSizes,
+};
+
+export default typography;
