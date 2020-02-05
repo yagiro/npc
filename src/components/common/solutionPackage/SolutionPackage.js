@@ -6,7 +6,7 @@ import SolutionPackageHead from './SolutionPackageHead';
 import SolutionPackageIncluded from './SolutionPackageIncluded';
 import SolutionPackageFooter from './SolutionPackageFooter';
 import SolutionPackageSelect from './SolutionPackageSelect';
-import { colors, solutionPackageTypes } from '../../../config/constants';
+import { colors, solutionPackageTypes } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 import SolutionPackageRibbon from './SolutionPackageRibbon';
 import SolutionPackageCorner from './SolutionPackageCorner';
@@ -29,7 +29,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	border: ${ ({ selected }) => selected ? 1 : 0 }px solid #DE3970;
+	border: ${ ({ selected }) => selected ? 1 : 0 }px solid ${ colors.pink_1 };
 
 `;
 
@@ -39,7 +39,7 @@ const renderPackageInfoAttrs = (attrs) => {
 		return !AttrComp ? null :
 			<AttrComp
 				key={ i }
-				backgroundColor={ i%2 === 0 ? colors.grey_100 : colors.background }
+				backgroundColor={ i%2 === 0 ? colors.solutionCubeBg : colors.background }
 				{ ...attr.data }
 			/>;
 	});

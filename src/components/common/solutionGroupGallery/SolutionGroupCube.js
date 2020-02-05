@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import SolutionGroupCubeBody from './SolutionGroupCubeBody';
 import SolutionGroupCubeFooter from './SolutionGroupCubeFooter';
 import { hexToRgb } from '../../../lib/utils';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import { classes as footerClasses } from './SolutionGroupCubeFooter';
 import { classes as additionalImagesClasses } from './SolutionGroupCubeBodySmallImages';
 import { zIndexMap } from './solutionGroupCubeHelper';

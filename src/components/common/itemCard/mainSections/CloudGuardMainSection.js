@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Image from '../../../generic/Image';
 import verified from '../../../../assets/verified@2x.png';
 import img from '../../../../assets/CloudGuard_Alibaba-Cloud.png.png';
-import { colors } from '../../../../config/constants';
+import { colors, fonts } from '../../../../app/consts/consts';
 import Title from '../../../generic/Title';
 
 const Container = styled.div`
@@ -17,7 +17,7 @@ const DescriptionSection = styled.div`
 	height: 100%;`;
 
 const Description = styled.div`
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	margin-bottom: 10px;
 	max-height: ${({ isShortDescription }) => isShortDescription ? '60px' : ''};
 	overflow-y: hidden;
@@ -30,19 +30,19 @@ const FeatureContainer = styled.div`
 `;
 
 const FeatureText = styled.div`
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	margin-left: 6px;
 	margin-top: 6px;
 `;
 
 const UlTitle = styled.div`
 	color: ${ colors.textLightGray };
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	margin-bottom: 7px;
 `;
 
 const SeeMoreButton = styled.div`
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	color: ${colors.checkPointPink};
 	cursor: pointer;
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { createClassName } from '../../lib/classNameHelper';
-import { colors } from '../../config/constants';
+import { colors, fonts } from '../../app/consts/consts';
 
 const classPrefix = 'checkbox';
 export const classes = {
@@ -18,7 +18,7 @@ const Container = styled.div`
 	  position: relative;
 	  padding-left: 25px;
 	  cursor: pointer;
-	  font-size: 14px;
+	  font-size: ${ fonts.paragraphNormal };
 	  color: ${ colors.textLightGray };
 	  font-family: "DIN pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	  -webkit-user-select: none;
@@ -43,14 +43,14 @@ const Container = styled.div`
 	  left: 0;
 	  height: 16px;
 	  width: 16px;
-	  background-color: #eee;
+	  background-color: ${ colors.whitesmoke };
 	  border-radius: 3px;
 	  transition: background-color .3s;
 	}
 	
 	/* On mouse-over, add a grey background color */
 	.${ classes.container }:hover input ~ .${ classes.checkmark } {
-	  background-color: #ccc;
+	  background-color: ${ colors.lightgray };
 	}
 	
 	/* When the checkbox is checked, add a blue background */

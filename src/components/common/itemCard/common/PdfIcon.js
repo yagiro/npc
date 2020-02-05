@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
-import { colors } from '../../../../config/constants';
+import { colors } from '../../../../app/consts/consts';
 
 const Container = styled.div`  
 	display: flex;
@@ -17,7 +17,7 @@ const Container = styled.div`
 	transition: background-color .2s;
 	
 	&:hover {
-		background-color: ${ colors.boxShadowGrey };
+		background-color: ${ colors.borderGrey };
 	}
 `;
 

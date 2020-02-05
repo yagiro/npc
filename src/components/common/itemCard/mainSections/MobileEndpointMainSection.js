@@ -5,7 +5,7 @@ import Image from '../../../generic/Image';
 import Title from '../../../generic/Title';
 import verified from '../../../../assets/verified@2x.png';
 import CommonPriceSection from '../priceSections/CommonPriceSection';
-import { colors } from '../../../../config/constants';
+import { colors, fonts } from '../../../../app/consts/consts';
 
 const Container = styled.div`
 	display: flex;
@@ -25,7 +25,8 @@ const PackagesSection = styled.div`
 `;
 
 const Description = styled.span`
-    font-size: 14px;`;
+    font-size: ${ fonts.paragraphSmall };
+`;
 
 const AdditionalLabel = styled.span`
 	color: ${ colors.checkPointPink };
@@ -33,7 +34,7 @@ const AdditionalLabel = styled.span`
 
 const UlTitle = styled.div`
 	color: ${ colors.textLightGray };
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	margin-bottom: 15px;
 `;
 
@@ -46,12 +47,12 @@ const FeatureContainer = styled.div`
 
 const FeatureText = styled.div`
 	font-weight: bold;
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	display: inline-block;
 	margin-left: 6px;
 `;
 
-const MobileEndpointMainSection = ({ title, additionalLabel, description, includedPackages, ...otherProps }) => {
+const MobileEndpointMainSection = ({ title, additionalLabel, description, includedPackages }) => {
 
 	const renderPackageList = (packages) => {
 		return packages.map((p) => {

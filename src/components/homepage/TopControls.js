@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TabNavigation from '../common/tabNavigation/TabNavigation';
 import { mockData } from '../../config/mockData';
-import { colors } from '../../config/constants';
+import { colors } from '../../app/consts/consts';
 
 const Container = styled.div`
 	width: 100%;

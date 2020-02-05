@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Title from '../../generic/Title';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import FiltersOption from './FiltersOption';
 import { buildChosenFiltersOnAdd, buildChosenFiltersOnRemove } from './filtersHelpers';
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { buildChosenFiltersOnAdd, buildChosenFiltersOnRemove } from './filtersHelpers';
 import Title from '../../generic/Title';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import FiltersOption from './FiltersOption';
 
 const Container = styled.div`

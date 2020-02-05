@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, fonts, specificationsTypes } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../app/consts/consts';
 import Title from '../../../generic/Title';
 import PortInfo from './PortInfo';
 
@@ -42,13 +42,13 @@ const Description = styled.div`
 
 const UlTitle = styled.div`
 	color: ${ colors.textLightGray };
-	font-size: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 	margin-bottom: 7px;
 `;
 
 const VerticalDivider = styled.div`
 	width: 1px;
-	background: ${colors.lightgray};
+	background-color: ${colors.lightgray};
 	margin: 15px 15px 0 10px;
 `;
 

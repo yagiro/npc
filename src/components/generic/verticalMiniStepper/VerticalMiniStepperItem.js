@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { classes } from './VerticalMiniStepper';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 
 const Container = styled.div`
 	display: flex;

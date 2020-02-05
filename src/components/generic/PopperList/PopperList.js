@@ -5,7 +5,7 @@ import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 import Paper from '@material-ui/core/Paper';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import PopperListItem from './PopperListItem';
 
 const ToggleButtonContainer = styled.div`

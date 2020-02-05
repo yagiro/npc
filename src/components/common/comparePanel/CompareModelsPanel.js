@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 import CompareTitle from './CompareTitle';
 import CompareModelWrapper from './CompareModelWrapper';
@@ -22,8 +22,8 @@ const Container = styled.div`
 	padding: 10px 0;
 	justify-content: center;
 	height: 100px;
-	background: ${ colors.background };
-	box-shadow: 0px -2px 4px ${ colors.boxShadowGrey };
+	background-color: ${ colors.background };
+	box-shadow: 0px -2px 4px ${ colors.borderGrey };
 	opacity: ${ props => props.opacity };
 	transition: opacity ${ MS_FADE_IN_ANIMATION }ms;
 	position: fixed;

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { colors, fonts } from '../../config/constants';
+import { colors, fonts } from '../../app/consts/consts';
 import PropTypes from 'prop-types';
 
 const buttonStyles = {
@@ -17,7 +17,7 @@ const buttonStyles = {
 		hoverBgColor: 'none',
 	},
 	bordered: {
-		bgColor: colors.boxShadowGrey,
+		bgColor: colors.borderGrey,
 		labelColor: colors.buttonGrey,
 		border: `1px solid ${ colors.checkPointPinkHover }`,
 		hoverBgColor: 'none',
@@ -29,7 +29,7 @@ const Container = styled.div`
 	align-items: center;
 	justify-content: space-around;
 	
-	background: ${ (props) => buttonStyles[props.styleType].bgColor };
+	background-color: ${ (props) => buttonStyles[props.styleType].bgColor };
 	border: ${ (props) => buttonStyles[props.styleType].border };
 	box-sizing: border-box;
 	
@@ -40,7 +40,7 @@ const Container = styled.div`
 	padding: 0 5px;
 	
 	width: ${ (props) => props.width ? props.width : 'auto' };
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 	height:  ${ (props) => props.height ? props.height : 'auto' };
 	
 	&:hover {

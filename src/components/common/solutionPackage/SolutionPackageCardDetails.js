@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 
-import { colors, fonts } from '../../../config/constants';
+import { colors, fonts } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 
 const classPrefix = 'solution-package-cards-details';
@@ -24,7 +24,7 @@ const Container = styled.div`
 		background-color: inherit;
 		
 		& > div:first-child {
-			font-size: ${ fonts.paragraph };
+			font-size: ${ fonts.paragraphNormal };
 			line-height: 1em;
 			color: ${ colors.textLightGray };
 			margin-right: 15px;
@@ -40,17 +40,17 @@ const Container = styled.div`
 				content: '';
 				height: 25px;
 				width: 5px;
-				background-color: #006699;
+				background-color: ${ colors.blue_1 };
 			}
 
 			&.${ classes.brownBorder }::after {
-				background-color: #B87333;
+				background-color: ${ colors.brown_1 };
 			}
 		 	
 		 	& > div {
 		 		margin: 5px 0;
 		 		flex: 1;
-		 		font-size: ${ fonts.paragraph };
+		 		font-size: ${ fonts.paragraphNormal };
 		 		line-height: 1em;
 		 		color: #333333;
 		 		text-align: center;
@@ -67,7 +67,7 @@ const Container = styled.div`
 		}
 	
 		.${ classes.emptySlot } {
-			font: ${ fonts.paragraphBig };
+			font-size: ${ fonts.paragraphBig };
 			line-height: 1em;
 			color: #333333;
 		}

@@ -11,7 +11,7 @@ import NetworkMainSection from './mainSections/NetworkMainSection';
 import SmallBusinessesMainSection from './mainSections/SmallBusinessesMainSection';
 import MobileEndpointMainSection from './mainSections/MobileEndpointMainSection';
 import ManagementMainSection from './mainSections/ManagementMainSection';
-import { cardTypes, fonts } from '../../../config/constants';
+import { cardTypes, fonts, colors } from '../../../app/consts/consts';
 import Checkbox from '../../generic/Checkbox';
 
 const Container = styled.div`
@@ -20,18 +20,18 @@ const Container = styled.div`
 	min-height: 263px;
 	border-radius: 3px;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-	background: #FFFFFF;
+	background-color: ${ colors.background };
 	box-sizing: border-box;
 	position: relative;
 	color: #4C5059;
-	font-size: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 `;
 
 const RightSection = styled.div`  
 	display: flex;
 	flex-direction: column;
 	width: 275px;
-	background: #F7F8F9;
+	background-color: ${ colors.solutionCubeBg };
 	padding: 30px;
 	box-sizing: border-box;
 	justify-content: space-between;

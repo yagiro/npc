@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { colors, fonts } from '../../../config/constants';
+import { colors, fonts } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 
 const classPrefix = 'menu-item';
@@ -22,7 +22,7 @@ const Container = styled.div`
     
     > .${ classes.content } {
         display: flex;
-        font: ${ fonts.paragraph };
+        font-size: ${ fonts.paragraphNormal };
         line-height: 14px;
         color: ${ props => props.isActive ? colors.checkPointPink : colors.menuGray };
         transition: color ${ Math.round(MS_TRANSITION / 2) }ms;
@@ -35,7 +35,7 @@ const Container = styled.div`
       height: 2px;
       position: absolute;
       bottom: 0;
-      background: ${ colors.checkPointPink };
+      background-color: ${ colors.checkPointPink };
       transition: all ${ MS_TRANSITION }ms cubic-bezier(0,1.07,.56,.95);
     }
 `;

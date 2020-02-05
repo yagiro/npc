@@ -1,4 +1,4 @@
-import { solutionPackageTypes } from '../../../config/constants';
+import { colors, solutionPackageTypes } from '../../../app/consts/consts';
 import SolutionPackageCards from './SolutionPackageCards';
 import SolutionPackageStorage from './SolutionPackageStorage';
 import SolutionPackageRam from './SolutionPackageRam';
@@ -7,17 +7,17 @@ import SolutionPackagePower from './SolutionPackagePower';
 
 export const solutionPackageSettings = {
 	[solutionPackageTypes.base]: {
-		gradientColors: [ '#7D7D7D', '#616161' ],
+		gradientColors: [ colors.grey_2, colors.menuGray ],
 		flashCount: 1,
 		title: 'Base package',
 	},
 	[solutionPackageTypes.plus]: {
-		gradientColors: [ '#E95585', '#AA1E44 ' ],
+		gradientColors: [ colors.pink_2, colors.pink_3 ],
 		flashCount: 2,
 		title: 'Base package',
 	},
 	[solutionPackageTypes.turbo]: {
-		gradientColors: [ '#A13C71', '#752650' ],
+		gradientColors: [ colors.pink_4, colors.pink_5 ],
 		flashCount: 3,
 		title: 'Base package',
 	},

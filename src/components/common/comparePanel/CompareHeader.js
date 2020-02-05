@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { colors, fonts } from '../../../config/constants';
+import { colors, fonts } from '../../../app/consts/consts';
 
 const CompareHeader = styled.p`
-	font: ${ fonts.header };
+	font-size: ${ fonts.headerBig };
 	color: ${ colors.headerGrey };
 	letter-spacing: 0;
 	text-transform: capitalize;

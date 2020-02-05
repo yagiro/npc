@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Title from '../../generic/Title';
 import Span from '../../generic/Span';
-import { colors, fonts } from '../../../config/constants';
+import { colors, fonts } from '../../../app/consts/consts';
 import ChosenFilters from './ChosenFilters';
 import Filters from './Filters';
 import { Collapse } from 'react-collapse';
@@ -12,7 +12,7 @@ import FiltersToggleButton from './FiltersToggleButton';
 const Container = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 `;
 
 const TopSection = styled.div`

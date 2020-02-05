@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import { colors } from '../../../config/constants';
+import { colors } from '../../../app/consts/consts';
 import CompareModel from './CompareModel';
 
 const Container = styled.div`  
-	background: ${ colors.background } 0% 0% no-repeat padding-box;
-	box-shadow: ${ (props) => props.isEmpty ? 'none' : `0px 3px 6px ${ colors.boxShadowGrey }` };
+	background-color: ${ colors.background };
+	box-shadow: ${ (props) => props.isEmpty ? 'none' : `0px 3px 6px ${ colors.borderGrey }` };
 	border: 1px solid ${ colors.borderGrey };
 	border-radius: 6px;
 	width: 250px;

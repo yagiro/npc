@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { colors } from '../../../../config/constants';
+import { colors, fonts } from '../../../../app/consts/consts';
 import { formatCurrency } from '../../../../lib/formatters';
 
 const Container = styled.div`  
@@ -11,16 +11,17 @@ const Container = styled.div`
 	justify-content: center;`;
 
 const PriceText = styled.span`  
-	font-size: 30px;
+	font-size: ${ fonts.headerNormal };
 	text-align: center;`;
 
 const SubPriceText = styled.span`  
 	text-align: center;
 	color: ${colors.textLightGray};
-	font-size: 14px;
-	margin-top: 30px;`;
+	font-size: ${ fonts.paragraphNormal };
+	margin-top: 30px;
+`;
 
-const CommonPriceSection = ({ price, additionalText, ...otherProps }) => {
+const CommonPriceSection = ({ price, additionalText }) => {
 
 	return (
 		<Container>

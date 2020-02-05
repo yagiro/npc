@@ -1,4 +1,4 @@
-import { cardTypes, solutionPackageTypes } from './constants';
+import { cardTypes, solutionPackageTypes } from '../app/consts/consts';
 
 export const mockData = {
 

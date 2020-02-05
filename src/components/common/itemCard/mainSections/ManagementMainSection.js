@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, specificationsTypes } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../app/consts/consts';
 import Title from '../../../generic/Title';
 
 const Container = styled.div`
@@ -22,11 +22,12 @@ const SpecificationsSection = styled.div`
 `;
 
 const Description = styled.span`
-	font-size: 14px;`;
+	font-size: ${ fonts.paragraphNormal };
+`;
 
 const UlTitle = styled.div`
 	color: ${ colors.textLightGray };
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal }
 	margin-bottom: 7px;
 `;
 
@@ -40,7 +41,7 @@ const SpecificationsItemsContainer = styled.div`
 const VerticalDivider = styled.div`
 	width: 1px;
 	height: 200px;
-	background: ${colors.lightgray};
+	background-color: ${colors.lightgray};
 	margin: 60px 15px 0 10px;
 `;
 

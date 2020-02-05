@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { colors, fonts } from '../../config/constants';
+import { colors, fonts } from '../../app/consts/consts';
 import PropTypes from 'prop-types';
 
 const parColors = {
 	default: colors.paragraphGrey,
-	dark: colors.paragraphDarkGrey,
+	dark: colors.headerGrey,
 	black: colors.paragraphBlack,
 };
 
 const Paragraph = styled.p`
-	font: ${ fonts.paragraph };
+	font-size: ${ fonts.paragraphNormal };
 	color: ${ (props) => parColors[props.color] };
 	letter-spacing: 0;
 	text-transform: capitalize;

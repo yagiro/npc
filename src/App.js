@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import CategoryPage from './pages/category/categoryPage';
 import { modelsAdapter } from './pages/category/categoryPageHelper';
+import CollapseWrapper from './components/generic/CollapseWrapper';
+import ItemCard from './components/common/itemCard/ItemCard';
+import { cardTypes } from './app/consts/consts';
+import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
+import NumberSelector from './components/common/numberSelector/NumberSelector';
 import { mockData } from './config/mockData';
 
 import MockFiltersContainer from './components/common/filtersPanel/MockFiltersContainer';
@@ -13,16 +18,7 @@ import MockContainerPopperList from './components/generic/PopperList/MockContain
 import SolutionPackage from './components/common/solutionPackage/SolutionPackage';
 import SolutionGroupGallery from './components/common/solutionGroupGallery/SolutionGroupGallery';
 import Homepage from './components/homepage/Homepage';
-import MockStepperContainer from "./components/generic/verticalMiniStepper/MockStepperContainer";
-import DumbTabNavigation from './components/common/tabNavigation/DumbTabNavigation';
-import TabNavigation from './components/common/tabNavigation/TabNavigation';
-import ComparePanelCtrlTmp from './components/common/comparePanel/ComparePanetCtrlTmp';
-import NumberSelector from './components/common/numberSelector/NumberSelector';
-import MockFiltersContainer from './components/common/filtersPanel/MockFiltersContainer';
-import CollapseWrapper from './components/generic/CollapseWrapper';
-import ItemCard from './components/common/itemCard/ItemCard';
-import CompareModelsPanel from './components/common/comparePanel/CompareModelsPanel';
-import { cardTypes } from './config/constants';
+import MockStepperContainer from './components/generic/verticalMiniStepper/MockStepperContainer';
 
 const modelsAdapted = modelsAdapter(mockData.categoryPage.models);
 

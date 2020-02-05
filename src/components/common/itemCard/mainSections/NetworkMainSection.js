@@ -4,7 +4,7 @@ import Image from '../../../generic/Image';
 import GenBlock from './common/GenBlock';
 import verified from '../../../../assets/verified@2x.png';
 import SpecificationCard from './common/SpecificationCard';
-import { colors, specificationsTypes, } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes, } from '../../../../app/consts/consts';
 import Title from '../../../generic/Title';
 
 const Container = styled.div`
@@ -43,7 +43,7 @@ const Description = styled.div`
 const VerticalDivider = styled.div`
 	width: 1px;
 	height: 150px;
-	background: ${ colors.lightgray };
+	background-color: ${ colors.lightgray };
 	margin: 30px 15px 0 10px;
 `;
 
@@ -54,7 +54,7 @@ const FeatureContainer = styled.div`
 `;
 
 const FeatureText = styled.div`
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	margin-left: 6px;
 	margin-top: 6px;
 `;

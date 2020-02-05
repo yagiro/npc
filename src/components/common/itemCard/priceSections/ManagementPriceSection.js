@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import CommonPriceSection from './CommonPriceSection';
-import { colors } from '../../../../config/constants';
+import { colors, fonts } from '../../../../app/consts/consts';
 
 
 const Container = styled.div`
@@ -24,14 +24,17 @@ const BottomPriceContainer = styled.div`
 const SelectTitle = styled.span`  
 	text-align: center;
 	color: ${colors.textLightGray};
-	font-size: 14px;`;
+	font-size: ${ fonts.paragraphNormal };
+`;
 
 const PriceText = styled.span`  
-	font-size: 18px;`;
+	font-size: ${ fonts.paragraphBig };
+`;
 
 const PriceLabel = styled.span`  
 	color: #6B6F81;
-	font-size: 14px; `;
+	font-size: ${ fonts.paragraphNormal }
+`;
 
 //react-select option
 const DomainWord = styled.span`  
@@ -40,12 +43,12 @@ const DomainWord = styled.span`
 
 const OptionContainer = styled.div`
 	display: flex;
-	font-size: 14px;
+	font-size: ${ fonts.paragraphNormal };
 	align-items: center;
 	justify-content: space-between;`;
 
 const OptionPrice = styled.div`
-	font-size: 12px;
+	font-size: ${ fonts.paragraphSmall };
 	color: #999999;
 	text-align: right;
 	margin-left: 35px;`;
@@ -60,7 +63,7 @@ const ManagementPriceSection = ({ numberOfDomainsOptions }) => {
 
 
 	//option render function for domain select
-	const formatOptionLabel = ({ value, label, price }) => (
+	const formatOptionLabel = ({ value, price }) => (
 		<OptionContainer>
 			<div>
 				<span>{ value }</span>

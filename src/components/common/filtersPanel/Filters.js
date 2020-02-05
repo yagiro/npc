@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { colors, filterBlockTypes } from '../../../config/constants';
+import { colors, filterBlockTypes } from '../../../app/consts/consts';
 import MultipleOptionsFilter from './MultipleOptionsFilter';
 import ComboFilter from './ComboFilter';
 
@@ -17,7 +17,7 @@ const FilterBlockContainer = styled.div`
 const VerticalDivider = styled.div`
 	width: 1px;
 	height: 120px;
-	background: ${ colors.lightgray };
+	background-color: ${ colors.lightgray };
 	margin: 50px 25px 0 25px;
 `;
 

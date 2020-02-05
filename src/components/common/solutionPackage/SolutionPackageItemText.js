@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 
-import { fonts } from '../../../config/constants';
+import { colors, fonts } from '../../../app/consts/consts';
 import { createClassName } from '../../../lib/classNameHelper';
 
 const classPrefix = 'solution-package-item-text';
@@ -30,13 +30,13 @@ const Container = styled.div`
 			position: relative;
 			left: -7px;
 			padding: 2px 7px 0 7px;
-			background-color: #AEDAAA;
+			background-color: ${ colors.green_1 };
 			border-radius: 21px;
 		}
 	}
 	
 	& > div:last-child {
-		font-size: ${ fonts.paragraph };
+		font-size: ${ fonts.paragraphNormal };
 		color: #8F97A1;
 		line-height: 1em;
 		position: relative;

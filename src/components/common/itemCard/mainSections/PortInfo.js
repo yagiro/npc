@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { colors, fonts, specificationsTypes } from '../../../../config/constants';
+import { colors, fonts, specificationsTypes } from '../../../../app/consts/consts';
 import Image from '../../../generic/Image';
 import { buildAssetAbsolutePath } from '../../../../lib/assetsHelper';
 
